@@ -1,0 +1,19 @@
+{
+  "name": "bachelor_degree_documentation",
+  "version": "0.0.1",
+  "description": "my_bachelor_degree_documentation",
+    "author": "Lupu Bogdan Alexandru",
+  "main": "gruntfile.js",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-latex": "^1.0.0"
+  },
+  "repository" :{ 
+    "type" : "git",
+    "url" : "https://github.com/lupu60/bachelor.git"
+    },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
