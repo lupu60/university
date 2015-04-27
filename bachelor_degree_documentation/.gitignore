@@ -1,2 +1,5 @@
 /node_modules
 /pdf
+/bachelor.aux
+/bachelor.log
+/bachelor.synctex.gz
