@@ -1,26 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-var Gpio = require('onoff').Gpio,
-led = new Gpio(17, 'out');
-
+var gpio = require("pi-gpio");
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.render('index', { title: 'Express' });
 });
+
 router.get('/on', function(req, res, next) {
 	console.log("on");
 
-	var iv = setInterval(function(){
-	led.writeSync(led.readSync() === 0 ? 1 : 0)
-	}, 500);
-	// Stop blinking the LED and turn it off after 5 seconds.
-	setTimeout(function() {
-	clearInterval(iv); // Stop blinking
-	led.writeSync(0);  // Turn LED off.
-	led.unexport();    // Unexport GPIO and free resources
-	}, 5000);
-
+gpio.open(16, "output", function(err) {     // Open pin 16 for output 
+    gpio.write(16, 1, function() {          // Set pin 16 high (1) 
+        gpio.close(16);                     // Close pin 16 
+    });
+});
 	res.render('index', { title: 'Express' });
 });
 
