@@ -11,6 +11,11 @@ public class HelloWorldImpl implements HelloWorld {
         return "Hello World" + name;
     }
 
+    /**
+     * return string character doubling
+     * @param input
+     * @return
+     */
     @Override
     public String characterByDubling(String input) {
         StringBuilder output = new StringBuilder();
@@ -21,6 +26,11 @@ public class HelloWorldImpl implements HelloWorld {
         }
         return output.toString();
     }
+    /**
+     * return string doubling
+     * @param input
+     * @return
+     */
 
     @Override
     public String doublingTheString(String input) {

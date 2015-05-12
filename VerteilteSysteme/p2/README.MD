@@ -11,6 +11,8 @@
             ws/
                 HelloWorld.java
                 HelloWorldImpl.java
+        doc/
+            index.html
 
 
 ### Method:
@@ -45,6 +47,8 @@ III:
 ```sh
 run from your IDE: HelloWorldClient.java
 ```
+
+
 > Author: Lupu Bogdan
 
 [WebService]:https://github.com/lupu60/university/tree/master/VerteilteSysteme/p2
