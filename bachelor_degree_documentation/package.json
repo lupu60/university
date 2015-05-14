@@ -12,7 +12,9 @@
     "type" : "git",
     "url" : "https://github.com/lupu60/bachelor.git"
     },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-contrib-watch":"*"
+    },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

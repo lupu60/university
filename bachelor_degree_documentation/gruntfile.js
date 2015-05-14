@@ -11,7 +11,17 @@ module.exports = function(grunt) {
                 src: ['bachelor.tex']
             }
         },
+          watch: {
+    tex: {
+      files: ['*.tex'],
+      tasks: ['latex'],
+      options: {
+        spawn: false,
+      },
+    },
+  },
     });
     grunt.loadNpmTasks('grunt-latex');
-    grunt.registerTask('default', ['latex']);
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.registerTask('default', ['watch']);
 };
