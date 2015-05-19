@@ -12,6 +12,7 @@ var users = require('./routes/users');
 =            New Routes            =
 ==================================*/
 var controller = require('./routes/controller');
+var gyro_controller = require('./routes/gyro_controller');
 /*-----  End of New Routes  ------*/
 
 var app = express();
@@ -43,10 +44,10 @@ app.use('/users', users);
 =            New Routes            =
 ==================================*/
 app.use('/controller', controller);
- 
+app.use('/gyro_controller', gyro_controller);
 /*-----  End of New Routes  ------*/
 
-
+ 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -1,0 +1,27 @@
+extends layout
+
+block head
+	link(rel='stylesheet', href='/stylesheets/gyro_controller.css')
+
+block content
+	.container
+		img.logo(src='./images/wheel.png')
+	hr
+	.container
+		.content
+			div
+					| x=
+					span#x
+				div
+					| y=
+					span#y
+				div
+					| z=
+					span#z
+
+block footer
+	script(src="https://cdn.socket.io/socket.io-1.3.5.js")
+	script(src='./javascripts/gyro_controller.js')
+
+
+

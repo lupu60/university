@@ -97,3 +97,20 @@ exports.moving = function(move) {
             break;
     }
 };
+exports.gyro_moving = function(move){
+    if (move["move"].y<-3) {
+         up();
+    };
+    if (move["move"].y>3) {
+        down();
+    };
+    if (move["move"].x<-3) {
+         right();
+    };
+    if (move["move"].x>3) {
+        left();
+    };
+    if (move["move"].x<3 &&move["move"].x>-3 && move["move"].y <3 && move["move"].y >-3  ) {
+        stop();
+    };
+};

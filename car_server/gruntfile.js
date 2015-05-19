@@ -61,6 +61,7 @@ module.exports = function(grunt) {
                 files: {
                     "./public/stylesheets/style.css": "./public/less/style.less",
                     "./public/stylesheets/controller.css": "./public/less/controller.less",
+                    "./public/stylesheets/gyro_controller.css": "./public/less/gyro_controller.less",
                 },
             },
         },
