@@ -1,10 +1,9 @@
 var socket = io();
-$(function() {
+$( document ).ready(function() {
     var move = {
         "data": '',
         "val": ''
     };
-
     function send(move) {
         socket.emit('moving', {move});
         return false;

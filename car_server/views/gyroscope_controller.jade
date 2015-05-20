@@ -1,11 +1,11 @@
 extends layout
 
 block head
-	link(rel='stylesheet', href='/stylesheets/gyro_controller.css')
+	link(rel='stylesheet', href='/stylesheets/gyroscope_controller.css')
 
 block content
-	.container
-		img.logo(src='./images/wheel.png')
+	.container.wheel
+		img#wheel(src='./images/wheel.png')
 	hr
 	.container
 		.content
@@ -21,7 +21,8 @@ block content
 
 block footer
 	script(src="https://cdn.socket.io/socket.io-1.3.5.js")
-	script(src='./javascripts/gyro_controller.js')
+	script(src='./javascripts/watch.min.js')
+	script(src='./javascripts/gyroscope_controller.js')
 
 
 

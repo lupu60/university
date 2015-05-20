@@ -1,29 +1,39 @@
 var express = require('express');
+/*===================================
+=            new require            =
+===================================*/
 var socket_io    = require('socket.io' );
+var passport = require('passport')
+var flash = require('connect-flash')
+var LocalStrategy = require('passport-local').Strategy;
+/*-----  End of new require  ------*/
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
+/*================================
+=            Passport            =
+================================*/
+
+/*-----  End of Passport  ------*/
+
+
 /*==================================
 =            New Routes            =
 ==================================*/
-var controller = require('./routes/controller');
-var gyro_controller = require('./routes/gyro_controller');
+var keyboard_controller = require('./routes/keyboard_controller');
+var gyroscope_controller = require('./routes/gyroscope_controller');
 /*-----  End of New Routes  ------*/
-
 var app = express();
-
-/*==================================
+/*================================== 
 =            Socket io             =
 ==================================*/
 var io           = socket_io();
 app.io           = io;
 /*-----  End of Socket io   ------*/
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,7 +44,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser()); 
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
  
@@ -43,8 +53,8 @@ app.use('/users', users);
 /*==================================
 =            New Routes            =
 ==================================*/
-app.use('/controller', controller);
-app.use('/gyro_controller', gyro_controller);
+app.use('/keyboard_controller', keyboard_controller);
+app.use('/gyroscope_controller', gyroscope_controller);
 /*-----  End of New Routes  ------*/
 
  
@@ -78,6 +88,13 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+/*================================
+=            passport            =
+================================*/
+
+
+/*-----  End of passport  ------*/
+
 
 /*========================
 =                        =

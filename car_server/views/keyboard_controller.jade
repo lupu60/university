@@ -1,0 +1,20 @@
+extends layout
+block head
+	link(rel='stylesheet', href='/stylesheets/keyboard_controller.css')
+block content
+	.container#keyboard
+		ul
+			li(unselectable='on')#up &uarr;
+				| &#x9;
+			li(unselectable='on')#left &larr;
+				| &#x9;
+			li(unselectable='on')#down &darr;
+				| &#x9;
+			li(unselectable='on')#right &rarr;
+			li(unselectable='on')#stop Stop
+block footer
+	script(src="https://cdn.socket.io/socket.io-1.3.5.js")
+	script(src='./javascripts/keyboard_controller.js')
+
+
+

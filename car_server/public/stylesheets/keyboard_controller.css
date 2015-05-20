@@ -1,10 +1,12 @@
 body {
-  padding: 50px;
   background: radial-gradient(#000000 15%, rgba(0, 0, 0, 0) 16%) 0 0, radial-gradient(#000000 15%, rgba(0, 0, 0, 0) 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 8px 9px;
   background-color: #282828;
   background-size: 16px 16px;
 }
-ul {
+#keyboard {
+  padding-top: 50px;
+}
+#keyboard ul {
   list-style: none;
   position: relative;
   width: 252px;
@@ -22,7 +24,7 @@ ul {
   -o-user-select: none;
   user-select: none;
 }
-ul li {
+#keyboard ul li {
   position: absolute;
   top: 120px;
   display: block;
@@ -40,21 +42,21 @@ ul li {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-ul #up {
+#keyboard ul #up {
   top: 8px;
   left: 56px;
   animation-duration: 1s;
 }
-ul #left {
+#keyboard ul #left {
   left: -60px;
 }
-ul #down {
+#keyboard ul #down {
   left: 56px;
 }
-ul #right {
+#keyboard ul #right {
   left: 174px;
 }
-ul #stop {
+#keyboard ul #stop {
   top: 240px;
   width: 340px;
   left: -64px;

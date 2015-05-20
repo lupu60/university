@@ -4,10 +4,13 @@ body {
   background-color: #282828;
   background-size: 16px 16px;
 }
-.logo {
+#wheel {
   width: 100%;
 }
 .content {
   color: #fff;
+}
+.wheel {
+  padding-top: 50px;
 }
 /*# sourceMappingURL=./style.css.map */
