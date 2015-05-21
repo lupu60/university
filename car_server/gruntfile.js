@@ -14,6 +14,7 @@ module.exports = function(grunt) {
     // =========================================================
     var JQUERY = './node_modules/jquery/dist/jquery.js';
     var BOOTSTRAP_JS = './node_modules/bootstrap/dist/js/bootstrap.js';
+    var SCREENFULL='./node_modules/screenfull/dist/screenfull.js';
     // =========================================================
     // configure the tasks
     grunt.initConfig({
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
                 sourceMap: true,
             },
             libs: {
-                src: [JQUERY, BOOTSTRAP_JS],
+                src: [JQUERY, BOOTSTRAP_JS,SCREENFULL],
                 dest: BUILD_FILE_JS,
             },
         },
