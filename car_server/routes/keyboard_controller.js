@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 		});
 	});
-	res.render('keyboard_controller', { title: 'Express' });
+	res.render('keyboard_controller', { title: 'Keyboard Controller' });
 
 });
 module.exports = router; 

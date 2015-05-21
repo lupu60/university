@@ -6,9 +6,7 @@
  */
 (function($) {
     function getTransformProperty(element) {
-        var properties = ['transform', 'WebkitTransform',
-                          'MozTransform', 'msTransform',
-                          'OTransform'];
+        var properties = ['transform', 'WebkitTransform', 'MozTransform', 'msTransform', 'OTransform'];
         var p;
         while (p = properties.shift()) {
             if (element.style[p] !== undefined) {
@@ -18,7 +16,7 @@
         return false;
     }
     $.cssHooks['rotate'] = {
-        get: function(elem, computed, extra){
+        get: function(elem, computed, extra) {
             var property = getTransformProperty(elem);
             if (property) {
                 return elem.style[property].replace(/.*rotate\((.*)deg\).*/, '$1');
@@ -26,7 +24,7 @@
                 return '';
             }
         },
-        set: function(elem, value){
+        set: function(elem, value) {
             var property = getTransformProperty(elem);
             if (property) {
                 value = parseInt(value);
@@ -34,19 +32,18 @@
                 if (value == 0) {
                     elem.style[property] = '';
                 } else {
-                    elem.style[property] = 'rotate(' + value%360 + 'deg)';
+                    elem.style[property] = 'rotate(' + value % 360 + 'deg)';
                 }
             } else {
                 return '';
             }
         }
     };
-    $.fx.step['rotate'] = function(fx){
+    $.fx.step['rotate'] = function(fx) {
         $.cssHooks['rotate'].set(fx.elem, fx.now);
     };
 })(jQuery);
 /*==========  my  ==========*/
-
 var socket = io();
 var move = {
     "x": '1',
@@ -60,19 +57,24 @@ function send() {
     });
     return false;
 }
-// function wheel() {
 
-//     if (move.x < -3) {
-//          $('.wheel').animate({rotate: '70'}, 1000);
-//     }
-//     if (move.x > 3) {
-//         $('.wheel').animate({rotate: '-70'}, 1000);
-//     }
-//     if (move.x < 3 && move.x > -3) {
-//         $('.wheel').animate({rotate: '0'}, 1000);
-//     }
-
-// }
+function wheel() {
+    if (move.x < -3) {
+        $(".wheel").rotate({
+            animateTo: 70
+        })
+    }
+    if (move.x > 3) {
+        $(".wheel").rotate({
+            animateTo: -70
+        })
+    }
+    if (move.x < 3 && move.x > -3) {
+        $(".wheel").rotate({
+            animateTo: 0
+        })
+    }
+}
 if (window.DeviceMotionEvent != undefined) {
     window.ondevicemotion = function(e) {
         move.x = Math.round(e.accelerationIncludingGravity.x);
@@ -84,9 +86,8 @@ if (window.DeviceMotionEvent != undefined) {
     }
 }
 $(document).ready(function() {
-
-    watch(move,["x", "y"], function(){
+    watch(move, ["x", "y"], function() {
         send();
-       // wheel();
+        wheel();
     });
 });

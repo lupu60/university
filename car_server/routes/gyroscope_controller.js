@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 		});
 	});
 
-	res.render('gyroscope_controller', { title: 'Express' });
+	res.render('gyroscope_controller', { title: 'Gyroscope Controller' });
 
 });
 module.exports = router; 

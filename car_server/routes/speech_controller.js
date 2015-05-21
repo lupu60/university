@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 		});
 	});
-	res.render('speech_controller', { title: 'Express' });
+	res.render('speech_controller', { title: 'Speech Controller' });
 
 });
 module.exports = router; 
