@@ -21,6 +21,7 @@
     "connect-flash": "0.1.x",
     "nosql":"latest",
     "jquery": "~2.1.4",
+    "speechjs":"latest",
     "bootstrap": "~3.3.4"
   },
   "repository": {
