@@ -1,20 +1,78 @@
-\documentclass{article}
-\title{My bachelor}
-\date{}
-\author{Lupu Bogdan Alexandru}
+\documentclass[a4paper, 12pt]{report}
+
+
+\title{Bachelor Degree}
+
+
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+%\renewcommand{\chaptername}{Capitolul}
+%\renewcommand{\listfigurename}{Lista figurilor}
+%\renewcommand{\listtablename}{Lista tabelelor}
+%\renewcommand{\contentsname}{Cuprins}
+%\renewcommand{\proofname}{{\it Demonstra\c tie}:}
+
+\bibliographystyle{plain}
+
+\author{XXXXXXXX}
 
 \begin{document}
-\pagenumbering{gobble}
+
 \maketitle
-\newpage
-\pagenumbering{arabic}
+
+\pagenumbering{roman}
+
+\listoffigures
+\listoftables
 
 \tableofcontents
-\newpage
 
-\section{Intro}
-Hello World!
-\subsection{Subsection}
-Structuring a document is easy!
-\input{./_includ/technology.tex}
+
+\pagenumbering{arabic}
+
+\include{myHyphenation}
+
+\input{./_includ/cap1}
+\input{./_includ/cap2}
+\input{./_includ/cap3}
+\input{./_includ/cap4}
+
+
+\begin{thebibliography}{999}
+\bibitem{popescu}A. Popescu, askjajsajd, Buletinul Universit\u a\c tii Transilvania Bra\c sov
+\end{thebibliography}
+
+
+
+
 \end{document}
+
+
+
+ 
