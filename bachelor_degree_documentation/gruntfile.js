@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         },
           watch: {
     tex: {
-      files: ['*.tex'],
+      files: ['*.tex','./_includ/*.tex'],
       tasks: ['latex'],
       options: {
         spawn: false,

@@ -1,46 +1,65 @@
-\documentclass[a4paper, 12pt]{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bachelor Thesis 
+%
+%
+% Original author:
+% Lupu Bogdan Alexandru
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
 
 
-\title{Bachelor Degree}
-
-
-\usepackage{amsmath}%
-\usepackage{amsfonts}%
-\usepackage{amssymb}%
+\documentclass[11pt, oneside]{Thesis}
+\usepackage[top=1in, bottom=1.2in, left=0.9in, right=0.9in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{sidecap}
+\setcounter{tocdepth}{3}% Include \subsubsection in ToC
+\setcounter{secnumdepth}{3}
+
+
+\title{A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS}
+
+
+
+
 %-------------------------------------------
-\newtheorem{theorem}{Theorem}
-\newtheorem{acknowledgement}[theorem]{Acknowledgement}
-\newtheorem{algorithm}[theorem]{Algorithm}
-\newtheorem{axiom}[theorem]{Axiom}
-\newtheorem{case}[theorem]{Case}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{conclusion}[theorem]{Conclusion}
-\newtheorem{condition}[theorem]{Condition}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{criterion}[theorem]{Criterion}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{solution}[theorem]{Solution}
-\newtheorem{summary}[theorem]{Summary}
-\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+%\newtheorem{axiom}[theorem]{Axiom}
+%\newtheorem{case}[theorem]{Case}
+%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{conclusion}[theorem]{Conclusion}
+%\newtheorem{condition}[theorem]{Condition}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{criterion}[theorem]{Criterion}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{exercise}[theorem]{Exercise}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{notation}[theorem]{Notation}
+%\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+%\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 
 %\renewcommand{\chaptername}{Capitolul}
 %\renewcommand{\listfigurename}{Lista figurilor}
 %\renewcommand{\listtablename}{Lista tabelelor}
 %\renewcommand{\contentsname}{Cuprins}
-%\renewcommand{\proofname}{{\it Demonstra\c tie}:}
+
 
 \bibliographystyle{plain}
 
-\author{XXXXXXXX}
+\author{Lupu Bogdan Alexandru}
 
 \begin{document}
 
@@ -48,15 +67,14 @@
 
 \pagenumbering{roman}
 
+
+
+\tableofcontents
 \listoffigures
 \listoftables
 
-\tableofcontents
-
-
 \pagenumbering{arabic}
 
-\include{myHyphenation}
 
 \input{./_includ/cap1}
 \input{./_includ/cap2}
@@ -66,10 +84,11 @@
 
 \begin{thebibliography}{999}
 \bibitem{popescu}A. Popescu, askjajsajd, Buletinul Universit\u a\c tii Transilvania Bra\c sov
+\bibitem{popescu2}A. Popescu, askjajsajd, Buletinul Universit\u a\c tii Transilvania Bra\c sov
 \end{thebibliography}
 
 
-
+ 
 
 \end{document}
 
