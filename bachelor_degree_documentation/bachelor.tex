@@ -1,93 +1,74 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bachelor Thesis 
 %
+% Original authors:
+% Lupu Bogdan
 %
-% Original author:
-% Lupu Bogdan Alexandru
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
+\documentclass[11pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
 
 
-\documentclass[11pt, oneside]{Thesis}
-\usepackage[top=1in, bottom=1.2in, left=0.9in, right=0.9in]{geometry}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage{sidecap}
-\setcounter{tocdepth}{3}% Include \subsubsection in ToC
-\setcounter{secnumdepth}{3}
-
-
-\title{A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS}
-
-
-
-
-%-------------------------------------------
-%\newtheorem{theorem}{Theorem}
-%\newtheorem{acknowledgement}[theorem]{Acknowledgement}
-%\newtheorem{algorithm}[theorem]{Algorithm}
-%\newtheorem{axiom}[theorem]{Axiom}
-%\newtheorem{case}[theorem]{Case}
-%\newtheorem{claim}[theorem]{Claim}
-%\newtheorem{conclusion}[theorem]{Conclusion}
-%\newtheorem{condition}[theorem]{Condition}
-%\newtheorem{conjecture}[theorem]{Conjecture}
-%\newtheorem{corollary}[theorem]{Corollary}
-%\newtheorem{criterion}[theorem]{Criterion}
-%\newtheorem{definition}[theorem]{Definition}
-%\newtheorem{example}[theorem]{Example}
-%\newtheorem{exercise}[theorem]{Exercise}
-%\newtheorem{lemma}[theorem]{Lemma}
-%\newtheorem{notation}[theorem]{Notation}
-%\newtheorem{problem}[theorem]{Problem}
-%\newtheorem{proposition}[theorem]{Proposition}
-%\newtheorem{remark}[theorem]{Remark}
-%\newtheorem{solution}[theorem]{Solution}
-%\newtheorem{summary}[theorem]{Summary}
-%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-
-%\renewcommand{\chaptername}{Capitolul}
-%\renewcommand{\listfigurename}{Lista figurilor}
-%\renewcommand{\listtablename}{Lista tabelelor}
-%\renewcommand{\contentsname}{Cuprins}
-
-
-\bibliographystyle{plain}
-
-\author{Lupu Bogdan Alexandru}
+\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+\title{\ttitle} % Defines the thesis title - don't touch this
 
 \begin{document}
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
-\maketitle
+\setstretch{1.3} % Line spacing of 1.3
 
-\pagenumbering{roman}
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{} % Clears all page headers and footers
+\rhead{\thepage} % Sets the right side header to show the page number
+\lhead{} % Clears the left side page header
 
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
 
-\tableofcontents
-\listoffigures
-\listoftables
+% PDF meta-data
+\hypersetup{pdftitle={\ttitle}}
+\hypersetup{pdfsubject=\subjectname}
+\hypersetup{pdfauthor=\authornames}
+\hypersetup{pdfkeywords=\keywordnames}
 
-\pagenumbering{arabic}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
 
+\begin{titlepage}
+\begin{center}
 
-\input{./_includ/cap1}
-\input{./_includ/cap2}
-\input{./_includ/cap3}
-\input{./_includ/cap4}
+\textsc{\LARGE \univname}\\[1.5cm] % University name
+\textsc{\Large Bachelor Thesis}\\[0.5cm] % Thesis type
 
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\authornames % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+\supname % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+ 
 
-\begin{thebibliography}{999}
-\bibitem{popescu}A. Popescu, askjajsajd, Buletinul Universit\u a\c tii Transilvania Bra\c sov
-\bibitem{popescu2}A. Popescu, askjajsajd, Buletinul Universit\u a\c tii Transilvania Bra\c sov
-\end{thebibliography}
+ 
+\vfill
+\end{center}
 
-
+\end{titlepage}
  
 
 \end{document}
