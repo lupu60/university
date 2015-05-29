@@ -1,4 +1,4 @@
-# bachelor_degree_documentation
+# bachelor_thesis_documentation
 
 ### Version
 0.0.1
