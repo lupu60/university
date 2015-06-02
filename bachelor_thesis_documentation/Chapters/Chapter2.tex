@@ -11,21 +11,27 @@
 %----------------------------------------------------------------------------------------
 
 \section{Hardware}
-Computer hardware (usually simply called hardware when a computing context is implicit) is the collection of physical elements that constitutes a computer system. Computer hardware is the physical parts or components of a computer, such as the monitor, mouse, keyboard, computer data storage, hard disk drive (HDD), system unit (graphic cards, sound cards, memory, motherboard and chips), and so on, all of which are physical objects that can be touched (that is, they are tangible). In contrast, software is instructions that can be stored and run by hardware.
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{./Pictures/hardware.jpg}
+  \end{center}
+  \rule{0.3\textwidth}{0.5pt}
+  \caption{Hardware of a modern personal computer}
+  \label{fig:hardware}
+\end{wrapfigure}
+Computer hardware is the collection of physical parts of a computer system. This includes the computer case, monitor, keyboard, and mouse. It also includes all the parts inside the computer case, such as the hard disk drive, motherboard, video card, and many others. Computer hardware is what you can physically touch.
 
+\subparagraph*{Definitions}
+\hfill \break
+A computer system consists of two major elements: hardware and software. Computer hardware is the collection of all the parts you can physically touch. Computer software, on the other hand, is not something you can touch. Software is a set of instructions for a computer to perform specific operations. You need both hardware and software for a computer system to work.
 
-Software is any set of machine-readable instructions that directs a computer's processor to perform specific operations. A combination of hardware and software forms a usable computing system.
+Some hardware components are easy to recognize, such as the computer case, keyboard, and monitor. However, there are many different types of hardware components. In this lesson, you will learn how to recognize the different components and what they do.
 
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
 \subsection{Raspberry Pi}
-
-\paragraph*{A brief history lesson on the Pi}
-\hfill \break
-Raspberry Pi \ref{fig:Raspberry} is a series of credit card-sized single-board computers developed in the UK by the Raspberry Pi Foundation with the intention of promoting the teaching of basic computer science in schools.
-
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
     \includegraphics[width=0.5\textwidth]{./Pictures/raspberry_pi_b.jpg}
@@ -34,6 +40,9 @@ Raspberry Pi \ref{fig:Raspberry} is a series of credit card-sized single-board c
   \caption{Raspberry Pi 1 model B+}
   \label{fig:Raspberry}
 \end{wrapfigure}
+\paragraph*{A brief history lesson on the Pi}
+\hfill \break
+Raspberry Pi\footnote{\href{https://www.raspberrypi.org/help/what-is-a-raspberry-pi/}{\texttt{https://www.raspberrypi.org/help/what-is-a-raspberry-pi/}}} (Figure \ref{fig:Raspberry}) is a series of credit card-sized single-board computers developed in the UK by the Raspberry Pi Foundation with the intention of promoting the teaching of basic computer science in schools.
 
 Over the past decades, computers have gotten cheaper and cheaper, so today
 you can find them not only at your desk, but also in nearly every consumer
@@ -43,7 +52,7 @@ groceries. Usually, you carefully plan your next computer purchase, because
 you have to use it for a couple of years.
 
 Computers like the Raspberry Pi will change the situation completely in the
-near future. The Raspberry Pi—or Pi, for short—is a full-blown desktop PC
+near future. The Raspberry Pi or Pi, for short is a full-blown desktop PC
 that costs only \$35. You can connect it directly to the Internet, and it can
 display high-definition videos. Also, it runs Linux, so you don’t have to pay
 for an operating system. This makes the Pi probably the first throwaway
@@ -51,92 +60,262 @@ computer in history.
 
 Originally, the Raspberry Foundation \citep{2} built the Pi to teach children how to
 program, so it comes as no surprise that the Pi is an excellent device for
-exactly this purpose. On top of that, you can use the Pi for many other
-exciting things. For example, you can turn it into a multimedia center, use
-it as a cheap but powerful web server, or play some classic games.
+exactly this purpose. 
+On top of that, you can use the Pi for many other
+exciting things. For example, you can turn it into a multimedia center, use it as a cheap but powerful web server, or play some classic games.
 The Pi is also a great machine for experimenting with electronics. In contrast
 to many popular microcontroller boards, such as the Arduino, the Pi runs a
 full-blown operating system, and you can choose from a wide range of programming
 languages to implement your projects.
 With cheap and small devices like the Raspberry Pi, a new era of ubiquitous
-computing has begun, and you can be part of it. This book will help you get
-up to speed quickly.
+computing has begun, and you can be part of it.
+
+
+\paragraph*{ARM}
+\hfill \break
+A company named Acorn Computers developed a 32-bit RISC architecture named
+the Acorn RISC Machine (later renamed to Advanced RISC Machine) in the late
+1980s. This architecture proved to be useful beyond their limited product line,
+so a company named ARM Holdings was formed to license the architecture for
+use in a wide variety of products. It is commonly found in embedded devices
+such as cell phones, automobile electronics, MP3 players, televisions, and so on.
+The fi rst version of the architecture was introduced in 1985, and at the time of
+this writing it is at version 7 (ARMv7). ARM has developed a number of specifi c
+cores (e.g., ARM7, ARM7TDMI, ARM926EJS, Cortex)—not to be confused with
+the different architecture specifi cations, which are numbered ARMv1–ARMv7.
+While there are several versions, most devices are either on ARMv4, 5, 6, or 7.
+ARMv4 and v5 are relatively “old,” but they are also the most dominant and
+common versions of the processor (“more than 10 billion” cores in existence,
+according to ARM marketing). Popular consumer electronic products typically
+use more recent versions of the architecture. For example, the third-generation
+Apple iPod Touch and iPhone run on an ARMv6 chip, and later iPhone/iPad
+and Windows Phone 7 devices are all on ARMv7.\\
+\-\hspace{1cm}Whereas companies such as Intel and AMD design and manufacture their
+processors, ARM follows a slightly different model. ARM designs the architecture
+and licenses it to other companies, which then manufacture and integrate the
+processors into their devices. Companies such as Apple, NVIDIA, Qualcomm,
+and Texas Instruments market their own processors (A, Tegra, Snapdragon, and OMAP, respectively), but their core architecture is licensed from ARM.\\
+\-\hspace{1cm}They all implement the base instruction set and memory model defi ned in the
+ARM architecture reference manual. Additional extensions can be added to
+the processor; for example, the Jazelle extension enables Java bytecode to be
+executed natively on the processor. The Thumb extension adds instructions
+that can be 16 or 32 bits wide, thus allowing higher code density (native ARM
+instructions are always 32 bits in width). The Debug extension allows engineers
+to analyze the physical processor using special debugging hardware. Each
+extension is typically represented by a letter (J, T, D, etc.). Depending on their
+requirements, manufacturers can decide whether they need to license these
+additional extensions. This is why ARMv6 and earlier processors have letters
+after them (e.g., ARM1156T2 means ARMv6 with Thumb-2 extension). These
+conventions are no longer used in ARMv7, which instead uses three profi les
+(Application, Real-time, and Microcontroller) and model name (Cortex) with
+different features. For example, ARMv7 Cortex-A series are processors with
+the application profi le; and Cortex-M are meant for microcontrollers and only
+support Thumb mode execution.
 
 \paragraph*{Get to Know the Hardware}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{15pt}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{./Pictures/unboxing_pi.jpg}
+  \end{center}
+  \rule{0.5\textwidth}{0.5pt}
+  \caption{Raspberry Pi }
+  \label{fig:unboxing_pi}
+\end{wrapfigure}
+
 \hfill \break
 Unboxing a new Pi is exciting, but it certainly is not comparable to unboxing
 a new Apple product. Usually, the Pi comes in a plain cardboard box with
 one or two sheets of paper containing the usual safety hints for electronic
 devices and a quick-start guide.
 
-
-The first version of the Pi looks attractive only to real geeks. It is a singleboard
+The first version of the Pi looks attractive only to real geeks (Figure \ref{fig:unboxing_pi}). It is a singleboard
 computer without a case, and it’s the size of a credit card. It somewhat
 resembles the innards of the many electronic devices you might have opened
 when you were a child.
-\subparagraph*{What’s on the Pi}
-\hfill \break
-The Pi is available in two flavors: Model A and Model B. Model B has been
-revised and is available in two slightly different versions now: Model B (Revision
-1) and Model B (Revision 2). Model A is a bit cheaper and does not have
-as many connectors as Model B. I’ll explain their differences and the differences
-between the two Model B revisions in detail in the following text.
-I’ll mostly cover Model B in the rest of this book, because it’s much more
-popular than Model A. You can see it in Figure \ref{fig:Raspberry_front}
 
+\paragraph*{What’s on the Pi}
+\hfill \break
+At the heart of the Pi is the Broadcom BCM2835 System-on-a-Chip—imagine all the
+common hardware components of a PC baked into a small chip. The CPU is called
+ARM1176JZF-S, runs at 700 MHz and belongs to the ARM11 family of the ARMv6
+architecture. For graphics, the Pi sports a Broadcom VideoCore IV GPU, which is
+quite powerful for such a tiny device and capable of full HD video playback. The
+following figure (taken from http://www.raspberrypi.org/faqs) shows the
+Raspberry Pi model:
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=1\textwidth]{./Pictures/raspberry_pi_b_front.jpg}
-  \rule{1\textwidth}{0.5pt}
-  \caption{The front side of a Model B (Revision 1)}
-  \label{fig:Raspberry_front}
+    \includegraphics[width=0.5\textwidth]{./Pictures/raspberry_pi_b2.jpg}
+  \rule{0.7\textwidth}{1pt}
+ \caption{Raspberry Pi Model B board showing key components}
 \end{figure}
 
-All Raspberry Pi models have the same heart and brain: a system on a chip
-(SoC) named BCM2835\cite{3} that you can find in many mobile phones. It’s cheap,
-it’s powerful, and it does not consume a lot of power. These characteristics
-made it a perfect choice for the Raspberry team.
-In contrast to a typical PC architecture, a SoC integrates a processor (CPU),
-a graphics processing unit (GPU), and some memory into a single unit. The
-BCM2835 contains an ARM1176JZF-S processor running at 700MHz, 512MB
-of RAM, and a GPU named VideoCore IV. First-generation devices and Model
-A boards have only 256MB of RAM. If you buy a new Pi, make sure it has
-512MB of RAM.
-For purists, the GPU is a bit problematic because its design and firmware are
-proprietary; that is, their source code is not publicly available. This probably
-will not affect you in your daily work with the Pi, but it is a problem for some
-strong proponents of free software. At least Broadcom has released the source
-code for the whole graphics stack under the BSD license.\cite{4} By the time you
-read this, the Pi will probably be completely open source.
+\subparagraph*{GPIO}
+\hfill \break
+At the edge of the board we find the General Purpose Input/Output (GPIO) pins,
+which, as the name implies, can be used for any kind of general tinkering and to
+interface with other pieces of hardware.
+
+\subparagraph*{RCA video}
+\hfill \break
+This jack is for composite video output, which we can use to connect the Pi to one of
+those old television sets using an RCA connector cable.
+
+\subparagraph*{Audio}
+\hfill \break
+To get sound out of the Pi, we can either get it through the HDMI cable connected
+to a monitor, or from this 3.5 mm analog audio jack using headphones or
+desktop speakers.
+
+\subparagraph*{LEDs}
+\hfill \break
+Five status LEDs are used to tell us what the Pi is up to at the moment. They are
+as follows:
+\begin{itemize}
+  \item The green light on top labeled OK (on the older Pi) or ACT (on the newer Pi)
+will blink when the Pi is accessing data from the SD card
+  \item The light below, labeled PWR, should stay solid red as long as the Pi
+has power
+  \item The three remaining LEDs will light up when a network cable is connected
+to the Ethernet port
+\end{itemize}
+
+\subparagraph*{USB}
+\hfill \break
+The two USB 2.0 ports allow us to connect keyboards, mice, and most importantly
+for us, Wi-Fi dongles, microphones, video cameras, and GPS receivers. We can also
+expand the number of USB ports available with the help of a self-powered USB hub.
+
+\subparagraph*{LAN}
+\hfill \break
+The Ethernet LAN port allows us to connect the Pi to a network at a maximum speed
+of 100 Mbit/s. This will most commonly be a home router or a switch, but it can also
+be connected directly to a PC or a laptop. A Category 5 twisted-pair cable is used for
+wired network connections.
+
+\subparagraph*{HDMI}
+\hfill \break
+The High-Definition Multimedia Interface (HDMI) connector is used to connect the
+Pi to a modern TV or monitor. The cable can carry high-resolution video up to 1920 x
+1200 pixels and digital sound. It also supports a feature called Consumer Electronics
+Control (CEC), which allows us to use the Pi as a remote control for many common
+television sets.
+
+\subparagraph*{Power}
+\hfill \break
+The power input on the Raspberry Pi is a 5V (DC) Micro-USB Type B jack. A power
+supply with a standard USB to micro-USB cable, such as a common cellphone
+charger, is then connected to feed the Pi.
+
+\subparagraph*{Raspbian OS}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+\vspace{-25pt}
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{./Pictures/raspbian.png}
+  \end{center}
+\end{wrapfigure}
+\hfill \break
+Computers can't do anything useful without an operating system, and the Pi is
+no exception. There is a growing collection of operating systems available for
+the Pi, but we'll stick with the "officially recommended" OS—the Raspbian
+GNU/Linux distribution.
+\clearpage
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
 \subsection{Car Chassis Development Kit}
+
+Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec 
+
 \begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.5\textwidth]{./Pictures/Car-Chassis-Kit.jpg}
-    \includegraphics[width=0.5\textwidth]{./Pictures/Car-Chassis-Kit2.jpg}
-  \rule{1\textwidth}{0.5pt}
- \caption{Car Chassis Development Kit}
- % \label{fig:Raspberry_front}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{./Pictures/Car-Chassis-Kit.jpg}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{./Pictures/Car-Chassis-Kit2.jpg}
+        \end{subfigure}
+        \rule{1\textwidth}{1pt}
+        \caption{Car Chassis Development Kit}
 \end{figure}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
-
-
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\textwidth]{./Pictures/Car-Chassis-Kit3.jpg}
+		\rule{0.5\textwidth}{1pt}
+        \caption{Car Chassis Development Kit}
+\end{figure}
+\clearpage
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
 \section{Technologies and Programming Languages}
 
-Computer software or simply software is any set of machine-readable instructions that directs a computer's processor to perform specific operations. Computer software contrasts with computer hardware, which is the physical component of computers. Computer hardware and software require each other and neither can be realistically used without the other. Using a musical analogy, hardware is like a musical instrument and software is like the notes played on that instrument.
-Computer software includes computer programs, libraries and their associated documentation. The word software is also sometimes used in a more narrow sense, meaning application software only.
-At the lowest level, executable code consists of machine language instructions specific to an individual processor – typically a central processing unit (CPU). A machine language consists of groups of binary values signifying processor instructions that change the state of the computer from its preceding state. For example, an instruction may change the value stored in a particular storage location inside the computer – an effect that is not directly observable to the user. An instruction may also (indirectly) cause something to appear on a display of the computer system – a state change which should be visible to the user. The processor carries out the instructions in the order they are provided, unless it is instructed to "jump" to a different instruction, or interrupted.
-Software written in a machine language is known as "machine code". However, in practice, software is usually written in high-level programming languages that are easier and more efficient for humans to use (closer to natural language) than machine language. High-level languages are translated, using compilation or interpretation or a combination of the two, into machine language. Software may also be written in a low-level assembly language, essentially, a vaguely mnemonic representation of a machine language using a natural language alphabet. Assembly language is translated into machine code using an assembler.
+Software is a generic term for organized collections of computer data and instructions, often broken into two major categories: system software that provides the basic non-task-specific functions of the computer, and application software which is used by users to accomplish specific tasks.
 
+System software is responsible for controlling, integrating, and managing the individual hardware components of a computer system so that other software and the users of the system see it as a functional unit without having to be concerned with the low-level details such as transferring data from memory to disk, or rendering text onto a display. Generally, system software consists of an operating system and some fundamental utilities such as disk formatters, file managers, display managers, text editors, user authentication (login) and management tools, and networking and device control software.
+
+Application software, on the other hand, is used to accomplish specific tasks other than just running the computer system. Application software may consist of a single program, such as an image viewer; a small collection of programs (often called a software package) that work closely together to accomplish a task, such as a spreadsheet or text processing system; a larger collection (often called a software suite) of related but independent programs and packages that have a common user interface or shared data format, such as Microsoft Office, which consists of closely integrated word processor, spreadsheet, database, etc.; or a software system, such as a database management system, which is a collection of fundamental programs that may provide some service to a variety of other independent applications.
+
+Software is created with programming languages and related utilities, which may come in several of the above forms: single programs like script interpreters, packages containing a compiler, linker, and other tools; and large suites (often called Integrated Development Environments) that include editors, debuggers, and other tools for multiple languages. 
+
+
+\paragraph*{Programming Languages}
+\hfill \break
+There exists an enormous variety of programming languages in use today. Testimony of this fact are the 650 plus different programming languages listed in Wikipedia \footnote{\href{http://en.wikipedia.org/wiki/List_of_programming_languages}{\texttt{List of programming languages}}}. A good understanding of this great diversity is important for many reasons. First, it opens new perspectives to the computer scientist. Problems at first hard in one language might have a very easy solution in another. Thus, knowing which language to use in a given domain might decrease considerably the effort to build an application.
+
+
+
+\subparagraph*{What is a Programming Languages}
+\hfill \break
+A programming language is an artificial language that can be used to instruct a computer to do a particular task. To be considered a general programming language, it must be computationally complete, or Turing-Complete. It is nevertheless common to regard some languages that are not computationally complete, like database query languages and other domain-specific languages as programming languages as well.
+
+\subparagraph*{High-Level Versus Low-Level Programming Languages}
+\hfill \break
+A low-level programming language is one that is very basic and close to the machine's native language. A low-level programming language can be thought of as a building block language for software. Assembly code is the most common low-level language and requires very little translation to assemble it to machine code. (The 1's and 0's that make up binary.)
+
+A high-level programming language is one that is closer to a level of human communication. In this method, the compiler does a lot more of the work for the programmer. The closer the language is to our everyday speech, the easier it is to worry about more complex problems. However, this can be taken too far. If a language is too much like English (or other natural languages), it can be harder to create complex programs. This is because verbose languages take more time to read, and so they can take a lot more time to understand.
+\begin{figure}[h!]
+        \centering
+                \includegraphics[width=0.7\textwidth]{./Pictures/lavels.jpg}
+                  \rule{0.7\textwidth}{1pt}
+        \caption{Levels of Programming Languages}
+\end{figure}
+
+Machine code is the language the computer can understand directly. Machine code consists of sequences of binary digits. It is almost never programmed in directly, but anything that is to be run on an ordinary computer must be translated to machine code first. The machine code can be different for each computer architecture.
+
+Assembly language is a more human readable representation of the machine code, where the machine instructions are represented as mnemonics rather than binary digits. Assembly language has a 1:1 relationship with machine code as long as the program is not self-modifying. Before an assembly program can be run by a computer, it must be transformed to machine code. A program that does this translation is known as an assembler. In the early days of computing, assembly language was extensively used, but today it is mainly used for very time critical parts of programs, the core of operating systems, as well as in very small computers, like the chip on a smartcard.
+
+Machine code and assembly language are called first and second generation programming languages respectively. A programming language that has arithmetic expressions, looping constructs, functions, and other constructs that save the programmer from dealing with the machine instructions directly is known as a third-generation programming language.
+
+High-level, domain-specific programming languages were earlier often mentioned as fourth-generation languages, while expert systems were called fifth-generation programming languages. In later years this distinction has blurred, as many very high-level general purpose programming languages like Python, Haskell and Common Lisp have emerged. Expert systems are in very little use today.
+
+\subparagraph*{Compilation and interpretation of computer programs}
+\hfill \break
+Before a program can be executed on a computer, it must be translated to machine code. Alternatively it can be simulated by another program, called an interpreter. A compiler is a program that translates a programming language, called the source programming language into another programming language, called the destination language. Usually the source language is a high level language, while the destination language is machine code. An interpreter may require that the source programming language be compiled into an intermediate form before interpretetion, called byte code. This is a more low level language, for which it is easier to write an interpreter. In the Java programming language this is a separate step, while in other cases it is performed as an integral part of the interpreter. Examples of such programming languages are Perl and Python. CommonLisp is an exception to the above: it's both interpreted and compiled.
+
+\subparagraph*{Type Systems}
+\hfill \break
+There are two axes to type systems: Dynamic versus Static on the one side and Strong versus Weak.
+
+\begin{itemize}
+  \item A Strongly typed language will not allow an operation on an object if this object does not match in type. Examples are CommonLisp, Q-base and Python.
+  \item A Weakly typed language will allow such operations. Examples are C and C++.
+  \item TDynamic type languages bind type to value. Staticly typed languages bind it to variable.
+\end{itemize}
 
 \subsection{Web Application Back-End}
+In software engineering, the terms "front end" and "back end" are distinctions which refer to the separation of concerns between a presentation layer and a data access layer respectively.
+The front end is an interface between the user and the back end. The front and back ends may be distributed amongst one or more systems.
+
+In software architecture, there may be many layers between the hardware and end user. Each can be spoken of as having a front end and a back end. The front is an abstraction, simplifying the underlying component by providing a user-friendly interface.
+
+In software design, for example, the model-view-controller architecture provides front and back ends for the database, the user and the data processing components. The separation of software systems into front and back ends simplifies development and separates maintenance. A rule of thumb is that the front (or "client") side is any component manipulated by the user. The server-side (or "back end") code resides on the server. The confusion arises when one must make front-end edits to server-side files. Most HTML designers, for instance, don't need to be on the server when they are developing the HTML; conversely, the server-side engineers are, by definition, never on anything but a server. It takes both to ultimately make a functioning, interactive website.
 \subsubsection{JavaScript}
 JavaScript is the programming language of the Web. The overwhelming majority of
 modern websites use JavaScript, and all modern web browsers—on desktops, game
@@ -266,6 +445,8 @@ Express is a minimal and flexible Node.js web application framework that provide
 Socket.IO enables real-time bidirectional event-based communication.
 It works on every platform, browser or device, focusing equally on reliability and speed.
 \subsection{Web Application Front-End} 
+Front end development is the development of those elements of a website that the customer sees and interacts with directly. It is a combination of programming skills (knowing which program to choose) and aesthetics (understanding element arrangements on the screen, the color and font choices). The challenges associated with front end developers is that the tools and techniques used to create the front end of a website change constantly and so the developer needs to constantly be aware of how the field is developing.
+The objective of designing a site is to ensure that when the users open up the site they see the information in a format that is easy to read and relevant. This is further complicated by the fact that users now use a large variety of devices with varying screen sizes and resolutions thus forcing the designer to take into consideration these aspects when designing the site. They need to ensure that their site comes up correctly in different browsers (cross-browser), different operating systems (cross-platform) and different devices (cross-device), which needs careful planning on the site of the developer.
 \subsubsection{HTML (HyperText Markup Language)}
 \subsubsection{CSS (Cascading Style Sheets)}
 \subsubsection{Less}
@@ -275,4 +456,4 @@ It works on every platform, browser or device, focusing equally on reliability a
 \subsubsection{Sublime Text 3}
 \subsubsection{GruntJs}
 \subsubsection{PuTTY}
-\subsubsection{Basic UNIX commands }
+\subsubsection{Basic UNIX commands}
