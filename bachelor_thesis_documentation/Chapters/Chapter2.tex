@@ -31,6 +31,10 @@ Some hardware components are easy to recognize, such as the computer case, keybo
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% Raspberry Pi
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Raspberry Pi}
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
@@ -222,9 +226,12 @@ no exception. There is a growing collection of operating systems available for
 the Pi, but we'll stick with the "officially recommended" OS—the Raspbian
 GNU/Linux distribution.
 \clearpage
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% end Raspberry Pi
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% Car Chassis Development Kit
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Car Chassis Development Kit}
 
@@ -250,10 +257,12 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
         \caption{Car Chassis Development Kit}
 \end{figure}
 \clearpage
-%----------------------------------------------------------------------------------------
-%	SECTION 2
-%----------------------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% end Car Chassis Development Kit
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% Technologies and Programming Languages
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Technologies and Programming Languages}
 
 Software is a generic term for organized collections of computer data and instructions, often broken into two major categories: system software that provides the basic non-task-specific functions of the computer, and application software which is used by users to accomplish specific tasks.
@@ -268,7 +277,6 @@ Software is created with programming languages and related utilities, which may 
 \paragraph*{Programming Languages}
 \hfill \break
 There exists an enormous variety of programming languages in use today. Testimony of this fact are the 650 plus different programming languages listed in Wikipedia \footnote{\href{http://en.wikipedia.org/wiki/List_of_programming_languages}{\texttt{List of programming languages}}}. A good understanding of this great diversity is important for many reasons. First, it opens new perspectives to the computer scientist. Problems at first hard in one language might have a very easy solution in another. Thus, knowing which language to use in a given domain might decrease considerably the effort to build an application.
-
 
 
 \subparagraph*{What is a Programming Languages}
@@ -372,6 +380,32 @@ calls its JavaScript interpreter V8, for example, and at the time of this writin
 current version of the V8 engine is 3.0.
 
 
+\subparagraph*{Why JavaScript?}
+\hfill \break
+JavaScript is an important language because it is the language of the web browser. Its
+association with the browser makes it one of the most popular programming languages
+in the world. At the same time, it is one of the most despised programming
+languages in the world. The API of the browser, the Document Object Model
+(DOM) is quite awful, and JavaScript is unfairly blamed. The DOM would be painful
+to work with in any language. The DOM is poorly specified and inconsistently
+implemented. This book touches only very lightly on the DOM. I think writing a
+Good Parts book about the DOM would be extremely challenging.
+
+
+JavaScript is most despised because it isn’t some other language. If youare good in
+some other language and youhave to program in an environment that only supports
+JavaScript, then youare forced to use JavaScript, and that is annoying. Most people
+in that situation don’t even bother to learn JavaScript first, and then they are surprised
+when JavaScript turns out to have significant differences from the some other
+language they would rather be using, and that those differences matter.
+
+
+The amazing thing about JavaScript is that it is possible to get work done with it
+without knowing much about the language, or even knowing much about programming.
+It is a language with enormous expressive power. It is even better when you
+know what you’re doing. Programming is difficult business. It should never be
+undertaken in ignorance.
+
 \paragraph*{Exploring JavaScript}
 \hfill \break
 When learning a new programming language, it’s important to try the examples in the
@@ -413,13 +447,82 @@ the alert() function, which displays it in a modal dialog box.
  \caption{The Firebug debugging console for Firefox}
  \label{fig:Firebug}
 \end{figure}
-
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% end JS
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{NodeJs}
 Node.js is an open source, cross-platform runtime environment for server-side and networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux, FreeBSD, NonStop and IBM i.
 
 Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability. These technologies are commonly used for real-time web applications.
 Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript. Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+\clearpage
+
+
+
+\paragraph*{Getting Started with Node.js}
+\hfill \break
+The definition of Node.js that is given on the Node.js website
+(\href{http://nodejs.org/}{http://nodejs.org/}), is as follows:
+\begin{sloppypar}
+\textit{Node.js is a platform built on Chrome's JavaScript runtime for easily building
+fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O
+model that makes it lightweight and efficient, perfect for data-intensive real-time
+applications that run across distributed devices.}
+\end{sloppypar}
+What matters to us is, Node.js as a part of the platform, provides a scalable and
+high-performance web application development framework, which allows
+programming in JavaScript.
+
+Many of us got introduced to JavaScript while building websites or web applications
+for DOM manipulation, AJAX, and related stuff. But JavaScript is much more
+than that. Just like C, Java, Python, and so on, JavaScript is also a full-fledged
+programming language. In all browsers, JavaScript is executed in a virtual
+machine (VM), in the context of the browser. But it can also be executed in
+another context—as in the case of a Node.js backend—without the browser.
+
+Node.js uses Google Chrome's JavaScript VM to execute JavaScript applications
+outside the browser, on the server. Along with this runtime environment,
+Node.js also provides a library of modules, which provides a framework for
+building network applications. Node.js is not a web server like the Apache HTTP
+server, or an application server like Tomcat; but as part of its modules library,
+Node.js does provide an HTTP Server, which can be used to build web applications.
+
+Apart from having JavaScript as the programming language for the applications,
+one thing that sets Node.js (and most of the Node.js modules and applications)
+apart from the traditional servers and applications is the asynchronous event-driven
+development model, which we will see in later sections.
+
+\paragraph*{The origin of Node.js}
+\hfill \break
+This is not the first time that JavaScript has been used for server-side programming.
+Netscape launched Netscape Enterprise Server in 1996, which allowed server-side
+programming in JavaScript. Since then, many servers, such as \textbf{RingoJS}
+(\href{http://ringojs.org/}{http://ringojs.org/}), \textbf{Persevere} (\href{http://www.persvr.org/}{http://www.persvr.org/}), Mozilla's
+Rhino-based servers, and others have tried to follow suit.
+
+A major reason for these servers not being taken seriously was the pitiful performance
+of the JavaScript VMs used by them. JavaScript performance in browsers was also not
+very good. That was until Google launched its Chrome web browser.
+
+At the time of its launch, Chrome's JavaScript VM, called V8, was almost 10-20 times
+faster than any other JavaScript VM, and has since then been the fastest.
+
+It was based on this VM that Ryan Dahl developed Node.js in 2008. He wanted to
+build a server that would enable and empower real-time interactive web applications
+like Gmail. But Node.js was not the first server he built. Ryan built Ebb, a web server
+based on Ruby and C, but realized that it wasn't working as fast as he wanted it to.
+This was followed by several experiments in building a number of small web servers.
+
+Armed with the knowledge gained from his experiments and the study of various
+platforms, he decided to develop an event-driven or asynchronous server. In the
+January of 2008, he came up with the idea of building a small web server based on
+JavaScript. He was inclined towards JavaScript because it was independent of the
+OS and came without any I/O APIs. He quit his job and worked on Node.js for 6
+months. In November 2009, he presented Node.js in JSConf, and has been working
+for Joyent since then. Initially, Node.js worked only on Unix-based systems; later, it
+came with support for Windows OS too.
+
 \paragraph*{History}
 \hfill \break
 Node.js was invented in 2009 by Ryan Dahl, and other developers working at Joyent. Node.js was created and first published for Linux use in 2009. Its development and maintenance was spearheaded by Ryan Dahl and sponsored by Joyent, the firm where Dahl worked.
@@ -438,22 +541,467 @@ In January 2014, Schlueter announced Timothy J. Fontaine would be Node.js's new 
 
 In December 2014, Fedor Indutny started io.js, a fork of Node.js. Due to internal conflict over Joyent's governance, io.js was created as an open governance alternative with a separate technical committee.
 
+\paragraph*{Why Node.js}
+\hfill \break
+Node.js is a new platform and is still evolving (not even a version 1.0 has been
+released yet), but even in its infancy, it is probably one of the most popular platforms
+on the Web. It is already powering a large number of popular services. Let us take a
+look at what makes Node.js such a tempting and popular proposition.
+
+\paragraph*{JavaScript everywhere}
+\hfill \break
+The first and foremost advantage of Node.js is JavaScript. If you know and code in
+JavaScript regularly, you already know most of Node.js; all that's left to learn can be
+thought of as APIs and best practices.
+
+Node.js—built over Google Chrome's V8 JavaScript engine—allows entire
+applications to be written using JavaScript. We have already been writing frontends
+in JavaScript; with Node.js, we write the backend as well, in the same language that
+we have honed our skills on and grown to love. It saves every frontend developer
+from learning one more language or relying on some other developer to expose the
+RESTful APIs required by their application.
+
+\paragraph*{Event-driven design}
+\hfill \break
+Node.js was designed around events and callbacks. As a JavaScript developer, you
+would already be familiar with the concept of listening to events and using callbacks.
+Node.js incorporates this philosophy in each and every aspect of the platform. Be it
+in server request handling, I/O, or database interactions, everything in Node.js will
+ideally be handled by a callback attached to an event by a listener.
+
+This brings us to one of the most important concepts behind Node.js, that is, the event
+loop. I like the fast food restaurant analogy by Dan York (http://code.danyork.com)
+for explaining event loop-based systems.
+
+Consider a restaurant where you go to the cashier, place your order, and wait till
+your food is ready. In this case, the cashier cannot serve the other customers till you
+have your order, and the queue is blocked. If the restaurant has a large inflow of
+customers and needs to scale up, they will have to invest in hiring more number of
+cashiers, creating more cash counters, and so on. This is similar to the traditional
+multithreading model.
+
+In contrast, let us see the model many other restaurants use. In this case, you go
+to the cashier and place your order (which he/she hands over to the kitchen);
+he/she then accepts your payment and gives you a token. You then step aside, and
+the cashier moves on to the next customer. When your order is ready, the kitchen
+server announces this by calling your name or flashing your token number, and you
+walk up and fetch your order. This event-oriented approach optimizes the work of
+the cashier and lets you wait on the side, freeing up the relevant resources to service
+others until your work is done.
+
+In Node.js, the server is the cashier, and all the handlers are the kitchen crew. The
+server accepts a request and spins it off to a handler. It then moves on to accept other
+requests. When the request is processed and the results are in place, the response is
+queued on the server and sent back to the client when it reaches the front of the queue.
+
+As opposed to the traditional approach of launching the threads or processes of the
+server (which is similar to adding more cashiers), this method is more efficient, as the
+workers launched have dedicated responsibilities. This is much lighter and cheaper
+than replicating the entire server.
+
+In the sections ahead, we will see that we register the handlers or the workers with
+the server to handle certain requests, and all the server does is delegate the requests
+to these workers.
+
+The advantage of the event-driven design is that everything we design is
+non-blocking. "You don't wait on me, I call you" is the mantra that relieves us from
+the pain involved in waiting on a request to be fulfilled. It frees up the system
+resources that would have otherwise been spent in waiting on the request, so that
+they can be used for the other tasks in the queue. This allows the Node.js applications
+to give a very high performance and capability of handling a very high load.
+
+Node.js is a modular framework with a modern module system from the ground
+up. Everything in Node.js is built as modules running in the V8 JavaScript engine.
+Every functionality in the platform is provided by means of modules. This keeps
+the platform lean and brings in only that what is required. Having a native module
+system also helps in keeping our applications modular.
+
+JavaScript has become one of the most widely-used languages in the past few years
+and has a vibrant community. Node.js provides developers with a good platform
+that assists them in developing end-to-end applications in JavaScript. Node.js has
+also brought in many revolutionary concepts, namely, always asynchronous,
+non-blocking I/O, event-oriented servers, and so on. This has resulted in a very
+vibrant, large, and active community. New modules are coming up continuously,
+and the community provides active support and is very helpful. Most of the popular
+modules and frameworks built for Node.js generally come from the community and
+are mostly open source.
+
+\paragraph*{Corporate backing}
+\hfill \break
+Many companies have invested heavily in Node.js in the past couple of years. From
+Ryan Dahl's employer, Joyent, to the creators of the Mojito framework (Internet giant
+Yahoo!), many companies have built products, platforms, frameworks, and services
+around Node.js. This kind of corporate commitment assures a stable future.
+
+\paragraph*{How to get Node.js}
+\hfill \break
+Due to the popularity of Node.js, it is very easy to get it working on any operating
+system. You can go to \href{http://nodejs.org/}{http://nodejs.org/} and download the appropriate
+distribution for your operating system. 
+
+If you are using Linux, in most cases, you should be able to install Node.js using
+your distribution's package manager. As this information keeps changing, I'll just
+point out the location instead. You'll find the instructions for installing Node.js using
+package manager here:
+
+\textbf{\href{https://github.com/joyent/node/wiki/Installing-Node.js-via-packagemanager}{https://github.com/joyent/node/wiki/Installing-Node.js-via-packagemanager}}
+
+
+If you are using Mac OS or Windows, you should know that Node.js now provides
+an installer for these platforms, which is the recommended installation approach.
+You can also install using the source. Instead of repeating that process here, which
+is again subject to change, I'll suggest that you follow the official installation
+instructions on the Node.js wiki, on GitHub (https://github.com/joyent/node/
+wiki/Installation).
+
+\paragraph*{Node.js package manager (npm)}
+\hfill \break
+If you installed Node.js using the installer from the Node.js website, you will already
+have npm installed.
+
+Also, if you followed the instructions to build from the source, you will probably
+have installed npm. If that is a yes, very good! If no, please do so now. For this,
+I recommend that you follow the instructions mentioned in the npm installation
+documentation (https://github.com/isaacs/npm/).
+
+You can check if you have npm installed by typing the following command:
+
+\begin{lstlisting}
+$ npm -v
+\end{lstlisting}
+
+This should display the version of npm installed.
+
+For those who are wondering what npm is and why you would need a package
+manager for Node.js, npm is just what its name says; it provides an infrastructure
+in Node.js to distribute and manage packages. As I said earlier, Node.js is very
+modular. Node.js apps are built using many modules and third-party packages
+because npm provides an easy way of adding and managing third-party
+dependencies for our applications. We will see more on its use in a while.
+
+\paragraph*{Hello World with Node.js}
+\hfill \break
+Here, the obligatory Hello World example uses Node.js. Write the following line in a
+file called \textit{helloworld.js} and save it:
+\begin{lstlisting}
+console.log("Hello World");
+\end{lstlisting}
+And now to run it, execute the following command:
+\begin{lstlisting}
+node helloworld.js
+\end{lstlisting}
+This should print \textbf{Hello World} on the console. All the JavaScript developers will
+immediately recognize that these are the steps we follow to print anything on the
+console while developing a web application.
+
+What happens is that Node.js loads the JavaScript file in the JavaScript VM, provides
+an environment for its execution, and the VM interprets the script. When it gets
+console.log, it checks the environment for the console, which in this case is STDOUT,
+and writes Hello World to it.
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% END NODEJS
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 \subsubsection{ExpressJs}
 Express.js is a Node.js web application framework, designed for building single-page, multi-page, and hybrid web applications.
 Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+\paragraph*{Starting with Express.js}
+\hfill \break
+Express.js is a web framework based on the core Node.js http module and Connect components. Those components are called middleware. They are the cornerstone of the framework’s philosophy, which is configuration over convention. Some developers familiar with Ruby compare Express.js to Sinatra, which has a very different approach from the Ruby on Rails framework that favors convention over configuration. In other words, developers are free to pick whatever libraries they need for a particular project. This approach provides them with flexibility and the
+capability to highly customize their projects.
+
+If you have written any serious apps using only the core Node.js modules, you most likely found yourself reinventing the wheel by constantly writing the same code for similar tasks, such as:
+\begin{itemize}
+  \item Parsing HTTP request bodies
+  \item Parsing cookies
+  \item Managing sessions
+  \item Organizing routes with a chain of if conditions based on URL paths and HTTP methods of the
+requests
+  \item Determining proper response headers based on data types
+  \item Handling errors
+  \item Extracting URL parameter (e.g., /messages/3233)
+\end{itemize}
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% END EXPRESSJS
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \subsubsection{Socket.io}
 Socket.IO enables real-time bidirectional event-based communication.
 It works on every platform, browser or device, focusing equally on reliability and speed.
+\paragraph*{Going Real Time on the Web}
+\hfill \break
+The Arab Spring revolution was sparked and fuelled through social media sites like
+Facebook and Twitter. Over the next few days, social media went from being just
+a means of interacting with family and friends to a weapon that empowered the
+people and brought about a significant change in the world. Everyone noticed the
+power of the people and people noticed what social networks were capable of. At
+the heart of it all was the technology that made all this possible, the technology that
+removed all the barriers to communication and spread the word faster than wildfire.
+This is the power of real-time web!
+
+\subparagraph*{What is real-time web?}
+\hfill \break
+On the Web, we have been habituated to sites and applications where we click on a
+link or a button, or change some input and perform some action, and it causes some
+change in the page. But if we leave our twitter page open for a while, we get alerts
+when we receive new tweets, even without performing any action (shown in the next
+screenshot). This is what we mean in general when we say "real-time web".
+Wikipedia introduces real-time web in these words:
+
+\textit{The real-time web is a set of technologies and practices that enable users to receive
+information as soon as it is published by its authors, rather than requiring that they
+or their software check a source periodically for updates.
+}
+This "set of technologies" is one of the hottest trends on the Web. Over the
+next few pages, we will get familiar with these technologies and see their use
+in various applications.
+
+\subparagraph*{A bit of history}
+\hfill \break
+To understand and fully appreciate any concept, it is important to know where it
+came from and how it evolved.
+
+Real-time web is not a new thing; one of the first attempts at making web real-time
+was the usage of Java applets. Many will remember chatting in Yahoo! chat rooms or
+playing chess, way back in the late '90s. Then came Flash and ActiveX plugins. This
+was not only for "fun" (for the consumer section), but also for use in the enterprise
+market. I worked for a BPM (Business Process Management) company in the early
+stages of my career, where they had built an ActiveX plugin for powering their
+dashboards and updating process information in real time. So why is it important
+now? Because the way in which real-time functionality is implemented and the cost
+involved in doing so has changed. From being a fancy feature in an application,
+it has become a necessity—a user demand. From being a hacked-in or technically
+challenging piece of the application, it is on its way to becoming a ratified standard
+in the form of WebSockets and Server-Sent Events (SSE). How did we get from static
+web to here?
+
+The Web (and web applications), as we all know, is built over the HTTP protocol.
+HTTP is a request-response system, where the client sends a request for information
+to the server and the server responds with the requested information. In most
+cases, this information is the HTML or related information, like XML or JSON, to
+be rendered by the browser. This HTTP browser-server interaction is shown in the
+following figure:
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{./Pictures/http.jpg}
+  \rule{0.5\textwidth}{1pt}
+    \caption{HTTP browser-server interaction}
+\end{figure}
+
+In 1995, Sun and Netscape announced a partnership that saw Netscape bundle
+Sun's brand new Java runtime with its browser. This was the beginning of highly
+interactive web. Although they have since earned themselves a very bad reputation,
+applets were the pioneers in the field of real-time web. In the early days of real-time
+web, we saw applets being used everywhere, for chat, games, and even for banners.
+In the same year, Netscape came up with a scripting language called JavaScript
+(originally LiveScript), and another small company called FutureWave Software
+started working on an animation software called FutureSplash Animator. Later,
+both of them became the cause of Java applets almost disappearing from the Web.
+
+FutureWave was acquired by Macromedia in 1996 and they renamed FutureSplash
+Animator to Flash. Flash, as we all know, went on to rule the Web as the most widely
+available platform for creating animations, games, video players, and everything
+interactive, for the major part of the next decade.
+
+In 1999, Microsoft used its iframe technology and JavaScript to update news and
+stock quotes on Internet Explorer's default home page (http://home.microsoft.
+com). In the same year, they released a proprietary ActiveX extension for IE, called
+XMLHTTP. This was the era when XML was the "in" thing and everyone wanted to
+use XML for anything they were doing. This XMLHTTP component was originally
+meant to load XML data in the page asynchronously, using JavaScript. It was soon
+adopted by Mozilla, Safari, and Opera, as XMLHttpRequest (or XHR, for short).
+But it was with the launch of Gmail (by Google) that the term AJAX (Asynchronous
+JavaScript and XML)—coined by Jesse James Garrett in an article titled \textit{Ajax: A
+New Approach to Web Applications}—became the buzzword in web development. The
+following figure shows an AJAX Request:
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{./Pictures/ajax.jpg}
+  \rule{0.5\textwidth}{1pt}
+  \caption{AJAX Request}
+\end{figure}
+Gmail also shed light on the advantages of live updates to web pages and opened the
+floodgates to various hacks built over AJAX to push data from a server (or at least,
+giving the illusion of doing so).
+
+Collectively, these technologies were referred to as Comet-a term introduced by Alex
+Russell on his blog in 2006. Comet was a play on the word Ajax, both being popular
+household cleaners in the US. Comet was not one single approach. It introduced
+multiple mechanisms to give the feeling of data being pushed from the server to the
+client. These included Hidden iframe, XHR polling, XHR long polling, and Script tag
+long polling (or, JSONP long polling).
+
+Let us understand how these work, as they continue to remain the most commonly
+available mechanisms across all modern browsers.
+
+The first and the easiest to implement is XHR polling, in which the browser keeps
+polling for data periodically, and the server keeps responding with an empty
+response unless it has data to send back to the browser. Following an event, such
+as receiving a mail, or creating/updating a record in the database, the server
+responds to the next polling request with new data. The following figure depicts
+this mechanism:
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{./Pictures/xhr.jpg}
+  \rule{0.5\textwidth}{1pt}
+  \caption{XHR polling}
+\end{figure}
+As you can see, there is a problem with this. The browser has to keep making
+requests to the server even when there is no data. This causes the server to get and
+process data even when there is nothing to deliver.
+
+One of the solutions to this is to modify the server to piggyback the actual client
+requests by not only sending the data requested by the client, but also appending
+additional data that the server has, to send to the browser. The client needs to be
+modified to understand and act upon the additional incoming data. The HTTP
+piggybacking process is shown in the following figure:
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{./Pictures/http_2.jpg}
+  \rule{0.5\textwidth}{1pt}
+  \caption{HTTP piggybacking}
+\end{figure}
+
+As the new data is only sent when there is a client action, it causes delays in the
+data reaching the browser. The solution to receiving events quickly while avoiding
+frequent server queries is long polling.
+
+In long polling, when the browser sends a request to the server, the server won't
+respond immediately if it doesn't have data to respond with, and will suspend the
+request. Once the event occurs, the server closes the suspended request by sending
+over a response to the client. As soon as the client receives the response, it sends a
+new request:
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{./Pictures/long_poling.jpg}
+  \rule{0.5\textwidth}{1pt}
+  \caption{Long Polling}
+\end{figure}
+There are various ways in which long polling is implemented, such as forever iframe,
+multipart XHR, script tags with JSONP, and long-living XHR.
+
+Though all these techniques work, these are hacks, bending HTTP and XHR to be
+able to do duplex communication, which is not what they are meant for.
+With the rapid evolution of the web browsers lead by Firefox and then Chrome, the
+long-due upgrade to HTML, called HTML5, is being widely adopted. In HTML5,
+there are two new methods for pushing data from the server to the client. One is
+Server-Sent Events (SSE) and the other is the full duplex WebSockets.
+
+Server-Sent Events attempts to standardize Comet-like communication across
+browsers. In this approach, there is a JavaScript API to create an event source, that is,
+a stream over which the server can send events. This is a unidirectional protocol. We
+will still be using the good old XHR. This is a good approach when you don't need
+full duplex communication; just push updates from the server to client.
+
+The other specification which goes on to implement a full duplex communication
+protocol for the web applications is WebSockets. In WebSockets, the client initiates
+a socket connection with the server, which supports this protocol as well. The server
+and client will send and receive data on this socket connection.
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% END SOCKET.IO
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Web Application Front-End} 
 Front end development is the development of those elements of a website that the customer sees and interacts with directly. It is a combination of programming skills (knowing which program to choose) and aesthetics (understanding element arrangements on the screen, the color and font choices). The challenges associated with front end developers is that the tools and techniques used to create the front end of a website change constantly and so the developer needs to constantly be aware of how the field is developing.
 The objective of designing a site is to ensure that when the users open up the site they see the information in a format that is easy to read and relevant. This is further complicated by the fact that users now use a large variety of devices with varying screen sizes and resolutions thus forcing the designer to take into consideration these aspects when designing the site. They need to ensure that their site comes up correctly in different browsers (cross-browser), different operating systems (cross-platform) and different devices (cross-device), which needs careful planning on the site of the developer.
 \subsubsection{HTML (HyperText Markup Language)}
+HyperText Markup Language, commonly referred to as HTML, is the standard markup language used to create web pages. It is written in the form of HTML elements consisting of tags enclosed in angle brackets (like <html>). HTML tags most commonly come in pairs like <h1> and </h1>, although some represent empty elements and so are unpaired, for example <img>. The first tag in such a pair is the start tag, and the second is the end tag (they are also called opening tags and closing tags).
+Web browsers can read HTML files and render them into visible or audible web pages. Browsers do not display the HTML tags and scripts, but use them to interpret the content of the page. HTML describes the structure of a website semantically along with cues for presentation, making it a markup language, rather than a programming language.
+HTML elements form the building blocks of all websites. HTML allows images and objects to be embedded and can be used to create interactive forms. It provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes and other items. It can embed scripts written in languages such as JavaScript which affect the behavior of HTML web pages.
+Web browsers can also refer to Cascading Style Sheets (CSS) to define the look and layout of text and other material. The World Wide Web Consortium (W3C), maintainer of both the HTML and the CSS standards, has encouraged the use of CSS over explicit presentational HTML since 1999.
+\subparagraph*{A Brief History of the Internet and the World Wide Web}
+\hfill \break
+devices are connected to it. However, the Web and its underlying Internet infrastructure had a
+very different childhood that betrays the consumer and commercial base it has today.
+The Internet has its roots in the U.S. Department of Defense Advanced Research Project Agency
+(ARPA) project begun in or around 1960. Among the project’s goals was the ability to network
+computers quickly and across great distances. The network was to be designed to be almost
+fail-safe, enabling connected computers to continue communicating even if assorted routes
+between them were to fail.
+
+In 1969, the ARPANet was born, connecting several key universities. The network continued
+to grow, with more and more universities coming online. One of the goals of the initial
+project — robust, nearly fail-safe performance — was realized via the Internet Protocol (IP).
+This protocol enabled communication packets to find various routes to a destination in case one
+or more of the routes became unstable. This communication protocol became the backbone of
+today’s Internet, and is how the Internet got its name.
+
+The Transmission Control Protocol was joined with the IP to provide a robust transmission suite,
+a marriage of two protocols to offer more flexibility and the ability to create better communications
+applications for the Internet.
+
+In the 1980s, the Internet went through several transitions. Although it was highly populated by
+educational institutions, the U.S. military hadn’t forgotten its original project. Other government
+agencies also took notice and joined the crowd online; and the military decided to create its own
+network, MILNET, lessening the load slightly.
+
+By 1992, the Internet was far and away the most popular network in the world. During this
+time, Tim Berners-Lee, a British software engineer and computer scientist, created HyperText
+Markup Language to create documents, a protocol — HyperText Transfer Protocol (HTTP) — to send such documents, and the first browser editor, called the World Wide Web. The ‘‘Web’’ soon
+came to the attention of the National Center for Supercomputing Applications (NCSA), where a
+programming team decided to create a better browser. Thus was Mosaic born, the first browser
+to support a high degree of multimedia. Mosaic helped usher in the crop of modern browsers we
+use today.
+
+As the Web continued to be adopted outside of the government and educational sectors, it
+became more consumer-savvy. Many companies began using the Web infrastructure for marketing
+and support purposes, while many Web developers began to target a wider, nontechnical,
+audience.
+By the early 2000s, the Web was accessible by almost any network-connected computer, many
+electronic devices, and some unlikely consumer devices such as automobiles. Each of these connected
+devices uses the same type of connection, the same languages to define documents, and
+the same protocols to send the information.
+
+As more and more nontechnical users began using the Web, web ‘‘pages’’ began to look more
+like high-quality printed documents — resembling newspapers, brochures, magazines, and the
+like. This movement in content signaled how far the Web had come from its inception — from
+technical, text-only pages to full-color, heavily designed documents.
+
+During the entire evolution of the World Wide Web, and especially in the last few years, standards,
+tools, and related applications have changed and evolved, sometimes at a very rapid pace.
+\subparagraph*{HTML 4.01/XHTML 1.1}
+\hfill \break
+HTML 4.01 is the latest version of HTML. This version is very stable, having been released in
+December 1999. Although HTML version 5 (HTML5) is in draft stage as of this writing, the
+specification is probably a good year (or so) away from actual release.
+
+Note, however, that this book promotes and uses XHTML 1.1 standards. This includes standards
+such as the following:
+
+\begin{itemize}
+  \item Every tag needs to be explicitly closed, whether by a matching closing tag or a slash at the
+end of a tag (if it has no matching closing tag).
+  \item Every tag must be in lowercase; in other words, use <p> instead of <P>.
+  \item Every tag attribute needs to be enclosed in quotes.
+  \item Every tag attribute must have a value — for example, the attribute selected should be
+selected ="selected" instead.
+\end{itemize}
+Although these standards are not a mandatory part of HTML 4.01, they are covered in this book
+because the XHTML standards are stricter, don’t hamper HTML, and prepare you for authoring
+documents in other XML-based languages.
+
+
 \subsubsection{CSS (Cascading Style Sheets)}
-\subsubsection{Less}
-\subsubsection{CoffeeScript}
+Cascading Style Sheets (CSS) is a style sheet language used for describing the look and formatting of a document written in a markup language. While most often used to change the style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any kind of XML document, including plain XML, SVG and XUL. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.
+CSS is designed primarily to enable the separation of document content from document presentation, including elements such as the layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content, such as semantically insignificant tables that were widely used to format pages before consistent CSS rendering was available in all major browsers. CSS makes it possible to separate presentation instructions from the HTML content in a separate file or style section of the HTML file. For each matching HTML element, it provides a list of formatting instructions. For example, a CSS rule might specify that "all heading 1 elements should be bold," leaving pure semantic HTML markup that asserts "this text is a level 1 heading" without formatting code such as a <bold> tag indicating how such text should be displayed.
+This separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to display the web page differently depending on the screen size or device on which it is being viewed. While the author of a web page typically links to a CSS file within the markup file, readers can specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author has specified. If the author or the reader did not link the document to a style sheet, the default style of the browser will be applied. Another advantage of CSS is that aesthetic changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in one file, rather than by a laborious (and thus expensive) process of crawling over every document line by line, changing markup.
+The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities or weights are calculated and assigned to rules, so that the results are predictable.
+The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS validation service for CSS documents.
+
+\subsubsection{Less (stylesheet language)}
+Less (sometimes stylized as LESS) is a dynamic stylesheet language that can be compiled into Cascading Style Sheets (CSS), or can run on the client-side and server-side. Designed by Alexis Sellier, Less is influenced by Sass and has influenced the newer "SCSS" syntax of Sass, which adapted its CSS-like block formatting syntax. Less is open-source. Its first version was written in Ruby, however in the later versions, use of Ruby has been deprecated and replaced by JavaScript. The indented syntax of Less is a nested metalanguage, as valid CSS is valid Less code with the same semantics. Less provides the following mechanisms: variables, nesting, mixins, operators and functions; the main difference between Less and other CSS precompilers being that Less allows real-time compilation via less.js by the browser.
+%\subsubsection{CoffeeScript}
 \subsubsection{jQuery}
+jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. jQuery is the most popular JavaScript library in use today. jQuery is free, open-source software licensed under the MIT License.
+jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plug-ins on top of the JavaScript library. This enables developers to create abstractions for low-level interaction and animation, advanced effects and high-level, theme-able widgets. The modular approach to the jQuery library allows the creation of powerful dynamic web pages and web applications.
+The set of jQuery core features—DOM element selections, traversal and manipulation—enabled by its selector engine (named "Sizzle" from v1.3), created a new "programming style", fusing algorithms and DOM data structures. This style influenced the architecture of other JavaScript frameworks like YUI v3 and Dojo, later stimulating the creation of the standard Selectors API.
+Microsoft and Nokia bundle jQuery on their platforms. Microsoft includes it with Visual Studio for use within Microsoft's ASP.NET AJAX framework and ASP.NET MVC Framework while Nokia has integrated it into the Web Run-Time widget development platform. jQuery has also been used in MediaWiki since version 1.16.
 \subsection{Tools Used for Developing}
 \subsubsection{Sublime Text 3}
 \subsubsection{GruntJs}
 \subsubsection{PuTTY}
+PuTTY  is a free and open-source terminal emulator, serial console and network file transfer application. It supports several network protocols, including SCP, SSH, Telnet, rlogin, and raw socket connection. It can also connect to a serial port (since version 0.59). The name "PuTTY" has no definitive meaning.
+PuTTY was originally written for Microsoft Windows, but it has been ported to various other operating systems. Official ports are available for some Unix-like platforms, with work-in-progress ports to Classic Mac OS and Mac OS X, and unofficial ports have been contributed to platforms such as Symbian and Windows Mobile.
+PuTTY was written and is maintained primarily by Simon Tatham and is currently beta software.
 \subsubsection{Basic UNIX commands}
