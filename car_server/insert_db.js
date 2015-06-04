@@ -2,42 +2,20 @@
 var d = new Date();
 var t = d.getTime();
 var time = Math.round(t/86400000);
-var nosql = require('nosql').load('./database/db.nosql');
+var Datastore = require('nedb')
+  , db = new Datastore({ filename: './database/car.db', autoload: true });
+// You can issue commands right away
+var doc = { hello: 'world'
+               , n: 5
+               , today: new Date()
+               , nedbIsAwesome: true
+               , notthere: null
+               , notToBeSaved: undefined  // Will not be saved
+               , fruits: [ 'apple', 'orange', 'pear' ]
+               , infos: { name: 'nedb' }
+               };
 
-// --- WRITE 
- 
-nosql.description('car database.');
-nosql.custom({ key: '3493893' });
- 
-// --- READ 
- 
-var description = nosql.description();
-var custom = nosql.custom();
- 
-
- 
-// --- OTHER 
- 
-// Database date created 
-nosql.created;
- 
-if (!nosql.isReady) {
-    // YOU MUST WAIT :-) 
-}
- 
-nosql.on('load', function() {
-   // I'm ready 
+db.insert(doc, function (err, newDoc) {   // Callback is optional
+  // newDoc is the newly inserted document, including its _id
+  // newDoc has no key called notToBeSaved since its value was undefined
 });
- var callback = function(err, count) {
-    
-};
-
-
-// var x ="{'"+time+":{'levels':{'oil':10,'fuel':50},'temperatures':{'engine':50,'outside':25}}}";
-// nosql.insert(x, callback);
-
-// var oil =50;
-// var x ="{"+time+":{levels:{oil:50,fuel:50},temperatures:{engine:50,outside:25}}}";
-// nosql.insert(x, callback);
- nosql.insert({""+time+"":{"levels":{"oil":10,"fuel":50},"temperatures":{"engine":50,"outside":25}}}, callback);
-// nosql.insert({time:{levels:{oil:50,fuel:50},temperatures:{engine:50,outside:25}}}, callback);
