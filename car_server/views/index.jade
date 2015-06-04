@@ -1,7 +1,21 @@
 extends layout
 
 block content
+
 	.container
+		.alert.alert-danger.alert-dismissible.fade.in(role='alert')
+			button.close(type='button', data-dismiss='alert', aria-label='Close')
+					span(aria-hidden='true') &times;
+				h4(id='oh-snap!-you-got-an-error!')
+					| Oh snap! You got an error!
+					a.anchorjs-link(href='#oh-snap!-you-got-an-error!')
+						span.anchorjs-icon
+				p
+					| Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+				p
+					button.btn.btn-danger(type='button') Take this action
+					button.btn.btn-default(type='button') Or do this
+
 		h1 Levels
 		h3 Carburant level
 		.progress

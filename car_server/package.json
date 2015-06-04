@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lupu60/bachelor.git"
+    "url": "https://github.com/lupu60/bachelor_thesis.git"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
