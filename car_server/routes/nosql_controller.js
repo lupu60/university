@@ -1,12 +1,23 @@
-var nosql = require('nosql').load('.././database/db.nosql');
+var d = new Date();
+var nosql = require('nosql').load('./database/db.nosql');
+// --- WRITE 
+// nosql.description('car_database.');
+// nosql.custom({key: '412412352345234134'});
 
-
-exports.go = function(){
-	var read = function(err, selected){
+var car={};
+var all = function(err, selected) {
     selected.forEach(function(o) {
-        console.log(o);
+        car= o;
+    });
+};
+var timeStamp = function(err, selected) {
+    selected.forEach(function(o) {
+        // console.log(o["timestamp"]);
     });
 };
 
-nosql.all(read);
+exports.read = function() {
+ nosql.all(all);
+ return car;
+ // nosql.all(timeStamp);
 };

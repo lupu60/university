@@ -1,20 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var nosql = require('nosql').load('.././database/db.nosql');
-
-	var read = function(err, selected){
-    selected.forEach(function(o) {
-        console.log(o.levels);
-    });
-};
-
-
+var car={};
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	// var nosql = require('./nosql_controller.js');
-	// nosql.go();
-	nosql.all(read);
-  res.render('index', { title: 'Remote Diagnostics' });
+	var app =require('../app');
+	var nosql = require('./nosql_controller.js');
+	car=nosql.read();
+	console.log(car);
+	app.io.on('connection', function (socket) {
+		socket.emit('carinfo', {data:car});
+	});
+	// console.log(car["sensordata"]["levels"]["fuel"]);
+	res.render('index', { title: 'Remote Diagnostics'});
 });
-
+   
 module.exports = router;
