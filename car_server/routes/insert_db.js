@@ -1,26 +1,7 @@
-var nosql = require('nosql').load('./database/db.nosql');
+var app =require('../app');
 var usage = require('usage');
 var d = new Date();
 var t= Math.round(d.getTime()/(1000 * 60));
-// Database date created 
-/*===============================
-=            created            =
-===============================*/
-// nosql.created;
- 
-// if (!nosql.isReady) {
-//     // YOU MUST WAIT :-) 
-// }
- 
-// nosql.on('load', function() {
-//    // I'm ready 
-// });
-
-/*-----  End of created  ------*/
-
-
-
-
 //var pid = (process.argv[2])? parseInt(process.argv[2]): process.pid;
 // var pid = process.pid 
 // setInterval(function() {
@@ -33,9 +14,7 @@ var t= Math.round(d.getTime()/(1000 * 60));
 // 				console.log(result.memory);
 // 	});
 // }, 2000);
-
-
-var fuel=40.5;
+var fuel=55.5;
 var rpm=17629184;
 var car={
   "timestamp":{
@@ -59,5 +38,8 @@ var car={
     }
   }
 }
-nosql.insert(car);
 
+
+exports.insert = function() {
+app.nosql.insert(car);
+};

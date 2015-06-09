@@ -3,6 +3,8 @@ var express = require('express');
 =            new require            =
 ===================================*/
 var socket_io    = require('socket.io' );
+var nosql = require('nosql').load('./database/db.nosql');
+
 var passport = require('passport')
 var flash = require('connect-flash')
 var LocalStrategy = require('passport-local').Strategy;
@@ -35,6 +37,12 @@ var app = express();
 var io           = socket_io();
 app.io           = io;
 /*-----  End of Socket io   ------*/
+/*===============================
+=            new var            =
+===============================*/
+app.nosql  =  nosql;
+/*-----  End of new var  ------*/
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

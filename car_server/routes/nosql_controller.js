@@ -1,20 +1,21 @@
 var d = new Date();
-var nosql = require('nosql').load('./database/db.nosql');
+var app =require('../app');
 
-var car={};
+
 var all = function(err, selected) {
     selected.forEach(function(o) {
-        car = o;
-    });
-};
-var timeStamp = function(err, selected) {
-    selected.forEach(function(o) {
-        // console.log(o["timestamp"]);
+        exports.last = o;
     });
 };
 
+var map = function(doc) {
+	if (doc["timestamp"]["day"]==d.getDate())
+		 return doc;
+};
+app.nosql.all(map, all);
+
 exports.read = function() {
- nosql.all(all);
- return car;
+
+
  // nosql.all(timeStamp);
 };

@@ -1,1 +1,4 @@
-{"timestamp":{"day":5,"month":5,"year":2015},"sensordata":{"levels":{"fuel":24.5,"oil":50,"brake_fluid":70,"windshield_washer_fluid":80},"engine_RPM":17629184,"temperatures":{"engine":50,"outside":25}}}
+{"timestamp":{"minutes_70":23897861,"minutes":40,"day":9,"month":5,"year":2015},"sensordata":{"levels":{"fuel":40.5,"oil":60,"brake_fluid":20,"windshield_washer_fluid":80},"engine_RPM":17629184,"temperatures":{"engine":10,"outside":15}}}
+{"timestamp":{"minutes_70":23897862,"day":9,"month":5,"year":2015},"sensordata":{"levels":{"fuel":24.5,"oil":50,"brake_fluid":70,"windshield_washer_fluid":80},"engine_RPM":17629184,"temperatures":{"engine":50,"outside":25}}}
+{"timestamp":{"minutes_70":23897864,"minutes":44,"day":9,"month":5,"year":2015},"sensordata":{"levels":{"fuel":40.5,"oil":60,"brake_fluid":20,"windshield_washer_fluid":80},"engine_RPM":17629184,"temperatures":{"engine":10,"outside":15}}}
+{"timestamp":{"minutes_70":23897869,"minutes":49,"day":9,"month":5,"year":2015},"sensordata":{"levels":{"fuel":55.5,"oil":60,"brake_fluid":20,"windshield_washer_fluid":80},"engine_RPM":17629184,"temperatures":{"engine":10,"outside":15}}}
