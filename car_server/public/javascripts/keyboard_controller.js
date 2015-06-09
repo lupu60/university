@@ -1,4 +1,5 @@
 var socket = io();
+
 $( document ).ready(function() {
     var move = {
         "data": '',

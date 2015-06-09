@@ -1,4 +1,3 @@
-
 /*==========  my  ==========*/
 var socket = io();
 var move = {
