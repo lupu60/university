@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     // =========================================================
     var JQUERY = './node_modules/jquery/dist/jquery.js';
     var BOOTSTRAP_JS = './node_modules/bootstrap/dist/js/bootstrap.js';
-    var SCREENFULL='./node_modules/screenfull/dist/screenfull.js';
+    // var SCREENFULL='./node_modules/screenfull/dist/screenfull.js';
     // =========================================================
     // configure the tasks
     grunt.initConfig({
@@ -46,14 +46,31 @@ module.exports = function(grunt) {
                 sourceMap: true,
             },
             libs: {
-                src: [JQUERY, BOOTSTRAP_JS,SCREENFULL],
+                src: [JQUERY, BOOTSTRAP_JS],
                 dest: BUILD_FILE_JS,
             },
         },
+          uglify: {
+            libs: {
+              files: {
+              './public/javascripts/libs.min.js': BUILD_FILE_JS,
+              }
+            }
+          },
+        //   uglify: {
+        //     my_target: {
+        //         files: [{
+        //         expand: true,
+        //         cwd: './public/javascripts/',
+        //         src: ['**/*.js','!./min/*.js'],
+        //         dest: './public/javascripts/min/',
+        //         }]
+        //     },
+        // },
         less: {
             development: {
                 options: {
-                    compress: false,
+                    compress: true,
                     cleancss: false,
                     sourceMap: true,
                     sourceMapURL: './style.css.map',
@@ -81,4 +98,5 @@ module.exports = function(grunt) {
         },
     });
     grunt.registerTask('default', ['asciify','watch']);
+    grunt.registerTask('first', ['asciify','copy','less','concat','uglify']);
 };

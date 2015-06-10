@@ -1,4 +1,3 @@
-/*==========  my  ==========*/
 var socket = io();
 var move = {
     "x": '1',
@@ -7,9 +6,7 @@ var move = {
 };
 
 function send() {
-    socket.emit('moving', {
-        move
-    });
+    socket.emit('moving', {move});
     return false;
 }
 

@@ -1,8 +1,9 @@
 var socket = io();
 socket.on('carinfo', function(car) {
+    // console.log(car);
     levels(car.data.sensordata.levels);
     temperatures(car.data.sensordata.temperatures);
-    console.log(car);
+
 });
 
 function levels(levels) {

@@ -3,7 +3,6 @@ var express = require('express');
 =            new require            =
 ===================================*/
 var socket_io    = require('socket.io' );
-var nosql = require('nosql').load('./database/db.nosql');
 
 var passport = require('passport')
 var flash = require('connect-flash')
@@ -40,7 +39,7 @@ app.io           = io;
 /*===============================
 =            new var            =
 ===============================*/
-app.nosql  =  nosql;
+
 /*-----  End of new var  ------*/
 
 
