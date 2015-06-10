@@ -28,6 +28,7 @@ var users = require('./routes/users');
 var keyboard_controller = require('./routes/keyboard_controller');
 var gyroscope_controller = require('./routes/gyroscope_controller');
 var speech_controller = require('./routes/speech_controller');
+var settings = require('./routes/settings');
 /*-----  End of New Routes  ------*/
 var app = express();
 /*================================== 
@@ -64,6 +65,7 @@ app.use('/users', users);
 app.use('/keyboard_controller', keyboard_controller);
 app.use('/gyroscope_controller', gyroscope_controller);
 app.use('/speech_controller',speech_controller);
+app.use('/settings',settings); 
 /*-----  End of New Routes  ------*/
 
  

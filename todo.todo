@@ -1,0 +1,19 @@
+Must have:
+  ☐ min js @low
+  ☐ Graphs @high 
+  ☐ Login @low
+  ☐ fix socket @critical 
+
+Nice to have:
+  ☐ Cpu usage @low
+  ☐ Ultrasonic sensor http://8bitben.me/?p=21 @high
+  ☐ temperature sensor @low
+
+Features:
+ ☐ Push Notifications http://updates.html5rocks.com/2015/03/push-notificatons-on-the-open-web @low
+ ☐ Geolocation http://html5demos.com/geo @low
+ ✔ Homepage http://updates.html5rocks.com/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android#criteria @high @done (15-06-10 19:39)
+General todo:
+  ☐ documentation @critical
+  ☐ update readme @critical
+  ☐ improve gruntfile @low

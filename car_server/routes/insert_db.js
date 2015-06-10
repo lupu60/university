@@ -1,5 +1,4 @@
 var nosql = require('nosql').load('./database/db.nosql');
-var usage = require('usage');
 var d = new Date();
 var t = Math.round(d.getTime() / (1000 * 60));
 
