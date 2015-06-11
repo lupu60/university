@@ -1,42 +1,88 @@
-var socket = io();
-socket.on('carinfo', function(car) {
-    // console.log(car);
-    levels(car.data.sensordata.levels);
-    temperatures(car.data.sensordata.temperatures);
-
+$.get("/carinfo", function(car){
+    levels(car.sensordata.levels);
+    temperatures(car.sensordata.temperatures);
 });
+function levels_style(selector, percentage) {
+    $('#' + selector).css("width", percentage + "%");
 
-function levels(levels) {
-    $('#fuel').css("width", levels.fuel + "%");
-    $('#oil').css("width", levels.oil + "%");
-    $('#windshield').css("width", levels.windshield_washer_fluid + "%");
+    if (percentage > 30 && percentage < 49){
+        $('#' + selector).removeClass("progress-bar-danger").addClass("progress-bar-warning");
+        return;
+    };
+    if (percentage > 50 && percentage < 79) {
+        $('#' + selector).removeClass("progress-bar-danger");
+        return;
+    };
+    if (percentage > 80) {
+        $('#' + selector).removeClass("progress-bar-danger").addClass("progress-bar-success");
+        return;
+    };
+}
+
+function temperatures_style(selector, percentage) {
+    $('#' + selector).circleProgress({
+        value: "." + percentage,
+        fill: {
+            gradient: [
+                ['#ff1e41', .5],
+                ['#ff5f43', .5]
+            ],
+            gradientAngle: Math.PI / 4
+        }
+    }).on('circle-animation-progress', function(event, progress, stepValue) {
+        $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
+    });
+    if (percentage > 30 && percentage < 49) {
+        $('#' + selector).circleProgress({
+            value: "." + percentage,
+            fill: {
+                gradient: [
+                    ['#FFFF00', .5],
+                    ['#FF9900', .5]
+                ],
+                gradientAngle: Math.PI / 4
+            }
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
+        });
+    };
+    if (percentage > 50 && percentage < 79) {
+        $('#' + selector).circleProgress({
+            value: "." + percentage,
+            fill: {
+                gradient: [
+                    ['#0681c4', .5],
+                    ['#4ac5f8', .5]
+                ],
+                gradientAngle: Math.PI / 4
+            }
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
+        });
+    };
+    if (percentage > 80) {
+        $('#' + selector).circleProgress({
+            value: "." + percentage,
+            fill: {
+                gradient: [
+                    ['#006600', .5],
+                    ['#33CC33', .5]
+                ],
+                gradientAngle: Math.PI / 4
+            }
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
+        });
+    };
 };
 
-function temperatures(temperatures){
-console.log();
-$('#engine').circleProgress({
-    value: "."+temperatures.engine,
-    fill: {
-        gradient: [
-            ['#ff1e41', .5],
-            ['#ff5f43', .5]
-        ],
-        gradientAngle: Math.PI / 4
-    }
-}).on('circle-animation-progress', function(event, progress, stepValue) {
-    $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
-});
+function temperatures(temperatures) {
+    temperatures_style('engine', temperatures.engine);
+    temperatures_style('outside', temperatures.outside);
+};
 
-$('#outside').circleProgress({
-    value: "."+temperatures.outside,
-    fill: {
-        gradient: [
-            ['#0681c4', .5],
-            ['#4ac5f8', .5]
-        ],
-        gradientAngle: Math.PI / 4
-    }
-}).on('circle-animation-progress', function(event, progress, stepValue) {
-    $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
-});
+function levels(levels) {
+    levels_style('fuel', levels.fuel);
+    levels_style('oil', levels.oil);
+    levels_style('windshield', levels.windshield_washer_fluid);
 };

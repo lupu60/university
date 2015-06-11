@@ -40,6 +40,13 @@ module.exports = function(grunt) {
                     dest: BUILD_DIR + 'fonts'
                 }, ],
             },
+        chartist: {
+              files: {
+              './public/stylesheets/chartist.min.css': './node_modules/chartist/dist/chartist.min.css',
+                './public/javascripts/libs/chartist.min.js': './node_modules/chartist/dist/chartist.min.js',
+             
+              }
+            },
         },
         concat: {
             options: {

@@ -1,12 +1,18 @@
 @import	"_imports.less";
-body {
-		padding-top: 50px;
+.navbar-toggle {
+  border-radius: 0px;
 }
 body {
   background: radial-gradient(#000 15%, rgba(0, 0, 0, 0) 16%) 0 0,radial-gradient(#000 15%, rgba(0, 0, 0, 0) 16%) 8px 8px,radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 0 1px,radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 8px 9px;
   background-color: #282828;
   background-size: 16px 16px;
+  padding-top: 50px;
 } 
+// flat
+.navbar-toggle,.progress {
+  border-radius: 0px;
+}
+
 h1,h3{
 	color: #FFF;
 }
@@ -32,4 +38,16 @@ h1,h3{
 }
 #not_found{
 width:100%;
+}
+//chart
+.ct-label {
+  fill: rgba(255, 255, 255, 0.9);
+  color: #FFF;
+  font-size: 0.78rem;
+  line-height: 1;
+}
+.ct-grid {
+  stroke: rgba(255, 255, 255, 0.99);
+  stroke-width: 1px;
+  stroke-dasharray: 2px;
 }

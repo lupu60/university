@@ -1,14 +1,16 @@
-var socket = io();
+var socket = io.connect(':4000');
+var move = {
+    "data": '',
+    "val": ''
+};
 
-$( document ).ready(function() {
-    var move = {
-        "data": '',
-        "val": ''
-    };
-    function send(move) {
-        socket.emit('moving', {move});
-        return false;
-    }
+function send(move) {
+    socket.emit('moving', {
+        move
+    });
+    return false;
+};
+$(document).ready(function() {
     $('#up').bind('touchstart', function() {
         $(this).css({
             'background-color': '#1AFF00'

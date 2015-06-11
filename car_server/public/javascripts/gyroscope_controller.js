@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io.connect(':5000');
 var move = {
     "x": '1',
     "y": '1',

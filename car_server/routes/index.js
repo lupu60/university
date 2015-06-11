@@ -1,21 +1,18 @@
 var express = require('express');
 var router = express.Router();
-
+var nosql = require('./nosql_controller.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var app = require('../app');
-    var nosql = require('./nosql_controller.js');
-    var insert_nosql = require('./insert_db.js');
-    //insert_nosql.insert();
-    nosql.read();
-    app.io.on('connection', function(socket) {
-        socket.emit('carinfo', {
-            data: nosql.last
-        });
-    });
+		// nosql.insert();
+		nosql.read_last();
     res.render('index', {
         title: 'Remote Diagnostics'
     });
+
+});
+router.get('/carinfo', function(req, res, next) {
+    var nosql = require('./nosql_controller.js');
+    res.send(nosql.last);
 });
 
 module.exports = router;

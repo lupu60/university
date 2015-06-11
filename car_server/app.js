@@ -3,9 +3,8 @@ var express = require('express');
 =            new require            =
 ===================================*/
 var socket_io    = require('socket.io' );
-
-var passport = require('passport')
-var flash = require('connect-flash')
+var passport = require('passport');
+var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
 /*-----  End of new require  ------*/
 var path = require('path');
@@ -29,6 +28,7 @@ var keyboard_controller = require('./routes/keyboard_controller');
 var gyroscope_controller = require('./routes/gyroscope_controller');
 var speech_controller = require('./routes/speech_controller');
 var settings = require('./routes/settings');
+var graphs = require('./routes/graphs');
 /*-----  End of New Routes  ------*/
 var app = express();
 /*================================== 
@@ -66,6 +66,7 @@ app.use('/keyboard_controller', keyboard_controller);
 app.use('/gyroscope_controller', gyroscope_controller);
 app.use('/speech_controller',speech_controller);
 app.use('/settings',settings); 
+app.use('/graphs',graphs); 
 /*-----  End of New Routes  ------*/
 
  
@@ -88,7 +89,7 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
-}
+};
 
 // production error handler
 // no stacktraces leaked to user
