@@ -7,7 +7,9 @@ router.get('/', function(req, res, next) {
         socket.on('moving', function(data) {
             gpio_controller.moving(data);
         });
-        socket.on('disconnect', function() {});
+        socket.on('disconnect', function() {
+            gpio_controller.user_left();
+        });
     });
     res.render('speech_controller', {
         title: 'Speech Controller'

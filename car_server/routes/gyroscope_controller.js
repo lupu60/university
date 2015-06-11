@@ -11,5 +11,8 @@ io.sockets.on('connection', function(socket) {
     socket.on('moving', function(data) {
         gpio_controller.gyro_moving(data);
     });
+    socket.on('disconnect', function() {
+        gpio_controller.user_left();
+    });
 });
-module.exports = router; 
+module.exports = router;

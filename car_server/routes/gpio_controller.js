@@ -57,6 +57,9 @@ function right() {
 function stop() {
     console.log("stop");
 }
+exports.user_left = function() {
+    stop();
+};
 exports.moving = function(move) {
     switch (move["move"].val) {
         case "up":
