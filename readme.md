@@ -1,122 +1,66 @@
-# my_bachelor_degree_project
+## my_bachelor_thesis_project
+#A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS
+![A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS](http://i.imgur.com/N42rxH4.jpg)
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
-
-  - Type some Markdown on the left
-  - See HTML in the right
-  - Magic
-
-Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site] [1]:
-
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 
 ### Version
-3.0.2
+0.0.1
 
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
+* ##Hardware
+    * [Raspberry Pi]
+    * Car Chassis Development Kit
+* ##Software
+    * ###Web Application Back-End
+        * [JavaScript]
+        * [node.js]
+        * [Expressjs]
+        * [socket.io]
+    * ###Web Application Front-End
+        * [Twitter Bootstrap]
+        * [jQuery]
+        * [less]
+        * [Grunt.js]
 
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [Marked] - a super fast port of Markdown to JavaScript
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [keymaster.js] - awesome keyboard handler lib by [@thomasfuchs]
-* [jQuery] - duh
+
 
 ### Installation
 
-You need Gulp installed globally:
+You need grunt and nodejs installed globally:
 
+Fisrt download [node.js] after
 ```sh
-$ npm i -g gulp
+$ npm install -g grunt-cli
 ```
 
 ```sh
-$ git clone [git-repo-url] dillinger
-$ cd dillinger
-$ npm i -d
-$ mkdir -p public/files/{md,html,pdf}
-$ gulp build --prod
-$ NODE_ENV=production node app
+$ git clone https://github.com/lupu60/bachelor_thesis.git
+$ cd bachelor_thesis/car_server
+$ npm install
+$ grunt fisrt
+$ npm start
 ```
+### acces [localhost:3000]
 
-### Plugins
-
-Dillinger is currently extended with the following plugins
-
-* Dropbox
-* Github
-* Google Drive
-* OneDrive
-
-Readmes, how to use them in your own application can be found here:
-
-* [plugins/dropbox/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md)
-* [plugins/github/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md)
-* [plugins/googledrive/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md)
-* [plugins/onedrive/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md)
-
-### Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantanously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-```sh
-$ node app
-```
-
-Second Tab:
-```sh
-$ gulp watch
-```
-
-(optional) Third:
-```sh
-$ karma start
-```
-
-### Todo's
-
- - Write Tests
- - Rethink Github Save
- - Add Code Comments
- - Add Night Mode
-
-License
-----
-
-MIT
+### Media
+##Keyboard Controller
+![keyboard_controller](http://i.imgur.com/CqawzLL.jpg)
+##Gyroscope Controller
+![gyroscope_controller](http://i.imgur.com/0iHm1tT.jpg)
+##Speech Controller
+![speech_controller](http://i.imgur.com/kVoMKjd.jpg)
+##Car Chassis Development Kit
+![Car Chassis Development Kit](http://i.imgur.com/huWFeCx.jpg)
 
 
-**Free Software, Hell Yeah!**
-
-[john gruber]:http://daringfireball.net/
-[@thomasfuchs]:http://twitter.com/thomasfuchs
-[1]:http://daringfireball.net/projects/markdown/
-[marked]:https://github.com/chjj/marked
-[Ace Editor]:http://ace.ajax.org
-[node.js]:http://nodejs.org
+[localhost:3000]:https://localhost:3000
+[Raspberry Pi]:https://www.raspberrypi.org/
+[JavaScript]:http://ro.wikipedia.org/wiki/JavaScript
+[node.js]:https://nodejs.org/
+[Expressjs]:http://expressjs.com/
+[socket.io]:http://socket.io/
 [Twitter Bootstrap]:http://twitter.github.com/bootstrap/
-[keymaster.js]:https://github.com/madrobby/keymaster
 [jQuery]:http://jquery.com
-[@tjholowaychuk]:http://twitter.com/tjholowaychuk
-[express]:http://expressjs.com
-[AngularJS]:http://angularjs.org
-[Gulp]:http://gulpjs.com
+[less]:http://lesscss.org/
+[Grunt.js]:http://gruntjs.com/
