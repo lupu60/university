@@ -2,13 +2,10 @@
 
 \chapter{Hardware, Technologies and Programming Languages} % Main chapter title
 
-\label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{Chapter2}
 
 \lhead{Chapter 2. \emph{Hardware, Technologies and Programming Languages}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
 
 \section{Hardware}
 \begin{wrapfigure}{r}{0.3\textwidth}
@@ -20,17 +17,11 @@
   \label{fig:hardware}
 \end{wrapfigure}
 Computer hardware is the collection of physical parts of a computer system. This includes the computer case, monitor, keyboard, and mouse. It also includes all the parts inside the computer case, such as the hard disk drive, motherboard, video card, and many others. Computer hardware is what you can physically touch.
-
 \subparagraph*{Definitions}
 \hfill \break
 A computer system consists of two major elements: hardware and software. Computer hardware is the collection of all the parts you can physically touch. Computer software, on the other hand, is not something you can touch. Software is a set of instructions for a computer to perform specific operations. You need both hardware and software for a computer system to work.
 
 Some hardware components are easy to recognize, such as the computer case, keyboard, and monitor. However, there are many different types of hardware components. In this lesson, you will learn how to recognize the different components and what they do.
-
-
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
 
 %-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 % Raspberry Pi
@@ -75,46 +66,6 @@ With cheap and small devices like the Raspberry Pi, a new era of ubiquitous
 computing has begun, and you can be part of it.
 
 
-\paragraph*{ARM}
-\hfill \break
-A company named Acorn Computers developed a 32-bit RISC architecture named
-the Acorn RISC Machine (later renamed to Advanced RISC Machine) in the late
-1980s. This architecture proved to be useful beyond their limited product line,
-so a company named ARM Holdings was formed to license the architecture for
-use in a wide variety of products. It is commonly found in embedded devices
-such as cell phones, automobile electronics, MP3 players, televisions, and so on.
-The fi rst version of the architecture was introduced in 1985, and at the time of
-this writing it is at version 7 (ARMv7). ARM has developed a number of specifi c
-cores (e.g., ARM7, ARM7TDMI, ARM926EJS, Cortex)—not to be confused with
-the different architecture specifi cations, which are numbered ARMv1–ARMv7.
-While there are several versions, most devices are either on ARMv4, 5, 6, or 7.
-ARMv4 and v5 are relatively “old,” but they are also the most dominant and
-common versions of the processor (“more than 10 billion” cores in existence,
-according to ARM marketing). Popular consumer electronic products typically
-use more recent versions of the architecture. For example, the third-generation
-Apple iPod Touch and iPhone run on an ARMv6 chip, and later iPhone/iPad
-and Windows Phone 7 devices are all on ARMv7.\\
-\-\hspace{1cm}Whereas companies such as Intel and AMD design and manufacture their
-processors, ARM follows a slightly different model. ARM designs the architecture
-and licenses it to other companies, which then manufacture and integrate the
-processors into their devices. Companies such as Apple, NVIDIA, Qualcomm,
-and Texas Instruments market their own processors (A, Tegra, Snapdragon, and OMAP, respectively), but their core architecture is licensed from ARM.\\
-\-\hspace{1cm}They all implement the base instruction set and memory model defi ned in the
-ARM architecture reference manual. Additional extensions can be added to
-the processor; for example, the Jazelle extension enables Java bytecode to be
-executed natively on the processor. The Thumb extension adds instructions
-that can be 16 or 32 bits wide, thus allowing higher code density (native ARM
-instructions are always 32 bits in width). The Debug extension allows engineers
-to analyze the physical processor using special debugging hardware. Each
-extension is typically represented by a letter (J, T, D, etc.). Depending on their
-requirements, manufacturers can decide whether they need to license these
-additional extensions. This is why ARMv6 and earlier processors have letters
-after them (e.g., ARM1156T2 means ARMv6 with Thumb-2 extension). These
-conventions are no longer used in ARMv7, which instead uses three profi les
-(Application, Real-time, and Microcontroller) and model name (Cortex) with
-different features. For example, ARMv7 Cortex-A series are processors with
-the application profi le; and Cortex-M are meant for microcontrollers and only
-support Thumb mode execution.
 
 \paragraph*{Get to Know the Hardware}
 
@@ -998,10 +949,78 @@ jQuery's syntax is designed to make it easier to navigate a document, select DOM
 The set of jQuery core features—DOM element selections, traversal and manipulation—enabled by its selector engine (named "Sizzle" from v1.3), created a new "programming style", fusing algorithms and DOM data structures. This style influenced the architecture of other JavaScript frameworks like YUI v3 and Dojo, later stimulating the creation of the standard Selectors API.
 Microsoft and Nokia bundle jQuery on their platforms. Microsoft includes it with Visual Studio for use within Microsoft's ASP.NET AJAX framework and ASP.NET MVC Framework while Nokia has integrated it into the Web Run-Time widget development platform. jQuery has also been used in MediaWiki since version 1.16.
 \subsection{Tools Used for Developing}
-\subsubsection{Sublime Text 3}
+\subsubsection{Sublime Text 2}
+\subparagraph*{So, what is Sublime Text 2?}
+\hfill \break
+Sublime Text 2 (Figure \ref{fig:sublime}) is the latest version of the popular text editor Sublime Text. It is a full-featured text
+editor great for editing local text files. It has many built-in features to aid in editing code, such as
+syntax highlighting, auto-indenting, file type recognition, a handy file/folder sidebar for easily
+editing of multiple files within a directory, macros to automate repetitious tasks, and tabs and a
+split-window option to view and edit multiple files at the same time. With Sublime Text 2's plethora
+of programmer-centric features, utilizing this editor can increase your productivity without
+bogging you down like full-fledged \textbf{Integrated Development Environments (IDE)} such as \textit{Visual
+Studio} and \textit{Eclipse}. 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./Pictures/sublime.jpg}
+  \rule{0.7\textwidth}{1pt}
+  \caption{Sublime Text 2}
+    \label{fig:sublime}
+\end{figure}
+
+These IDEs certainly have their place, but the simplicity of Sublime Text 2
+can be preferable in other scenarios. In addition to the many useful built-in features, Sublime Text
+2 was built from the ground up to be extensible and the Sublime Text community has taken note
+of it. Already, there are many useful extensions including interfaces for version control systems
+such as git, snippet packages for jQuery and PHP, and syntax highlighting for popular CSS wrapper
+languages such as LESS and SASS. Furthermore, the community has created Package Manager to
+make discovering, installing, updating, and managing these plugins as simple as typing a hotkey
+and a few characters. With a strong, configurable feature set and the ability to effortlessly extend
+Sublime Text 2, it can truly become your text editor and increase your productivity in the same way
+your tools should, while staying out of your way.
+
+
+
+
 \subsubsection{GruntJs}
+Over the recent years, the open source community has come up with great tools that
+have eased development, such as CSS preprocessors, simple-to-use testing libraries,
+and minification/compression libraries. Aimed to facilitate the automation of tasks,
+Grunt helps both developers and sysadmins by speeding up the development time
+and easing the production integration process.
+This chapter will reintroduce you to Grunt and demonstrate the importance
+of various other software tools. As you go further into the book, you will learn
+how to develop your own projects using Grunt, with an increase in complexity
+and applicability. In particular, you will acquire knowledge of how to use Grunt
+efficiently as a software integration tool as well as learning about the best practices
+surrounding web development today.
+\subparagraph*{Introducing Grunt}
+\hfill \break
+Grunt is a simple-to-use task runner written with Node.js, a scalable JavaScript
+software platform. A task runner is defined as a software tool used to automate
+predefined tasks to ease the development and integration of large-scale projects
+that are in production.
+
+Grunt is currently used by large organizations such as Twitter and Adobe, and by
+technologies such as jQuery. Through consistent updates, it has recently become
+one of the most stable automation tools since its creation. The open source
+community has embraced its simplicity compared to alternatives such as Ant or
+Maven. Lastly, it is praised for its use of the ubiquitous language, JavaScript, thereby
+easing the training among development teams. In this book, Grunt will be used to
+automate the compilation of Sass to CSS and CoffeeScript to JavaScript. Minification
+will be used to optimize page load times. Obfuscation, the mangling of information,
+will also be automated to deter code theft and manipulation from the client side.
+Grunt will be used to automate testing via the Mocha engine.
+So, why should you use Grunt? In today's world of modern web applications, you
+may find yourself using various tools that require compilation or preprocessing.
+Likewise, you may wish to obfuscate code and minimize the size of your public files
+in order to optimize the load time of our website. At other times, you could manually
+call executables to perform these tasks. This would only waste more time that
+would otherwise have been spent in the development of your app. With a simple,
+customizable configuration file, Grunt allows you to set up a build script to automate
+these activities via its community-curated plugins.
 \subsubsection{PuTTY}
 PuTTY  is a free and open-source terminal emulator, serial console and network file transfer application. It supports several network protocols, including SCP, SSH, Telnet, rlogin, and raw socket connection. It can also connect to a serial port (since version 0.59). The name "PuTTY" has no definitive meaning.
 PuTTY was originally written for Microsoft Windows, but it has been ported to various other operating systems. Official ports are available for some Unix-like platforms, with work-in-progress ports to Classic Mac OS and Mac OS X, and unofficial ports have been contributed to platforms such as Symbian and Windows Mobile.
 PuTTY was written and is maintained primarily by Simon Tatham and is currently beta software.
-\subsubsection{Basic UNIX commands}
+

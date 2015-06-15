@@ -1,0 +1,40 @@
+\paragraph*{ARM}
+\hfill \break
+A company named Acorn Computers developed a 32-bit RISC architecture named
+the Acorn RISC Machine (later renamed to Advanced RISC Machine) in the late
+1980s. This architecture proved to be useful beyond their limited product line,
+so a company named ARM Holdings was formed to license the architecture for
+use in a wide variety of products. It is commonly found in embedded devices
+such as cell phones, automobile electronics, MP3 players, televisions, and so on.
+The fi rst version of the architecture was introduced in 1985, and at the time of
+this writing it is at version 7 (ARMv7). ARM has developed a number of specifi c
+cores (e.g., ARM7, ARM7TDMI, ARM926EJS, Cortex)—not to be confused with
+the different architecture specifi cations, which are numbered ARMv1–ARMv7.
+While there are several versions, most devices are either on ARMv4, 5, 6, or 7.
+ARMv4 and v5 are relatively “old,” but they are also the most dominant and
+common versions of the processor (“more than 10 billion” cores in existence,
+according to ARM marketing). Popular consumer electronic products typically
+use more recent versions of the architecture. For example, the third-generation
+Apple iPod Touch and iPhone run on an ARMv6 chip, and later iPhone/iPad
+and Windows Phone 7 devices are all on ARMv7.\\
+\-\hspace{1cm}Whereas companies such as Intel and AMD design and manufacture their
+processors, ARM follows a slightly different model. ARM designs the architecture
+and licenses it to other companies, which then manufacture and integrate the
+processors into their devices. Companies such as Apple, NVIDIA, Qualcomm,
+and Texas Instruments market their own processors (A, Tegra, Snapdragon, and OMAP, respectively), but their core architecture is licensed from ARM.\\
+\-\hspace{1cm}They all implement the base instruction set and memory model defi ned in the
+ARM architecture reference manual. Additional extensions can be added to
+the processor; for example, the Jazelle extension enables Java bytecode to be
+executed natively on the processor. The Thumb extension adds instructions
+that can be 16 or 32 bits wide, thus allowing higher code density (native ARM
+instructions are always 32 bits in width). The Debug extension allows engineers
+to analyze the physical processor using special debugging hardware. Each
+extension is typically represented by a letter (J, T, D, etc.). Depending on their
+requirements, manufacturers can decide whether they need to license these
+additional extensions. This is why ARMv6 and earlier processors have letters
+after them (e.g., ARM1156T2 means ARMv6 with Thumb-2 extension). These
+conventions are no longer used in ARMv7, which instead uses three profi les
+(Application, Real-time, and Microcontroller) and model name (Cortex) with
+different features. For example, ARMv7 Cortex-A series are processors with
+the application profi le; and Cortex-M are meant for microcontrollers and only
+support Thumb mode execution.
