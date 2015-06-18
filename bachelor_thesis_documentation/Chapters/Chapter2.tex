@@ -16,6 +16,7 @@
   \caption{Hardware of a modern personal computer}
   \label{fig:hardware}
 \end{wrapfigure}
+
 Computer hardware is the collection of physical parts of a computer system. This includes the computer case, monitor, keyboard, and mouse. It also includes all the parts inside the computer case, such as the hard disk drive, motherboard, video card, and many others. Computer hardware is what you can physically touch.
 \subparagraph*{Definitions}
 \hfill \break
@@ -200,6 +201,7 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
         \end{subfigure}
         \rule{1\textwidth}{1pt}
         \caption{Car Chassis Development Kit}
+        \label{fig:car_chassis}
 \end{figure}
 \begin{figure}[h!]
         \centering
@@ -850,6 +852,57 @@ The other specification which goes on to implement a full duplex communication
 protocol for the web applications is WebSockets. In WebSockets, the client initiates
 a socket connection with the server, which supports this protocol as well. The server
 and client will send and receive data on this socket connection.
+\subsubsection{NoSQL}
+\subparagraph*{Defining NoSQL}
+\hfill \break
+\textbf{According to Wikipedia:}
+\textit{In computing, NoSQL (mostly interpreted as "not only SQL") is a broad
+class of database management systems identified by its non-adherence to the
+widely used relational database management system model; that is, NoSQL
+databases are not primarily built on tables, and as a result, generally do not
+use SQL for data manipulation.}
+
+
+The NoSQL movement began in the early years of the 21st century when the world
+started its deep focus on creating web-scale database. By web-scale, I mean scale to
+cater to hundreds of millions of users and now growing to billions of connected
+devices including but not limited to mobiles, smartphones, internet TV, in-car
+devices, and many more.
+
+Although Wikipedia treats it as "not only SQL", NoSQL originally started off as a
+simple combination of two words—No and SQL—clearly and completely visible in
+the new term. No acronym. What it literally means is, "I do not want to use SQL".
+To elaborate, "I want to access database without using any SQL syntax". Why? We
+shall explore the in a while.
+
+Whatever be the root phrase, NoSQL today is the term used to address to the class
+of databases that do not follow \textbf{relational database management system (RDBMS)}
+principles, specifically being that of ACID nature, and are specifically designed to
+handle the speed and scale of the likes of Google, Facebook, Yahoo, Twitter, and
+many more.
+
+\subparagraph*{History}
+\hfill \break
+Before we take a deep dive into it, let us set our context right by exploring some key
+landmarks in history that led to the birth of NoSQL.
+
+From Inktomi, probably the first true search engine, to Google, the present
+world leader, the computer scientists have well recognized the limitations of the
+traditional and widely used RDBMS specifically related to the issues of scalability,
+parallelization, and cost, also noting that the data set is minimally cross-referenced
+as compared to the chunked, transactional data, which is mostly fed to RDBMS.
+
+Specifically, if we just take the case of Google that gets billions of requests a month
+across applications that may be totally unrelated in what they do but related in how
+they deliver, the problem of scalability is to be solved at each layer—right from data
+access to final delivery. Google, therefore, had to work innovatively and gave birth
+to a new computing ecosystem comprising of:
+\begin{itemize}
+  \item \textbf{GFS}: Distributed filesystem
+  \item \textbf{Chubby}: Distributed coordination system
+  \item \textbf{MapReduce}: Parallel execution system
+  \item \textbf{Big Data}: Column oriented databas
+\end{itemize}
 %-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 % END SOCKET.IO
 %-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -932,11 +985,78 @@ Although these standards are not a mandatory part of HTML 4.01, they are covered
 because the XHTML standards are stricter, don’t hamper HTML, and prepare you for authoring
 documents in other XML-based languages.
 
+\subsubsection{Jade}
+Jade is a templating language and a shorter, more elegant way to write HTML. If you
+are just looking for a good way to create templates, or you want to ditch HTML's
+ugly syntax, Jade can help you.
+\subparagraph*{Markup like poetry}
+\hfill \break
+Let's start with the following simple example. First, we have the HTML code and then
+the same thing rewritten in Jade:(Figure \ref{fig:jade})
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./Pictures/jade.jpg}
+  \rule{0.7\textwidth}{1pt}
+ \caption{Jade example}
+  \label{fig:jade}
+\end{figure}
 
+
+Both of the preceding code examples mean the exact same thing, except one is
+much shorter. This is Jade, a powerful, terse templating language that is compiled
+into HTML. In addition to the syntactical improvements, Jade lets you simplify
+redundant markup with programmed logic. Also, it allows you to create templates
+that can take in and display data.
+
+\subparagraph*{Why should I preprocess?}
+\hfill \break
+Jade really is just one option in a whole class of preprocessors. To have a complete
+understanding of Jade, we should understand why this class of languages was created.
+
+
+Preprocessors are high-level languages that offer syntactical and functional
+improvements over their "vanilla" (non-preprocessed) counterparts. These high-level
+languages allow you to write the markup in a better language that is compiled down
+to normal (vanilla) HTML. Thus, they are there purely to improve your productivity,
+without affecting their compatibility with existing technologies.
+
+
+Preprocessing, in general, offers many benefits over writing vanilla HTML. Standard
+Generalized Markup Language (SGML), the predecessor of HTML, was created to
+be robust and easy to parse at the expense of being clean and easy to write. Because
+of this, a variety of preprocessors have emerged that offer a more terse syntax.
+
+
+Occasionally, people will avoid preprocessing because it adds another step, that is,
+another layer of abstraction to the end result. However, improvements in code
+readability and ease of writing far outweigh the inconvenience of this additional
+step. Furthermore, anything more complex than a static site will require a "build"
+step anyway, to inject whatever dynamic content the site has.
+
+\subparagraph*{How Jade preprocesses}
+\hfill \break
+In the case of Jade, this preprocessing is done by compiling templates into JS and
+then rendering them to HTML, as shown in the following diagram:(Figure \ref{fig:jade_diagram})
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=1\textwidth]{./Pictures/jade_diagram.jpg}
+  \rule{1\textwidth}{1pt}
+ \caption{Jade example}
+  \label{fig:jade_diagram}
+\end{figure}
+
+Because Jade's compiled templates really are just JavaScript functions that output
+HTML, they can be rendered on both the server and in the browser.
 \subsubsection{CSS (Cascading Style Sheets)}
 Cascading Style Sheets (CSS) is a style sheet language used for describing the look and formatting of a document written in a markup language. While most often used to change the style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any kind of XML document, including plain XML, SVG and XUL. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.
+
+
 CSS is designed primarily to enable the separation of document content from document presentation, including elements such as the layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content, such as semantically insignificant tables that were widely used to format pages before consistent CSS rendering was available in all major browsers. CSS makes it possible to separate presentation instructions from the HTML content in a separate file or style section of the HTML file. For each matching HTML element, it provides a list of formatting instructions. For example, a CSS rule might specify that "all heading 1 elements should be bold," leaving pure semantic HTML markup that asserts "this text is a level 1 heading" without formatting code such as a <bold> tag indicating how such text should be displayed.
+
+
 This separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to display the web page differently depending on the screen size or device on which it is being viewed. While the author of a web page typically links to a CSS file within the markup file, readers can specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author has specified. If the author or the reader did not link the document to a style sheet, the default style of the browser will be applied. Another advantage of CSS is that aesthetic changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in one file, rather than by a laborious (and thus expensive) process of crawling over every document line by line, changing markup.
+
+
 The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities or weights are calculated and assigned to rules, so that the results are predictable.
 The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS validation service for CSS documents.
 
@@ -962,8 +1082,8 @@ bogging you down like full-fledged \textbf{Integrated Development Environments (
 Studio} and \textit{Eclipse}. 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.7\textwidth]{./Pictures/sublime.jpg}
-  \rule{0.7\textwidth}{1pt}
+    \includegraphics[width=1\textwidth]{./Pictures/sublime.jpg}
+  \rule{1\textwidth}{1pt}
   \caption{Sublime Text 2}
     \label{fig:sublime}
 \end{figure}
@@ -1023,4 +1143,9 @@ these activities via its community-curated plugins.
 PuTTY  is a free and open-source terminal emulator, serial console and network file transfer application. It supports several network protocols, including SCP, SSH, Telnet, rlogin, and raw socket connection. It can also connect to a serial port (since version 0.59). The name "PuTTY" has no definitive meaning.
 PuTTY was originally written for Microsoft Windows, but it has been ported to various other operating systems. Official ports are available for some Unix-like platforms, with work-in-progress ports to Classic Mac OS and Mac OS X, and unofficial ports have been contributed to platforms such as Symbian and Windows Mobile.
 PuTTY was written and is maintained primarily by Simon Tatham and is currently beta software.
-
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=1\textwidth]{./Pictures/putty_tango.png}
+  \rule{1\textwidth}{1pt}
+ \caption{Putty interface}
+\end{figure}
