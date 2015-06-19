@@ -18,6 +18,42 @@
 \usepackage{amsmath,amsfonts,amssymb,graphicx,wrapfig, sidecap,pdfpages,url}
 \usepackage{caption}
 \usepackage{subcaption}
+%codeexemple
+\usepackage{color}
+\usepackage{upquote}
+\usepackage{listings}
+\lstdefinelanguage{JavaScript}{
+  morekeywords={var, function},
+  morecomment=[s]{/*}{*/},%
+  morecomment=[l]//,%
+  morestring=[b]",%
+  morestring=[b]'%
+}
+
+\lstdefinelanguage{HTML5}[]{HTML}{
+    sensitive=false,
+    morekeywords={canvas},
+    tag=[s]
+}
+
+\lstset{%
+    % Basic design
+    basicstyle={\small\ttfamily},
+    % Code design   
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    % Code
+    language=HTML5,
+    tabsize=2,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    extendedchars=true,
+    breaklines=true
+}
+
+
+%end code 
 %\addbibresource{Bibliography.bib}
  % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 \hypersetup{urlcolor=black, colorlinks=false} % Colors hyperlinks in blue - change to black if annoying
@@ -98,8 +134,8 @@
 \lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
 \listoffigures % Write out the List of Figures
 
-\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
-\listoftables % Write out the List of Tables
+%\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+%\listoftables % Write out the List of Tables
 
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
@@ -113,6 +149,21 @@
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
 \textbf{JS} & \textbf{J}ava  \textbf{S}cript\\
+\textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets\\
+\textbf{HTML} & \textbf{H}yper\textbf{T}ext \textbf{M}arkup \textbf{L}anguage\\
+\textbf{HTTP} & \textbf{H}ypertext \textbf{T}ransfer\textbf{ P}rotocol\\
+\textbf{Pi} & Raspberry \textbf{Pi} \\
+\textbf{AJAX} & \textbf{A}synchronous \textbf{J}avaScript \textbf{A}nd \textbf{X}ML\\
+\textbf{DOM} &  \textbf{D}ocument \textbf{O}bject \textbf{M}odel\\
+\textbf{IDE} & \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment\\
+\textbf{JSON} & \textbf{J}avaScript \textbf{O}bject \textbf{N}otation,\\
+\textbf{NaN} & \textbf{N}ot \textbf{a} \textbf{N}umber\\
+\textbf{OOP} & \textbf{O}bject \textbf{O}riented \textbf{P}rogramming \\
+\textbf{OSS} & \textbf{O}pen \textbf{S}ource \textbf{S}oftware\\
+\textbf{SQL} & \textbf{S}tructured \textbf{Q}uery \textbf{L}anguage\\
+\textbf{UI} & \textbf{U}ser \textbf{I}nterface \\
+\textbf{URL } & \textbf{U}niform \textbf{R}esource \textbf{L}ocator \\
+\textbf{WWW / W3} &\textbf{W}orld \textbf{W}ide \textbf{W}eb \\
 %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
 }
 
