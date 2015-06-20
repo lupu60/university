@@ -83,42 +83,8 @@
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
+\input{./title.tex}
 
-\begin{titlepage}
-\begin{center}
-
-\textsc{\LARGE \univname}\\[1.5cm] % University name
-\textsc{\Large Bachelor Thesis}\\[0.5cm] % Thesis type
-
-\HRule \\[0.4cm] % Horizontal line
-{\large \bfseries \ttitle}\\[0.4cm] % Thesis title
-\HRule \\[1.5cm] % Horizontal line
- 
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Author:}\\
-\authornames % Author name - remove the \href bracket to remove the link
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
-\emph{Supervisor:} \\
-\supname % Supervisor name - remove the \href bracket to remove the link  
-\end{flushright}
-\end{minipage}\\[8cm]
- 
-%\large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-%\textit{in the}\\[0.4cm]
-
-\deptname\\[2cm] % Research group name and department name
- 
-{\large \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
- 
-\vfill
-\end{center}
-
-\end{titlepage}
 
 
 
@@ -148,18 +114,18 @@
 \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
-\textbf{JS} & \textbf{J}ava  \textbf{S}cript\\
+\textbf{AJAX} & \textbf{A}synchronous \textbf{J}avaScript \textbf{A}nd \textbf{X}ML\\
 \textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets\\
+\textbf{DOM} &  \textbf{D}ocument \textbf{O}bject \textbf{M}odel\\
 \textbf{HTML} & \textbf{H}yper\textbf{T}ext \textbf{M}arkup \textbf{L}anguage\\
 \textbf{HTTP} & \textbf{H}ypertext \textbf{T}ransfer\textbf{ P}rotocol\\
-\textbf{Pi} & Raspberry \textbf{Pi} \\
-\textbf{AJAX} & \textbf{A}synchronous \textbf{J}avaScript \textbf{A}nd \textbf{X}ML\\
-\textbf{DOM} &  \textbf{D}ocument \textbf{O}bject \textbf{M}odel\\
 \textbf{IDE} & \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment\\
 \textbf{JSON} & \textbf{J}avaScript \textbf{O}bject \textbf{N}otation,\\
+\textbf{JS} & \textbf{J}ava  \textbf{S}cript\\
 \textbf{NaN} & \textbf{N}ot \textbf{a} \textbf{N}umber\\
 \textbf{OOP} & \textbf{O}bject \textbf{O}riented \textbf{P}rogramming \\
 \textbf{OSS} & \textbf{O}pen \textbf{S}ource \textbf{S}oftware\\
+\textbf{Pi} & Raspberry \textbf{Pi} \\
 \textbf{SQL} & \textbf{S}tructured \textbf{Q}uery \textbf{L}anguage\\
 \textbf{UI} & \textbf{U}ser \textbf{I}nterface \\
 \textbf{URL } & \textbf{U}niform \textbf{R}esource \textbf{L}ocator \\
@@ -213,24 +179,24 @@
 %----------------------------------------------------------------------------------------
 
 \begin{thebibliography}{999}
-\bibitem{1}Maik Schmidt, \textbf{Raspberry Pi: A Quick-Start Guide,2nd Edition}
-\bibitem{2}\textbf{http://www.raspberrypi.org/}
-\bibitem{3}Stefan Sjogelid, \textbf{Raspberry Pi for Secret Agents}
-\bibitem{4}Bruce Dang, Alexandre Gazet, Elias Bachaalany, \textbf{Practical Reverse Engineering}
-\bibitem{5}THOMAS J. BERGIN, JR. and RICHARD G. GIBSON, JR., \textbf{History of Programming Languages}
-\bibitem{6}Rohit Rai, \textbf{Socket.IO Real-time Web Application Development}
-\bibitem{7}Garann Means, \textbf{Node for Front-End Developers}
-\bibitem{8}David Mark Clements, \textbf{Node Cookbook}
-\bibitem{9}Jim R. Wilson, \textbf{Node.js the Right Way}
-\bibitem{10}Douglas Crockford, \textbf{JavaScript: The Good Parts}
-\bibitem{11}Steven M. Schafer, \textbf{HTML, XHTML, AND CSS BIBLE}
-\bibitem{12}Eric Haughee, \textbf{Instant Sublime Text Starter}
-\bibitem{13}Wes Bos, \textbf{Sublime Text Power User}
-\bibitem{14}Arnold Robbins, \textbf{UNIX IN A NUTSHELL}
-\bibitem{15}James Cryer, \textbf{Pro Grunt.js}
-\bibitem{16}Sabah Karimi, \textbf{What Will a Car Diagnostic Tell You?} \url{http://www.ehow.com/about_5158136_car-diagnostic-tell.html}
-\bibitem{17}Gaurav Vaish, \textbf{Getting Started with NoSQL}
-\bibitem{18}Sean Lang, \textbf{Web Development with Jade}
+\bibitem{1}Douglas Crockford, \textbf{JavaScript: The Good Parts}
+\bibitem{2}Steven M. Schafer, \textbf{HTML, XHTML, AND CSS BIBLE}
+\bibitem{3}Eric Haughee, \textbf{Instant Sublime Text Starter}
+\bibitem{4}Wes Bos, \textbf{Sublime Text Power User}
+\bibitem{5}Arnold Robbins, \textbf{UNIX IN A NUTSHELL}
+\bibitem{6}James Cryer, \textbf{Pro Grunt.js}
+\bibitem{7}Sabah Karimi, \textbf{What Will a Car Diagnostic Tell You?} \url{http://www.ehow.com/about_5158136_car-diagnostic-tell.html}
+\bibitem{8}Gaurav Vaish, \textbf{Getting Started with NoSQL}
+\bibitem{9}Sean Lang, \textbf{Web Development with Jade}
+\bibitem{10}Maik Schmidt, \textbf{Raspberry Pi: A Quick-Start Guide,2nd Edition}
+\bibitem{12}\textbf{http://www.raspberrypi.org/}
+\bibitem{13}Stefan Sjogelid, \textbf{Raspberry Pi for Secret Agents}
+\bibitem{14}Bruce Dang, Alexandre Gazet, Elias Bachaalany, \textbf{Practical Reverse Engineering}
+\bibitem{15}THOMAS J. BERGIN, JR. and RICHARD G. GIBSON, JR., \textbf{History of Programming Languages}
+\bibitem{16}Rohit Rai, \textbf{Socket.IO Real-time Web Application Development}
+\bibitem{17}Garann Means, \textbf{Node for Front-End Developers}
+\bibitem{18}David Mark Clements, \textbf{Node Cookbook}
+\bibitem{19}Jim R. Wilson, \textbf{Node.js the Right Way}
 \end{thebibliography}
 
 

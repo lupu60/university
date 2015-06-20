@@ -183,7 +183,7 @@
 
 \thesistitle{A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
-\supervisor{Lect. Dr. Vlad \textsc{Monescu}} % You supervisor's name - this is used in the title page
+\supervisor{Lect. Unit. Dr. Vlad \textsc{Monescu}} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
 %-------------------------------------------------   
