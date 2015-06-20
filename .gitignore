@@ -2,4 +2,10 @@
 /car_server/public/javascripts/libs.js.map
 /car_server/public/javascripts/libs.min.js
 /car_server/public/stylesheets
-
+/car_server/public/fonts
+/car_server/public/stylesheets
+/car_server/node_modules
+/car_server/npm-debug.log
+/bachelor_thesis_documentation/node_modules
+/bachelor_thesis_documentation/pdf
+bachelor_thesis_documentation/build
