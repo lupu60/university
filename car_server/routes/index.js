@@ -3,7 +3,7 @@ var router = express.Router();
 var nosql = require('./nosql_controller.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-		// nosql.insert();
+		//nosql.insert();
 		nosql.read_last();
     res.render('index', {
         title: 'Remote Diagnostics'
