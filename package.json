@@ -27,11 +27,12 @@
     "screenfull": "^2.0.0",
     "serve-favicon": "~2.2.0",
     "socket.io": "~1.3.5",
+    "sleep": "^2.0.0",
     "watchjs": "0.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lupu60/bachelor_thesis.git"
+    "url": "https://github.com/lupu60/remote_diagnostics.git"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
         title: 'Gyroscope Controller'
     });
 });
+
 io.sockets.on('connection', function(socket) {
     socket.on('moving', function(data) {
         gpio_controller.gyro_moving(data);
