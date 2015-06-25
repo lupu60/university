@@ -14,6 +14,13 @@ module.exports = function(grunt) {
     // =========================================================
     var JQUERY = './node_modules/jquery/dist/jquery.js';
     var BOOTSTRAP_JS = './node_modules/bootstrap/dist/js/bootstrap.js';
+    
+    var general=BUILD_DIR_JS+'general.js';
+    var graphs=BUILD_DIR_JS+'graphs.js';
+    var gyroscope_controller=BUILD_DIR_JS+'gyroscope_controller.js';
+    var index=BUILD_DIR_JS+'index.js';
+    var keyboard_controller=BUILD_DIR_JS+'keyboard_controller.js';
+    var speech_controller=BUILD_DIR_JS+'speech_controller.js';
     // var SCREENFULL='./node_modules/screenfull/dist/screenfull.js';
     // =========================================================
     // configure the tasks
@@ -57,23 +64,33 @@ module.exports = function(grunt) {
                 dest: BUILD_FILE_JS,
             },
         },
+          // uglify: {
+          //   libs: {
+          //     files: {
+          //     './public/javascripts/libs.min.js': BUILD_FILE_JS,
+          //     './public/javascripts/libs.min.js'
+          //     }
+          //   }
+          // },
           uglify: {
+
+            my_code: {
+                files: [{
+                expand: true,
+                cwd: './public/javascripts/',
+                src: ['**/*.js','!min/*.js','!libs/*.js'],
+                dest: './public/min_javascripts/',
+                }]
+            },
             libs: {
-              files: {
-              './public/javascripts/libs.min.js': BUILD_FILE_JS,
-              }
-            }
-          },
-        //   uglify: {
-        //     my_target: {
-        //         files: [{
-        //         expand: true,
-        //         cwd: './public/javascripts/',
-        //         src: ['**/*.js','!./min/*.js'],
-        //         dest: './public/javascripts/min/',
-        //         }]
-        //     },
-        // },
+                files: [{
+                expand: true,
+                cwd: './public/javascripts/libs',
+                src: ['**/*.js'],
+                dest: './public/min_javascripts/libs',
+                }]
+            },
+        },
         less: {
             development: {
                 options: {

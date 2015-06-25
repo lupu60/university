@@ -6,7 +6,7 @@ var move = {
 };
 
 function send() {
-    socket.emit('moving', {move});
+    socket.emit('moving', {move:move});
     return false;
 }
 
@@ -26,7 +26,7 @@ function wheel() {
             animateTo: 0
         })
     }
-}
+};
 if (window.DeviceMotionEvent != undefined) {
     window.ondevicemotion = function(e) {
         move.x = Math.round(e.accelerationIncludingGravity.x);
@@ -36,7 +36,7 @@ if (window.DeviceMotionEvent != undefined) {
         $("#y").text(move.y);
         $("#z").text(move.z);
     }
-}
+};
 $(document).ready(function() {
     watch(move, ["x", "y"], function() {
         send();
