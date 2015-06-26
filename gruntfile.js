@@ -1,6 +1,5 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
-
     var BUILD_DIR = './public/';
     var BUILD_DIR_JS = BUILD_DIR + 'javascripts/';
     var BUILD_DIR_CSS = BUILD_DIR + 'stylesheets/';
@@ -14,14 +13,15 @@ module.exports = function(grunt) {
     // =========================================================
     var JQUERY = './node_modules/jquery/dist/jquery.js';
     var BOOTSTRAP_JS = './node_modules/bootstrap/dist/js/bootstrap.js';
-    
-    var general=BUILD_DIR_JS+'general.js';
-    var graphs=BUILD_DIR_JS+'graphs.js';
-    var gyroscope_controller=BUILD_DIR_JS+'gyroscope_controller.js';
-    var index=BUILD_DIR_JS+'index.js';
-    var keyboard_controller=BUILD_DIR_JS+'keyboard_controller.js';
-    var speech_controller=BUILD_DIR_JS+'speech_controller.js';
+
+    var general = BUILD_DIR_JS + 'general.js';
+    var graphs = BUILD_DIR_JS + 'graphs.js';
+    var gyroscope_controller = BUILD_DIR_JS + 'gyroscope_controller.js';
+    var index = BUILD_DIR_JS + 'index.js';
+    var keyboard_controller = BUILD_DIR_JS + 'keyboard_controller.js';
+    var speech_controller = BUILD_DIR_JS + 'speech_controller.js';
     // var SCREENFULL='./node_modules/screenfull/dist/screenfull.js';
+    
     // =========================================================
     // configure the tasks
     grunt.initConfig({
@@ -38,62 +38,64 @@ module.exports = function(grunt) {
         // =============================================
         // =            Core Tasks                     =
         // =============================================
-        copy: {
-            bootstrap_fonts: {
-                files: [{
-                    expand: true,
-                    cwd: './node_modules/bootstrap/fonts/',
-                    src: ['**'],
-                    dest: BUILD_DIR + 'fonts'
-                }, ],
+        clean: {
+            build: BUILD_DIR,
+            production: {
+                src: [BUILD_DIR_JS + '*.js', '!' + BUILD_FILE_JS, BUILD_DIR_CSS + '*.map', BUILD_DIR_JS + '*.map'],
             },
-        chartist: {
-              files: {
-              './public/stylesheets/chartist.min.css': './node_modules/chartist/dist/chartist.min.css',
-                './public/javascripts/libs/chartist.min.js': './node_modules/chartist/dist/chartist.min.js',
-             
-              }
+        },
+        copy: {
+            // bootstrap_fonts: {
+            //     files: [{
+            //         expand: true,
+            //         cwd: './node_modules/bootstrap/fonts/',
+            //         src: ['**'],
+            //         dest: BUILD_DIR + 'fonts'
+            //     }, ],
+            // },
+            chartist: {
+                files: {
+                    './public/stylesheets/chartist.min.css': './node_modules/chartist/dist/chartist.min.css',
+                    './public/javascripts/libs/chartist.js': './node_modules/chartist/dist/chartist.js',
+
+                }
             },
         },
         concat: {
             options: {
-                sourceMap: true,
+                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - '+'<%= grunt.template.today("yyyy-mm-dd") %> */',
+                sourceMap: false,
             },
             libs: {
                 src: [JQUERY, BOOTSTRAP_JS],
                 dest: BUILD_FILE_JS,
             },
         },
-          // uglify: {
-          //   libs: {
-          //     files: {
-          //     './public/javascripts/libs.min.js': BUILD_FILE_JS,
-          //     './public/javascripts/libs.min.js'
-          //     }
-          //   }
-          // },
-          uglify: {
-
+        uglify: {
+            options: {
+            banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - '+'<%= grunt.template.today("yyyy-mm-dd") %> */'
+            },
             my_code: {
                 files: [{
-                expand: true,
-                cwd: './public/javascripts/',
-                src: ['**/*.js','!min/*.js','!libs/*.js'],
-                dest: './public/min_javascripts/',
-                }]
+                    expand: true,
+                    cwd: './public/javascripts/',
+                    src: ['**/*.js','!libs/*.js'],
+                    dest: './public/min_javascripts/',
+                }],
             },
             libs: {
                 files: [{
-                expand: true,
-                cwd: './public/javascripts/libs',
-                src: ['**/*.js'],
-                dest: './public/min_javascripts/libs',
-                }]
+                    expand: true,
+                    cwd: './public/javascripts/libs',
+                    src: ['**/*.js'],
+                    dest: './public/min_javascripts/libs',
+                }],
             },
         },
         less: {
             development: {
                 options: {
+                    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +'<%= grunt.template.today("yyyy-mm-dd") %> */',
                     compress: true,
                     cleancss: false,
                     sourceMap: true,
@@ -101,13 +103,13 @@ module.exports = function(grunt) {
                     sourceMapRootpath: '../../',
                 },
                 files: [
-                     {
+                    {
                         expand: true,
                         cwd: './public/less/',
-                        src: ['*.less','!_imports.less'],
+                        src: ['*.less', '!_imports.less'],
                         dest: './public/stylesheets/',
                         ext: '.css'
-                      }
+                    }
                 ],
             },
         },
@@ -121,6 +123,7 @@ module.exports = function(grunt) {
             },
         },
     });
-    grunt.registerTask('default', ['asciify','watch']);
-    grunt.registerTask('first', ['asciify','copy','less','concat','uglify']);
+    grunt.registerTask('default', ['asciify', 'watch']);
+    grunt.registerTask('first', ['asciify', 'copy', 'less', 'concat', 'uglify']); 
+
 };
