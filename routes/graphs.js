@@ -1,4 +1,3 @@
-
 var express = require('express');
 var router = express.Router();
 var nosql = require('./nosql_controller.js');

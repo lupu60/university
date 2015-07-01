@@ -2,7 +2,7 @@
   "name": "remote_diagnostics",
   "title": "A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS",
   "version": "0.1.0",
-  "author": "Lupu Bogdan",
+  "author": "Lupu Bogdan Alexandru",
   "private": false,
   "homepage": "http://lupu60.github.io/remote_diagnostics/",
    "files": [
@@ -10,8 +10,8 @@
     "README.md"
   ],
   "scripts": {
-    //"start": "node ./bin/www",
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "test": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.12.0",

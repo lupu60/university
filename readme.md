@@ -1,23 +1,23 @@
-## my_bachelor_thesis_project
+## remote_diagnostics
 #A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS
 ![A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS](http://i.imgur.com/N42rxH4.jpg)
 
 
 ### Version
-0.0.1
+0.1.0
 
 ### Tech
 
-* ##Hardware
+* Hardware
     * [Raspberry Pi]
     * Car Chassis Development Kit
-* ##Software
-    * ###Web Application Back-End
+* Software
+    * Web Application Back-End
         * [JavaScript]
         * [node.js]
         * [Expressjs]
         * [socket.io]
-    * ###Web Application Front-End
+    * Web Application Front-End
         * [Twitter Bootstrap]
         * [jQuery]
         * [less]

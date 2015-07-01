@@ -7,7 +7,7 @@
 			// Name of configuration; appears in the launch configuration drop down menu.
 			"name": "start_server",
 			// Type of configuration. Possible values: "node", "mono".
-			"type": "node",
+			"type": "node ./bin/www",
 			// Workspace relative or absolute path to the program.
 			"program": "./bin/www",
 			// Automatically stop program after launch.
