@@ -1,4 +1,4 @@
-/*! remote_diagnostics - v0.1.0 - 2015-07-01 *//*!
+/*! remote_diagnostics - v0.1.0 - 2015-07-02 *//*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
  *
