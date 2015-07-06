@@ -53,7 +53,7 @@ $ npm start
 ##Car Chassis Development Kit
 ![Car Chassis Development Kit](http://i.imgur.com/huWFeCx.jpg)
 
-
+[A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS]:http://lupu60.github.io/remote_diagnostics/slides.html#/
 [localhost:3000]:https://localhost:3000
 [Raspberry Pi]:https://www.raspberrypi.org/
 [JavaScript]:http://ro.wikipedia.org/wiki/JavaScript
