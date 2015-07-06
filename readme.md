@@ -1,5 +1,5 @@
 ## remote_diagnostics
-#A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS
+#[A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS]
 ![A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS](http://i.imgur.com/N42rxH4.jpg)
 
 
@@ -44,6 +44,7 @@ $ npm start
 ### acces [localhost:3000]
 
 ### Media
+##[Presentation]
 ##Keyboard Controller
 ![keyboard_controller](http://i.imgur.com/CqawzLL.jpg)
 ##Gyroscope Controller
@@ -54,6 +55,7 @@ $ npm start
 ![Car Chassis Development Kit](http://i.imgur.com/huWFeCx.jpg)
 
 [A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS]:http://lupu60.github.io/remote_diagnostics/slides.html#/
+[Presentation]:http://lupu60.github.io/remote_diagnostics/slides.html#/
 [localhost:3000]:https://localhost:3000
 [Raspberry Pi]:https://www.raspberrypi.org/
 [JavaScript]:http://ro.wikipedia.org/wiki/JavaScript
