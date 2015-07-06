@@ -35,10 +35,10 @@ $ npm install -g grunt-cli
 ```
 
 ```sh
-$ git clone https://github.com/lupu60/bachelor_thesis.git
-$ cd bachelor_thesis/car_server
+$ git clone https://github.com/lupu60/remote_diagnostics.git
+$ cd remote_diagnostics
 $ npm install
-$ grunt fisrt
+$ grunt production
 $ npm start
 ```
 ### acces [localhost:3000]
