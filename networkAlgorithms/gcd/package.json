@@ -1,0 +1,23 @@
+{
+  "name": "greatest-common-divisor",
+  "version": "1.0.0",
+  "description": "university",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lupu60/university.git"
+  },
+  "author": "Lupu Bogdan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lupu60/university/issues"
+  },
+  "homepage": "https://github.com/lupu60/university#readme",
+  "dependencies": {
+    "restify": "^4.0.3"
+  }
+}
