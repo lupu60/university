@@ -1,25 +1,16 @@
-var fs = require('fs');
-
-function makeId() {
+exports.makeId = function() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (var i = 0; i < 5; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
-}
-
-function makeValue() {
+};
+exports.makeValue = function() {
     return Math.floor((Math.random() * 9999) + 1);
-}
-
-function makePort() {
-    var x = Math.floor((Math.random() * 99999) + 1);
-    if(x<65536 && x>0){
-        return x;
-    }
-    else makePort();
-}
-
-function logIp() {
+};
+exports.makePort = function() {
+    return Math.floor(Math.random() * (8079 - 8000)) + 8000;
+};
+exports.logIp = function() {
     var os = require('os');
     var interfaces = os.networkInterfaces();
     var addresses = [];
@@ -32,20 +23,21 @@ function logIp() {
         }
     }
     return addresses[0];
-}
-exports.makeClient = function() {
-    var client = {
-        "id": makeId(),
-        "value": makeValue(),
-        "ip": logIp(),
-        "port": makePort(),
-        "connectIp": JSON.parse(fs.readFileSync('conf.json', 'utf8')).ip,
-        "connectPort": JSON.parse(fs.readFileSync('conf.json', 'utf8')).port,
-    }
-    fs.writeFile("conf.json", JSON.stringify(client), function(err) {
-        if (err) {
-            return console.log(err);
-        }
-        console.log("The file was saved!");
-    });
-}
+};
+// var fs = require('fs');
+// exports.makeClient = function() {
+//     var client = {
+//         "id": makeId(),
+//         "value": makeValue(),
+//         "ip": logIp(),
+//         "port": makePort(),
+//         "connectIp": JSON.parse(fs.readFileSync('conf.json', 'utf8')).ip,
+//         "connectPort": JSON.parse(fs.readFileSync('conf.json', 'utf8')).port,
+//     }
+//     fs.writeFile("conf.json", JSON.stringify(client), function(err) {
+//         if (err) {
+//             return console.log(err);
+//         }
+//         console.log("The file was saved!");
+//     });
+// }
