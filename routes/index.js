@@ -10,12 +10,12 @@ router.get('/', function(req, res, next) {
 
 router.get('/db', function(req, res, next) {
 pg.connect(process.env.DATABASE_URL+ '?ssl=true', function(err, client, done) {
-    client.query('SELECT * FROM test_table', function(err, result) {
+    client.query('SELECT * FROM winter_tire', function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { res.send(result)}
+       { res.send(result.rows)}
     });
   });
 
