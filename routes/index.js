@@ -1,29 +1,5 @@
 var express = require('express');
-var pg = require('pg');
 var router = express.Router();
-
-var db_url= "postgres://dipigtzgodfvyq:ZtgZZC9ImjGdqn9ynR5uaciPQH@ec2-54-83-52-71.compute-1.amazonaws.com:5432/d994h8hvvdstts";
-// console.log(process.env.+db_url);
-
-pg.connect(db_url + '?ssl=true',function(err, client) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-
-  // client
-  //   .query('SELECT table_schema,table_name FROM information_schema.tables;')
-  //   .on('row', function(row) {
-  //     console.log(JSON.stringify(row));
-  //   });
-});
-
-
-router.get('/tires', function(req, res, next) {
-  connection.query('SELECT * FROM winterTire', function(err, rows, fields) {
-    if (err) throw err;
-    res.send(rows);
-  });
-});
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -32,4 +8,16 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/db', function(req, res, next) {
+pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM test_table', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { res.send(result)}
+    });
+  });
+
+});
 module.exports = router;
