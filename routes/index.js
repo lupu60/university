@@ -4,12 +4,12 @@ var pg = require('pg');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'Express2'
+    title: 'Express'
   });
 });
 
 router.get('/db', function(req, res, next) {
-pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+pg.connect(process.env.DATABASE_URL+ '?ssl=true', function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
       if (err)
