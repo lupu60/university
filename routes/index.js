@@ -48,6 +48,7 @@ router.get('/winter_tire', function(req, res, next) {
     });
   });
 });
+
 //INSERT winter_tire
 router.put('/winter_tire', function(req, res, next) {
   var query_text = squel.insert()
