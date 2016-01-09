@@ -24,7 +24,7 @@ pg.connect('postgres://oerwxunzakxntm:zMVQKkdOOHBxhRLzntgOSTdEem@ec2-54-83-52-71
 
 // List winter_tire
 router.get('/winter_tire', function(req, res, next) {
-  pg.connect('postgres://oerwxunzakxntm:zMVQKkdOOHBxhRLzntgOSTdEem@ec2-54-83-52-71.compute-1.amazonaws.com:5432/df4a0g4bh0chk4?ssl=true', function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM winter_tire', function(err, result) {
       done();
       if (err) {
