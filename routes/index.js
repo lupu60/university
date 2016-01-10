@@ -7,20 +7,15 @@ var connect_string = 'postgres://oerwxunzakxntm:zMVQKkdOOHBxhRLzntgOSTdEem@ec2-5
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {
-    title: 'Express'
-  });
+  res.render('index');
+});
+router.get('/winter', function(req, res, next) {
+  res.render('winter');
 });
 
-// var sql = require('sql');
-// sql.setDialect('postgres');
-//
-// //first we define our tables
-// var winter_tire = sql.define({
-//   name: 'winter_tire',
-//   columns: ['id', 'brand', 'size', 'profile','speed_rating','quantity','price']
-// });
-
+router.get('/summer' ,function(req, res, next) {
+  res.render('summer');
+});
 pg.connect(connect_string, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
@@ -48,7 +43,6 @@ router.get('/winter_tire', function(req, res, next) {
     });
   });
 });
-
 //INSERT winter_tire
 router.put('/winter_tire', function(req, res, next) {
   var query_text = squel.insert()
@@ -114,7 +108,7 @@ router.delete('/winter_tire', function(req, res, next) {
   });
 });
 
-
+//List summer_tire
 router.get('/summer_tire', function(req, res, next) {
   pg.connect(connect_string, function(err, client, done) {
     client.query('SELECT * FROM summer_tire', function(err, result) {

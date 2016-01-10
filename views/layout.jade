@@ -8,9 +8,10 @@ head
     link(rel='icon' href='./images/favicon.ico')
     title Tires Stock
     //- Bootstrap core CSS
-    link(rel='stylesheet', href='./DataTables/media/css/jquery.dataTables.min.css')
-    link(rel='stylesheet', href='./DataTables/extensions/FixedHeader/css/fixedHeader.bootstrap.css')
     link(rel='stylesheet', href='./stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css')
+    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css')
+
     block header
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
@@ -21,25 +22,24 @@ head
             span.icon-bar        
             span.icon-bar     
             span.icon-bar      
-          a.navbar-brand(href='/') 
-             span= title
+          a.navbar-brand(href='/') Tires Stock
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li
-              a#settings(data-toggle='modal' data-target='#settings_modal') Settings         
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-                | Anvelope 
+                | Tires Type
                 span.caret           
               ul.dropdown-menu
                 li
-                  a(href='winter') Iarna              
+                  a(href='winter') Winter              
                 li
-                  a(href='#') Vara              
+                  a(href='summer') Summer              
                 li
                   a(href='#') Agricole              
                 li.divider(role='separator')             
                 li.dropdown-header Nav header
+            li
+              a#settings(data-toggle='modal' data-target='#settings_modal') Settings         
         .nav-collapse
     .modal.fade.bs-example-modal-lg#settings_modal(tabindex='-1', role='dialog', aria-labelledby='settings_modal')
         .modal-dialog.modal-lg
@@ -64,7 +64,7 @@ head
     footer
     //-Bootstrap core JavaScript
     script(src='./min_javascripts/jquery_bootstrap.js')
-    script(src='./DataTables/media/js/jquery.dataTables.min.js')
-    script(src='./DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js')
-    script(src='./min_javascripts/app.js')
+    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js')
+    script(src='https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js')
     block footer

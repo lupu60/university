@@ -12,12 +12,11 @@ $(document).ready(function() {
   =            Table generator            =
   =======================================*/
   var table = $('#winter_table').DataTable({
-    "processing": true,
     "ajax": {
-      "url": "/winter_tire",
-       "dataSrc": "tires"
+      "type": "GET",
+      "url": "/summer_tire",
+      "dataSrc": "tires"
     },
-    // // "deferRender": true,
     "columns": [{
       "data": "id"
     }, {
@@ -33,31 +32,12 @@ $(document).ready(function() {
     }, {
       "data": "price"
     }],
-    "pageLength": 500,
-    "responsive": true,
-    "bAutoWidth": true,
-    "top": 50,
-    "fnInitComplete": function(settings, json) {
-      this.api().columns().every(function() {
-        var column = this;
-        var select = $('<select><option value=""></option></select>').appendTo($(column.footer()).empty()).on('change', function() {
-          var val = $.fn.dataTable.util.escapeRegex($(this).val());
-          column.search(val ? '^' + val + '$' : '', true, false).draw();
-        });
-        column.data().unique().sort().each(function(d, j) {
-          select.append('<option value="' + d + '">' + d + '</option>');
-        });
-      });
-    },
   });
 
   /*=================================
   =            test zone            =
   =================================*/
-  $('#winter_table tbody').on('click', 'tr', function() {
-    var data = table.row(this).data();
-    console.log('You clicked on ' + JSON.parse(data) + '\'s row');
-  });
+
   /*-----  End of test zone  ------*/
   /*-----  End of Table generator  ------*/
   /*===================================
@@ -69,7 +49,7 @@ $(document).ready(function() {
   // } );
 
   $('#read, #update, #delete').prop('disabled', true);
-  $('#table tbody').on('click', 'tr', function() {
+  $('#winter_table tbody').on('click', 'tr', function() {
     if ($(this).hasClass('selected')) {
       $(this).removeClass('selected');
       $('#read, #update, #delete').prop('disabled', true);
@@ -77,7 +57,7 @@ $(document).ready(function() {
       table.$('tr.selected').removeClass('selected');
       $(this).addClass('selected');
       $('#read, #update, #delete').prop('disabled', false);
-    };
+    }
   });
   /*-----  End of Style table  ------*/
   /*============================
@@ -100,7 +80,7 @@ $(document).ready(function() {
     };
     $.ajax({
       type: 'PUT',
-      url: '/winter_tire',
+      url: '/summer_tire',
       data: create,
       success: function(result) {
         console.log(result);
@@ -112,7 +92,6 @@ $(document).ready(function() {
   =            Read            =
   ============================*/
   $('#read').click(function() {
-    console.log(table.row('.selected').data());
     $('#read_modal table thead tr').empty();
     $('#read_modal table tbody tr').empty();
     for (var i in table.row('.selected').data()) {
@@ -120,10 +99,10 @@ $(document).ready(function() {
       $('#read_modal table tbody tr').append("<td>" + table.row('.selected').data()[i] + "</td>");
     };
   });
-  /*-----  End of Read  ------*/
-  /*==============================
-  =            Update            =
-  ==============================*/
+  // /*-----  End of Read  ------*/
+  // /*==============================
+  // =            Update            =
+  // ==============================*/
   $('#update').click(function() {
     $('#update_modal form').empty();
     for (var i in table.row('.selected').data()) {
@@ -138,21 +117,21 @@ $(document).ready(function() {
     };
     $.ajax({
       type: 'POST',
-      url: '/tire',
+      url: '/summer_tire',
       data: update,
       success: function(result) {
         console.log(result);
       },
     });
   });
-  /*-----  End of Update  ------*/
-  /*==============================
-  =            Delete            =
-  ==============================*/
+  // /*-----  End of Update  ------*/
+  // /*==============================
+  // =            Delete            =
+  // ==============================*/
   $('#delete').click(function() {
     $.ajax({
       type: 'DELETE',
-      url: '/tire',
+      url: '/summer_tire',
       data: {
         id: table.row('.selected').data()['id']
       },
