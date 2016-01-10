@@ -1,11 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <helpers.NonSwipeableViewPager
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/tab_layout" />
+
+    <TextView
+        android:text="show tires"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_tires_text_view"
+        android:layout_below="@+id/pager" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_tires_button"
+        android:text="Show tires"
+        android:layout_below="@+id/show_tires_text_view"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>
