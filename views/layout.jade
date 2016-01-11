@@ -9,9 +9,6 @@ head
     title Tires Stock
     //- Bootstrap core CSS
     link(rel='stylesheet', href='./stylesheets/style.css')
-    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css')
-    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css')
-
     block header
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
@@ -37,9 +34,17 @@ head
                 li
                   a(href='agricultural') Agricultural              
                 li.divider(role='separator')
+                li
+                  a(href='page_orders') Orders
+                li
+                  a(href='page_customers') Customers
+                li
+                  a(href='page_order_items') Order Items  
                 li.dropdown-header Nav header
             li
               a#settings(data-toggle='modal' data-target='#settings_modal') Settings
+            li
+              a(href='orders') Place order
         .nav-collapse
     .modal.fade.bs-example-modal-lg#settings_modal(tabindex='-1', role='dialog', aria-labelledby='settings_modal')
         .modal-dialog.modal-lg
@@ -64,7 +69,4 @@ head
     footer
     //-Bootstrap core JavaScript
     script(src='./min_javascripts/jquery_bootstrap.js')
-    script(src='https://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js')
-    script(src='https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js')
     block footer
