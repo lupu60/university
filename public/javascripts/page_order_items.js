@@ -18,8 +18,10 @@ $(document).ready(function() {
     "columns": [{
       "data": "id"
     }, {
+      "data": "order_id"
+    },{
       "data": "winter_id"
-    },, {
+    }, {
       "data": "agricultural_id"
     }, {
       "data": "summer_id"
