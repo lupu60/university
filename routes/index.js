@@ -352,7 +352,79 @@ router.delete('/customers', function(req, res, next) {
     });
   });
 });
-
+//List order_items
+router.get('/order_items', function(req, res, next) {
+  pg.connect(connect_string, function(err, client, done) {
+    client.query('SELECT * FROM order_items', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send("Error " + err);
+      } else {
+        res.send('{"tires":' + JSON.stringify(result.rows) + '}')
+      }
+    });
+  });
+});
+//INSERT order_items
+router.put('/order_items', function(req, res, next) {
+  var query_text = squel.insert()
+    .into("order_items")
+    .set("winter_id", req.body.winter_id)
+    .set("agricultural_id", req.body.agricultural_id)
+    .set("summer_id", req.body.summer_id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//UDPATE order_items
+router.post('/order_items', function(req, res, next) {
+  var query_text = squel.update()
+    .table("order_items")
+    .set("order_id", req.body.order_id)
+    .set("winter_id", req.body.winter_id)
+    .set("agricultural_id", req.body.agricultural_id)
+    .set("summer_id", req.body.summer_id)
+    .where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//DELETE order_items
+router.delete('/order_items', function(req, res, next) {
+  var query_text = squel.delete()
+    .from("order_items").where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
 //List orders
 router.get('/orders', function(req, res, next) {
   pg.connect(connect_string, function(err, client, done) {
@@ -419,79 +491,7 @@ router.delete('/orders', function(req, res, next) {
         res.send("ok")
       }
     });
-  });  
-  //List order_items
-  router.get('/order_items', function(req, res, next) {
-    pg.connect(connect_string, function(err, client, done) {
-      client.query('SELECT * FROM order_items', function(err, result) {
-        done();
-        if (err) {
-          console.error(err);
-          response.send("Error " + err);
-        } else {
-          res.send('{"tires":' + JSON.stringify(result.rows) + '}')
-        }
-      });
-    });
   });
-  //INSERT order_items
-  router.put('/order_items', function(req, res, next) {
-    var query_text = squel.insert()
-      .into("order_items")
-      .set("winter_id", req.body.winter_id)
-      .set("agricultural_id", req.body.agricultural_id)
-      .set("summer_id", req.body.summer_id)
-      .toString();
-    pg.connect(connect_string, function(err, client, done) {
-      client.query(query_text, function(err, result) {
-        done();
-        if (err) {
-          console.error(err);
-          res.send(err);
-        } else {
-          res.send("ok")
-        }
-      });
-    });
-  });
-  //UDPATE order_items
-  router.post('/order_items', function(req, res, next) {
-    var query_text = squel.update()
-      .table("order_items")
-      .set("order_id", req.body.order_id)
-      .set("winter_id", req.body.winter_id)
-      .set("agricultural_id", req.body.agricultural_id)
-      .set("summer_id", req.body.summer_id)
-      .where("id=" + req.body.id)
-      .toString();
-    pg.connect(connect_string, function(err, client, done) {
-      client.query(query_text, function(err, result) {
-        done();
-        if (err) {
-          console.error(err);
-          res.send(err);
-        } else {
-          res.send("ok")
-        }
-      });
-    });
-  });
-  //DELETE order_items
-  router.delete('/order_items', function(req, res, next) {
-    var query_text = squel.delete()
-      .from("order_items").where("id=" + req.body.id)
-      .toString();
-    pg.connect(connect_string, function(err, client, done) {
-      client.query(query_text, function(err, result) {
-        done();
-        if (err) {
-          console.error(err);
-          res.send(err);
-        } else {
-          res.send("ok")
-        }
-      });
-    });
-  });
+
 });
 module.exports = router;
