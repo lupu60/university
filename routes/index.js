@@ -57,6 +57,7 @@ router.put('/winter_tire', function(req, res, next) {
     .set("quantity", req.body.quantity)
     .set("price", req.body.price)
     .toString();
+    console.log(query_text);
   pg.connect(connect_string, function(err, client, done) {
     client.query(query_text, function(err, result) {
       done();
