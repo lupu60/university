@@ -16,6 +16,9 @@ router.get('/winter', function(req, res, next) {
 router.get('/summer' ,function(req, res, next) {
   res.render('summer');
 });
+router.get('/agricultural' ,function(req, res, next) {
+  res.render('agricultural');
+});
 pg.connect(connect_string, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
