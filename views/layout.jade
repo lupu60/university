@@ -1,9 +1,9 @@
 doctype html(lang='en')
 head
-    meta(charset='utf-8')   
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')   
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='') 
+    meta(name='description', content='')
     meta(name='author', content='wlf')
     link(rel='icon' href='./images/favicon.ico')
     title Tires Stock
@@ -18,28 +18,28 @@ head
       .container
         .navbar-header
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-            span.sr-only Toggle navigation       
-            span.icon-bar        
-            span.icon-bar     
-            span.icon-bar      
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
           a.navbar-brand(href='/') Tires Stock
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
                 | Tires Type
-                span.caret           
+                span.caret
               ul.dropdown-menu
                 li
-                  a(href='winter') Winter              
+                  a(href='winter') Winter
                 li
-                  a(href='summer') Summer              
+                  a(href='summer') Summer
                 li
-                  a(href='#') Agricole              
-                li.divider(role='separator')             
+                  a(href='agricultural') Agricultural              
+                li.divider(role='separator')
                 li.dropdown-header Nav header
             li
-              a#settings(data-toggle='modal' data-target='#settings_modal') Settings         
+              a#settings(data-toggle='modal' data-target='#settings_modal') Settings
         .nav-collapse
     .modal.fade.bs-example-modal-lg#settings_modal(tabindex='-1', role='dialog', aria-labelledby='settings_modal')
         .modal-dialog.modal-lg
@@ -60,7 +60,7 @@ head
                     button.btn.btn-default(type='button', data-dismiss='modal') Close
                     button#send_settings.btn.btn-primary(type='button') Save changes
     block content
-      
+
     footer
     //-Bootstrap core JavaScript
     script(src='./min_javascripts/jquery_bootstrap.js')

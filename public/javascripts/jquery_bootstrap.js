@@ -1,4 +1,4 @@
-/*! tires-stock - v0.0.0 - 2016-01-10 *//*!
+/*! tires-stock - v0.0.0 - 2016-01-11 *//*!
  * jQuery JavaScript Library v2.2.0
  * http://jquery.com/
  *

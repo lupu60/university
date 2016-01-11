@@ -186,5 +186,82 @@ router.delete('/summer_tire', function(req, res, next) {
     });
   });
 });
-
+//List agricultural_tire
+router.get('/agricultural_tire', function(req, res, next) {
+  pg.connect(connect_string, function(err, client, done) {
+    client.query('SELECT * FROM agricultural_tire', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send("Error " + err);
+      } else {
+        res.send('{"tires":' + JSON.stringify(result.rows) + '}')
+      }
+    });
+  });
+});
+//INSERT summer_tire
+router.put('/agricultural_tire', function(req, res, next) {
+  var query_text = squel.insert()
+    .into("agricultural_tire")
+    .set("brand", req.body.brand)
+    .set("size", req.body.size)
+    .set("profile", req.body.profile)
+    .set("speed_rating", req.body.speed_rating)
+    .set("quantity", req.body.quantity)
+    .set("price", req.body.price)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//UDPATE summer_tire
+router.post('/agricultural_tire', function(req, res, next) {
+  var query_text = squel.update()
+    .table("agricultural_tire")
+    .set("brand", req.body.brand)
+    .set("size", req.body.size)
+    .set("profile", req.body.profile)
+    .set("speed_rating", req.body.speed_rating)
+    .set("quantity", req.body.quantity)
+    .set("price", req.body.price)
+    .where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//DELETE summer_tire
+router.delete('/agricultural_tire', function(req, res, next) {
+  var query_text = squel.delete()
+    .from("agricultural_tire").where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
 module.exports = router;
