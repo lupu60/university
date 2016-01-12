@@ -1,1 +1,1 @@
-web: node ./bin/www
+web: grunt production & node ./bin/www

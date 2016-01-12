@@ -13,9 +13,25 @@ router.get('/winter', function(req, res, next) {
   res.render('winter');
 });
 
-router.get('/summer' ,function(req, res, next) {
+router.get('/summer', function(req, res, next) {
   res.render('summer');
 });
+
+router.get('/agricultural', function(req, res, next) {
+  res.render('agricultural');
+});
+
+router.get('/page_orders', function(req, res, next) {
+  res.render('page_orders');
+});
+router.get('/page_customers', function(req, res, next) {
+  res.render('page_customers');
+});
+router.get('/page_order_items', function(req, res, next) {
+  res.render('page_order_items');
+});
+
+
 pg.connect(connect_string, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
@@ -54,6 +70,7 @@ router.put('/winter_tire', function(req, res, next) {
     .set("quantity", req.body.quantity)
     .set("price", req.body.price)
     .toString();
+  console.log(query_text);
   pg.connect(connect_string, function(err, client, done) {
     client.query(query_text, function(err, result) {
       done();
@@ -186,5 +203,295 @@ router.delete('/summer_tire', function(req, res, next) {
     });
   });
 });
+//List agricultural_tire
+router.get('/agricultural_tire', function(req, res, next) {
+  pg.connect(connect_string, function(err, client, done) {
+    client.query('SELECT * FROM agricultural_tire', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send("Error " + err);
+      } else {
+        res.send('{"tires":' + JSON.stringify(result.rows) + '}')
+      }
+    });
+  });
+});
+//INSERT agricultural_tire
+router.put('/agricultural_tire', function(req, res, next) {
+  var query_text = squel.insert()
+    .into("agricultural_tire")
+    .set("brand", req.body.brand)
+    .set("size", req.body.size)
+    .set("profile", req.body.profile)
+    .set("speed_rating", req.body.speed_rating)
+    .set("quantity", req.body.quantity)
+    .set("price", req.body.price)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//UDPATE agricultural_tire
+router.post('/agricultural_tire', function(req, res, next) {
+  var query_text = squel.update()
+    .table("agricultural_tire")
+    .set("brand", req.body.brand)
+    .set("size", req.body.size)
+    .set("profile", req.body.profile)
+    .set("speed_rating", req.body.speed_rating)
+    .set("quantity", req.body.quantity)
+    .set("price", req.body.price)
+    .where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//DELETE agricultural_tire
+router.delete('/agricultural_tire', function(req, res, next) {
+  var query_text = squel.delete()
+    .from("agricultural_tire").where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//List customers
+router.get('/customers', function(req, res, next) {
+  console.log("mata");
+  pg.connect(connect_string, function(err, client, done) {
+    client.query('SELECT * FROM customers', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send("Error " + err);
+      } else {
+        res.send('{"tires":' + JSON.stringify(result.rows) + '}')
+      }
+    });
+  });
+});
+//INSERT customers
+router.put('/customers', function(req, res, next) {
+  var query_text = squel.insert()
+    .into("customers")
+    .set("name", req.body.name)
+    .set("phone_no", req.body.phone_no)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//UDPATE customers
+router.post('/customers', function(req, res, next) {
+  var query_text = squel.update()
+    .table("customers")
+    .set("name", req.body.name)
+    .set("phone_no", req.body.phone_no)
+    .where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//DELETE customers
+router.delete('/customers', function(req, res, next) {
+  var query_text = squel.delete()
+    .from("customers").where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//List order_items
+router.get('/order_items', function(req, res, next) {
+  pg.connect(connect_string, function(err, client, done) {
+    client.query('SELECT * FROM order_items', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send("Error " + err);
+      } else {
+        res.send('{"tires":' + JSON.stringify(result.rows) + '}')
+      }
+    });
+  });
+});
+//INSERT order_items
+router.put('/order_items', function(req, res, next) {
+  var query_text = squel.insert()
+    .into("order_items")
+    .set("winter_id", req.body.winter_id)
+    .set("agricultural_id", req.body.agricultural_id)
+    .set("summer_id", req.body.summer_id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//UDPATE order_items
+router.post('/order_items', function(req, res, next) {
+  var query_text = squel.update()
+    .table("order_items")
+    .set("order_id", req.body.order_id)
+    .set("winter_id", req.body.winter_id)
+    .set("agricultural_id", req.body.agricultural_id)
+    .set("summer_id", req.body.summer_id)
+    .where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//DELETE order_items
+router.delete('/order_items', function(req, res, next) {
+  var query_text = squel.delete()
+    .from("order_items").where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//List orders
+router.get('/orders', function(req, res, next) {
+  pg.connect(connect_string, function(err, client, done) {
+    client.query('SELECT * FROM orders', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send("Error " + err);
+      } else {
+        res.send('{"tires":' + JSON.stringify(result.rows) + '}')
+      }
+    });
+  });
+});
+//INSERT orders
+router.put('/orders', function(req, res, next) {
+  var query_text = squel.insert()
+    .into("orders")
+    .set("customer_id", req.body.customer_id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//UDPATE orders
+router.post('/orders', function(req, res, next) {
+  var query_text = squel.update()
+    .table("orders")
+    .set("customer_id", req.body.customer_id)
+    .where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
+});
+//DELETE orders
+router.delete('/orders', function(req, res, next) {
+  var query_text = squel.delete()
+    .from("orders").where("id=" + req.body.id)
+    .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        res.send(err);
+      } else {
+        res.send("ok")
+      }
+    });
+  });
 
+});
 module.exports = router;

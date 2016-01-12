@@ -1,5 +1,7 @@
 extends layout
-
+block header
+	link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css')
+	link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css')
 block content
 	nav.navbar.navbar-default.navbar-fixed-bottom#crud
 		.container
@@ -78,4 +80,7 @@ block content
 					button.btn.btn-default(type='button', data-dismiss='modal') Close
 					button#send_update.btn.btn-primary(type='button',data-dismiss='modal') Save changes
 block footer
+	script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+	script(src='https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js')
+	script(src='https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js')
 	script(src='./min_javascripts/summer.js')
