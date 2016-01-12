@@ -19,14 +19,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import fragments.AddTire;
+import fragments.AddUpdateTire;
 import helpers.Configuration;
 import helpers.PagerAdapter;
 import helpers.ResponseHolder;
@@ -48,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
     private static int currentTabPosition;
     private int index;
     public static MainActivity mainActivity;
+    private PagerAdapter adapter;
+    private final String UPDATE = "Update";
+    private final String DELETE = "Delete";
 
     public TextView getTiresInfoTextView() {
         return tiresInfoTextView;
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
-        PagerAdapter adapter = new PagerAdapter
+        adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().remove(fragment).commit();
                 viewPager.setCurrentItem(tab.getPosition());
                 currentTabPosition = tab.getPosition();
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -109,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 index = 0;
                 // WebServer Request URL
-                String[] serverURLs = {Configuration.SUMMER_TIRES_URL, Configuration.WINTER_TIRES_URL};
+                String[] serverURLs = {Configuration.SUMMER_TIRES_URL, Configuration.WINTER_TIRES_URL, Configuration.FARMER_TIRES_URL};
 
                 for (int i = 0; i < serverURLs.length; i++) {
                     new ShowTires().execute(serverURLs[i]);
@@ -141,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 responseHolder = gson.fromJson(response.body().string(), ResponseHolder.class);
 
-                info = "Tires loaded successfully!";
+                info = "Tires LOADED successfully!";
             } catch (IOException e) {
                 info = e.getMessage();
             }
@@ -153,10 +159,13 @@ public class MainActivity extends AppCompatActivity {
             if (index == 0) {
                 store.setSummerTires(responseHolder.getTires());
                 index++;
-
             } else if (index == 1) {
                 store.setWinterTires(responseHolder.getTires());
                 index++;
+            } else if (index == 2) {
+                store.setFarmerTires(responseHolder.getTires());
+                index++;
+                adapter.notifyDataSetChanged();
             }
             tiresInfoTextView.setText(info);
         }
@@ -179,18 +188,21 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_tire) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            Fragment addTireFragment = new AddTire();
+            Fragment addTireFragment = new AddUpdateTire();
             transaction.replace(R.id.fragment_place, addTireFragment, ADD_TIRE_FRAGMENT_TAG);
             transaction.addToBackStack(ADD_TIRE_FRAGMENT_TAG).commit();
 
         } else if (id == R.id.action_update_tire) {
-            setInsertIdWindow();
+            setInsertIdWindow(UPDATE);
+
+        } else if (id == R.id.action_delete_tire) {
+            setInsertIdWindow(DELETE);
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void setInsertIdWindow() {
+    private void setInsertIdWindow(final String operation) {
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.insert_id_dialog);
@@ -203,24 +215,36 @@ public class MainActivity extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (!idEditText.getText().toString().isEmpty()) {
 
                     final Tire foundTire = store.getTireFromId(getTiresAccordingToTabView(),
                             Integer.parseInt(idEditText.getText().toString()));
 
                     if (foundTire != null) {
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        final Fragment addTireFragment = new AddTire();
-                        transaction.replace(R.id.fragment_place, addTireFragment, ADD_TIRE_FRAGMENT_TAG);
-                        transaction.addToBackStack(ADD_TIRE_FRAGMENT_TAG).commit();
 
-                        final Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                ((AddTire) addTireFragment).prefillFields(foundTire);
-                            }
-                        }, 100);
+                        if (operation.equalsIgnoreCase(UPDATE)) {
+
+                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                            final Fragment addTireFragment = new AddUpdateTire();
+                            transaction.replace(R.id.fragment_place, addTireFragment, ADD_TIRE_FRAGMENT_TAG);
+                            transaction.addToBackStack(ADD_TIRE_FRAGMENT_TAG).commit();
+
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ((AddUpdateTire) addTireFragment).prefillFields(foundTire);
+                                }
+                            }, 100);
+
+                        } else if (operation.equalsIgnoreCase(DELETE)) {
+
+                            Gson gson = new Gson();
+                            String jsonTire = gson.toJson(foundTire);
+
+                            new DeleteTires().execute(getURLFromActualTabView(), jsonTire);
+                        }
                         dialog.dismiss();
                     } else
                         Toast.makeText(getApplicationContext(), "No data found with id: #" + idEditText.getText().toString() +
@@ -242,6 +266,45 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    private class DeleteTires extends AsyncTask<String, Void, Void> {
+
+        private ProgressDialog Dialog = new ProgressDialog(MainActivity.this);
+        OkHttpClient client = new OkHttpClient();
+        String info;
+
+        protected void onPreExecute() {
+            Dialog.setMessage("Please wait..");
+            Dialog.show();
+        }
+
+        protected Void doInBackground(String... urls) {
+
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, urls[1]);
+
+            Request request = new Request.Builder()
+                    .url(urls[0])
+                    .delete(body)
+                    .addHeader("content-type", "application/json")
+                    .build();
+
+            try {
+                Response response = client.newCall(request).execute();
+                String responseHolder = response.message();
+
+                info = "Tires DELETED successfully: " + responseHolder;
+            } catch (IOException e) {
+                info = e.getMessage();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(Void unused) {
+            Dialog.dismiss();
+            tiresInfoTextView.setText(info);
+        }
+    }
+
     private ArrayList<Tire> getTiresAccordingToTabView() {
         switch (currentTabPosition) {
             case 0:
@@ -255,17 +318,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static String getActualTabView() {
+    public static String getURLFromActualTabView() {
         switch (currentTabPosition) {
             case 0:
-                return SUMMER;
+                return Configuration.SUMMER_TIRES_URL;
             case 1:
-                return FARMER;
+                return Configuration.FARMER_TIRES_URL;
             case 2:
-                return WINTER;
+                return Configuration.WINTER_TIRES_URL;
             default:
                 return null;
         }
     }
+
 
 }
