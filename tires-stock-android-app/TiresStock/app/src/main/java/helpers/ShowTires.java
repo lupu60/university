@@ -22,7 +22,7 @@ public class ShowTires {
 
         TableRow headerRow = new TableRow(activity);
         headerRow.setLayoutParams(new TableLayout.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
-        for (int j = 0; j < tires.get(0).getNUMBER_OF_COLUMNS(); j++) {
+        for (int j = 0; j < Configuration.NUMBER_OF_COLUMNS_TIRE; j++) {
             String[] col = {"Id ", "Brand ", "Size ", "Profile ", "Speed ", "Quantity ", "Price "};
             TextView columnsView = new TextView(activity);
             columnsView.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
@@ -30,7 +30,7 @@ public class ShowTires {
             columnsView.setBackgroundResource(R.drawable.border);
             columnsView.setPadding(5, 0, 0, 0);
             columnsView.setText(col[j]);
-            columnsView.setTextSize(20);
+            columnsView.setTextSize(22);
             headerRow.addView(columnsView);
         }
         tableLayout.addView(headerRow);
@@ -41,7 +41,7 @@ public class ShowTires {
             TableRow tableRow = new TableRow(activity);
             tableRow.setLayoutParams(new TableLayout.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
-            for (int j = 0; j < actualTire.getNUMBER_OF_COLUMNS(); j++) {
+            for (int j = 0; j < Configuration.NUMBER_OF_COLUMNS_TIRE; j++) {
                 String[] col = {actualTire.getId() + " ", actualTire.getBrand() + " ", actualTire.getSize() + " ", actualTire.getProfile() + " ",
                         actualTire.getSpeed_rating() + " ", actualTire.getQuantity() + " ", actualTire.getPrice() + " "};
                 TextView columnsView = new TextView(activity);
@@ -50,6 +50,7 @@ public class ShowTires {
                 columnsView.setTextColor(Color.BLACK);
                 columnsView.setPadding(5, 0, 0, 0);
                 columnsView.setText(col[j]);
+                columnsView.setTextSize(18);
                 tableRow.addView(columnsView);
 
             }

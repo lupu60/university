@@ -16,10 +16,9 @@ public class Tire {
     @Expose
     private String speed_rating;
     @Expose
-    private String quantity;
+    private int quantity;
     @Expose
-    private String price;
-    private final int NUMBER_OF_COLUMNS = 7;
+    private int price;
 
     public int getId() {
         return id;
@@ -61,24 +60,20 @@ public class Tire {
         this.speed_rating = speed_rating;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
-    }
-
-    public int getNUMBER_OF_COLUMNS() {
-        return NUMBER_OF_COLUMNS;
     }
 
     @Override
