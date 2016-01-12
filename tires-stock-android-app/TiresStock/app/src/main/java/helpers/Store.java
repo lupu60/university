@@ -36,4 +36,14 @@ public class Store {
     public void setFarmerTires(ArrayList<Tire> farmerTires) {
         this.farmerTires = farmerTires;
     }
+
+    public Tire getTireFromId(ArrayList<Tire> list, int id){
+        Tire foundTire = null;
+        for(Tire tire : list){
+            if(tire.getId() == id){
+                foundTire = tire;
+            }
+        }
+        return foundTire;
+    }
 }
