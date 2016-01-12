@@ -13,26 +13,41 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <helpers.NonSwipeableViewPager
-        android:id="@+id/pager"
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/tab_layout" />
-
-    <TextView
-        android:text="show tires"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/show_tires_text_view"
-        android:layout_below="@+id/pager" />
+        android:layout_below="@id/tab_layout"
+        android:id="@+id/fragment_place">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/show_tires_button"
-        android:text="Show tires"
-        android:layout_below="@+id/show_tires_text_view"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true" />
+        <helpers.NonSwipeableViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pager">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="result load tires"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tires_info_text_view"
+                    android:layout_alignParentLeft="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/load_tires_button"
+                    android:text="Load tires"
+                    android:layout_below="@+id/tires_info_text_view" />
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
 
 </RelativeLayout>
