@@ -1,6 +1,7 @@
 package helpers;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import model.Tire;
 
@@ -11,6 +12,7 @@ public class ResponseHolder {
     private ArrayList<Tire> tires;
 
     public ArrayList<Tire> getTires() {
+        Collections.sort(tires, new CustomComparator());
         return tires;
     }
 
