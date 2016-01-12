@@ -42,31 +42,27 @@ head
                   a(href='page_order_items') Order Items  
                 li.dropdown-header Nav header
             li
-              a#settings(data-toggle='modal' data-target='#settings_modal') Settings
-            li
-              a(href='orders') Place order
+              a#settings(data-toggle='modal' data-target='#settings_modal') Place order
         .nav-collapse
+        
     .modal.fade.bs-example-modal-lg#settings_modal(tabindex='-1', role='dialog', aria-labelledby='settings_modal')
         .modal-dialog.modal-lg
             .modal-content
                 .modal-header
                     button.close(type='button', data-dismiss='modal', aria-label='Close')
                         span(aria-hidden='true') &times;
-                    h4.modal-title Settings
+                    h4.modal-title Place ordar
                 .modal-body
                     form
-                        .form-group.tva
-                            label.control-label(for='tva') TVA
-                            input#tva.form-control(type='text', value='')
-                        .form-group.adaos
-                            label.control-label(for='adaos') Adaos Comercial
-                            input#adaos.form-control(type='text', value='')
+
                 .modal-footer
                     button.btn.btn-default(type='button', data-dismiss='modal') Close
                     button#send_settings.btn.btn-primary(type='button') Save changes
+                    
     block content
 
     footer
     //-Bootstrap core JavaScript
     script(src='./min_javascripts/jquery_bootstrap.js')
+    script(src='./min_javascripts/place_order.js')
     block footer

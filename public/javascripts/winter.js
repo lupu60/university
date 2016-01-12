@@ -31,7 +31,7 @@ $(document).ready(function() {
       "data": "quantity"
     }, {
       "data": "price"
-    }],
+    }]
   });
 
   /*=================================
@@ -59,6 +59,8 @@ $(document).ready(function() {
       $('#read, #update, #delete').prop('disabled', false);
     }
   });
+
+
   /*-----  End of Style table  ------*/
   /*============================
   =            CRUD            =
