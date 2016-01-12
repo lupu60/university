@@ -31,6 +31,51 @@ router.get('/page_order_items', function(req, res, next) {
   res.render('page_order_items');
 });
 
+router.put('/place_order', function(req, res, next) {
+
+  console.log(req.body);
+
+  var query_text_order = squel.insert()
+    .into("order")
+    .set("customer_id", req.body.customer_id)
+    .toString();
+
+  console.log(query_text_order);
+
+  var order_items = req.body.orderitems_id.toString().split(";");
+  var location = req.body.location.toString().split("/");
+
+  switch (location[3]) {
+    case "winter":
+    var query_text_order_items = squel.insert()
+      .into("order_items")
+      .set("order_id", req.body.customer_id)
+      .toString();
+      break;
+    case "summer":
+      break;
+    case "agricultural":
+      break;
+    default:
+
+  }
+  console.log();
+
+
+  // pg.connect(connect_string, function(err, client, done) {
+  //   client.query(query_text, function(err, result) {
+  //     done();
+  //     if (err) {
+  //       console.error(err);
+  //       res.send(err);
+  //     } else {
+  //       res.send("ok")
+  //     }
+  //   });
+  // });
+
+  res.send("ok");
+});
 
 pg.connect(connect_string, function(err, client) {
   if (err) throw err;
@@ -52,7 +97,7 @@ router.get('/winter_tire', function(req, res, next) {
       done();
       if (err) {
         console.error(err);
-        response.send("Error " + err);
+        res.send("Error " + err);
       } else {
         res.send('{"tires":' + JSON.stringify(result.rows) + '}')
       }
@@ -370,6 +415,7 @@ router.get('/order_items', function(req, res, next) {
 router.put('/order_items', function(req, res, next) {
   var query_text = squel.insert()
     .into("order_items")
+    .set("order_id",req.body.order_id)
     .set("winter_id", req.body.winter_id)
     .set("agricultural_id", req.body.agricultural_id)
     .set("summer_id", req.body.summer_id)

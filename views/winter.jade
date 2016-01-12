@@ -2,6 +2,7 @@ extends layout
 block header
 	link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css')
 	link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css')
+	link(rel='stylesheet', href='https://cdn.datatables.net/select/1.1.0/css/select.dataTables.min.css')
 block content
 	nav.navbar.navbar-default.navbar-fixed-bottom#crud
 		.container
@@ -37,6 +38,7 @@ block content
 					th Speed Rating
 					th Quantity
 					th Price
+
 					
 	.modal.fade.bs-example-modal-lg#create_modal(tabindex='-1', role='dialog', aria-labelledby='create')
 		.modal-dialog.modal-lg
@@ -83,4 +85,5 @@ block footer
 	script(src='https://code.jquery.com/jquery-1.11.3.min.js')
 	script(src='https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js')
 	script(src='https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js')
+	script(src='https://cdn.datatables.net/select/1.1.0/js/dataTables.select.min.js')
 	script(src='./min_javascripts/winter.js')
