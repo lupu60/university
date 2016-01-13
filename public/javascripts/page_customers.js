@@ -2,7 +2,8 @@ $(document).ready(function() {
   var tire = {
     "id": "",
     "name": "",
-    "phone_no":""
+    "phone_no":"",
+    "last_name":""
   };
   /*=======================================
   =            Table generator            =
@@ -19,6 +20,8 @@ $(document).ready(function() {
       "data": "name"
     }, {
       "data": "phone_no"
+    }, {
+      "data": "last_name"
     }],
   });
 

@@ -407,6 +407,7 @@ router.put('/customers', function(req, res, next) {
     .into("customers")
     .set("name", req.body.name)
     .set("phone_no", req.body.phone_no)
+    .set("last_name",req.body.last_name)
     .toString();
   pg.connect(connect_string, function(err, client, done) {
     client.query(query_text, function(err, result) {
@@ -426,6 +427,7 @@ router.post('/customers', function(req, res, next) {
     .table("customers")
     .set("name", req.body.name)
     .set("phone_no", req.body.phone_no)
+    .set("last_name",req.body.last_name)
     .where("id=" + req.body.id)
     .toString();
   pg.connect(connect_string, function(err, client, done) {

@@ -7,11 +7,11 @@ block content
 		.container
 			.btn-group.btn-group-justified(role='group', aria-label='...')
 				.btn-group(role='group')
-					button.btn.btn-success#create(type='button' data-toggle='modal' data-target='#create_modal' ) Create 
+					button.btn.btn-success#create(type='button' data-toggle='modal' data-target='#create_modal' ) Create
 				.btn-group(role='group')
-					button.btn.btn-info#read(type='button' data-toggle='modal' data-target='#read_modal') Read 
+					button.btn.btn-info#read(type='button' data-toggle='modal' data-target='#read_modal') Read
 				.btn-group(role='group')
-					button.btn.btn-primary#update(type='button' data-toggle='modal' data-target='#update_modal') Update 
+					button.btn.btn-primary#update(type='button' data-toggle='modal' data-target='#update_modal') Update
 				.btn-group(role='group')
 					button.btn.btn-danger#delete(type='button') Delete
 	.container
@@ -23,12 +23,14 @@ block content
 					th id
 					th Name
 					th phone_no
-					
+
+					th last_name
 			tfoot
 				tr
 					th id
 					th Name
 					th phone_no
+					th last_name
 					
 	.modal.fade.bs-example-modal-lg#create_modal(tabindex='-1', role='dialog', aria-labelledby='create')
 		.modal-dialog.modal-lg
@@ -58,7 +60,7 @@ block content
 							tr
 				.modal-footer
 					button.btn.btn-default(type='button', data-dismiss='modal') Close
-					
+
 	.modal.fade.bs-example-modal-lg#update_modal(tabindex='-1', role='dialog', aria-labelledby='update')
 		.modal-dialog.modal-lg
 			.modal-content
