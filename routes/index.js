@@ -32,61 +32,121 @@ router.get('/page_order_items', function(req, res, next) {
 });
 
 router.put('/place_order', function(req, res, next) {
-
   console.log(req.body);
+  // INSERT ORDER
 
   var query_text_order = squel.insert()
-    .into("order")
+    .into("orders")
     .set("customer_id", req.body.customer_id)
     .toString();
+  pg.connect(connect_string, function(err, client, done) {
+    client.query(query_text_order, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+      } else {
+        console.error("order inserted");
+        order_id();
+      }
+    });
+  });
+  // find last order id
+  function order_id() {
+    pg.connect(connect_string, function(err, client, done) {
+      client.query("SELECT id from orders order by 1 desc limit 1;", function(err, result) {
+        done();
+        if (err) {
+          console.error(err);
+        } else {
+          insert_order_items(result.rows[0].id);
+        }
+      });
+    });
+  };
 
-  console.log(query_text_order);
+  function insert_order_items(order_id_value) {
 
-  var order_items = req.body.orderitems_id.toString().split(";");
-  var location = req.body.location.toString().split("/");
-
-  switch (location[3]) {
-    case "winter":
-    var query_text_order_items = squel.insert()
-      .into("order_items")
-      .set("order_id", req.body.customer_id)
-      .toString();
-      break;
-    case "summer":
-      break;
-    case "agricultural":
-      break;
-    default:
-
-  }
-  console.log();
-
-
-  // pg.connect(connect_string, function(err, client, done) {
-  //   client.query(query_text, function(err, result) {
-  //     done();
-  //     if (err) {
-  //       console.error(err);
-  //       res.send(err);
-  //     } else {
-  //       res.send("ok")
-  //     }
-  //   });
-  // });
-
+    var order_items = req.body.orderitems_id.toString().split(";");
+    var location = req.body.location.toString().split("/");
+    for (var i in order_items) {
+      switch (location[3]) {
+        case "winter":
+          var query_text_order_items = squel.insert()
+            .into("order_items")
+            .set("order_id", order_id_value)
+            .set("winter_id", parseInt(order_items[i]))
+            .set("agricultural_id", null)
+            .set("summer_id", null)
+            .toString();
+          pg.connect(connect_string, function(err, client, done) {
+            client.query(query_text_order_items, function(err, result) {
+              done();
+              if (err) {
+                console.error(err);
+              } else {
+                console.log("ok");
+              }
+            });
+          });
+          break;
+        case "summer":
+          var query_text_order_items = squel.insert()
+            .into("order_items")
+            .set("order_id", order_id_value)
+            .set("winter_id", null)
+            .set("agricultural_id", null)
+            .set("summer_id", parseInt(order_items[i]))
+            .toString();
+          pg.connect(connect_string, function(err, client, done) {
+            client.query(query_text_order_items, function(err, result) {
+              done();
+              if (err) {
+                console.error(err);
+              } else {
+                console.log("ok");
+              }
+            });
+          });
+          break;
+        case "agricultural":
+          var query_text_order_items = squel.insert()
+            .into("order_items")
+            .set("order_id", order_id_value)
+            .set("winter_id", null)
+            .set("agricultural_id", parseInt(order_items[i]))
+            .set("summer_id", null)
+            .toString();
+          pg.connect(connect_string, function(err, client, done) {
+            client.query(query_text_order_items, function(err, result) {
+              done();
+              if (err) {
+                console.error(err);
+              } else {
+                console.log("ok");
+              }
+            });
+          });
+          break;
+        default:
+      }
+    };
+  };
+  console.log("all_ok");
   res.send("ok");
 });
 
-pg.connect(connect_string, function(err, client) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-  // client.query('DROP TABLE winter_tire', function(err, result) {
-  //   if (err)
-  //    { console.error(err);  }
-  //   else
-  //    { res.send(result.rows)}
-  // });
-});
+
+
+// pg.connect(connect_string, function(err, client) {
+//   if (err) throw err;
+//   console.log('Connected to postgres! Getting schemas...');
+//   client.query('SELECT LAST(customer_id) AS LastOrders FROM orders;', function(err, result) {
+//     if (err)
+//      { console.error(err);  }
+//     else
+//      { res.send(result.rows)}
+//   });
+// });
 
 
 
@@ -415,7 +475,7 @@ router.get('/order_items', function(req, res, next) {
 router.put('/order_items', function(req, res, next) {
   var query_text = squel.insert()
     .into("order_items")
-    .set("order_id",req.body.order_id)
+    .set("order_id", req.body.order_id)
     .set("winter_id", req.body.winter_id)
     .set("agricultural_id", req.body.agricultural_id)
     .set("summer_id", req.body.summer_id)

@@ -5,6 +5,7 @@ $(document).ready(function() {
     "orderitems_id": ""
   };
   $('#settings').click(function() {
+    delete order.location;
     $('#settings_modal form').empty();
     for (var i in order) {
       $('#settings_modal form').append('<div class="form-group ' + i + '"><label for="' + i + '_content" class="control-label">' + i.toString().toUpperCase() + '</label><input id="' + i + '_content" type="text" value="' + order[i] + '" class="form-control"></div>');
