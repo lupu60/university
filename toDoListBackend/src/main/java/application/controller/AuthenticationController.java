@@ -1,6 +1,7 @@
 package application.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +17,8 @@ import application.model.User;
 import application.model.UserAuth;
 import application.service.AuthenticationService;
 import application.service.UserService;
+
+
 @CrossOrigin
 @RestController
 public class AuthenticationController {
