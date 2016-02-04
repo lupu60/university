@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en"  ng-app="todoapp">
+<html lang="en" ng-app="todoapp">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -36,42 +37,49 @@
         <a class="navbar-brand" href="#">TODOLIST</a>
       </div>
       <div ng-controller="LoginController" id="navbar" class="navbar-collapse collapse">
-        <form  class="navbar-form navbar-right" role="form">
+        <form class="navbar-form navbar-right" role="form">
           <div class="form-group">
             <input ng-model="user.username" type="text" placeholder="user.username" class="form-control">
           </div>
           <div class="form-group">
-            <input  ng-model="user.password" type="password" placeholder="user.password" class="form-control">
+            <input ng-model="user.password" type="password" placeholder="user.password" class="form-control">
           </div>
           <button ng-click="login(user)" type="submit" class="btn btn-success">Sign in</button>
-          <button ng-click="register()"type="button" class="btn btn-primary">Register</button>
+          <button ng-click="register()" type="button" class="btn btn-primary">Register</button>
         </form>
         <script type="text/ng-template" id="myModalContent.html">
           <div class="modal-header">
-              <h3 class="modal-title">Register</h3>
+            <h3 class="modal-title">Register</h3>
           </div>
           <div class="modal-body">
             <form novalidate class="simple-form">
-                firstName: <input type="text" ng-model="user.firstName" /><br />
-                lastName: <input type="text" ng-model="user.lastName" /><br />
-                username: <input type="text" ng-model="user.username" /><br />
-                password: <input type="password" ng-model="user.password" /><br />
-                e-mail: <input type="email" ng-model="user.email" /><br />
-              </form
-          </div>
-          <div class="modal-footer">
+              firstName:
+              <input type="text" ng-model="user.firstName" />
+              <br /> lastName:
+              <input type="text" ng-model="user.lastName" />
+              <br /> username:
+              <input type="text" ng-model="user.username" />
+              <br /> password:
+              <input type="password" ng-model="user.password" />
+              <br /> e-mail:
+              <input type="email" ng-model="user.email" />
+              <br />
+            </form </div>
+            <div class="modal-footer">
               <button class="btn btn-primary" type="button" ng-click="ok(user)">OK</button>
               <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-          </div>
-      </script>
+            </div>
+        </script>
+
+        </div>
+        <!--/.navbar-collapse -->
       </div>
-      <!--/.navbar-collapse -->
-    </div>
   </nav>
 
- <div ng-include="'todolist.htm'"></div>
+  <div ng-controller="TodolistController">
+    <div ng-include="getInclude()"></div>
 
-
+  </div>
 
 
   <!-- /container -->
@@ -80,8 +88,9 @@
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
   </script>
   <script src="js/vendor/angular.min.js"></script>
-    <script src="js/vendor/ui-bootstrap-tpls-1.1.2.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+  <script src="js/vendor/ui-bootstrap-tpls-1.1.2.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+  <script src="js/vendor/angular-drag-and-drop-lists.min.js"></script>
   <script src="js/vendor/bootstrap.min.js"></script>
 
   <script src="js/main.js"></script>
