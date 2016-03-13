@@ -1,0 +1,22 @@
+{
+  "name": "greatestCommonDivisor",
+  "version": "1.0.0",
+  "description": "greatestCommonDivisor",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lupu60/university.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lupu60/university/issues"
+  },
+  "homepage": "https://github.com/lupu60/university#readme",
+  "author": "Lupu Bogdan",
+  "license": "ISC"
+}
