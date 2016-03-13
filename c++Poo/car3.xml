@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<CAR>
+    <NAME>Car3</NAME>
+    <ENGINE>
+        <LKM>2</LKM>
+        <TYPE>benzina</TYPE>
+        <CM3>2000</CM3>
+        <HP>190</HP>
+        <PRICE>1900</PRICE>
+    </ENGINE>
+    <COLOR>
+        <CL>CL3</CL>
+        <PRICE>100</PRICE>
+    </COLOR>
+
+    <BODY>body3</BODY>
+    <LIST_ACCESORIES>
+        <ACCESORIES>
+            <NAME>A10</NAME>
+            <PRICE>150</PRICE>
+        </ACCESORIES>
+        <ACCESORIES>
+            <NAME>A5</NAME>
+            <PRICE>150</PRICE>
+        </ACCESORIES>
+        <ACCESORIES>
+            <NAME>A11</NAME>
+            <PRICE>150</PRICE>
+        </ACCESORIES>
+        <ACCESORIES>
+            <NAME>A12</NAME>
+            <PRICE>150</PRICE>
+        </ACCESORIES>
+    </LIST_ACCESORIES>
+    <YEAR>2010</YEAR>
+    <KM>10000</KM>
+</CAR>
