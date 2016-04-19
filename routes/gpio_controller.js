@@ -1,62 +1,51 @@
-var Gpio = require('onoff').Gpio,
+try {
+    var Gpio = require('onoff').Gpio;
+    var GpioVersion = require('onoff/package.json').version
+} catch (er) {
+    Gpio = null
+}
+
+if (Gpio) {
     wra = new Gpio(17, 'out');
     wrb = new Gpio(27, 'out');
     wla = new Gpio(22, 'out');
     wlb = new Gpio(23, 'out');
+}
+
+function write(ra, rb, la, lb) {
+    if (Gpio) {
+        wra.write(ra);
+        wrb.write(rb);
+        wla.write(la);
+        wlb.write(lb);
+    }
+}
+
 function up() {
     console.log("up");
-    wra.write(1);
-    wrb.write(0);
-    wla.write(0);
-    wlb.write(1);
+    write(1, 0, 0, 1);
 }
+
 function down() {
     console.log("down");
-    wra.write(0);
-    wrb.write(1);
-    wla.write(1);
-    wlb.write(0);
+    write(0, 1, 1, 0);
 }
+
 function left() {
     console.log("left");
-    wra.write(1);
-    wrb.write(0);
-    wla.write(1);
-    wlb.write(0);
+    write(1, 0, 1, 0);
 }
+
 function right() {
     console.log("right");
-    wra.write(0);
-    wrb.write(1);
-    wla.write(0);
-    wlb.write(1);
+    write(0, 1, 0, 1);
 }
+
 function stop() {
     console.log("stop");
-    wra.write(0);
-    wrb.write(0);
-    wla.write(0);
-    wlb.write(0);
+    write(0, 0, 0, 0);
 }
-// function up() {
-//     console.log("up");
-// }
 
-// function down() {
-//     console.log("down");
-// }
-
-// function left() {
-//     console.log("left");
-// }
-
-// function right() {
-//     console.log("right");
-// }
-
-// function stop() {
-//     console.log("stop");
-// }
 exports.user_left = function() {
     stop();
 };
