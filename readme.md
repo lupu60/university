@@ -4,7 +4,7 @@
 #[A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS]
 ![A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS](http://i.imgur.com/N42rxH4.jpg)
 
-lupu60/remote_diagnostics)
+
 
 ### Version
 1.0.0
