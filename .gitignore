@@ -3,3 +3,4 @@
 /public/fonts
 /node_modules
 /npm-debug.log
+/database/db.nosql
