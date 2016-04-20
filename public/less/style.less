@@ -1,94 +1,95 @@
-@import	"_imports.less";
-
+@import "_imports.less";
 @font-face {
     font-family: 'Gotham-Bold';
-    src: url('../fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Gotham-Bold.otf')  format('opentype'),
-         url('../fonts/Gotham-Bold.woff') format('woff'),
-         url('../fonts/Gotham-Bold.ttf')  format('truetype'),
-         url('../fonts/Gotham-Bold.svg#Gotham-Bold') format('svg');
+    src: url('../fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Gotham-Bold.otf') format('opentype'), url('../fonts/Gotham-Bold.woff') format('woff'), url('../fonts/Gotham-Bold.ttf') format('truetype'), url('../fonts/Gotham-Bold.svg#Gotham-Bold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham-Book';
-    src: url('../fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Gotham-Book.otf')  format('opentype'),
-         url('../fonts/Gotham-Book.woff') format('woff'),
-         url('../fonts/Gotham-Book.ttf')  format('truetype'),
-         url('../fonts/Gotham-Book.svg#Gotham-Book') format('svg');
+    src: url('../fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'), url('../fonts/Gotham-Book.otf') format('opentype'), url('../fonts/Gotham-Book.woff') format('woff'), url('../fonts/Gotham-Book.ttf') format('truetype'), url('../fonts/Gotham-Book.svg#Gotham-Book') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham-Light';
-    src: url('../fonts/Gotham-Light.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Gotham-Light.otf')  format('opentype'),
-         url('../fonts/Gotham-Light.woff') format('woff'),
-         url('../fonts/Gotham-Light.ttf')  format('truetype'),
-         url('../fonts/Gotham-Light.svg#Gotham-Light') format('svg');
+    src: url('../fonts/Gotham-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Gotham-Light.otf') format('opentype'), url('../fonts/Gotham-Light.woff') format('woff'), url('../fonts/Gotham-Light.ttf') format('truetype'), url('../fonts/Gotham-Light.svg#Gotham-Light') format('svg');
     font-weight: normal;
     font-style: normal;
 }
+
 .navbar-toggle {
-  border-radius: 0px;
+    border-radius: 0px;
 }
+
 .navbar-brand {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 body {
-  background: radial-gradient(#000 15%, rgba(0, 0, 0, 0) 16%) 0 0,radial-gradient(#000 15%, rgba(0, 0, 0, 0) 16%) 8px 8px,radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 0 1px,radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 8px 9px;
-  background-color: #282828;
-  background-size: 16px 16px;
-  padding-top: 50px;
-  //font-family: 'Gotham-Book',Helvetica Neue,Helvetica,Arial,sans-serif;
-} 
-// flat
-.navbar-toggle,.progress {
-  border-radius: 0px;
+    background: radial-gradient(#000 15%, rgba(0, 0, 0, 0) 16%) 0 0, radial-gradient(#000 15%, rgba(0, 0, 0, 0) 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, rgba(0, 0, 0, 0) 20%) 8px 9px;
+    background-color: #282828;
+    background-size: 16px 16px;
+    padding-top: 50px;
+    //font-family: 'Gotham-Book',Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-h1,h2,h4,h3{
-	color: #FFF;
+// flat
+.navbar-toggle,
+.progress {
+    border-radius: 0px;
 }
-.temperatures{
-	margin-top: 5px;
-	text-align: center;
+
+h1,
+h2,
+h4,
+h3 {
+    color: #FFF;
 }
-.circle{
-	position:relative;
-	display: inline-block;
-	text-align: center;
-	margin: 6px 6px 20px;
+
+.temperatures {
+    margin-top: 5px;
+    text-align: center;
 }
+
+.circle {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 6px 6px 20px;
+}
+
 .circle strong {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 30px;
-  color:#fff;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: #fff;
 }
-#not_found{
-width:100%;
+
+#not_found {
+    width: 100%;
 }
+
 //chart
 .ct-label {
-  fill: rgba(255, 255, 255, 0.9);
-  color: #FFF;
-  font-size: 0.78rem;
-  line-height: 1;
+    fill: rgba(255, 255, 255, 0.9);
+    color: #FFF;
+    font-size: 0.78rem;
+    line-height: 1;
 }
+
 .ct-grid {
-  stroke: rgba(255, 255, 255, 0.99);
-  stroke-width: 1px;
-  stroke-dasharray: 2px;
+    stroke: rgba(255, 255, 255, 0.99);
+    stroke-width: 1px;
+    stroke-dasharray: 2px;
 }
-#notification{
+
+#notification {
     display: none;
 }

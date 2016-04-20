@@ -8,5 +8,5 @@ router.get('/', function(req, res, next) {
         title: 'Graphs'
     });
 });
- 
+
 module.exports = router;

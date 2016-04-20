@@ -4,23 +4,16 @@ var express = require('express');
 =            new require            =
 ===================================*/
 var socket_io    = require('socket.io' );
-var passport = require('passport');
 var flash = require('connect-flash');
-var LocalStrategy = require('passport-local').Strategy;
 /*-----  End of new require  ------*/
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var helmet = require('helmet');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-/*================================
-=            Passport            =
-================================*/
-
-/*-----  End of Passport  ------*/
-
 
 /*==================================
 =            New Routes            =
@@ -32,18 +25,12 @@ var settings = require('./routes/settings');
 var graphs = require('./routes/graphs');
 /*-----  End of New Routes  ------*/
 var app = express();
-/*================================== 
+/*==================================
 =            Socket io             =
 ==================================*/
 var io           = socket_io();
 app.io           = io;
 /*-----  End of Socket io   ------*/
-/*===============================
-=            new var            =
-===============================*/
-
-/*-----  End of new var  ------*/
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,23 +41,23 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser()); 
+app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
- 
+
 app.use('/', routes);
 app.use('/users', users);
-/*==================================  
+/*==================================
 =            New Routes            =
 ==================================*/
 app.use('/keyboard_controller', keyboard_controller);
 app.use('/gyroscope_controller', gyroscope_controller);
 app.use('/speech_controller',speech_controller);
-app.use('/settings',settings); 
-app.use('/graphs',graphs); 
+app.use('/settings',settings);
+app.use('/graphs',graphs);
 /*-----  End of New Routes  ------*/
 
- 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -101,20 +88,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-/*================================
-=            passport            =
-================================*/
 
-
-/*-----  End of passport  ------*/
-
-
-/*========================
-=                        =
-========================*/
-
-
-/*-----  End of   ------*/
 
 
 // module.exports = io;

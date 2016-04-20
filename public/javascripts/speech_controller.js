@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     function send(move) {
         socket.emit('moving', {
-            move:move
+            move: move
         });
         return false;
     }

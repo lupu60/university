@@ -18,8 +18,8 @@ function wheel() {
     }
     if (move.x > 3) {
         $(".wheel").rotate({
-            animateTo: -70
-        })
+            animateTo: -70})
+
     }
     if (move.x < 3 && move.x > -3) {
         $(".wheel").rotate({

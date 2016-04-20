@@ -1,4 +1,4 @@
-$.get("/carinfo", function(car){
+$.get("/carinfo", function(car) {
     levels(car.sensordata.levels);
     temperatures(car.sensordata.temperatures);
 });
@@ -6,13 +6,13 @@ $.get("/carinfo", function(car){
 
 function levels_style(selector, percentage) {
     $('#' + selector).css("width", percentage + "%");
-    if (percentage <= 29 && percentage >= 0){
-    $('#notification').css({'display': 'block'});
-     navigator.vibrate(1000);
-    $('#notification p').append('<strong>'+selector.toString()+'</strong>\n=\n'+percentage.toString()+'%<br>');
-    return;
+    if (percentage <= 29 && percentage >= 0) {
+        $('#notification').css({ 'display': 'block' });
+        navigator.vibrate(1000);
+        $('#notification p').append('<strong>' + selector.toString() + '</strong>\n=\n' + percentage.toString() + '%<br>');
+        return;
     };
-    if (percentage >= 30 && percentage <= 45){
+    if (percentage >= 30 && percentage <= 45) {
         $('#' + selector).removeClass("progress-bar-danger").addClass("progress-bar-warning");
         return;
     };
@@ -93,4 +93,3 @@ function levels(levels) {
     levels_style('oil', levels.oil);
     levels_style('windshield', levels.windshield_washer_fluid);
 };
-

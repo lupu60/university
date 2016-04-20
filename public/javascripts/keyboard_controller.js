@@ -3,17 +3,21 @@ var move = {
     "data": '',
     "val": ''
 };
+
 function send(move) {
-    socket.emit('moving', {move:move});
+    socket.emit('moving', { move: move });
     return false;
 };
+
 function startPeristentVibrate(level) {
- navigator.vibrate(level);
+    navigator.vibrate(level);
 };
+
 function stopVibrate() {
-navigator.vibrate(0);
-navigator.vibrate([]);
+    navigator.vibrate(0);
+    navigator.vibrate([]);
 };
+
 function touchstart(selector) {
     startPeristentVibrate(5000);
     $(selector).css({
@@ -23,6 +27,7 @@ function touchstart(selector) {
     move.val = selector[0].id;
     send(move);
 };
+
 function touchend(selector) {
     stopVibrate();
     $(selector).css({
@@ -32,32 +37,32 @@ function touchend(selector) {
     move.val = selector[0].id;
     send(move);
 };
-$(document).ready(function () {
-    $('#up').bind('touchstart', function () {
+$(document).ready(function() {
+    $('#up').bind('touchstart', function() {
         touchstart($(this));
     });
-    $('#up').bind('touchend', function () {
+    $('#up').bind('touchend', function() {
         touchend($(this));
     });
-    $('#down').bind('touchstart', function () {
+    $('#down').bind('touchstart', function() {
         touchstart($(this));
     });
-    $('#down').bind('touchend', function () {
+    $('#down').bind('touchend', function() {
         touchend($(this));
     });
-    $('#left').bind('touchstart', function () {
+    $('#left').bind('touchstart', function() {
         touchstart($(this));
     });
-    $('#left').bind('touchend', function () {
+    $('#left').bind('touchend', function() {
         touchend($(this));
     });
-    $('#right').bind('touchstart', function () {
+    $('#right').bind('touchstart', function() {
         touchstart($(this));
     });
-    $('#right').bind('touchend', function () {
+    $('#right').bind('touchend', function() {
         touchend($(this));
     });
-    $('#stop').bind('touchstart', function () {
+    $('#stop').bind('touchstart', function() {
         startPeristentVibrate(5000);
         $(this).css({
             'background-color': 'red'
@@ -66,7 +71,7 @@ $(document).ready(function () {
         move.val = "stop";
         send(move);
     });
-    $('#stop').bind('touchend', function () {
+    $('#stop').bind('touchend', function() {
         stopVibrate();
         $(this).css({
             'background-color': '#F1F1F1'
