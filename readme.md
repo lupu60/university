@@ -1,5 +1,6 @@
 ## remote_diagnostics
-[![bitHound Overall Score](https://www.bithound.io/github/lupu60/remote_diagnostics/badges/score.svg)](https://www.bithound.io/github/
+[![bitHound Overall Score](https://www.bithound.io/github/lupu60/remote_diagnostics/badges/score.svg)](https://www.bithound.io/github/lupu60/remote_diagnostics)
+
 #[A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS]
 ![A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS](http://i.imgur.com/N42rxH4.jpg)
 
