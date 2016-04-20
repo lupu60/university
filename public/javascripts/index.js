@@ -11,20 +11,20 @@ function levels_style(selector, percentage) {
         navigator.vibrate(1000);
         $('#notification p').append('<strong>' + selector.toString() + '</strong>\n=\n' + percentage.toString() + '%<br>');
         return;
-    };
+    }
     if (percentage >= 30 && percentage <= 45) {
         $('#' + selector).removeClass("progress-bar-danger").addClass("progress-bar-warning");
         return;
-    };
+    }
     if (percentage >= 46 && percentage <= 79) {
         $('#' + selector).removeClass("progress-bar-danger").removeClass("progress-bar-warning");
         return;
-    };
+    }
     if (percentage >= 80) {
         $('#' + selector).removeClass("progress-bar-danger").addClass("progress-bar-success");
         return;
-    };
-};
+    }
+}
 
 function temperatures_style(selector, percentage) {
     $('#' + selector).circleProgress({
@@ -52,7 +52,7 @@ function temperatures_style(selector, percentage) {
         }).on('circle-animation-progress', function(event, progress, stepValue) {
             $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
         });
-    };
+    }
     if (percentage > 50 && percentage < 79) {
         $('#' + selector).circleProgress({
             value: "." + percentage,
@@ -66,7 +66,7 @@ function temperatures_style(selector, percentage) {
         }).on('circle-animation-progress', function(event, progress, stepValue) {
             $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
         });
-    };
+    }
     if (percentage > 80) {
         $('#' + selector).circleProgress({
             value: "." + percentage,
@@ -80,16 +80,16 @@ function temperatures_style(selector, percentage) {
         }).on('circle-animation-progress', function(event, progress, stepValue) {
             $(this).find('strong').text(String(stepValue.toFixed(2)).substr(1));
         });
-    };
-};
+    }
+}
 
 function temperatures(temperatures) {
     temperatures_style('engine', temperatures.engine);
     temperatures_style('outside', temperatures.outside);
-};
+}
 
 function levels(levels) {
     levels_style('fuel', levels.fuel);
     levels_style('oil', levels.oil);
     levels_style('windshield', levels.windshield_washer_fluid);
-};
+}

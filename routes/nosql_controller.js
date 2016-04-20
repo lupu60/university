@@ -24,45 +24,47 @@ function init_car() {
                 "outside": Math.floor((Math.random() * 100) + 1)
             }
         }
-    }
+    };
     return car;
 }
-var last = function (err, selected) {
+var last = function(err, selected) {
+    console.log(err);
     exports.last = selected[selected.length - 1];
 };
 
-var period = function (doc) {
-    start=20;
-    if (doc["timestamp"]["day"]>start) {
-           return doc;
+var period = function(doc) {
+    start = 20;
+    if (doc["timestamp"]["day"] > start) {
+        return doc;
     }
- 
+
 };
-var period_element = function (err, selected) {
-    var element = [];
-    selected.forEach(function(o) {
-        element.push(o["sensordata"]);
-    });
-    console.log(element);
-}
-// var last = function(err, selected) {
-//     console.log(selected[selected.length-1]);
-//     selected.forEach(function(o) {
-//         exports.last = o;
-//     });
-// };
+var period_element = function(err, selected) {
+        var element = [];
+        selected.forEach(function(o) {
+            element.push(o["sensordata"]);
+        });
+        console.log(err);
+        console.log(element);
+    };
+    // var last = function(err, selected) {
+    //     console.log(selected[selected.length-1]);
+    //     selected.forEach(function(o) {
+    //         exports.last = o;
+    //     });
+    // };
 
 // var map = function(doc) {
 //     if (doc["timestamp"]["minutes_70"] == t) return doc;
 // };
 
-exports.read_last = function () {
+exports.read_last = function() {
     nosql.all(last);
 };
-exports.insert = function () {
+exports.insert = function() {
     nosql.insert(init_car());
 };
 
-exports.read_period = function () {
-nosql.all(period, period_element);
+exports.read_period = function() {
+    nosql.all(period, period_element);
 };

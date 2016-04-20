@@ -1,8 +1,8 @@
 try {
     var Gpio = require('onoff').Gpio;
-    var GpioVersion = require('onoff/package.json').version
+    var GpioVersion = require('onoff/package.json').version;
 } catch (er) {
-    Gpio = null
+    Gpio = null;
 }
 
 if (Gpio) {
@@ -56,28 +56,28 @@ exports.moving = function(move) {
                 up();
             } else {
                 stop();
-            };
+            }
             break;
         case "down":
             if (move["move"].data == "true") {
                 down();
             } else {
                 stop();
-            };
+            }
             break;
         case "left":
             if (move["move"].data == "true") {
                 left();
             } else {
                 stop();
-            };
+            }
             break;
         case "right":
             if (move["move"].data == "true") {
                 right();
             } else {
                 stop();
-            };
+            }
             break;
         case "stop":
             stop();
@@ -87,17 +87,17 @@ exports.moving = function(move) {
 exports.gyro_moving = function(move) {
     if (move["move"].y < -3) {
         up();
-    };
+    }
     if (move["move"].y > 3) {
         down();
-    };
+    }
     if (move["move"].x < -3) {
         right();
-    };
+    }
     if (move["move"].x > 3) {
         left();
-    };
+    }
     if (move["move"].x < 3 && move["move"].x > -3 && move["move"].y < 3 && move["move"].y > -3) {
         stop();
-    };
+    }
 };

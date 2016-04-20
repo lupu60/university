@@ -24,23 +24,23 @@ $(document).ready(function() {
             'background-color': '#F1F1F1'
         });
     });
-    var text = document.getElementById('text')
+    var text = document.getElementById('text');
     var speech = new Speech({
         debugging: true,
         continuous: true,
         interimResults: true,
         autoRestart: true
-    })
+    });
     speech.on('start', function() {
-        text.innerHTML = 'Come on, talk to me.'
+        text.innerHTML = 'Come on, talk to me.';
     }).on('end', function() {
-        text.innerHTML = 'Stopped listening.'
+        text.innerHTML = 'Stopped listening.';
     }).on('interimResult', function(msg) {
-        text.innerHTML = msg
+        text.innerHTML = msg;
     }).on('finalResult', function(msg) {
-        text.innerHTML = msg
+        text.innerHTML = msg;
         move.val = msg;
-        move.data = "true"
+        move.data = "true";
         send(move);
-    }).start()
+    }).start();
 });
