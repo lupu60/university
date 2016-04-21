@@ -7,16 +7,16 @@ var move = {
 function send(move) {
     socket.emit('moving', { move: move });
     return false;
-};
+}
 
 function startPeristentVibrate(level) {
     navigator.vibrate(level);
-};
+}
 
 function stopVibrate() {
     navigator.vibrate(0);
     navigator.vibrate([]);
-};
+}
 
 function touchstart(selector) {
     startPeristentVibrate(5000);
@@ -26,7 +26,7 @@ function touchstart(selector) {
     move.data = "true";
     move.val = selector[0].id;
     send(move);
-};
+}
 
 function touchend(selector) {
     stopVibrate();
@@ -36,7 +36,8 @@ function touchend(selector) {
     move.data = "false";
     move.val = selector[0].id;
     send(move);
-};
+}
+
 $(document).ready(function() {
     $('#up').bind('touchstart', function() {
         touchstart($(this));

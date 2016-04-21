@@ -6,7 +6,7 @@ var move = {
 };
 
 function send() {
-    socket.emit('moving', {move:move});
+    socket.emit('moving', { move: move });
     return false;
 }
 
@@ -14,20 +14,18 @@ function wheel() {
     if (move.x < -3) {
         $(".wheel").rotate({
             animateTo: 70
-        })
+        });
     }
     if (move.x > 3) {
-        $(".wheel").rotate({
-            animateTo: -70})
-
+        $(".wheel").rotate({ animateTo: -70 });
     }
     if (move.x < 3 && move.x > -3) {
         $(".wheel").rotate({
             animateTo: 0
         })
     }
-};
-if (window.DeviceMotionEvent != undefined) {
+}
+if (window.DeviceMotionEvent !== undefined) {
     window.ondevicemotion = function(e) {
         move.x = Math.round(e.accelerationIncludingGravity.x);
         move.y = Math.round(e.accelerationIncludingGravity.y);
@@ -35,8 +33,8 @@ if (window.DeviceMotionEvent != undefined) {
         $("#x").text(move.x);
         $("#y").text(move.y);
         $("#z").text(move.z);
-    }
-};
+    };
+}
 $(document).ready(function() {
     watch(move, ["x", "y"], function() {
         send();

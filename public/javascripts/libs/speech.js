@@ -3,14 +3,14 @@ var Speech = (function (undefined) {
     // https://github.com/aralejs/events ======================================
 
     var eventSplitter = /\s+/,
-        Events = function () {}
+        Events = function () {};
 
     Events.prototype.on = function (events, callback, context) {
-        var cache, event, list
-        if (!callback) return this
+        var cache, event, list;
+        if (!callback) return this;
 
-        cache = this.__events || (this.__events = {})
-        events = events.split(eventSplitter)
+        cache = this.__events || (this.__events = {});
+        events = events.split(eventSplitter);
 
         while (event = events.shift()) {
             list = cache[event] || (cache[event] = [])
@@ -158,7 +158,7 @@ var Speech = (function (undefined) {
                 // interim, let's update stuff on screen
                 self.emit('interimResult', transcript)
             }
-            
+
             if (self.options.debugging) {
                 console.log(transcript + (updatedResult.isFinal ? ' (final)' : ''))
             }
