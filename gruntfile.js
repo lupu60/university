@@ -94,18 +94,18 @@ module.exports = function(grunt) {
 	=            Development Tasks            =
 	=========================================*/
         watch: {
-            stylesless: {
-                options: {
-                    livereload: true
+                configFiles: {
+                    files: ['gruntfile.js', 'config/*.js'],
+                    options: {
+                        reload: true
+                    }
                 },
-                files: [BUILD_FILES_LESS],
+            stylesless: {
+                files: BUILD_FILES_LESS,
                 tasks: ['less:development']
             },
             javascripts: {
-                options: {
-                    livereload: true
-                },
-                files: [BUILD_DIR_JS],
+                files: BUILD_FILES_JS,
                 tasks: ['uglify']
             },
         },
