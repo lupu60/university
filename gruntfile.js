@@ -145,19 +145,6 @@ module.exports = function(grunt) {
                 dest: BUILD_DIR
             }
         },
-        imageEmbed: {
-            options: {
-                deleteAfterEncoding: false,
-                preEncodeCallback: function(filename) {
-                    return true;
-                },
-            },
-            dist: {
-                files: {
-                    BUILD_DIR_CSS: BUILD_DIR_CSS,
-                },
-            },
-        },
         clean: {
             production: {
                 src: ['./public/min_javascripts/*.map', './public/min_javascripts/libs/*.map', './public/stylesheets/*.map'],

@@ -22,7 +22,7 @@ function wheel() {
     if (move.x < 3 && move.x > -3) {
         $(".wheel").rotate({
             animateTo: 0
-        })
+        });
     }
 }
 if (window.DeviceMotionEvent !== undefined) {
