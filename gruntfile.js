@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         './node_modules/jquery/dist/jquery.js',
         './node_modules/bootstrap/dist/js/bootstrap.js',
     ];
-    var myFILES = [
+    var myJsFile = [
         "./public/javascripts/libs.js",
         "./public/javascripts/general.js",
         "./public/javascripts/graphs.js",
@@ -32,7 +32,6 @@ module.exports = function(grunt) {
         "./public/javascripts/index.js",
         "./public/javascripts/keyboard_controller.js",
         "./public/javascripts/speech_controller.js",
-        "./public/stylesheets/style.css"
     ];
     // =========================================================
     // configure the tasks
@@ -47,9 +46,9 @@ module.exports = function(grunt) {
                 },
             },
         },
-	// =============================================
-	// =            Core Tasks                     =
-	// =============================================
+        // =============================================
+        // =            Core Tasks                     =
+        // =============================================
         // copy files into dist directory
         copy: {
             bootstrap_fonts: {
@@ -68,7 +67,7 @@ module.exports = function(grunt) {
             },
             js: {
                 src: jsVendorSourceFiles,
-                dest: myFILES[0],
+                dest: myJsFile[0],
             }
         },
         less: {
@@ -90,16 +89,16 @@ module.exports = function(grunt) {
                 }],
             },
         },
-	/*=========================================
-	=            Development Tasks            =
-	=========================================*/
+        /*=========================================
+        =            Development Tasks            =
+        =========================================*/
         watch: {
-                configFiles: {
-                    files: ['gruntfile.js', 'config/*.js'],
-                    options: {
-                        reload: true
-                    }
-                },
+            configFiles: {
+                files: ['gruntfile.js', 'config/*.js'],
+                options: {
+                    reload: true
+                }
+            },
             stylesless: {
                 files: BUILD_FILES_LESS,
                 tasks: ['less:development']
@@ -109,9 +108,12 @@ module.exports = function(grunt) {
                 tasks: ['uglify']
             },
         },
-	/*==================================
-	=            Production Tasks      =
-	==================================*/
+         jshint: {
+             all: ['gruntfile.js',BUILD_FILES_JS]
+        },
+        /*==================================
+        =            Production Tasks      =
+        ==================================*/
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',

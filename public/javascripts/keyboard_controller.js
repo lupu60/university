@@ -1,5 +1,10 @@
 (function() {
-    var socket = io.connect(':4000');
+    var backendCon = {
+        socket: io.connect(':4000'),
+        sendMoveToBackend: function(move) {
+            this.socket.emit('moving', { move: move });
+        }
+    };
     var keyboardController = {
         move: {
             data: "",
@@ -59,9 +64,6 @@
                 selector.css({ 'background-color': '#F1F1F1' });
             }
         },
-        sendMoveToBackend: function() {
-            socket.emit('moving', { move: this.move });
-        },
         startPeristentVibrate: function(level) {
             navigator.vibrate(level);
         },
@@ -74,15 +76,15 @@
             this.render("start", selector);
             this.move.data = "true";
             this.move.val = selector[0].id;
-            this.sendMoveToBackend();
+            backendCon.sendMoveToBackend(this.move);
         },
         touchEnd: function(selector) {
             this.stopVibrate();
             this.render("end", selector);
             this.move.data = "false";
             this.move.val = selector[0].id;
-            this.sendMoveToBackend();
+            backendCon.sendMoveToBackend(this.move);
         }
-    }
+    };
     keyboardController.init();
 })();
