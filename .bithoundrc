@@ -26,7 +26,9 @@
     "**/modernizr.custom.?(*).js",
     "**/knockout-*.*.*.debug.js",
     "bower_components/**",
-    "public/javascripts/libs/*.js"
+    "public/javascripts/libs/*.js",
+    "typings/node/node.d.ts",
+    "gruntfile.js"
   ],
   "test": [
     "**/test/**",
