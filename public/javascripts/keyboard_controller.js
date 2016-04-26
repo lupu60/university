@@ -1,5 +1,5 @@
 (function() {
-    var backendCon = {
+    var backendKeyboard = {
         socket: io.connect(':4000'),
         sendMoveToBackend: function(move) {
             this.socket.emit('moving', { move: move });
@@ -76,14 +76,14 @@
             this.render("start", selector);
             this.move.data = "true";
             this.move.val = selector[0].id;
-            backendCon.sendMoveToBackend(this.move);
+            backendKeyboard.sendMoveToBackend(this.move);
         },
         touchEnd: function(selector) {
             this.stopVibrate();
             this.render("end", selector);
             this.move.data = "false";
             this.move.val = selector[0].id;
-            backendCon.sendMoveToBackend(this.move);
+            backendKeyboard.sendMoveToBackend(this.move);
         }
     };
     keyboardController.init();
