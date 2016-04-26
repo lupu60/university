@@ -30,8 +30,8 @@ function temperatures_style(selector, percentage) {
         value: "." + percentage,
         fill: {
             gradient: [
-                ['#ff1e41', .5],
-                ['#ff5f43', .5]
+                ['#ff1e41', 0.5],
+                ['#ff5f43', 0.5]
             ],
             gradientAngle: Math.PI / 4
         }
@@ -43,8 +43,8 @@ function temperatures_style(selector, percentage) {
             value: "." + percentage,
             fill: {
                 gradient: [
-                    ['#FFFF00', .5],
-                    ['#FF9900', .5]
+                    ['#FFFF00', 0.5],
+                    ['#FF9900', 0.5]
                 ],
                 gradientAngle: Math.PI / 4
             }
@@ -57,8 +57,8 @@ function temperatures_style(selector, percentage) {
             value: "." + percentage,
             fill: {
                 gradient: [
-                    ['#0681c4', .5],
-                    ['#4ac5f8', .5]
+                    ['#0681c4', 0.5],
+                    ['#4ac5f8', 0.5]
                 ],
                 gradientAngle: Math.PI / 4
             }
@@ -71,8 +71,8 @@ function temperatures_style(selector, percentage) {
             value: "." + percentage,
             fill: {
                 gradient: [
-                    ['#006600', .5],
-                    ['#33CC33', .5]
+                    ['#006600', 0.5],
+                    ['#33CC33', 0.5]
                 ],
                 gradientAngle: Math.PI / 4
             }

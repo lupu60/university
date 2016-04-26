@@ -34,29 +34,19 @@ var last = function(err, selected) {
 
 var period = function(doc) {
     start = 20;
-    if (doc["timestamp"]["day"] > start) {
+    if (doc.timestamp.day > start) {
         return doc;
     }
 
 };
 var period_element = function(err, selected) {
-        var element = [];
-        selected.forEach(function(o) {
-            element.push(o["sensordata"]);
-        });
-        console.log(err);
-        console.log(element);
-    };
-    // var last = function(err, selected) {
-    //     console.log(selected[selected.length-1]);
-    //     selected.forEach(function(o) {
-    //         exports.last = o;
-    //     });
-    // };
-
-// var map = function(doc) {
-//     if (doc["timestamp"]["minutes_70"] == t) return doc;
-// };
+    var element = [];
+    selected.forEach(function(o) {
+        element.push(o.sensordata);
+    });
+    console.log(err);
+    console.log(element);
+};
 
 exports.read_last = function() {
     nosql.all(last);
