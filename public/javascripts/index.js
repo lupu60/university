@@ -3,7 +3,6 @@ $.get("/carinfo", function(car) {
     temperatures(car.sensordata.temperatures);
 });
 
-
 function levels_style(selector, percentage) {
     $('#' + selector).css("width", percentage + "%");
     if (percentage <= 29 && percentage >= 0) {

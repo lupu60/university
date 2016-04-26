@@ -31,7 +31,7 @@
         handleMotionEvent: function(event) {
             gyroscopeController.move.x = Math.round(event.accelerationIncludingGravity.x);
             gyroscopeController.move.y = Math.round(event.accelerationIncludingGravity.y);
-            gyroscopeController.move.z = Math.round(event.accelerationIncludingGravity.z)
+            gyroscopeController.move.z = Math.round(event.accelerationIncludingGravity.z);
         },
         render: function() {
             this.$x.text(this.move.x);

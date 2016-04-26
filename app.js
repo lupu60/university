@@ -3,7 +3,6 @@ var express = require('express');
 /*===================================
 =            new require            =
 ===================================*/
-var socket_io    = require('socket.io' );
 var flash = require('connect-flash');
 /*-----  End of new require  ------*/
 var path = require('path');
@@ -25,12 +24,6 @@ var settings = require('./routes/settings');
 var graphs = require('./routes/graphs');
 /*-----  End of New Routes  ------*/
 var app = express();
-/*==================================
-=            Socket io             =
-==================================*/
-var io           = socket_io();
-app.io           = io;
-/*-----  End of Socket io   ------*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -90,7 +83,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-
-// module.exports = io;
 module.exports = app;
 

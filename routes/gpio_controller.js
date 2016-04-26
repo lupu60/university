@@ -50,30 +50,30 @@ exports.user_left = function() {
     stop();
 };
 exports.moving = function(move) {
-    switch (move["move"].val) {
+    switch (move.move.val) {
         case "up":
-            if (move["move"].data == "true") {
+            if (move.move.data === "true") {
                 up();
             } else {
                 stop();
             }
             break;
         case "down":
-            if (move["move"].data == "true") {
+            if (move.move.data === "true") {
                 down();
             } else {
                 stop();
             }
             break;
         case "left":
-            if (move["move"].data == "true") {
+            if (move.move.data === "true") {
                 left();
             } else {
                 stop();
             }
             break;
         case "right":
-            if (move["move"].data == "true") {
+            if (move.move.data === "true") {
                 right();
             } else {
                 stop();
@@ -85,19 +85,19 @@ exports.moving = function(move) {
     }
 };
 exports.gyro_moving = function(move) {
-    if (move["move"].y < -3) {
+    if (move.move.y < -3) {
         up();
     }
-    if (move["move"].y > 3) {
+    if (move.move.y > 3) {
         down();
     }
-    if (move["move"].x < -3) {
+    if (move.move.x < -3) {
         right();
     }
-    if (move["move"].x > 3) {
+    if (move.move.x > 3) {
         left();
     }
-    if (move["move"].x < 3 && move["move"].x > -3 && move["move"].y < 3 && move["move"].y > -3) {
+    if (move.move.x < 3 && move.move.x > -3 && move.move.y < 3 && move.move.y > -3) {
         stop();
     }
 };
