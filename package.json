@@ -34,7 +34,7 @@
     "screenfull": "3.0.0",
     "serve-favicon": "2.3.0",
     "sleep": "3.0.1",
-    "socket.io": "^1.4.6",
+    "socket.io": "1.4.6",
     "watchjs": "0.0.0"
   },
   "repository": {
