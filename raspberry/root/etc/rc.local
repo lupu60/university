@@ -17,7 +17,8 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-printf "Starting remote diagnostics App \n"
+printf "Starting remote diagnostics App\n"
 cd /home/pi/remote_diagnostics
-sudo npm start &
+sudo npm start > /home/pi/remote-diagnostics.log 2>&1 &
 exit 0
+
