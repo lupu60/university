@@ -23,20 +23,20 @@ function write(ra, rb, la, lb) {
 
 function up() {
     console.log("up");
-    write(1, 0, 0, 1);
+    write(0, 1, 1, 0);
 }
 
 function down() {
     console.log("down");
-    write(0, 1, 1, 0);
+    write(1, 0, 0, 1);
 }
 
-function left() {
+function right() {
     console.log("left");
     write(1, 0, 1, 0);
 }
 
-function right() {
+function left() {
     console.log("right");
     write(0, 1, 0, 1);
 }
