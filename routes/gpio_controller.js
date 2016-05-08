@@ -32,12 +32,12 @@ function down() {
 }
 
 function right() {
-    console.log("left");
+    console.log("right");
     write(1, 0, 1, 0);
 }
 
 function left() {
-    console.log("right");
+    console.log("left");
     write(0, 1, 0, 1);
 }
 
