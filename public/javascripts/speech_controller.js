@@ -1,4 +1,4 @@
-var socket = io.connect(':7000');
+var socket = io.connect(':7100');
 $(document).ready(function() {
     var move = {
         "data": '',

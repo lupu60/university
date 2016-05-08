@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var io = require('socket.io').listen(7000);
+var io = require('socket.io').listen(7100);
 var gpio_controller = require('./gpio_controller.js');
 router.get('/', function(req, res, next) {
     res.render('speech_controller', {
