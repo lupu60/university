@@ -1,13 +1,17 @@
+var fs = require('fs');
+var settings = JSON.parse(fs.readFileSync('/home/pi/settings.json', 'utf8'));
 var PushBullet = require('pushbullet');
-
+var pusher = new PushBullet(settings.key);
 var cmd = require('node-cmd');
 var os = require('os');
+
 // pusher.devices(function(error, response) {
 //     // response is the JSON response from the API
 //     console.log(response);
 // });
-//
+
 // pusher.createDevice('Raspberry', function(error, response) {});
+
 var systeminfo = {
     info: os.type().toString() + ' ' + os.platform().toString() + ' ' + os.arch().toString() + '\n',
     interface: [],
@@ -65,19 +69,20 @@ var systemCommands = {
 
 function sendNote(deviceIden,noteTitle,noteBody) {
   pusher.note(deviceIden, noteTitle, noteBody, function(error, response) {
-    // response is the JSON response from the API
     });
 };
 
 var noteBody = 'My info: \n' + systeminfo.getInfo();
 var noteTitle = "Hi, I'm online, Raspberry is up!";
-// Nexus
 
+// Nexus
+sendNote(settings.phone,noteTitle,noteBody);
 
 var options = {
-    limit: 10,
+    limit: 1,
     modified_after: 1400000000.00000
 };
+
 var stream = pusher.stream();
 stream.connect();
 stream.on('tickle', function(type) {
