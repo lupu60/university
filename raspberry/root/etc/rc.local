@@ -17,8 +17,16 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-printf "Starting remote diagnostics App\n"
+printf "======================================= Starting the COOL remote diagnostics App ============================================\n"
 cd /home/pi/remote_diagnostics
-sudo npm start > /home/pi/remote-diagnostics.log 2>&1 &
+sudo npm test > /home/pi/remote-diagnostics.log 2>&1 &
+
+
+sleep 10
+
+printf "======================================= Send pushNotification to Phone ======================================================\n"
+cd /home/pi/pushbullet_remote_diagnostics
+sudo node index.js  > /home/pi/pushbullet.log 2>&1 &
+
 exit 0
 
