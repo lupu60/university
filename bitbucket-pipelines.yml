@@ -6,8 +6,9 @@
 # image: docker-image:tag
 
 pipelines:
+image: headgeekette/latex
   default:
     - step:
         script:
           - echo "Build srs!"
-          - make 
+          - make
