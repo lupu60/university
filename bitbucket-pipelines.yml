@@ -10,4 +10,4 @@ pipelines:
     - step:
         script:
           - echo "Build srs!"
-          - pdflatex src.tex
+          - pdflatex srs.tex
