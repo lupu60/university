@@ -1,20 +1,25 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+		//springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+		springBootVersion = '1.4.3.RELEASE'
 	}
 	repositories {
 		mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
-	}
+		maven {url "https://plugins.gradle.org/m2/"}
+     }
 	dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:1.1.0"
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
+
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.moowork.node'
 
 jar {
 	baseName = 'backend'
@@ -33,6 +38,25 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-redis')
 	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-jersey')
+	compile('org.springframework.boot:spring-boot-starter-mustache')
+	compile group: 'org.eclipse.leshan', name: 'leshan-all', version: '0.1.11-M14'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
+// node {
+//     version = '0.11.10'
+//     npmVersion = '2.1.5'
+//     download = false
+// }
+// task installWebLibs (type: NpmTask) {
+//     description = "Installs dependencies from package.json and bower.json"
+//     workingDir = file("${project.projectDir}/src/main/resources/static/node_modules/")
+//     args = ['install']
+// }
+// build{
+// 	dependsOn installWebLibs
+// }

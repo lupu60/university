@@ -24,3 +24,11 @@ dist/
 nbdist/
 .nb-gradle/
 /bin/
+
+
+## Custom ##
+Californium.properties
+/src/main/resources/static/node_modules
+/src/main/resources/static/bower_components
+node_modules
+bower_components

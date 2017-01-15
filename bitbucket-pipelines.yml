@@ -1,12 +1,17 @@
-# This is a sample build configuration for Gradle.
-# Check our guides at https://confluence.atlassian.com/x/VYk8Lw for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-# image: java:8
-image: skorochkin/java-gradle
+# IoT Healthcare
 pipelines:
   default:
     - step:
-        script: # Modify the commands below to build your repository.
-          - gradle build
+        script: 
+          - chmod +x ./gradlew 
+          - ./gradlew build
+          - chmod +x heroku_deploy.sh
+          - ./heroku_deploy.sh
+  branches:
+    feature/*:
+      - step:
+          script:
+            - chmod +x ./gradlew 
+            - ./gradlew build
+            - chmod +x prelive_heroku_deploy.sh
+            - ./prelive_heroku_deploy.sh
