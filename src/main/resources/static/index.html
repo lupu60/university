@@ -11,33 +11,20 @@
         <meta name="author" content="gnp"/>
         <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
         <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
-        <script src="js/vendor/w3data.js" /></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" type="text/css" href="bower_components/bootswatch/cosmo/bootstrap.min.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="bower_components/bootswatch/cosmo/bootstrap.min.css"/> -->
         <link rel="stylesheet" type="text/css" href="bower_components/metisMenu/dist/metisMenu.min.css"/>
         <link rel="stylesheet" type="text/css" href="bower_components/angular-loading-bar/build/loading-bar.min.css"/>
+        <link rel="stylesheet" href="css/sb-admin-2.css"/>
+        <link rel="stylesheet" href="css/timeline.css"/>
         <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <div w3-include-html="partial/navbar.html">
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div w3-include-html="partial/sidebar.html">
-                </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <div class="jumbotron">
-                        <div class="container">
-                            <h1 id="hello">
-                            </h1>
-                        </div>
-                    </div>
-                </div>
+        <div ng-app="sbAdminApp">
+            <div ui-view>
             </div>
-        </div>
-        <div w3-include-html="partial/footer.html">
         </div>
         <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -51,8 +38,7 @@
         <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
         <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
         <!-- endbower -->
-        <script src="js/plugins.js"></script>
-        <script src="js/app.js"></script>
-        <script type="text/javascript">w3IncludeHTML();</script>
+        <script src="js/sb-admin.js"></script>
+        <script src="scripts/app.js"></script>
     </body>
 </html>
