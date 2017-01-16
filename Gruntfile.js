@@ -7,6 +7,7 @@ module.exports = function(grunt)
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // =========================================================
+    var WORKDIR = '/src/main/resources/static/';
     // configure the tasks
     grunt.initConfig(
     {
