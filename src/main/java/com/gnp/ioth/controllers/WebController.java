@@ -16,6 +16,6 @@ public class WebController {
 
   @RequestMapping(method = RequestMethod.GET)
   public String hello() {
-    return "Hello, world!";
+    return "Welcome to the coolest project on the planet!";
   }
 }
