@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gnp.ioth.exception.UserNotFoundException;
@@ -13,7 +14,7 @@ import com.gnp.ioth.repository.UserRepository;
 import com.gnp.ioth.service.UserService;
 
 
-
+@Service
 public class UserServiceImpl implements UserService {
   @Autowired
   UserRepository userRepository;
