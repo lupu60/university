@@ -6,9 +6,9 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "patient")
@@ -19,30 +19,41 @@ public class Patient {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private UUID id;
-  
-  @Column(name = "name")
+  private Long id;
+
+  @Column(name = "name", nullable = false)
   private String name;
-  
+
   @Column(name = "sex")
   private Sex sex;
 
   @Column(name = "dateOfBirth")
   private Date dateOfBirth;
 
-  public Patient(UUID id, String name, Sex sex, Date dateOfBirth) {
+  @Column(name = "band")
+  private UUID bandId;
+
+
+
+  public Patient() {
+    super();
+    // TODO Auto-generated constructor stub
+  }
+
+  public Patient(Long id, String name, Sex sex, Date dateOfBirth, UUID bandId) {
     super();
     this.id = id;
     this.name = name;
     this.sex = sex;
     this.dateOfBirth = dateOfBirth;
+    this.bandId = bandId;
   }
 
-  public UUID getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -69,5 +80,15 @@ public class Patient {
   public void setDateOfBirth(Date dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
+
+  public UUID getBandId() {
+    return bandId;
+  }
+
+  public void setBandId(UUID bandId) {
+    this.bandId = bandId;
+  }
+
+
 
 }
