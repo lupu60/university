@@ -12,6 +12,7 @@ public class WebController {
 
   // @SuppressWarnings("unused")
   // private LeshanServerWrapper leshanServerWrapper = new LeshanServerWrapper();
+  @SuppressWarnings("unused")
   private static final Logger LOG = LoggerFactory.getLogger(WebController.class);
 
   @RequestMapping(method = RequestMethod.GET)
