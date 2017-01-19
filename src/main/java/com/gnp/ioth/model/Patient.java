@@ -3,15 +3,31 @@ package com.gnp.ioth.model;
 import java.sql.Date;
 import java.util.UUID;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GenerationType;
 
+@Entity
+@Table(name = "patient")
 public class Patient {
   public enum Sex {
     FEMALE, MALE
   }
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
+  
+  @Column(name = "name")
   private String name;
+  
+  @Column(name = "sex")
   private Sex sex;
+
+  @Column(name = "dateOfBirth")
   private Date dateOfBirth;
 
   public Patient(UUID id, String name, Sex sex, Date dateOfBirth) {
