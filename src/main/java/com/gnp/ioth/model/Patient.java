@@ -1,6 +1,5 @@
 package com.gnp.ioth.model;
 
-import java.sql.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -27,9 +26,6 @@ public class Patient {
   @Column(name = "sex")
   private Sex sex;
 
-  @Column(name = "dateOfBirth")
-  private Date dateOfBirth;
-
   @Column(name = "band")
   private UUID bandId;
 
@@ -40,15 +36,14 @@ public class Patient {
     // TODO Auto-generated constructor stub
   }
 
-  public Patient(Long id, String name, Sex sex, Date dateOfBirth, UUID bandId) {
+  public Patient(String name, Sex sex, UUID bandId) {
     super();
-    this.id = id;
     this.name = name;
     this.sex = sex;
-    this.dateOfBirth = dateOfBirth;
     this.bandId = bandId;
   }
 
+  
   public Long getId() {
     return id;
   }
@@ -73,14 +68,6 @@ public class Patient {
     this.sex = sex;
   }
 
-  public Date getDateOfBirth() {
-    return dateOfBirth;
-  }
-
-  public void setDateOfBirth(Date dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-  }
-
   public UUID getBandId() {
     return bandId;
   }
@@ -89,6 +76,9 @@ public class Patient {
     this.bandId = bandId;
   }
 
-
-
+  @Override
+  public String toString() {
+    return "Patient [id=" + id + ", name=" + name + ", sex=" + sex + ", bandId=" + bandId + "]";
+  }
+  
 }

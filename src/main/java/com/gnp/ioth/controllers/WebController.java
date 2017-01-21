@@ -12,11 +12,11 @@ public class WebController {
 
   // @SuppressWarnings("unused")
   // private LeshanServerWrapper leshanServerWrapper = new LeshanServerWrapper();
-  @SuppressWarnings("unused")
   private static final Logger LOG = LoggerFactory.getLogger(WebController.class);
 
   @RequestMapping(method = RequestMethod.GET)
   public String hello() {
-    return "Welcome to the coolest project on the planet!";
+    LOG.info("hello");
+    return "Welcome to IoT Healthcare";
   }
 }

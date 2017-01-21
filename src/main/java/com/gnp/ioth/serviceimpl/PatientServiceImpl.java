@@ -13,7 +13,6 @@ import com.gnp.ioth.service.PatientService;
 
 @Service
 public class PatientServiceImpl implements PatientService {
-
   @Autowired
   PatientRepository patientRepository;
 
@@ -27,7 +26,6 @@ public class PatientServiceImpl implements PatientService {
   public Patient create(Patient patient) throws IllegalArgumentException {
     if (patient.getName() == null)
       throw new IllegalArgumentException();
-    System.out.println(patient.getName());
     patientRepository.save(patient);
     return patient;
 
