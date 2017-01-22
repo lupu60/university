@@ -2,17 +2,26 @@ package com.gnp.ioth.serviceimpl;
 
 import java.util.UUID;
 
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.gnp.ioth.model.Patient;
 import com.gnp.ioth.model.Patient.Sex;
 import com.gnp.ioth.service.PatientService;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class MockingData {
 
   @Autowired
   PatientService patientService;
 
+  @Ignore
+  @Test
   public void createPatient() {
     patientService.create(new Patient("Adam Potts", Sex.MALE, UUID.randomUUID()));
     patientService.create(new Patient("Amira Keller", Sex.MALE, UUID.randomUUID()));

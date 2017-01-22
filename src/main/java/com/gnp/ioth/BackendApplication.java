@@ -1,4 +1,5 @@
- package com.gnp.ioth;
+package com.gnp.ioth;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
