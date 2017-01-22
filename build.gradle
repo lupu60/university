@@ -45,31 +45,19 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-jersey')
 	compile('org.springframework.boot:spring-boot-starter-mustache')
-	
 	compile group: 'org.eclipse.leshan', name: 'leshan-all', version: '0.1.11-M14'
+	
 	//DB
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	runtime('com.h2database:h2')
 	runtime('org.hsqldb:hsqldb')
-	runtime('mysql:mysql-connector-java')
 	compile group: 'org.postgresql', name: 'postgresql', version: '9.2-1004-jdbc41'
 	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.6.Final'
 	compile group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: '5.2.6.Final'
-//devtools
+	
+	//devtools
 	runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
-// node {
-//     version = '0.11.10'
-//     npmVersion = '2.1.5'
-//     download = false
-// }
-// task installWebLibs (type: NpmTask) {
-//     description = "Installs dependencies from package.json and bower.json"
-//     workingDir = file("${project.projectDir}/src/main/resources/static/node_modules/")
-//     args = ['install']
-// }
-// build{
-// 	dependsOn installWebLibs
-// }
+
