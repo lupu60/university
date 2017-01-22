@@ -1,32 +1,54 @@
 package com.gnp.ioth.model;
 
-import java.sql.Date;
 import java.util.UUID;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "patient")
 public class Patient {
   public enum Sex {
     FEMALE, MALE
   }
 
-  private UUID id;
-  private String name;
-  private Sex sex;
-  private Date dateOfBirth;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-  public Patient(UUID id, String name, Sex sex, Date dateOfBirth) {
+  @Column(name = "name", nullable = false)
+  private String name;
+
+  @Column(name = "sex")
+  private Sex sex;
+
+  @Column(name = "band")
+  private UUID bandId;
+
+
+
+  public Patient() {
     super();
-    this.id = id;
-    this.name = name;
-    this.sex = sex;
-    this.dateOfBirth = dateOfBirth;
+    // TODO Auto-generated constructor stub
   }
 
-  public UUID getId() {
+  public Patient(String name, Sex sex, UUID bandId) {
+    super();
+    this.name = name;
+    this.sex = sex;
+    this.bandId = bandId;
+  }
+
+  
+  public Long getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -46,12 +68,17 @@ public class Patient {
     this.sex = sex;
   }
 
-  public Date getDateOfBirth() {
-    return dateOfBirth;
+  public UUID getBandId() {
+    return bandId;
   }
 
-  public void setDateOfBirth(Date dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
+  public void setBandId(UUID bandId) {
+    this.bandId = bandId;
   }
 
+  @Override
+  public String toString() {
+    return "Patient [id=" + id + ", name=" + name + ", sex=" + sex + ", bandId=" + bandId + "]";
+  }
+  
 }
