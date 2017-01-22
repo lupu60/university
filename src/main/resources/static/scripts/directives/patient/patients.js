@@ -8,18 +8,12 @@ angular.module('sbAdminApp')
         }
     })
     .controller('PatientCtrl', function($http, $scope, $position) {
-        $(function() {
-            $('#patients').DataTable({
-                "ajax": {
-                    "url": "/webapi/patient/",
-                    "dataSrc": ""
-                },
-                "columns": [
-                    { "data": "id" },
-                    { "data": "name" },
-                    { "data": "sex" },
-                    { "data": "bandId" }
-                ]
-            });
+        $http({
+            method: "GET",
+            url: "/webapi/patient/"
+        }).then(function mySucces(response) {
+            $scope.rowCollection = response.data;
+        }, function myError(response) {
+            console.log(response.statusText);
         });
     });

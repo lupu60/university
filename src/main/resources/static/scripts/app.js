@@ -94,9 +94,8 @@ angular
                         return $ocLazyLoad.load({
                                 name: 'sbAdminApp',
                                 files: [
-                                    '/bower_components/datatables.net/js/jquery.dataTables.min.js',
-                                    '/bower_components/datatables.net-dt/css/jquery.dataTables.min.css',
-                                    'scripts/directives/patient/patients.js',
+                                    'bower_components/angular-smart-table/dist/smart-table.min.js',
+                                    'scripts/directives/patient/patients.js'
                                 ]
                             })
                     }
