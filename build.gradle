@@ -52,7 +52,7 @@ dependencies {
 	runtime('com.h2database:h2')
 	runtime('org.hsqldb:hsqldb')
 	runtime('mysql:mysql-connector-java')
-	runtime('org.postgresql:postgresql')
+	compile group: 'org.postgresql', name: 'postgresql', version: '9.2-1004-jdbc41'
 	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.6.Final'
 	compile group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: '5.2.6.Final'
 //devtools
