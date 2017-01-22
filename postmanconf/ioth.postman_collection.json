@@ -1,0 +1,48 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ioth",
+		"_postman_id": "9f279289-39b3-6d52-d8d1-7b567285d22c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "patient",
+			"description": "",
+			"item": [
+				{
+					"name": "create patient",
+					"request": {
+						"url": "{{backend}}/webapi/patient/create",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"name\": \"Trystan Huynh\",\n    \"sex\": \"FEMALE\",\n    \"bandId\": \"5437fb73-18b7-4539-bf36-fe9101e158cd\"\n  }"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "srv",
+			"request": {
+				"url": "{{backend}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
