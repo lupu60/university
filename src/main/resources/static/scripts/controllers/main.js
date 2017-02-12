@@ -6,12 +6,21 @@
  * # MainCtrl
  * Controller of the sbAdminApp
  */
-angular.module('sbAdminApp').controller('MainCtrl', function($scope, $position) {
-    $(document).ready(function() {
-        $.ajax({
+angular.module('sbAdminApp').controller('MainCtrl', ['$scope', function($scope)
+{
+    $(document).ready(function()
+    {
+        $.ajax(
+        {
             url: "/webapi"
-        }).then(function(data, status, jqxhr) {
+        }).then(function(data, status, jqxhr)
+        {
             $('#hello').append(data);
         });
     });
-});
+
+}]);
+
+;(function(){
+             $('#side-menu').metisMenu();
+})();
