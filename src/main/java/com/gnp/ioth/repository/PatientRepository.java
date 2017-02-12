@@ -7,5 +7,5 @@ import com.gnp.ioth.model.Patient;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
-  Patient findByName(String name);
+
 }

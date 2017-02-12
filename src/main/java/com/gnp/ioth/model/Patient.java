@@ -20,13 +20,13 @@ public class Patient {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @Column(name = "name", nullable = false)
+  @Column(name = "name", unique = true, nullable = false)
   private String name;
 
   @Column(name = "sex")
   private Sex sex;
 
-  @Column(name = "band")
+  @Column(name = "band", unique = true)
   private UUID bandId;
 
 
@@ -43,7 +43,7 @@ public class Patient {
     this.bandId = bandId;
   }
 
-  
+
   public Long getId() {
     return id;
   }
@@ -76,9 +76,51 @@ public class Patient {
     this.bandId = bandId;
   }
 
+
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((bandId == null) ? 0 : bandId.hashCode());
+    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + ((sex == null) ? 0 : sex.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Patient other = (Patient) obj;
+    if (bandId == null) {
+      if (other.bandId != null)
+        return false;
+    } else if (!bandId.equals(other.bandId))
+      return false;
+    if (id == null) {
+      if (other.id != null)
+        return false;
+    } else if (!id.equals(other.id))
+      return false;
+    if (name == null) {
+      if (other.name != null)
+        return false;
+    } else if (!name.equals(other.name))
+      return false;
+    if (sex != other.sex)
+      return false;
+    return true;
+  }
+
   @Override
   public String toString() {
     return "Patient [id=" + id + ", name=" + name + ", sex=" + sex + ", bandId=" + bandId + "]";
   }
-  
+
 }

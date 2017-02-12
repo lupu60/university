@@ -32,6 +32,22 @@ public class PatientServiceImpl implements PatientService {
   }
 
   @Override
+  public Patient findById(Long id) throws PatientNotFoundException {
+    Patient returnPatient = patientRepository.findOne(id);
+    if (returnPatient == null)
+      throw new PatientNotFoundException();
+    return returnPatient;
+  }
+
+  @Override
+  public Patient update(Patient patient) throws PatientNotFoundException {
+    Patient updatePatient = patientRepository.findOne(patient.getId());
+    if (updatePatient == null)
+      throw new PatientNotFoundException();
+    return patientRepository.save(patient);
+  }
+
+  @Override
   @Transactional(rollbackFor = PatientNotFoundException.class)
   public Patient delete(Long id) throws PatientNotFoundException {
     Patient deletePatient = patientRepository.findOne(id);
@@ -41,12 +57,13 @@ public class PatientServiceImpl implements PatientService {
     return deletePatient;
   }
 
+
   @Override
-  public Patient findById(Long id) throws PatientNotFoundException {
-    Patient findPatient = patientRepository.findOne(id);
-    if (findPatient == null)
-      throw new PatientNotFoundException();
-    return findPatient;
+  @Transactional(rollbackFor = PatientNotFoundException.class)
+  public Patient delete(Patient patient) throws PatientNotFoundException {
+    patientRepository.delete(patient);
+    return patient;
   }
+
 
 }

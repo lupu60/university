@@ -13,6 +13,7 @@ angular
         'ui.router',
         'ui.bootstrap',
         'angular-loading-bar',
+        'smart-table',
     ])
     .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
@@ -94,7 +95,6 @@ angular
                         return $ocLazyLoad.load({
                                 name: 'sbAdminApp',
                                 files: [
-                                    'bower_components/angular-smart-table/dist/smart-table.min.js',
                                     'scripts/directives/patient/patients.js'
                                 ]
                             })

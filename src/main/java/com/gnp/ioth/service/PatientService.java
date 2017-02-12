@@ -9,11 +9,16 @@ import com.gnp.ioth.model.Patient;
 
 @Service
 public interface PatientService {
-  List<Patient> getAllPatients();
 
   public Patient create(Patient patient) throws IllegalArgumentException;
 
+  public List<Patient> getAllPatients();
+
+  public Patient findById(Long id) throws PatientNotFoundException;
+
+  public Patient update(Patient patient) throws PatientNotFoundException;
+
   public Patient delete(Long id) throws PatientNotFoundException;
 
-  Patient findById(Long id) throws PatientNotFoundException;
+  public Patient delete(Patient patient) throws PatientNotFoundException;
 }

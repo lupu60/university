@@ -22,24 +22,47 @@ import com.gnp.ioth.service.PatientService;
 @RestController
 @RequestMapping("/webapi/patient")
 public class PatientController {
+
   private static final Logger LOG = LoggerFactory.getLogger(PatientController.class);
+
   @Autowired
   PatientService patientService;
 
-  @RequestMapping(value = "/", produces = "application/json")
+  @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
   public List<Patient> getAllPatients() {
     return patientService.getAllPatients();
   }
 
-  @RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
-  public @ResponseBody Patient createPatient(@RequestBody Patient patient) {
+  @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
+  public @ResponseBody Patient findById(@PathVariable("id") Long id)
+      throws PatientNotFoundException {
+    LOG.info(id.toString());
+    return patientService.findById(id);
+  }
+
+  @RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
+  public @ResponseBody Patient createPatient(@RequestBody Patient patient)
+      throws IllegalArgumentException {
     LOG.info(patient.toString());
     return patientService.create(patient);
   }
 
-  @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST,
-      produces = "application/json")
-  public @ResponseBody Patient deletePatient(@PathVariable("id") Long id)
+  @RequestMapping(value = "/", method = RequestMethod.PUT, produces = "application/json")
+  public @ResponseBody Patient updatePatient(@RequestBody Patient patient)
+      throws PatientNotFoundException {
+    LOG.info(patient.toString());
+    return patientService.update(patient);
+  }
+
+  @RequestMapping(value = "/", method = RequestMethod.DELETE, produces = "application/json")
+  public @ResponseBody Patient deletePatient(@RequestBody Patient patient)
+      throws PatientNotFoundException {
+    LOG.info(patient.toString());
+    return patientService.delete(patient);
+  }
+
+  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+  public @ResponseBody Patient deletePatientbyId(@PathVariable("id") Long id)
       throws PatientNotFoundException {
     LOG.info(id.toString());
     return patientService.delete(id);
