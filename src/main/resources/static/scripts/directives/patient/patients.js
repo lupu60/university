@@ -9,19 +9,29 @@ angular.module('sbAdminApp').directive('patients', function()
 });
 angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal)
     {
+        $scope.alerts = [];
+        $scope.closeAlert = function(index)
+        {
+            $scope.alerts.splice(index, 1);
+        };
+        var restURL = "/webapi/patient/";
         var $ctrl = this;
         $ctrl.animationsEnabled = false;
-        $http(
+
+        function draw()
         {
-            method: "GET",
-            url: "/webapi/patient/"
-        }).then(function mySucces(response)
-        {
-            $scope.rowCollection = response.data;
-        }, function myError(response)
-        {
-            console.log(response.statusText);
-        });
+            $http(
+            {
+                method: "GET",
+                url: restURL
+            }).then(function mySucces(response)
+            {
+                $scope.rowCollection = response.data;
+            }, function myError(response)
+            {
+                console.log(response.statusText);
+            });
+        }
 
         function generateRandomItem()
         {
@@ -34,43 +44,70 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
                 "bandId": bands[Math.floor(Math.random() * 24)]
             };
         }
-        $scope.addRandomItem = function addRandomItem()
+        $scope.addRandomItem = function()
         {
             var tmp = generateRandomItem()
-            $scope.rowCollection.push(tmp);
             $http(
             {
                 method: "POST",
-                url: "/webapi/patient/",
+                url: restURL,
                 data: tmp
             }).then(function mySucces(response)
             {
+                $scope.rowCollection.push(response.data);
                 console.log(response);
             }, function myError(response)
             {
+                $scope.alerts.push(
+                {
+                    type: 'danger',
+                    msg: 'Oh snap! Change a few things up and try submitting again.'
+                });
                 console.log(response.statusText);
             });
         };
-        $scope.removeItem = function removeItem(row)
+        $scope.addItem = function()
         {
-            var index = $scope.rowCollection.indexOf(row);
-            if (index !== -1)
+            var modalInstance = $uibModal.open(
             {
-                $scope.rowCollection.splice(index, 1);
-            }
-            $http(
-            {
-                method: "DELETE",
-                url: "/webapi/patient/" + row.id,
-            }).then(function mySucces(response)
-            {
-                console.log(response);
-            }, function myError(response)
-            {
-                console.log(response.statusText);
+                animation: $ctrl.animationsEnabled,
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'patientModal.html',
+                controller: function($scope, $uibModalInstance)
+                {
+                    $scope.ok = function()
+                    {
+                        $http(
+                        {
+                            method: "POST",
+                            url: restURL,
+                            data: $scope.patient
+                        }).then(function mySucces(response)
+                        {
+                            console.log(response);
+                            draw();
+                        }, function myError(response)
+                        {
+                            $scope.alerts.push(
+                            {
+                                type: 'danger',
+                                msg: 'Oh snap! Change a few things up and try submitting again.'
+                            });
+                            console.log(response.statusText);
+                        });
+                        $uibModalInstance.close();
+                    };
+                    $scope.cancel = function()
+                    {
+                        $uibModalInstance.dismiss('cancel');
+                    };
+                },
+                controllerAs: '$ctrl',
+                size: 'lg'
             });
         };
-        $scope.editItem = function editItem(row)
+        $scope.editItem = function(row)
         {
             var modalInstance = $uibModal.open(
             {
@@ -83,6 +120,19 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
                     $scope.patient = row;
                     $scope.ok = function()
                     {
+                        $scope.patient.sex.toUpperCase();
+                        $http(
+                        {
+                            method: "PUT",
+                            url: restURL,
+                            data: $scope.patient
+                        }).then(function mySucces(response)
+                        {
+                            console.log(response);
+                        }, function myError(response)
+                        {
+                            console.log(response.statusText);
+                        });
                         $uibModalInstance.close();
                     };
                     $scope.cancel = function()
@@ -93,17 +143,25 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
                 controllerAs: '$ctrl',
                 size: 'lg'
             });
-            // $http(
-            // {
-            //     method: "DELETE",
-            //     url: "/webapi/patient/",
-            //     data: row.data
-            // }).then(function mySucces(response)
-            // {
-            //     console.log(response);
-            // }, function myError(response)
-            // {
-            //     console.log(response.statusText);
-            // });
         };
+        $scope.removeItem = function(row)
+        {
+            var index = $scope.rowCollection.indexOf(row);
+            if (index !== -1)
+            {
+                $scope.rowCollection.splice(index, 1);
+            }
+            $http(
+            {
+                method: "DELETE",
+                url: restURL + row.id
+            }).then(function mySucces(response)
+            {
+                console.log(response);
+            }, function myError(response)
+            {
+                console.log(response.statusText);
+            });
+        };
+        draw();
 }]);
