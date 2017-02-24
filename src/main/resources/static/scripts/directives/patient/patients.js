@@ -10,14 +10,14 @@ angular.module('sbAdminApp').directive('patients', function()
 angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal)
     {
         $scope.alerts = [];
-        $scope.closeAlert = function(index)
-        {
-            $scope.alerts.splice(index, 1);
-        };
         var restURL = "/webapi/patient/";
         var $ctrl = this;
         $ctrl.animationsEnabled = false;
 
+        $scope.closeAlert = function(index)
+        {
+            $scope.alerts.splice(index, 1);
+        };
         function draw()
         {
             $http(
@@ -74,6 +74,7 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'patientModal.html',
+                scope: $scope,
                 controller: function($scope, $uibModalInstance)
                 {
                     $scope.ok = function()
@@ -85,8 +86,8 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
                             data: $scope.patient
                         }).then(function mySucces(response)
                         {
+                            $scope.rowCollection.push(response.data);
                             console.log(response);
-                            draw();
                         }, function myError(response)
                         {
                             $scope.alerts.push(
