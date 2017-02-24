@@ -1,5 +1,10 @@
 <div class="row">
     <div class="col-lg-12">
+        <h1 class="page-header">Patients</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
       <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
         <script type="text/ng-template" id="alert.html">
         <div ng-transclude></div>

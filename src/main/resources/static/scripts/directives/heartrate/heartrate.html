@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Heart Rate</h1>
+    </div>
+</div>
+<div class="row">
+    <div  ng-repeat="patient in patients"  class="col-lg-3 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{patient.name}}</div>
+            <div class="panel-body">
+                {{patient.hr}}
+            </div>
+        </div>
+    </div>
+</div>
