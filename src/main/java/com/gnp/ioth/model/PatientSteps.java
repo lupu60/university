@@ -18,10 +18,10 @@ public class PatientSteps {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
-  @OneToMany
-  @JoinColumn(name = "patientId", nullable = false)
-  private Patient patient;
+//
+//  @OneToMany
+//  @JoinColumn(name = "patientId", nullable = false)
+//  private Patient patient;
   
   @Column(name = "steps", nullable = false)
   private int steps;
