@@ -28,7 +28,7 @@ public class DeviceInfo {
 	@Column(name = "deviceInfoHrVersion")
 	private String deviceInfoHrVersion;
 	
-	@Column(name = "deviceInfoFeature")
+	@Column(name = "deviceInfoHwVersion")
 	private String deviceInfoHwVersion;
 	
 	@Column(name = "deviceInfoFwVersion")
