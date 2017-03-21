@@ -6,7 +6,7 @@ import com.gnp.ioth.model.DevicePower;
 
 public interface DevicePowerService {
 
-	  public DevicePower create(DevicePower devicePower) throws IllegalArgumentException;
+	  public DevicePower update(DevicePower devicePower) throws IllegalArgumentException;
 
 	  public List<DevicePower> getAllDevicePowers();
 

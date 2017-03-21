@@ -17,8 +17,8 @@ public class DevicePowerServiceImpl implements DevicePowerService {
 	DevicePowerRepository devicePowerRepository;
 	
 	@Override
-	public DevicePower create(DevicePower devicePower) throws IllegalArgumentException {
-		if (devicePower.getId() == null)
+	public DevicePower update(DevicePower devicePower) throws IllegalArgumentException {
+		if (devicePower == null)
 			throw new IllegalArgumentException();
 		devicePowerRepository.save(devicePower);
 		return devicePower;
