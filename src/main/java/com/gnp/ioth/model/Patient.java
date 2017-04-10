@@ -1,12 +1,11 @@
 package com.gnp.ioth.model;
 
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,23 +25,8 @@ public class Patient {
   @Column(name = "sex")
   private Sex sex;
 
-  @Column(name = "band", unique = true)
-  private UUID bandId;
-
-
-
-  public Patient() {
-    super();
-    // TODO Auto-generated constructor stub
-  }
-
-  public Patient(String name, Sex sex, UUID bandId) {
-    super();
-    this.name = name;
-    this.sex = sex;
-    this.bandId = bandId;
-  }
-
+  @OneToOne
+  private SmartBand smartBand;
 
   public Long getId() {
     return id;
@@ -68,59 +52,18 @@ public class Patient {
     this.sex = sex;
   }
 
-  public UUID getBandId() {
-    return bandId;
+  public SmartBand getSmartBand() {
+    return smartBand;
   }
 
-  public void setBandId(UUID bandId) {
-    this.bandId = bandId;
-  }
-
-
-
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((bandId == null) ? 0 : bandId.hashCode());
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
-    result = prime * result + ((sex == null) ? 0 : sex.hashCode());
-    return result;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Patient other = (Patient) obj;
-    if (bandId == null) {
-      if (other.bandId != null)
-        return false;
-    } else if (!bandId.equals(other.bandId))
-      return false;
-    if (id == null) {
-      if (other.id != null)
-        return false;
-    } else if (!id.equals(other.id))
-      return false;
-    if (name == null) {
-      if (other.name != null)
-        return false;
-    } else if (!name.equals(other.name))
-      return false;
-    if (sex != other.sex)
-      return false;
-    return true;
+  public void setSmartBand(SmartBand smartBand) {
+    this.smartBand = smartBand;
   }
 
   @Override
   public String toString() {
-    return "Patient [id=" + id + ", name=" + name + ", sex=" + sex + ", bandId=" + bandId + "]";
+    return "Patient [id=" + id + ", name=" + name + ", sex=" + sex + ", smartBand=" + smartBand
+        + "]";
   }
 
 }
