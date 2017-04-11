@@ -9,18 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gnp.ioth.exception.PatientNotFoundException;
 import com.gnp.ioth.model.Patient;
-import com.gnp.ioth.model.Steps;
 import com.gnp.ioth.repository.PatientRepository;
-import com.gnp.ioth.repository.StepsRepository;
 import com.gnp.ioth.service.PatientService;
 
 @Service
 public class PatientServiceImpl implements PatientService {
   @Autowired
   PatientRepository patientRepository;
-
-  @Autowired
-  StepsRepository stepsRepository;
 
   @Override
   public List<Patient> getAllPatients() {
@@ -68,11 +63,6 @@ public class PatientServiceImpl implements PatientService {
   public Patient delete(Patient patient) throws PatientNotFoundException {
     patientRepository.delete(patient);
     return patient;
-  }
-
-  @Override
-  public List<Steps> getSteps(Long id) throws IllegalArgumentException, PatientNotFoundException {
-    return stepsRepository.findBySmartBand(findById(id).getSmartBand());
   }
 
 }

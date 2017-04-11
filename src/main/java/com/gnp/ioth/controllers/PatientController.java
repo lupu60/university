@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gnp.ioth.exception.PatientNotFoundException;
+import com.gnp.ioth.model.Activity;
 import com.gnp.ioth.model.Patient;
-import com.gnp.ioth.model.Steps;
+import com.gnp.ioth.service.ActivityService;
 import com.gnp.ioth.service.PatientService;
 
 @RestController
@@ -29,9 +30,17 @@ public class PatientController {
   @Autowired
   PatientService patientService;
 
+  @Autowired
+  ActivityService activityService;
+
   @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
   public List<Patient> getAllPatients() {
     return patientService.getAllPatients();
+  }
+
+  @RequestMapping(value = "/activity", method = RequestMethod.POST, produces = "application/json")
+  public List<Activity> getAllActivity(@RequestBody Patient patient) {
+    return activityService.get(patient);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
@@ -67,13 +76,6 @@ public class PatientController {
       throws PatientNotFoundException {
     LOG.info(id.toString());
     return patientService.delete(id);
-  }
-
-  @RequestMapping(value = "/traking/steps/{id}", method = RequestMethod.GET,
-      produces = "application/json")
-  public @ResponseBody List<Steps> getPatientSteps(@PathVariable("id") Long id)
-      throws PatientNotFoundException {
-    return patientService.getSteps(id);
   }
 
   @ExceptionHandler(PatientNotFoundException.class)

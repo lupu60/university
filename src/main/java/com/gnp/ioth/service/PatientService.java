@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.gnp.ioth.exception.PatientNotFoundException;
 import com.gnp.ioth.model.Patient;
-import com.gnp.ioth.model.Steps;
 
 @Service
 public interface PatientService {
@@ -23,6 +22,4 @@ public interface PatientService {
 
   public Patient delete(Patient patient) throws PatientNotFoundException;
 
-  public List<Steps> getSteps(Long id) throws IllegalArgumentException, PatientNotFoundException;
-  // TODO gethr, getsleep
 }

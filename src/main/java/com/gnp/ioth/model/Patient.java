@@ -11,22 +11,45 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "patient")
 public class Patient {
-  public enum Sex {
-    FEMALE, MALE
-  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @Column(name = "name", unique = true, nullable = false)
+  @Column(name = "name", unique = false, nullable = false)
   private String name;
 
-  @Column(name = "sex")
-  private Sex sex;
+  @Column(name = "sex", unique = false, nullable = false)
+  private boolean sex;
+
+  @Column(name = "age", unique = false, nullable = false)
+  private int age;
+
+  @Column(name = "height", unique = false, nullable = false)
+  private int height;
+
+  @Column(name = "weight", unique = false, nullable = false)
+  private int weight;
 
   @OneToOne
   private SmartBand smartBand;
+
+  public Patient() {
+    super();
+    // TODO Auto-generated constructor stub
+  }
+
+  public Patient(Long id, String name, boolean sex, int age, int height, int weight,
+      SmartBand smartBand) {
+    super();
+    this.id = id;
+    this.name = name;
+    this.sex = sex;
+    this.age = age;
+    this.height = height;
+    this.weight = weight;
+    this.smartBand = smartBand;
+  }
 
   public Long getId() {
     return id;
@@ -44,12 +67,36 @@ public class Patient {
     this.name = name;
   }
 
-  public Sex getSex() {
+  public boolean isSex() {
     return sex;
   }
 
-  public void setSex(Sex sex) {
+  public void setSex(boolean sex) {
     this.sex = sex;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public void setAge(int age) {
+    this.age = age;
+  }
+
+  public int getHeight() {
+    return height;
+  }
+
+  public void setHeight(int height) {
+    this.height = height;
+  }
+
+  public int getWeight() {
+    return weight;
+  }
+
+  public void setWeight(int weight) {
+    this.weight = weight;
   }
 
   public SmartBand getSmartBand() {
@@ -58,12 +105,6 @@ public class Patient {
 
   public void setSmartBand(SmartBand smartBand) {
     this.smartBand = smartBand;
-  }
-
-  @Override
-  public String toString() {
-    return "Patient [id=" + id + ", name=" + name + ", sex=" + sex + ", smartBand=" + smartBand
-        + "]";
   }
 
 }

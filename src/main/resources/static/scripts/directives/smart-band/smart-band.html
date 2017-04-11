@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Patients</h1>
+        <h1 class="page-header"> Smart Bands</h1>
     </div>
 </div>
 <div class="row">
@@ -11,21 +11,13 @@
         </script>
         <script type="text/ng-template" id="patientModal.html">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">Patient Modal</h3>
+                <h3 class="modal-title" id="modal-title">Smart Band Modal</h3>
             </div>
             <div class="modal-body" id="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="patient.name">Patien Name</label>
-                        <input type="text" class="form-control" id="patient.name" ng-model="patient.name" placeholder="Patien Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="patient.sex">Patien Sex</label>
-                        <input type="text" style="text-transform:uppercase" class="form-control" id="patient.sex" ng-model="patient.sex" ng-change="patient.sex=patient.sex.toUpperCase();"placeholder="Patien Sex">
-                    </div>
-                    <div class="form-group">
-                        <label for="patient.smartBand">Patien smartBand</label>
-                        <input type="text" class="form-control" id="patient.smartBand" ng-model="patient.smartBand" placeholder="Patien smartBand">
+                        <label for="smartBand.mac">smartBand mac</label>
+                        <input type="text" class="form-control" id="smartBand.mac" ng-model="smartBand.mac" placeholder="smartBand.mac">
                     </div>
                 </form>
             </div>

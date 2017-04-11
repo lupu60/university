@@ -2,27 +2,25 @@ package com.gnp.ioth.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "smart_band")
 public class SmartBand {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
 
+  @Id
   @Column(name = "mac", nullable = false)
   private String mac;
 
-  public Long getId() {
-    return id;
+  public SmartBand() {
+    super();
+    // TODO Auto-generated constructor stub
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public SmartBand(String mac) {
+    super();
+    this.mac = mac;
   }
 
   public String getMac() {

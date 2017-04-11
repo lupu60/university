@@ -105,6 +105,20 @@ angular.module('sbAdminApp', [
                     })
                 }
             }
+        }).state('dashboard.smart-band', {
+            templateUrl: 'scripts/directives/smart-band/smart-band.html',
+            url: '/smart-band',
+            controller: 'SmartBandCtrl',
+            resolve: {
+                loadMyFiles: function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'sbAdminApp',
+                        files: [
+                            'scripts/directives/smart-band/smart-band.js'
+                        ]
+                    })
+                }
+            }
         })
         // .state('dashboard.form', {
         //     templateUrl: 'views/form.html',

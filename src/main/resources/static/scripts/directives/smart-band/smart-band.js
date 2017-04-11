@@ -1,7 +1,7 @@
 'use strict';
-angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal) {
+angular.module('sbAdminApp').controller('SmartBandCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal) {
     $scope.alerts = [];
-    var restURL = "/webapi/patient/";
+    var restURL = "/webapi/smart-band/";
     var $ctrl = this;
     $ctrl.animationsEnabled = false;
     $scope.closeAlert = function(index) {
