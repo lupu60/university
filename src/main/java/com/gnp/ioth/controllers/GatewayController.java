@@ -19,7 +19,7 @@ public class GatewayController {
   @RequestMapping(value = "/activity", method = RequestMethod.PUT, produces = "application/json")
   public String getAllActivity(@RequestBody Activity activity) {
     activityService.record(activity);
-    return "recorted";
+    return "recorded";
   }
 
 }
