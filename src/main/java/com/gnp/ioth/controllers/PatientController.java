@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gnp.ioth.exception.PatientNotFoundException;
 import com.gnp.ioth.model.Activity;
 import com.gnp.ioth.model.Patient;
 import com.gnp.ioth.service.ActivityService;
 import com.gnp.ioth.service.PatientService;
+
+import javassist.NotFoundException;
 
 @RestController
 @RequestMapping("/webapi/patient")
@@ -45,7 +46,7 @@ public class PatientController {
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
   public @ResponseBody Patient findById(@PathVariable("id") Long id)
-      throws PatientNotFoundException {
+      throws NotFoundException {
     LOG.info(id.toString());
     return patientService.findById(id);
   }
@@ -59,28 +60,28 @@ public class PatientController {
 
   @RequestMapping(value = "/", method = RequestMethod.PUT, produces = "application/json")
   public @ResponseBody Patient updatePatient(@RequestBody Patient patient)
-      throws PatientNotFoundException {
+      throws NotFoundException {
     LOG.info(patient.toString());
     return patientService.update(patient);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.DELETE, produces = "application/json")
   public @ResponseBody Patient deletePatient(@RequestBody Patient patient)
-      throws PatientNotFoundException {
+      throws NotFoundException {
     LOG.info(patient.toString());
     return patientService.delete(patient);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
   public @ResponseBody Patient deletePatientbyId(@PathVariable("id") Long id)
-      throws PatientNotFoundException {
+      throws NotFoundException {
     LOG.info(id.toString());
     return patientService.delete(id);
   }
 
-  @ExceptionHandler(PatientNotFoundException.class)
+  @ExceptionHandler(NotFoundException.class)
   public @ResponseBody ResponseEntity<String> handleItemNotFound(
-      PatientNotFoundException exception) {
+      NotFoundException exception) {
     return new ResponseEntity<String>("Patient Not Found", HttpStatus.NOT_FOUND);
   }
 }

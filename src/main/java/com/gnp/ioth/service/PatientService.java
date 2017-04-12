@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.gnp.ioth.exception.PatientNotFoundException;
 import com.gnp.ioth.model.Patient;
+
+import javassist.NotFoundException;
 
 @Service
 public interface PatientService {
@@ -14,12 +15,12 @@ public interface PatientService {
 
   public List<Patient> getAllPatients();
 
-  public Patient findById(Long id) throws PatientNotFoundException;
+  public Patient findById(Long id) throws NotFoundException;
 
-  public Patient update(Patient patient) throws PatientNotFoundException;
+  public Patient update(Patient patient) throws NotFoundException;
 
-  public Patient delete(Long id) throws PatientNotFoundException;
+  public Patient delete(Long id) throws NotFoundException;
 
-  public Patient delete(Patient patient) throws PatientNotFoundException;
+  public Patient delete(Patient patient) throws NotFoundException;
 
 }

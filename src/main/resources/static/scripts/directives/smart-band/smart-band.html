@@ -5,96 +5,72 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-      <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
         <script type="text/ng-template" id="alert.html">
-        <div ng-transclude></div>
+            <div ng-transclude></div>
         </script>
-        <script type="text/ng-template" id="patientModal.html">
+        <script type="text/ng-template" id="itemmodal.html">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">Smart Band Modal</h3>
+                <h3 class="modal-title" id="modal-title">Item Modal</h3>
             </div>
             <div class="modal-body" id="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="smartBand.mac">smartBand mac</label>
-                        <input type="text" class="form-control" id="smartBand.mac" ng-model="smartBand.mac" placeholder="smartBand.mac">
+                        <label for="item">Item</label>
+                        <input type="text" class="form-control" id="item.mac" ng-model="item.mac" placeholder="item">
                     </div>
-                </form>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="ok()">save</button>
-                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-            </div>
-        </script>
-        <button type="button" ng-click="addRandomItem()" class="btn btn-sm btn-success">
-            <i class="glyphicon glyphicon-plus">
-            </i> Add random item
-        </button>
-        <button type="button" ng-click="addItem()" class="btn btn-sm btn-success">
-            <i class="glyphicon glyphicon-plus">
-            </i> Add item
-        </button>
-        <div class="panel panel-default">
-            <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th st-sort="id">
-                            id
-                        </th>
-                        <th st-sort="name">
-                            name
-                        </th>
-                        <th st-sort="sex">
-                            sex
-                        </th>
-                        <th st-sort="smartBand">
-                            smartBand
-                        </th>
-                    </tr>
-                    <tr>
-                        <th colspan="5">
-                            <input st-search="" class="form-control" placeholder="global search ..." type="text" />
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="row in displayedCollection">
-                        <td>
-                            {{ row.id }}
-                        </td>
-                        <td>
-                            {{ row.name }}
-                        </td>
-                        <td>
-                            {{ row.sex }}
-                        </td>
-                        <td>
-                            {{ row.smartBand }}
-                        </td>
-                        <td>
-                            <button type="button" ng-click="editItem(row)" class="btn btn-sm btn-primary">
-                                <i class="glyphicon glyphicon-edit">
-                                </i>
-                            </button>
-                            <button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
-                                <i class="glyphicon glyphicon-remove-circle">
-                                </i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="5" class="text-center">
-                            <div st-pagination="" st-items-by-page="15" st-displayed-pages="7">
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
+            </form>
     </div>
-    <!-- /.col-lg-12 -->
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">save</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+    </script>
+    <button type="button" ng-click="addItem()" class="btn btn-sm btn-success">
+        <i class="glyphicon glyphicon-plus">
+            </i> Add item
+    </button>
+    <div class="panel panel-default">
+        <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+            <thead>
+                <tr>
+                </tr>
+                <tr>
+                    <th colspan="5">
+                        <input st-search="" class="form-control" placeholder="global search ..." type="text" />
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in displayedCollection">
+                    <td>
+                        {{ row.mac }}
+                    </td>
+                    <td>
+                        <button type="button" disabled="disabled" ng-click="editItem(row)" class="btn btn-sm btn-primary">
+                            <i class="glyphicon glyphicon-edit">
+                                </i>
+                        </button>
+                        <button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-remove-circle">
+                                </i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="15" st-displayed-pages="7">
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+<!-- /.col-lg-12 -->
 </div>

@@ -1,7 +1,7 @@
 'use strict';
 angular.module('sbAdminApp').controller('SmartBandCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal) {
     $scope.alerts = [];
-    var restURL = "/webapi/smart-band/";
+    var restURL = "/webapi/smartband/";
     var $ctrl = this;
     $ctrl.animationsEnabled = false;
     $scope.closeAlert = function(index) {
@@ -18,46 +18,19 @@ angular.module('sbAdminApp').controller('SmartBandCtrl', ['$http', '$scope', '$f
             console.log(response.statusText);
         });
     }
-
-    function generateRandomItem() {
-        var names = ['Laurent', 'Blandine', 'Olivier', 'Max', 'Shelly', 'Ambrose', 'Teresia', 'Thomasine', 'Teressa', 'Wava', 'Tula', 'Kelly', 'Jacelyn', 'Sheila', 'Sylvester', 'Scarlet', 'Babette', 'Vivian', 'Lorene', 'Keri', 'Mao', 'Jetta', 'Nichol', 'Marlene'];
-        var sexs = ['MALE', 'FEMALE'];
-        return {
-            "name": names[Math.floor(Math.random() * 24)],
-            "sex": sexs[Math.floor(Math.random() * 2)],
-            "smartBand": Math.floor(Math.random() * 24)
-        };
-    }
-    $scope.addRandomItem = function() {
-        var tmp = generateRandomItem()
-        $http({
-            method: "POST",
-            url: restURL,
-            data: tmp
-        }).then(function mySucces(response) {
-            $scope.rowCollection.push(response.data);
-            console.log(response);
-        }, function myError(response) {
-            $scope.alerts.push({
-                type: 'danger',
-                msg: 'Oh snap! Change a few things up and try submitting again.'
-            });
-            console.log(response.statusText);
-        });
-    };
     $scope.addItem = function() {
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            templateUrl: 'patientModal.html',
+            templateUrl: 'itemmodal.html',
             scope: $scope,
             controller: function($scope, $uibModalInstance) {
                 $scope.ok = function() {
                     $http({
                         method: "POST",
                         url: restURL,
-                        data: $scope.patient
+                        data: $scope.item
                     }).then(function mySucces(response) {
                         $scope.rowCollection.push(response.data);
                         console.log(response);
@@ -83,15 +56,14 @@ angular.module('sbAdminApp').controller('SmartBandCtrl', ['$http', '$scope', '$f
             animation: $ctrl.animationsEnabled,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            templateUrl: 'patientModal.html',
+            templateUrl: 'itemmodal.html',
             controller: function($scope, $uibModalInstance) {
-                $scope.patient = row;
+                $scope.item = row;
                 $scope.ok = function() {
-                    $scope.patient.sex.toUpperCase();
                     $http({
                         method: "PUT",
                         url: restURL,
-                        data: $scope.patient
+                        data: $scope.item
                     }).then(function mySucces(response) {
                         console.log(response);
                     }, function myError(response) {
@@ -114,7 +86,7 @@ angular.module('sbAdminApp').controller('SmartBandCtrl', ['$http', '$scope', '$f
         }
         $http({
             method: "DELETE",
-            url: restURL + row.id
+            url: restURL + row.mac
         }).then(function mySucces(response) {
             console.log(response);
         }, function myError(response) {

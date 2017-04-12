@@ -18,39 +18,23 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
             console.log(response.statusText);
         });
     }
-
-    function generateRandomItem() {
-        var names = ['Laurent', 'Blandine', 'Olivier', 'Max', 'Shelly', 'Ambrose', 'Teresia', 'Thomasine', 'Teressa', 'Wava', 'Tula', 'Kelly', 'Jacelyn', 'Sheila', 'Sylvester', 'Scarlet', 'Babette', 'Vivian', 'Lorene', 'Keri', 'Mao', 'Jetta', 'Nichol', 'Marlene'];
-        var sexs = ['MALE', 'FEMALE'];
-        return {
-            "name": names[Math.floor(Math.random() * 24)],
-            "sex": sexs[Math.floor(Math.random() * 2)],
-            "smartBand": Math.floor(Math.random() * 24)
-        };
-    }
-    $scope.addRandomItem = function() {
-        var tmp = generateRandomItem()
-        $http({
-            method: "POST",
-            url: restURL,
-            data: tmp
-        }).then(function mySucces(response) {
-            $scope.rowCollection.push(response.data);
-            console.log(response);
-        }, function myError(response) {
-            $scope.alerts.push({
-                type: 'danger',
-                msg: 'Oh snap! Change a few things up and try submitting again.'
-            });
-            console.log(response.statusText);
-        });
-    };
+// {
+//   "id": 1,
+//   "name": "name",
+//   "sex": true,
+//   "age": 22,
+//   "height": 180,
+//   "weight": 80,
+//   "smartBand": {
+//     "mac": "C8:0F:10:88:2A:5B"
+//   }
+// }
     $scope.addItem = function() {
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            templateUrl: 'patientModal.html',
+            templateUrl: 'itemmodal.html',
             scope: $scope,
             controller: function($scope, $uibModalInstance) {
                 $scope.ok = function() {
@@ -83,11 +67,10 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
             animation: $ctrl.animationsEnabled,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            templateUrl: 'patientModal.html',
+            templateUrl: 'itemmodal.html',
             controller: function($scope, $uibModalInstance) {
                 $scope.patient = row;
                 $scope.ok = function() {
-                    $scope.patient.sex.toUpperCase();
                     $http({
                         method: "PUT",
                         url: restURL,

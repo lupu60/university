@@ -9,6 +9,8 @@ import com.gnp.ioth.model.SmartBand;
 import com.gnp.ioth.repository.SmartBandRepository;
 import com.gnp.ioth.service.SmartBandService;
 
+import javassist.NotFoundException;
+
 @Service
 public class SmartBandsServiceImpl implements SmartBandService {
   @Autowired
@@ -22,6 +24,13 @@ public class SmartBandsServiceImpl implements SmartBandService {
   @Override
   public List<SmartBand> getAllSmartBands() {
     return smartBandRepository.findAll();
+  }
+
+  @Override
+  public SmartBand delete(String mac) throws NotFoundException {
+    SmartBand band = smartBandRepository.findOne(mac);
+    smartBandRepository.delete(mac);
+    return band;
   }
 
 }

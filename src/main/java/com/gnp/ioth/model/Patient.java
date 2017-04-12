@@ -16,19 +16,19 @@ public class Patient {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @Column(name = "name", unique = false, nullable = false)
+  @Column(name = "name")
   private String name;
 
-  @Column(name = "sex", unique = false, nullable = false)
+  @Column(name = "sex")
   private boolean sex;
 
-  @Column(name = "age", unique = false, nullable = false)
+  @Column(name = "age")
   private int age;
 
-  @Column(name = "height", unique = false, nullable = false)
+  @Column(name = "height")
   private int height;
 
-  @Column(name = "weight", unique = false, nullable = false)
+  @Column(name = "weight")
   private int weight;
 
   @OneToOne

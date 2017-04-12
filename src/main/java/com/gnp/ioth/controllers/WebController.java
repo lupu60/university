@@ -16,7 +16,7 @@ public class WebController {
 
   @RequestMapping(method = RequestMethod.GET)
   public String hello() {
-    LOG.info("hello");
+    LOG.info("/");
     return "Welcome to IoT Healthcare";
   }
 }
