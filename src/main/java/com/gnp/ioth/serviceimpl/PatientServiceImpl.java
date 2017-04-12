@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gnp.ioth.model.Patient;
+import com.gnp.ioth.model.SmartBand;
 import com.gnp.ioth.repository.PatientRepository;
 import com.gnp.ioth.service.PatientService;
 
@@ -64,6 +65,11 @@ public class PatientServiceImpl implements PatientService {
   public Patient delete(Patient patient) throws NotFoundException {
     patientRepository.delete(patient);
     return patient;
+  }
+
+  @Override
+  public Patient findBySmartBand(SmartBand smartBand) throws NotFoundException {
+    return patientRepository.findBySmartBand(smartBand);
   }
 
 }

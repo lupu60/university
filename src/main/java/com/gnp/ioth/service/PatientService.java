@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.gnp.ioth.model.Patient;
+import com.gnp.ioth.model.SmartBand;
 
 import javassist.NotFoundException;
 
@@ -16,6 +17,8 @@ public interface PatientService {
   public List<Patient> getAllPatients();
 
   public Patient findById(Long id) throws NotFoundException;
+
+  public Patient findBySmartBand(SmartBand smartBand) throws NotFoundException;
 
   public Patient update(Patient patient) throws NotFoundException;
 
