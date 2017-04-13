@@ -15,6 +15,8 @@ public interface ActivityService {
 
   public List<Activity> get(Patient patient) throws IllegalArgumentException;
 
+  public List<Activity> getTodayActivity(Patient patient) throws IllegalArgumentException;
+
   public List<Activity> get(SmartBand smartBand) throws IllegalArgumentException;
 
 }

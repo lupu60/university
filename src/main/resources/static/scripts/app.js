@@ -91,16 +91,16 @@ angular.module('sbAdminApp', [
                     })
                 }
             }
-        }).state('dashboard.heartrate', {
-            templateUrl: 'scripts/directives/heartrate/heartrate.html',
-            url: '/heartrate',
-            controller: 'HeartRateCtrl',
+        }).state('dashboard.activity', {
+            templateUrl: 'scripts/directives/activity/activity.html',
+            url: '/activity',
+            controller: 'ActivityCtrl',
             resolve: {
                 loadMyFiles: function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'sbAdminApp',
                         files: [
-                            'scripts/directives/heartrate/heartrate.js'
+                            'scripts/directives/activity/activity.js'
                         ]
                     })
                 }

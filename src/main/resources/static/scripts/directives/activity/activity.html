@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Activity</h1>
+    </div>
+</div>
+<div class="row">
+    <div ng-repeat="patient in patients" class="col-lg-3 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{patient.name}}</div>
+            <div class="panel-body">
+                <center>
+                    <i class="fa fa-male fa-4x" aria-hidden="true"></i>
+                    <br> {{patient.activity[0].steps}}
+                    <br>
+                    <i class="fa fa-heartbeat fa-4x" aria-hidden="true"></i>
+                    <br>{{patient.activity[0].heartRate}}
+                </center>
+
+                <div ng-repeat="activityRecord in patient.activity">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

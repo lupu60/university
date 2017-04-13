@@ -40,103 +40,69 @@ public class WebController {
 
   @RequestMapping(value = "/mock", method = RequestMethod.GET)
   public String mock() {
-    long offset = Timestamp.valueOf("2012-01-01 00:00:00").getTime();
-    long end = Timestamp.valueOf("2013-01-01 00:00:00").getTime();
+    long offset = Timestamp.valueOf("2017-04-13 00:00:00").getTime();
+    long end = Timestamp.valueOf("2017-04-13 13:00:00").getTime();
     long diff = end - offset + 1;
 
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
     SmartBand s2 = new SmartBand("C8:0F:10:99:2B:1B");
+    SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");
+    SmartBand s4 = new SmartBand("17:5C:91:0B:38:59");
+
+
+    for (int i = 0; i < 100; i++) {
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100,
+              new int[] {new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78,
+                  new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78},
+              s1, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100,
+              new int[] {new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78,
+                  new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78},
+              s2, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100,
+              new int[] {new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78,
+                  new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78},
+              s3, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100,
+              new int[] {new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78,
+                  new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78},
+              s4, new Timestamp(offset + (long) (Math.random() * diff))));
+    }
+
+    LOG.info("/mock");
+
+    return "mockdone";
+  }
+
+  @RequestMapping(value = "/initialmock", method = RequestMethod.GET)
+  public String mock2() {
+
+
+    SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
+    SmartBand s2 = new SmartBand("C8:0F:10:99:2B:1B");
+    SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");
+    SmartBand s4 = new SmartBand("17:5C:91:0B:38:59");
 
     smartBandService.create(s1);
     smartBandService.create(s2);
-    Patient p1 = new Patient(new Random().nextLong(), "name", true, 22, 180, 80, s1);
-    Patient p2 = new Patient(new Random().nextLong(), "name2", false, 30, 100, 280, s2);
+    smartBandService.create(s3);
+    smartBandService.create(s4);
+    
+    Patient p1 = new Patient(new Random().nextLong(), "Bogdan", true, 22, 180, 80, s1);
+    Patient p2 = new Patient(new Random().nextLong(), "Jany", false, 30, 100, 280, s2);
+    Patient p3 = new Patient(new Random().nextLong(), "Alexandra", true, 22, 180, 80, s1);
+    Patient p4 = new Patient(new Random().nextLong(), "Oliver", false, 30, 100, 280, s2);
 
     patientService.create(p1);
     patientService.create(p2);
-
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
-    activityService.record(new Activity(new Random().nextLong(),
-        new Random().nextInt(), new int[] {new Random().nextInt(100), new Random().nextInt(100),
-            new Random().nextInt(100), new Random().nextInt(100)},
-        s1, new Timestamp(offset + (long) (Math.random() * diff))));
+    patientService.create(p3);
+    patientService.create(p4);
     LOG.info("/mock");
-     
+
     return "mockdone";
   }
 }

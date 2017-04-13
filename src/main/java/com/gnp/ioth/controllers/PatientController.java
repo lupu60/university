@@ -1,5 +1,6 @@
 package com.gnp.ioth.controllers;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -40,13 +41,19 @@ public class PatientController {
   }
 
   @RequestMapping(value = "/activity", method = RequestMethod.POST, produces = "application/json")
-  public List<Activity> getAllActivity(@RequestBody Patient patient) {
+  public List<Activity> getTodayActivity(@RequestBody Patient patient) {
+    return activityService.getTodayActivity(patient);
+  }
+
+  @RequestMapping(value = "/activity/{start}/{end}", method = RequestMethod.POST,
+      produces = "application/json")
+  public List<Activity> getRangeActivity(@PathVariable("start") Timestamp start,
+      @PathVariable("end") Timestamp end, @RequestBody Patient patient) {
     return activityService.get(patient);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-  public @ResponseBody Patient findById(@PathVariable("id") Long id)
-      throws NotFoundException {
+  public @ResponseBody Patient findById(@PathVariable("id") Long id) throws NotFoundException {
     LOG.info(id.toString());
     return patientService.findById(id);
   }
@@ -80,8 +87,7 @@ public class PatientController {
   }
 
   @ExceptionHandler(NotFoundException.class)
-  public @ResponseBody ResponseEntity<String> handleItemNotFound(
-      NotFoundException exception) {
+  public @ResponseBody ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
     return new ResponseEntity<String>("Patient Not Found", HttpStatus.NOT_FOUND);
   }
 }

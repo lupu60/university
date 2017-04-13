@@ -1,5 +1,6 @@
 package com.gnp.ioth.serviceimpl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,14 @@ public class ActivityServiceImpl implements ActivityService {
   @Override
   public List<Activity> get(Patient patient) throws IllegalArgumentException {
     return activityRespository.findBySmartBand(patient.getSmartBand());
+  }
+
+  @Override
+  public List<Activity> getTodayActivity(Patient patient) throws IllegalArgumentException {
+    java.util.Date date = new java.util.Date();
+    Long currentDayStart = date.getTime() - date.getTime() % 86400000;
+    return activityRespository.findBySmartBandAndTimestampAfterOrderByTimestampDesc(patient.getSmartBand(),
+        new Timestamp(currentDayStart));
   }
 
   @Override
