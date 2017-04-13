@@ -18,6 +18,9 @@ public class SmartBandsServiceImpl implements SmartBandService {
 
   @Override
   public SmartBand create(SmartBand smartBand) throws IllegalArgumentException {
+    if (smartBandRepository.exists(smartBand.getMac())) {
+      throw new IllegalArgumentException();
+    }
     return smartBandRepository.save(smartBand);
   }
 
@@ -29,6 +32,9 @@ public class SmartBandsServiceImpl implements SmartBandService {
   @Override
   public SmartBand delete(String mac) throws NotFoundException {
     SmartBand band = smartBandRepository.findOne(mac);
+    if (!smartBandRepository.exists(band.getMac())) {
+      throw new NotFoundException(mac + " not found");
+    }
     smartBandRepository.delete(mac);
     return band;
   }

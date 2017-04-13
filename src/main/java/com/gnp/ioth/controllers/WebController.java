@@ -41,7 +41,7 @@ public class WebController {
   @RequestMapping(value = "/mock", method = RequestMethod.GET)
   public String mock() {
     long offset = Timestamp.valueOf("2017-04-13 00:00:00").getTime();
-    long end = Timestamp.valueOf("2017-04-13 13:00:00").getTime();
+    long end = Timestamp.valueOf("2017-04-13 15:00:00").getTime();
     long diff = end - offset + 1;
 
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
@@ -80,8 +80,6 @@ public class WebController {
 
   @RequestMapping(value = "/initialmock", method = RequestMethod.GET)
   public String mock2() {
-
-
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
     SmartBand s2 = new SmartBand("C8:0F:10:99:2B:1B");
     SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");
@@ -94,15 +92,15 @@ public class WebController {
     
     Patient p1 = new Patient(new Random().nextLong(), "Bogdan", true, 22, 180, 80, s1);
     Patient p2 = new Patient(new Random().nextLong(), "Jany", false, 30, 100, 280, s2);
-    Patient p3 = new Patient(new Random().nextLong(), "Alexandra", true, 22, 180, 80, s1);
-    Patient p4 = new Patient(new Random().nextLong(), "Oliver", false, 30, 100, 280, s2);
+    Patient p3 = new Patient(new Random().nextLong(), "Alexandra", true, 22, 180, 80, s3);
+    Patient p4 = new Patient(new Random().nextLong(), "Oliver", false, 30, 100, 280, s4);
 
     patientService.create(p1);
     patientService.create(p2);
     patientService.create(p3);
     patientService.create(p4);
+    
     LOG.info("/mock");
-
     return "mockdone";
   }
 }

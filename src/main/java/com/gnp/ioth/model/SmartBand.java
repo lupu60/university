@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class SmartBand {
 
   @Id
-  @Column(name = "mac", nullable = false)
+  @Column(name = "mac", unique = true, nullable = false)
   private String mac;
 
   public SmartBand() {

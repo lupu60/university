@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gnp.ioth.model.Patient;
 import com.gnp.ioth.model.SmartBand;
 import com.gnp.ioth.repository.PatientRepository;
+import com.gnp.ioth.repository.SmartBandRepository;
 import com.gnp.ioth.service.PatientService;
 
 import javassist.NotFoundException;
@@ -18,6 +19,9 @@ import javassist.NotFoundException;
 public class PatientServiceImpl implements PatientService {
   @Autowired
   PatientRepository patientRepository;
+  
+  @Autowired
+  SmartBandRepository smartBandRepository;
 
   @Override
   public List<Patient> getAllPatients() {
@@ -69,6 +73,9 @@ public class PatientServiceImpl implements PatientService {
 
   @Override
   public Patient findBySmartBand(SmartBand smartBand) throws NotFoundException {
+    if (!smartBandRepository.exists(smartBand.getMac())) {
+      throw new NotFoundException(smartBand.getMac() + " not found");
+    }
     return patientRepository.findBySmartBand(smartBand);
   }
 
