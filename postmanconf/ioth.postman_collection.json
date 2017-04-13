@@ -1,48 +1,134 @@
 {
-	"variables": [],
-	"info": {
-		"name": "ioth",
-		"_postman_id": "9f279289-39b3-6d52-d8d1-7b567285d22c",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
+	"id": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+	"name": "ioth",
+	"description": "",
+	"order": [
+		"89a451c7-025f-eb8f-bdcd-d5912c72a6ad"
+	],
+	"folders": [
 		{
-			"name": "patient",
+			"id": "f0e93171-4d4f-af8c-39b6-b9119b5a3655",
+			"name": "gateway",
 			"description": "",
-			"item": [
-				{
-					"name": "create patient",
-					"request": {
-						"url": "{{backend}}/webapi/patient/create",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "  {\n    \"name\": \"Trystan Huynh\",\n    \"sex\": \"FEMALE\",\n    \"bandId\": \"5437fb73-18b7-4539-bf36-fe9101e158cd\"\n  }"
-						},
-						"description": ""
-					},
-					"response": []
-				}
-			]
+			"order": [
+				"e86d27c0-b671-1686-2db9-33ffa5d572b8",
+				"83ca4054-05a3-4554-99be-e278860adfeb"
+			],
+			"owner": 0
 		},
 		{
+			"id": "fb982f3b-eceb-8f28-e0d9-bf63fd0b71e2",
+			"name": "patient",
+			"description": "",
+			"order": [
+				"3516be71-c039-c7ff-ce9e-2f2356590f2e",
+				"4eac118a-9ada-31fa-605b-df58a0f08541"
+			],
+			"owner": 0
+		}
+	],
+	"timestamp": 0,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "3516be71-c039-c7ff-ce9e-2f2356590f2e",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{backend}}/webapi/patient/",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1492012907850,
+			"name": "create patient",
+			"description": "",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"responses": [],
+			"rawModeData": "{\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+		},
+		{
+			"id": "4eac118a-9ada-31fa-605b-df58a0f08541",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{backend}}/webapi/patient/activity/",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"data": [],
+			"dataMode": "raw",
+			"name": "patientGetActivity",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1492012355856,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "fb982f3b-eceb-8f28-e0d9-bf63fd0b71e2",
+			"rawModeData": "{\"id\":1,\"name\":\"name\",\"sex\":true,\"age\":22,\"height\":180,\"weight\":80,\"smartBand\":{\"mac\":\"C8:0F:10:88:2A:5B\"}}"
+		},
+		{
+			"id": "83ca4054-05a3-4554-99be-e278860adfeb",
+			"headers": "",
+			"url": "{{backend}}/gateway/C8:0F:10:88:2A:5B",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"data": null,
+			"dataMode": "params",
+			"name": "getPatientWithMac",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1492012783220,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "f0e93171-4d4f-af8c-39b6-b9119b5a3655"
+		},
+		{
+			"id": "89a451c7-025f-eb8f-bdcd-d5912c72a6ad",
+			"headers": "",
+			"url": "{{backend}}",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1492012387276,
 			"name": "srv",
-			"request": {
-				"url": "{{backend}}",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
+			"description": "",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"responses": []
+		},
+		{
+			"id": "e86d27c0-b671-1686-2db9-33ffa5d572b8",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{backend}}/gateway/activity/",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1492087717660,
+			"name": "recordActivity",
+			"description": "",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"responses": [],
+			"rawModeData": "  {\n    \"steps\": 500,\n    \"heartRate\": [\n      43,\n      89,\n      30,\n      40,\n      40\n    ],\n    \"smartBand\": {\n      \"mac\": \"C8:0F:10:99:2B:1B\"\n    },\n    \"timestamp\": 1492087709\n  }"
 		}
 	]
 }
