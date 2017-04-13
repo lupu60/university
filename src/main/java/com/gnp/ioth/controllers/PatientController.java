@@ -90,4 +90,10 @@ public class PatientController {
   public @ResponseBody ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
     return new ResponseEntity<String>("Patient Not Found", HttpStatus.NOT_FOUND);
   }
+
+  @ExceptionHandler(IllegalArgumentException.class)
+  public @ResponseBody ResponseEntity<String> handleIllegalArgumentException(
+      IllegalArgumentException exception) {
+    return new ResponseEntity<String>("IllegalArgumentException", HttpStatus.NOT_FOUND);
+  }
 }

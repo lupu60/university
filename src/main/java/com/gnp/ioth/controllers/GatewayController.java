@@ -3,6 +3,9 @@ package com.gnp.ioth.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,9 +35,8 @@ public class GatewayController {
   PatientService patientService;
 
   @RequestMapping(value = "/activity", method = RequestMethod.PUT, produces = "application/json")
-  public String recordActivity(@RequestBody Activity activity) {
-    activityService.record(activity);
-    return "recorded";
+  public Activity recordActivity(@RequestBody Activity activity) {
+    return activityService.record(activity);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
@@ -43,4 +45,14 @@ public class GatewayController {
     return patientService.findBySmartBand(new SmartBand(mac));
   }
 
+  @ExceptionHandler(NotFoundException.class)
+  public @ResponseBody ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
+    return new ResponseEntity<String>("Band Not Found", HttpStatus.NOT_FOUND);
+  }
+
+  @ExceptionHandler(IllegalArgumentException.class)
+  public @ResponseBody ResponseEntity<String> handleIllegalArgumentException(
+      IllegalArgumentException exception) {
+    return new ResponseEntity<String>("IllegalArgumentException", HttpStatus.NOT_FOUND);
+  }
 }

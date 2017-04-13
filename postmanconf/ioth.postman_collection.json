@@ -3,7 +3,9 @@
 	"name": "ioth",
 	"description": "",
 	"order": [
-		"89a451c7-025f-eb8f-bdcd-d5912c72a6ad"
+		"89a451c7-025f-eb8f-bdcd-d5912c72a6ad",
+		"795057f0-62e9-bc27-4b6b-8a5a95bce946",
+		"c74419d3-2bf7-638b-f0d9-4fccbf36d746"
 	],
 	"folders": [
 		{
@@ -73,25 +75,43 @@
 			"rawModeData": "{\"id\":1,\"name\":\"name\",\"sex\":true,\"age\":22,\"height\":180,\"weight\":80,\"smartBand\":{\"mac\":\"C8:0F:10:88:2A:5B\"}}"
 		},
 		{
-			"id": "83ca4054-05a3-4554-99be-e278860adfeb",
+			"id": "795057f0-62e9-bc27-4b6b-8a5a95bce946",
 			"headers": "",
-			"url": "{{backend}}/gateway/C8:0F:10:88:2A:5B",
+			"url": "{{backend}}/webapi/initialmock/",
 			"pathVariables": {},
 			"preRequestScript": null,
 			"method": "GET",
 			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
 			"data": null,
 			"dataMode": "params",
-			"name": "getPatientWithMac",
+			"name": "initialmock",
 			"description": "",
 			"descriptionFormat": "html",
-			"time": 1492012783220,
+			"time": 1492092291058,
 			"version": 2,
 			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "83ca4054-05a3-4554-99be-e278860adfeb",
+			"headers": "",
+			"url": "{{backend}}/gateway/17:5C:91:0B:38:59",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
 			"helperAttributes": {},
-			"folder": "f0e93171-4d4f-af8c-39b6-b9119b5a3655"
+			"time": 1492091644122,
+			"name": "getPatientWithMac",
+			"description": "",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"responses": []
 		},
 		{
 			"id": "89a451c7-025f-eb8f-bdcd-d5912c72a6ad",
@@ -110,6 +130,26 @@
 			"description": "",
 			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
 			"responses": []
+		},
+		{
+			"id": "c74419d3-2bf7-638b-f0d9-4fccbf36d746",
+			"headers": "",
+			"url": "{{backend}}/webapi/mock/",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"data": null,
+			"dataMode": "params",
+			"name": "recordMock",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1492092308255,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
 		},
 		{
 			"id": "e86d27c0-b671-1686-2db9-33ffa5d572b8",
