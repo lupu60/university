@@ -11,6 +11,7 @@ import com.gnp.ioth.model.SmartBand;
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
   public List<Activity> findBySmartBand(SmartBand smartBand);
 
-  public List<Activity> findBySmartBandAndTimestampAfterOrderByTimestampDesc(SmartBand smartBand, Timestamp timestamp);
+  public List<Activity> findBySmartBandAndTimestampAfterOrderByTimestampAsc(SmartBand smartBand, Timestamp timestamp);
+
 }
  

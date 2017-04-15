@@ -8,7 +8,8 @@
 
 ## Bitbucket pipelines will deploy master and develop branch to Production and features branches to Integration
 ## Before import
-``sh
+
+```sh
 install node
 npm install -g grunt-cli
 npm install -g bower

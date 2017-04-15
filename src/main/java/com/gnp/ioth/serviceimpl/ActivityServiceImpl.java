@@ -41,7 +41,7 @@ public class ActivityServiceImpl implements ActivityService {
   public List<Activity> getTodayActivity(Patient patient) throws IllegalArgumentException {
     java.util.Date date = new java.util.Date();
     Long currentDayStart = date.getTime() - date.getTime() % 86400000;
-    return activityRespository.findBySmartBandAndTimestampAfterOrderByTimestampDesc(
+    return activityRespository.findBySmartBandAndTimestampAfterOrderByTimestampAsc(
         patient.getSmartBand(), new Timestamp(currentDayStart));
   }
 

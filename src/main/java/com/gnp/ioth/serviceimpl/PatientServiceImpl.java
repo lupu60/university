@@ -19,7 +19,7 @@ import javassist.NotFoundException;
 public class PatientServiceImpl implements PatientService {
   @Autowired
   PatientRepository patientRepository;
-  
+
   @Autowired
   SmartBandRepository smartBandRepository;
 

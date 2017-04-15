@@ -40,8 +40,10 @@ public class WebController {
 
   @RequestMapping(value = "/mock", method = RequestMethod.GET)
   public String mock() {
-    long offset = Timestamp.valueOf("2017-04-13 00:00:00").getTime();
-    long end = Timestamp.valueOf("2017-04-13 15:00:00").getTime();
+    java.util.Date date = new java.util.Date();
+    Long currentDayStart = date.getTime() - date.getTime() % 86400000;
+    long offset =  currentDayStart;
+    long end = date.getTime();  
     long diff = end - offset + 1;
 
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
@@ -49,8 +51,8 @@ public class WebController {
     SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");
     SmartBand s4 = new SmartBand("17:5C:91:0B:38:59");
 
-
-    for (int i = 0; i < 100; i++) {
+ 
+    for (int i = 0; i < 10; i++) {
       activityService
           .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100,
               new int[] {new Random().nextInt(150 - 78) + 78, new Random().nextInt(150 - 78) + 78,
@@ -89,7 +91,7 @@ public class WebController {
     smartBandService.create(s2);
     smartBandService.create(s3);
     smartBandService.create(s4);
-    
+
     Patient p1 = new Patient(new Random().nextLong(), "Bogdan", true, 22, 180, 80, s1);
     Patient p2 = new Patient(new Random().nextLong(), "Jany", false, 30, 100, 280, s2);
     Patient p3 = new Patient(new Random().nextLong(), "Alexandra", true, 22, 180, 80, s3);
@@ -99,7 +101,7 @@ public class WebController {
     patientService.create(p2);
     patientService.create(p3);
     patientService.create(p4);
-    
+
     LOG.info("/mock");
     return "mockdone";
   }
