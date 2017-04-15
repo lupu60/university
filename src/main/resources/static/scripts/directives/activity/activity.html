@@ -26,7 +26,8 @@
                     <i class="fa fa-heartbeat fa-4x" aria-hidden="true"></i>
                     <br>{{patient.activity[patient.activity.length-1].heartRate}}
                     <br>
-                    <canvas id="{{patient.name}}"></canvas>
+                    <canvas id="{{patient.name}}steps"></canvas>
+                    <canvas id="{{patient.name}}heartRate"></canvas>
                 </center>
                 <div ng-repeat="activityRecord in patient.activity">
                 </div>

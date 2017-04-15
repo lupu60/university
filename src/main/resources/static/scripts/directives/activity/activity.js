@@ -1,6 +1,7 @@
 'use strict';
 angular.module('sbAdminApp').controller('ActivityCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal) {
     var patientrestURL = "/webapi/patient/";
+
     function draw() {
         $http({
             method: "GET",
@@ -14,22 +15,37 @@ angular.module('sbAdminApp').controller('ActivityCtrl', ['$http', '$scope', '$fi
                     data: element
                 }).then(function mySucces(response) {
                     element.activity = response.data;
-                    var ctx = $("#" + element.name);
+                    var stepsChart = $("#" + element.name + "steps");
+                    var heartRateChart = $("#" + element.name + "heartRate");
                     var steps = [];
                     var labels = [];
+                    var heartRate = [];
                     element.activity.forEach(function(element, index) {
                         steps.push(element.steps);
+                        heartRate.push(Math.max(...element.heartRate));
+
                         let date = new Date(element.timestamp);
-                        labels.push(date.getHours()+":"+date.getMinutes());
+                        labels.push(date.getHours() + ":" + date.getMinutes());
                     });
-                    var myLineChart = new Chart(ctx, {
+                    var myStepsChart = new Chart(stepsChart, {
                         type: 'line',
                         data: {
                             labels: labels,
                             datasets: [{
-                                label: 'steps today overview',
+                                label: 'steps',
                                 data: steps,
-                                backgroundColor: "rgba(153,255,51,0.6)"
+                                backgroundColor: "rgba(83, 66, 244,0.6)"
+                            }],
+                        }
+                    });
+                    var myHrChart = new Chart(heartRateChart, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Heart Rate',
+                                data: heartRate,
+                                backgroundColor: "rgba(244, 65, 65,0.6)"
                             }],
                         }
                     });
