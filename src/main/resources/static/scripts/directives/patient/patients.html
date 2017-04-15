@@ -5,9 +5,9 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-      <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
         <script type="text/ng-template" id="alert.html">
-        <div ng-transclude></div>
+            <div ng-transclude></div>
         </script>
         <script type="text/ng-template" id="itemmodal.html">
             <div class="modal-header">
@@ -17,15 +17,27 @@
                 <form>
                     <div class="form-group">
                         <label for="patient.name">Patien Name</label>
-                        <input type="text" class="form-control" id="patient.name" ng-model="patient.name" placeholder="Patien Name">
+                        <input type="text" class="form-control" id="patient.name" ng-model="patient.name">
                     </div>
                     <div class="form-group">
                         <label for="patient.sex">Patien Sex</label>
-                        <input type="text" class="form-control" id="patient.sex" ng-model="patient.sex" placeholder="Patien Sex">
+                        <input type="checkbox" class="form-control" id="patient.sex" ng-model="patient.sex">
+                    </div>
+                    <div class="form-group">
+                        <label for="patient.sex">Patien Age</label>
+                        <input type="text" class="form-control" id="patient.age" ng-model="patient.age">
+                    </div>
+                    <div class="form-group">
+                        <label for="patient.sex">Patien Height</label>
+                        <input type="text" class="form-control" id="patient.height" ng-model="patient.height">
+                    </div>
+                    <div class="form-group">
+                        <label for="patient.sex">Patien Weight</label>
+                        <input type="text" class="form-control" id="patient.weight" ng-model="patient.weight">
                     </div>
                     <div class="form-group">
                         <label for="patient.smartBand">Patien smartBand</label>
-                        <input type="text" class="form-control" id="patient.smartBand.mac" ng-model="patient.smartBand.mac" placeholder="Patien smartBand">
+                        <input type="text" class="form-control" id="patient.smartBand.mac" ng-model="patient.smartBand.mac">
                     </div>
                 </form>
             </div>
