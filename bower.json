@@ -21,7 +21,8 @@
     "angular-chart.js": "^1.1.1",
     "angular-smart-table": "^2.1.8",
     "bootstrap": "^3.3.7",
-    "angular-xeditable": "^0.6.0"
+    "angular-xeditable": "^0.6.0",
+    "chart.js": "^2.5.0"
   },
   "appPath": "/"
 }
