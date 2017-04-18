@@ -1,6 +1,7 @@
 package com.gnp.ioth.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ public class Activity {
   private int steps;
 
   @Column(name = "heartRate", unique = false, nullable = false)
-  private int[] heartRate;
+  private ArrayList<Integer> heartRate;
 
   @ManyToOne
   private SmartBand smartBand;
@@ -35,7 +36,9 @@ public class Activity {
     // TODO Auto-generated constructor stub
   }
 
-  public Activity(Long id, int steps, int[] heartRate, SmartBand smartBand, Timestamp timestamp) {
+
+  public Activity(Long id, int steps, ArrayList<Integer> heartRate, SmartBand smartBand,
+      Timestamp timestamp) {
     super();
     this.id = id;
     this.steps = steps;
@@ -43,6 +46,7 @@ public class Activity {
     this.smartBand = smartBand;
     this.timestamp = timestamp;
   }
+
 
   public Long getId() {
     return id;
@@ -60,11 +64,12 @@ public class Activity {
     this.steps = steps;
   }
 
-  public int[] getHeartRate() {
+
+  public ArrayList<Integer> getHeartRate() {
     return heartRate;
   }
 
-  public void setHeartRate(int[] heartRate) {
+  public void setHeartRate(ArrayList<Integer> heartRate) {
     this.heartRate = heartRate;
   }
 

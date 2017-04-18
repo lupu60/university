@@ -34,7 +34,7 @@ public class SmartBandController {
   @RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
   public @ResponseBody SmartBand createBand(@RequestBody SmartBand smartBand)
       throws IllegalArgumentException {
-    LOG.info(smartBand.toString());
+    LOG.info(smartBand.toString()); 
     return smartBandService.create(smartBand);
   }
 

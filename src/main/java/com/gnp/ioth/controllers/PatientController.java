@@ -1,6 +1,5 @@
 package com.gnp.ioth.controllers;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -40,16 +39,16 @@ public class PatientController {
     return patientService.getAllPatients();
   }
 
-  @RequestMapping(value = "/activity", method = RequestMethod.POST, produces = "application/json")
-  public List<Activity> getTodayActivity(@RequestBody Patient patient) {
-    return activityService.getTodayActivity(patient);
+  @RequestMapping(value = "/activity/{mac}", method = RequestMethod.GET,
+      produces = "application/json")
+  public List<Activity> getTodayActivity(@PathVariable("mac") String mac) {
+    return activityService.getTodayActivity(mac);
   }
 
-  @RequestMapping(value = "/activity/{start}/{end}", method = RequestMethod.POST,
+  @RequestMapping(value = "/activity/{mac}/{timestamp}", method = RequestMethod.GET,
       produces = "application/json")
-  public List<Activity> getRangeActivity(@PathVariable("start") Timestamp start,
-      @PathVariable("end") Timestamp end, @RequestBody Patient patient) {
-    return activityService.get(patient);
+  public List<Activity> getRangeActivity(@PathVariable("mac") String mac,@PathVariable("timestamp") long timestamp) {
+    return activityService.getDateActivity(mac,timestamp);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")

@@ -3,29 +3,49 @@
         <h1 class="page-header">Activity</h1>
     </div>
 </div>
-<script type="text/ng-template" id="activityModal.html">
-    <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">{{patient.name}} Activity Modal</h3>
-    </div>
-    <div class="modal-body" id="modal-body">
-        <div class="row">
+<div class="row">
+    <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" ng-repeat="patient in patients" is-open="status.open">
+            <uib-accordion-heading>
+                {{patient.name}}
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </uib-accordion-heading>
+            <div class="col-md-4">
+                <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+            </div>
             <div class="col-md-6">
                 <p class="input-group">
                     <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
                     <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-          </span>
+                         <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i>
+                         </button>
+                        </span>
                 </p>
             </div>
+            <div class="col-md-2 ">
+                <button type="button" ng-click="viewActivity(patient,dt)" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-eye-open"></i> See activity
+                </button>
+            </div>
+            <div class="col-lg-12">
+                <center>
+                    <i class="fa fa-male fa-4x" aria-hidden="true"></i>
+                    <br> {{patient.activity[patient.activity.length-1].steps}}
+                    <br>
+                    <i class="fa fa-heartbeat fa-4x" aria-hidden="true"></i>
+                    <br>{{patient.activity[patient.activity.length-1].heartRate}}
+                    <br>
+                    <div class="col-md-6">
+                        <canvas id="{{patient.name}}steps"></canvas>
+                    </div>
+                    <div class="col-sm-6">
+                        <canvas id="{{patient.name}}heartRate"></canvas>
+                    </div>
+                </center>
+            </div>
         </div>
-    </div>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
-    </div>
-</script>
-<div class="row">
-    <div ng-repeat="patient in patients" class="col-lg-6 col-sm-6">
+    </uib-accordion>
+    <!--     <div ng-repeat="patient in patients" class="col-lg-6 col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
                 <h4 class="panel-title pull-left"> {{patient.name}}</h4>
@@ -50,5 +70,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

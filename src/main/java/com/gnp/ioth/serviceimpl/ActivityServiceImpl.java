@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gnp.ioth.model.Activity;
-import com.gnp.ioth.model.Patient;
 import com.gnp.ioth.model.SmartBand;
 import com.gnp.ioth.repository.ActivityRepository;
 import com.gnp.ioth.repository.SmartBandRepository;
@@ -32,22 +31,23 @@ public class ActivityServiceImpl implements ActivityService {
     return activityRespository.save(activity);
   }
 
-  @Override
-  public List<Activity> get(Patient patient) throws IllegalArgumentException, NotFoundException {
-    return activityRespository.findBySmartBand(patient.getSmartBand());
-  }
 
   @Override
-  public List<Activity> getTodayActivity(Patient patient) throws IllegalArgumentException {
+  public List<Activity> getTodayActivity(String mac) throws IllegalArgumentException {
     java.util.Date date = new java.util.Date();
     Long currentDayStart = date.getTime() - date.getTime() % 86400000;
     return activityRespository.findBySmartBandAndTimestampAfterOrderByTimestampAsc(
-        patient.getSmartBand(), new Timestamp(currentDayStart));
+        new SmartBand(mac), new Timestamp(currentDayStart));
   }
 
+
   @Override
-  public List<Activity> get(SmartBand smartBand) throws IllegalArgumentException, NotFoundException {
-    return activityRespository.findBySmartBand(smartBand);
+  public List<Activity> getDateActivity(String mac, long timestamp) {
+    java.util.Date date = new java.util.Date(timestamp);
+    Long currentDayStart = date.getTime() - date.getTime() % 86400000;
+    Long currentDayEnd = date.getTime() + date.getTime() % 86400000;
+    return activityRespository.findBySmartBandAndTimestampBetweenOrderByTimestampAsc(
+        new SmartBand(mac), new Timestamp(currentDayStart),new Timestamp(currentDayEnd));
   }
 
 }
