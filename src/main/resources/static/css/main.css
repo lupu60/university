@@ -106,3 +106,10 @@ body {
 .st-sort-descent:before {
     content: '\25BC';
 }
+
+#page-wrapper {
+    padding-top: 50px;
+}
+.sidebar{
+    height: 100vh;
+}

@@ -5,7 +5,7 @@
  */
 
 body {
-    background-color: #f8f8f8;
+      background-color: #f8f8f8;
 }
 
 #wrapper {
@@ -16,6 +16,7 @@ body {
     padding: 0 15px;
     min-height: 568px;
     background-color: #fff;
+    padding-top: 50px;
 }
 
 @media(min-width:768px) {
@@ -80,12 +81,17 @@ body {
     margin-left: -123px;
 }
 
+
+
 .navbar-top-links .dropdown-user {
     right: 0;
     left: auto;
 }
-
+.sidebar{
+    height: 100vh;
+}
 .sidebar .sidebar-nav.navbar-collapse {
+    padding-top: 9px;
     padding-right: 0;
     padding-left: 0;
 }
@@ -129,6 +135,7 @@ body {
 
 @media(min-width:768px) {
     .sidebar {
+        height: auto;
         z-index: 1;
         position: absolute;
         width: 250px;
