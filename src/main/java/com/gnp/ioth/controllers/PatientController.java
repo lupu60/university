@@ -47,7 +47,7 @@ public class PatientController {
 
   @RequestMapping(value = "/activity/{mac}/{timestamp}", method = RequestMethod.GET,
       produces = "application/json")
-  public List<Activity> getRangeActivity(@PathVariable("mac") String mac,@PathVariable("timestamp") long timestamp) {
+  public List<Activity> getDateActivity(@PathVariable("mac") String mac,@PathVariable("timestamp") long timestamp) {
     return activityService.getDateActivity(mac,timestamp);
   }
 

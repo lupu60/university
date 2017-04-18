@@ -7,7 +7,9 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 
-.header, .marketing, .footer {
+.header,
+.marketing,
+.footer {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -80,7 +82,9 @@ body {
 
 @media screen and (min-width: 768px) {
     /* Remove the padding we set earlier */
-    .header, .marketing, .footer {
+    .header,
+    .marketing,
+    .footer {
         padding-left: 0;
         padding-right: 0;
     }
@@ -110,6 +114,16 @@ body {
 #page-wrapper {
     padding-top: 50px;
 }
-.sidebar{
+
+.sidebar {
     height: 100vh;
+}
+
+@media(max-width:768px) {
+    .sidebar {
+        height: auto;
+    }
+    #page-wrapper {
+        padding-top: 250px;
+    }
 }
