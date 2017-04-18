@@ -25,7 +25,8 @@
 			"order": [
 				"3516be71-c039-c7ff-ce9e-2f2356590f2e",
 				"4eac118a-9ada-31fa-605b-df58a0f08541",
-				"a7c42a05-ee1e-bb35-4176-dd7d204e354c"
+				"a7c42a05-ee1e-bb35-4176-dd7d204e354c",
+				"ef61e59f-a3f7-520e-7d5d-56b89841abcf"
 			],
 			"owner": 0
 		}
@@ -186,6 +187,24 @@
 			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
 			"responses": [],
 			"rawModeData": "  {\n    \"steps\": 357,\n    \"heartRate\": [\n      43,\n      89,\n      30,\n      40,\n      40\n    ],\n    \"smartBand\": {\n      \"mac\": \"C8:0F:10:88:2A:5B\"\n    },\n    \"timestamp\": 1492440964874\n  }"
+		},
+		{
+			"id": "ef61e59f-a3f7-520e-7d5d-56b89841abcf",
+			"headers": "",
+			"url": "{{backend}}/webapi/patient/highestactivity/BE:22:5C:AA:22:11/1451602800000",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1492532118556,
+			"name": "highestactivity",
+			"description": "",
+			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+			"responses": []
 		}
 	]
 }

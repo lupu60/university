@@ -50,7 +50,11 @@ public class PatientController {
   public List<Activity> getDateActivity(@PathVariable("mac") String mac,@PathVariable("timestamp") long timestamp) {
     return activityService.getDateActivity(mac,timestamp);
   }
-
+  @RequestMapping(value = "/highestactivity/{mac}/{timestamp}", method = RequestMethod.GET,
+      produces = "application/json")
+  public List<Activity> getHighestActivity(@PathVariable("mac") String mac,@PathVariable("timestamp") long timestamp) {
+    return activityService.getHighestActivity(mac,timestamp);
+  }
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
   public @ResponseBody Patient findById(@PathVariable("id") Long id) throws NotFoundException {
     LOG.info(id.toString());

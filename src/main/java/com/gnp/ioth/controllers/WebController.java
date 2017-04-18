@@ -45,8 +45,12 @@ public class WebController {
     Long currentDayStart = date.getTime() - date.getTime() % 86400000;
     long offset = currentDayStart;
     long end = date.getTime();
+    
+//    long offset = Timestamp.valueOf("2016-01-01 00:00:00").getTime();
+//    long end = Timestamp.valueOf("2017-01-01 00:00:00").getTime();
     long diff = end - offset + 1;
-
+    
+    System.out.println(Timestamp.valueOf("2016-01-01 00:00:00").getTime());
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
     SmartBand s2 = new SmartBand("C8:0F:10:99:2B:1B");
     SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");

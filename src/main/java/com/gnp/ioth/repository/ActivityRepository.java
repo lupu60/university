@@ -16,5 +16,4 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
   public List<Activity> findBySmartBandAndTimestampBetweenOrderByTimestampAsc(
       SmartBand smartBand, Timestamp timestamp, Timestamp timestamp2);
-
 }
