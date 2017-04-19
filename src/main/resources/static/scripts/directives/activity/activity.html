@@ -5,70 +5,70 @@
 </div>
 <div class="row">
     <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default" ng-repeat="patient in patients" is-open="status.open">
+        <div uib-accordion-group class="panel-default" ng-repeat="patient in patients" is-open="status2.open">
             <uib-accordion-heading>
-                {{patient.name}}
-                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                <span ng-click='viewTodayActivity(patient)'>
+                    {{patient.name}}
+                 <i class="pull-right glyphicon " ng-class="{ 'glyphicon-chevron-down': status2.open, 'glyphicon-chevron-right': !status2.open} "></i>
+                 </span>
             </uib-accordion-heading>
-            <div class="col-md-4">
-                <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-            </div>
-            <div class="col-md-6">
-                <p class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                    <span class="input-group-btn">
-                         <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i>
+            <uib-tabset active="activeJustified" justified="true">
+                <uib-tab index="0" heading="Today Activity">
+                    <hr>
+                    <div class="col-md-8 ">
+                        <p class="input-group ">
+                            <input type="text " class="form-control " uib-datepicker-popup="{{format}} " ng-model="dt " is-open="popup1.opened " datepicker-options="dateOptions " ng-required="true " close-text="Close " alt-input-formats="altInputFormats " />
+                            <span class="input-group-btn ">
+                         <button type="button " class="btn btn-default " ng-click="open1() "><i class="glyphicon glyphicon-calendar "></i>
                          </button>
                         </span>
-                </p>
-            </div>
-            <div class="col-md-2 ">
-                <button type="button" ng-click="viewActivity(patient,dt)" class="btn btn-primary">
-                    <i class="glyphicon glyphicon-eye-open"></i> See activity
-                </button>
-            </div>
-            <div class="col-lg-12">
-                <center>
-                    <i class="fa fa-male fa-4x" aria-hidden="true"></i>
-                    <br> {{patient.activity[patient.activity.length-1].steps}}
-                    <br>
-                    <i class="fa fa-heartbeat fa-4x" aria-hidden="true"></i>
-                    <br>{{patient.activity[patient.activity.length-1].heartRate}}
-                    <br>
-                    <div class="col-md-6">
-                        <canvas id="{{patient.name}}steps"></canvas>
+                        </p>
                     </div>
-                    <div class="col-sm-6">
-                        <canvas id="{{patient.name}}heartRate"></canvas>
+                    <div class="col-md-2 col-md-offset-2">
+                        <button type="button " ng-click="viewDateActivity(patient,dt) " class="btn btn-primary ">
+                            <i class="glyphicon glyphicon-eye-open "></i> See activity
+                        </button>
                     </div>
-                </center>
-            </div>
+                    <div class="col-lg-12 ">
+                        <div class="chartArea ">
+                            <center>
+                                <i class="fa fa-male fa-4x " aria-hidden="true "></i>
+                                <br> {{patient.activity[patient.activity.length-1].steps}}
+                                <br>
+                                <i class="fa fa-heartbeat fa-4x " aria-hidden="true "></i>
+                                <br>{{patient.activity[patient.activity.length-1].heartRate}}
+                                <br>
+                                <div class="col-md-6 ">
+                                    <canvas id="{{patient.id}}steps"></canvas>
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <canvas id="{{patient.id}}heartRate"></canvas>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Timeline" select="viewMouthActivity(patient)">
+                    <hr>
+                    <h2 class="text-center">Mouth Overview</h2>
+                    <div class="col-lg-12 ">
+                        <div class="chartArea ">
+                            <center>
+                                <div class="col-md-6 ">
+                                    <canvas id="{{patient.id}}mouthSteps"></canvas>
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <canvas id="{{patient.id}}mouthHeartRate"></canvas>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </uib-tab>
+               <!--  <uib-tab index="2" heading="Something else here">Something else here</uib-tab>
+                <uib-tab index="3" heading="Something else here">Something else here</uib-tab>
+                <uib-tab index="4" heading="Something else here">Something else here</uib-tab>
+                <uib-tab index="5" heading="Something else here">Something else here</uib-tab> -->
+            </uib-tabset>
         </div>
     </uib-accordion>
-    <!--     <div ng-repeat="patient in patients" class="col-lg-6 col-sm-6">
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                <h4 class="panel-title pull-left"> {{patient.name}}</h4>
-                <div class="btn-group pull-right">
-                    <button type="button" ng-click="viewActivity(patient)" class="btn btn-xs btn-primary">
-                        <i class="glyphicon glyphicon-eye-open"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="panel-body">
-                <center>
-                    <i class="fa fa-male fa-4x" aria-hidden="true"></i>
-                    <br> {{patient.activity[patient.activity.length-1].steps}}
-                    <br>
-                    <i class="fa fa-heartbeat fa-4x" aria-hidden="true"></i>
-                    <br>{{patient.activity[patient.activity.length-1].heartRate}}
-                    <br>
-                    <canvas id="{{patient.name}}steps"></canvas>
-                    <canvas id="{{patient.name}}heartRate"></canvas>
-                </center>
-                <div ng-repeat="activityRecord in patient.activity">
-                </div>
-            </div>
-        </div>
-    </div> -->
 </div>

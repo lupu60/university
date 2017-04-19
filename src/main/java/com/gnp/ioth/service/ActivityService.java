@@ -17,6 +17,6 @@ public interface ActivityService {
   
   public List<Activity> getDateActivity(String mac, long timestamp);
 
-  List<Activity> getHighestActivity(String mac, long timestamp);
+  List<Activity> getHighestActivity(String mac);
 
 }

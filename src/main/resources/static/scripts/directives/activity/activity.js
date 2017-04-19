@@ -9,63 +9,111 @@ angular.module('sbAdminApp').controller('ActivityCtrl', ['$http', '$scope', '$fi
             url: patientrestURL
         }).then(function mySucces(response) {
             $scope.patients = response.data;
-            response.data.forEach(function(element, index) {
-                $http({
-                    method: "GET",
-                    url: patientrestURL + "activity/" + element.smartBand.mac
-                }).then(function mySucces(response) {
-                    element.activity = response.data;
-                    var stepsChart = $("#" + element.name + "steps");
-                    var heartRateChart = $("#" + element.name + "heartRate");
-                    var steps = [];
-                    var labels = [];
-                    var heartRate = [];
-                    element.activity.forEach(function(element, index) {
-                        steps.push(element.steps);
-                        var sum = element.heartRate.reduce(function(a, b) {
-                            return a + b;
-                        });
-                        heartRate.push(sum / element.heartRate.length);
-                        let date = new Date(element.timestamp);
-                        labels.push(date.getHours() + ":" + date.getMinutes());
-                    });
-                    var myStepsChart = new Chart(stepsChart, {
-                        type: 'line',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: 'steps',
-                                data: steps,
-                                backgroundColor: "rgba(83, 66, 244,0.6)"
-                            }],
-                        }
-                    });
-                    var myHrChart = new Chart(heartRateChart, {
-                        type: 'line',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: 'Heart Rate',
-                                data: heartRate,
-                                backgroundColor: "rgba(244, 65, 65,0.6)"
-                            }],
-                        }
-                    });
-                }, function myError(response) {
-                    console.log(response.statusText);
+            // response.data.forEach(function(element, index) {
+            //     $http({
+            //         method: "GET",
+            //         url: patientrestURL + "activity/" + element.smartBand.mac
+            //     }).then(function mySucces(response) {
+            //         element.activity = response.data;
+            //         var stepsChart = $("#" + element.id + "steps");
+            //         var heartRateChart = $("#" + element.id + "heartRate");
+            //         var steps = [];
+            //         var labels = [];
+            //         var heartRate = [];
+            //         element.activity.forEach(function(element, index) {
+            //             steps.push(element.steps);
+            //             var sum = element.heartRate.reduce(function(a, b) {
+            //                 return a + b;
+            //             });
+            //             heartRate.push(sum / element.heartRate.length);
+            //             let date = new Date(element.timestamp);
+            //             labels.push(date.getHours() + ":" + date.getMinutes());
+            //         });
+            //         var myStepsChart = new Chart(stepsChart, {
+            //             type: 'line',
+            //             data: {
+            //                 labels: labels,
+            //                 datasets: [{
+            //                     label: 'steps',
+            //                     data: steps,
+            //                     backgroundColor: "rgba(83, 66, 244,0.6)"
+            //                 }],
+            //             }
+            //         });
+            //         var myHrChart = new Chart(heartRateChart, {
+            //             type: 'line',
+            //             data: {
+            //                 labels: labels,
+            //                 datasets: [{
+            //                     label: 'Heart Rate',
+            //                     data: heartRate,
+            //                     backgroundColor: "rgba(244, 65, 65,0.6)"
+            //                 }],
+            //             }
+            //         });
+            //     }, function myError(response) {
+            //         console.log(response.statusText);
+            //     });
+            // });
+        }, function myError(response) {
+            console.log(response.statusText);
+        });
+    }
+    $scope.viewTodayActivity = function(patient) {
+        $http({
+            method: "GET",
+            url: patientrestURL + "activity/" + patient.smartBand.mac
+        }).then(function mySucces(response) {
+            patient.activity = response.data;
+            var stepsChart = $("#" + patient.id + "steps");
+            var heartRateChart = $("#" + patient.id + "heartRate");
+            var steps = [];
+            var labels = [];
+            var heartRate = [];
+            patient.activity.forEach(function(element, index) {
+                steps.push(element.steps);
+                var sum = element.heartRate.reduce(function(a, b) {
+                    return a + b;
                 });
+                heartRate.push(sum / element.heartRate.length);
+                let date = new Date(element.timestamp);
+                labels.push(date.getHours() + ":" + date.getMinutes());
+            });
+            var myStepsChart = new Chart(stepsChart, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'steps',
+                        data: steps,
+                        backgroundColor: "rgba(83, 66, 244,0.6)"
+                    }],
+                }
+            });
+            var myHrChart = new Chart(heartRateChart, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Heart Rate',
+                        data: heartRate,
+                        backgroundColor: "rgba(244, 65, 65,0.6)"
+                    }],
+                }
             });
         }, function myError(response) {
             console.log(response.statusText);
         });
     }
-    $scope.viewActivity = function(patient, dt) {
+
+    $scope.viewDateActivity = function(patient, dt) {
         $http({
             method: "GET",
             url: patientrestURL + "activity/" + patient.smartBand.mac + '/' + dt.getTime(),
         }).then(function mySucces(response) {
-            var stepsChart = $("#" + patient.name + "steps");
-            var heartRateChart = $("#" + patient.name + "heartRate");
+            patient.activity = response.data;
+            var stepsChart = $("#" + patient.id + "steps");
+            var heartRateChart = $("#" + patient.id + "heartRate");
             var steps = [];
             var labels = [];
             var heartRate = [];
@@ -83,7 +131,53 @@ angular.module('sbAdminApp').controller('ActivityCtrl', ['$http', '$scope', '$fi
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'steps',
+                        label: 'Steps',
+                        data: steps,
+                        backgroundColor: "rgba(83, 66, 244,0.6)"
+                    }],
+                }
+            });
+            var myHrChart = new Chart(heartRateChart, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Heart Rate',
+                        data: heartRate,
+                        backgroundColor: "rgba(244, 65, 65,0.6)"
+                    }],
+                }
+            });
+        }, function myError(response) {
+            console.log(response.statusText);
+        });
+    }
+    $scope.viewMouthActivity = function(patient) {
+          $http({
+            method: "GET",
+            url: patientrestURL + "highestactivity/" + patient.smartBand.mac +'/',
+        }).then(function mySucces(response) {
+            patient.activity = response.data;
+            var stepsChart = $("#" + patient.id + "mouthSteps");
+            var heartRateChart = $("#" + patient.id + "mouthHeartRate");
+            var steps = [];
+            var labels = [];
+            var heartRate = [];
+            response.data.forEach(function(element, index) {
+                steps.push(element.steps);
+                var sum = element.heartRate.reduce(function(a, b) {
+                    return a + b;
+                });
+                heartRate.push(sum / element.heartRate.length);
+                let date = new Date(element.timestamp);
+                labels.push(date.getDate()+"  "+date.getHours() + ":" + date.getMinutes());
+            });
+            var myStepsChart = new Chart(stepsChart, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Steps',
                         data: steps,
                         backgroundColor: "rgba(83, 66, 244,0.6)"
                     }],
