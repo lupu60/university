@@ -13,7 +13,8 @@ angular.module('sbAdminApp', [
     'ui.bootstrap',
     'angular-loading-bar',
     'smart-table',
-]).config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+]).config(['$stateProvider','$locationProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $locationProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+     // $locationProvider.html5Mode(true);
     $ocLazyLoadProvider.config({
         debug: false,
         events: true,
