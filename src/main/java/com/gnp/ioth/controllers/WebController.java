@@ -45,19 +45,21 @@ public class WebController {
     long offset = currentDayStart;
     long end = date.getTime();
     
-//    long offset = Timestamp.valueOf("2016-01-01 00:00:00").getTime();
-//    long end = Timestamp.valueOf("2017-01-01 00:00:00").getTime();
+//    long offset = Timestamp.valueOf("2017-01-01 00:00:00").getTime();
+//    long end = Timestamp.valueOf("2017-04-20 00:00:00").getTime();
+    
     long diff = end - offset + 1;
     
-    System.out.println(Timestamp.valueOf("2016-01-01 00:00:00").getTime());
+    
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
     SmartBand s2 = new SmartBand("C8:0F:10:99:2B:1B");
     SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");
-    SmartBand s4 = new SmartBand("17:5C:91:0B:38:59");
+    SmartBand s4 = new SmartBand("C8:0F:10:33:A8:3C");
+    SmartBand s5 = new SmartBand("17:5C:91:0B:38:59");
 
-
+ 
     for (int i = 0; i < 10; i++) {
-      ArrayList<Integer> hr = new ArrayList<>();
+      ArrayList<Integer> hr = new ArrayList<>(); 
       hr.add(new Random().nextInt(150 - 78) + 78);
       hr.add(new Random().nextInt(150 - 78) + 78);
       hr.add(new Random().nextInt(150 - 78) + 78);
@@ -76,6 +78,9 @@ public class WebController {
       activityService
           .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
               s4, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+      .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+          s5, new Timestamp(offset + (long) (Math.random() * diff))));
     }
 
     LOG.info("/mock");
@@ -88,23 +93,26 @@ public class WebController {
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
     SmartBand s2 = new SmartBand("C8:0F:10:99:2B:1B");
     SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");
-    SmartBand s4 = new SmartBand("17:5C:91:0B:38:59");
-
+    SmartBand s4 = new SmartBand("C8:0F:10:33:A8:3C");
+    SmartBand s5 = new SmartBand("17:5C:91:0B:38:59");
+ 
     smartBandService.create(s1);
     smartBandService.create(s2);
     smartBandService.create(s3);
     smartBandService.create(s4);
-
+    smartBandService.create(s5);
+    
     Patient p1 = new Patient(new Random().nextLong(), "Bogdan", true, 22, 180, 80, s1);
     Patient p2 = new Patient(new Random().nextLong(), "Jany", false, 30, 100, 280, s2);
     Patient p3 = new Patient(new Random().nextLong(), "Alexandra", true, 22, 180, 80, s3);
-    Patient p4 = new Patient(new Random().nextLong(), "Oliver", false, 30, 100, 280, s4);
+    Patient p4 = new Patient(new Random().nextLong(), "Sorin", false, 30, 100, 280, s4);
+    Patient p5 = new Patient(new Random().nextLong(), "Oliver", false, 30, 100, 280, s5);
 
     patientService.create(p1);
     patientService.create(p2);
     patientService.create(p3);
     patientService.create(p4);
-
+    patientService.create(p5);
     LOG.info("/mock");
     return "mockdone";
   }
