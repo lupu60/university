@@ -29,8 +29,7 @@ public class WebController {
 
   @Autowired
   ActivityService activityService;
-  // @SuppressWarnings("unused")
-  // private LeshanServerWrapper leshanServerWrapper = new LeshanServerWrapper();
+  
   private static final Logger LOG = LoggerFactory.getLogger(WebController.class);
 
   @RequestMapping(method = RequestMethod.GET)

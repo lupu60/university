@@ -42,7 +42,6 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-jersey')
-	compile group: 'org.eclipse.leshan', name: 'leshan-all', version: '0.1.11-M14'
 	compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
 	
 	//DB
