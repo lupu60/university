@@ -18,17 +18,7 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
             console.log(response.statusText);
         });
     }
-// {
-//   "id": 1,
-//   "name": "name",
-//   "sex": true,
-//   "age": 22,
-//   "height": 180,
-//   "weight": 80,
-//   "smartBand": {
-//     "mac": "C8:0F:10:88:2A:5B"
-//   }
-// }
+
     $scope.addItem = function() {
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
