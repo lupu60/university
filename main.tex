@@ -56,7 +56,7 @@ headsepline, % Uncomment to get a line under the header
 \geometry{
 	paper=a4paper, % Change to letterpaper for US letter
 	inner=2.5cm, % Inner margin
-	outer=3.8cm, % Outer margin
+	outer=2.8cm, % Outer margin
 	bindingoffset=.5cm, % Binding offset
 	top=1.5cm, % Top margin
 	bottom=1.5cm, % Bottom margin
@@ -115,15 +115,12 @@ headsepline, % Uncomment to get a line under the header
 \supname % Supervisor name - remove the \href bracket to remove the link  
 \end{flushright}
 \end{minipage}\\[3cm]
- 
-\vfill
-\includegraphics[width=0.2\textwidth]{images/faclogo.jpg}\\[0.5cm]
-\facname\\\deptname\\[2cm] % Research group name and department name
- 
-\vfill
+%\vfill
 
-{\large \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
+\includegraphics[width=0.2\textwidth]{images/faclogo.jpg}\\[0.5cm]
+\facname\\\deptname\\[2cm] 
+\vfill
+{\large \today}\\[4cm] 
  
 \vfill
 \end{center}
@@ -134,7 +131,6 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 
 \tableofcontents % Prints the main table of contents
-
 \listoffigures % Prints the list of figures
 
 %----------------------------------------------------------------------------------------
@@ -144,6 +140,7 @@ headsepline, % Uncomment to get a line under the header
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 
 \textbf{AJAX} & \textbf{A}synchronous \textbf{J}avaScript \textbf{A}nd \textbf{X}ML\\
+\textbf{IoT} & \textbf{I}nternet \textbf{o}f \textbf{T}hings\\
 \textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets\\
 \textbf{DOM} &  \textbf{D}ocument \textbf{O}bject \textbf{M}odel\\
 \textbf{HTML} & \textbf{H}yper\textbf{T}ext \textbf{M}arkup \textbf{L}anguage\\
@@ -174,11 +171,12 @@ headsepline, % Uncomment to get a line under the header
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 \include{chapters/introduction}
-\include{chapters/Chapter1}
-%\include{Chapters/Chapter2} 
+\include{chapters/chapter1}
+\include{chapters/chapter2} 
 %\include{Chapters/Chapter3}
 %\include{Chapters/Chapter4} 
 %\include{Chapters/Chapter5} 
+\include{chapters/chapterTemplate}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
