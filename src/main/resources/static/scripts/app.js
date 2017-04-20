@@ -13,8 +13,8 @@ angular.module('sbAdminApp', [
     'ui.bootstrap',
     'angular-loading-bar',
     'smart-table',
-]).config(['$stateProvider','$locationProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $locationProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-     // $locationProvider.html5Mode(true);
+]).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $locationProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+    // $locationProvider.html5Mode(true);
     $ocLazyLoadProvider.config({
         debug: false,
         events: true,
@@ -69,11 +69,9 @@ angular.module('sbAdminApp', [
                     return $ocLazyLoad.load({
                         name: 'sbAdminApp',
                         files: [
+                            'bower_components/parallax/deploy/jquery.parallax.min.js',
+                            'bower_components/parallax/deploy/parallax.min.js',
                             'scripts/controllers/main.js',
-                            'scripts/directives/timeline/timeline.js',
-                            'scripts/directives/notifications/notifications.js',
-                            'scripts/directives/chat/chat.js',
-                            'scripts/directives/dashboard/stats/stats.js'
                         ]
                     })
                 }

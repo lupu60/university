@@ -35,7 +35,7 @@ public class WebController {
   @RequestMapping(method = RequestMethod.GET)
   public String hello() {
     LOG.info("/");
-    return "Welcome to IoT Healthcare";
+    return "<strong>Welcome to IoT Healthcare</strong>";
   }
 
   @RequestMapping(value = "/mock", method = RequestMethod.GET)

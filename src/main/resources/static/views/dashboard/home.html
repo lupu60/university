@@ -1,46 +1,63 @@
 <div>
-    <!-- /.row -->
-    <div class="row">
-        <div class="jumbotron">
-                <h1 id="hello">
-                </h1>
-        </div>
+    <div class="jumbotron">
+        <h1 id="hello"></h1>
     </div>
-    <!-- /.panel -->
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-clock-o fa-fw">
-                    </i>
-                    Responsive Timeline
-                </div>
-                <!-- /.panel-heading -->
-                <timeline>
-                </timeline>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw">
-                    </i>
-                    Notifications Panel
-                </div>
-                <!-- /.panel-heading -->
-                <notifications>
-                </notifications>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-            <chat>
-            </chat>
-            <!-- /.panel .chat-panel -->
-        </div>
-        <!-- /.col-lg-4 -->
-    </div>
-    <!-- /.row -->
 </div>
+<!-- <style type="text/css">
+.layer > .fa {}
+body, html{
+        background: #136a8a;
+    background: -webkit-linear-gradient(to left, #136a8a, #267871);
+    background: linear-gradient(to left, #136a8a, #267871);
+}
+#page-wrapper {
+    background: #136a8a;
+    background: -webkit-linear-gradient(to left, #136a8a, #267871);
+    background: linear-gradient(to left, #136a8a, #267871);
+    /*background-repeat: no-repeat;*/
+    /*bottom: 96px;*/
+    background-size: cover;
+    /*position: absolute;*/
+    /*width: 110%;*/
+    height: 98vh;
+/*    left: -5%;
+    top: -5%;*/
+    /*margin: 0em;*/
+}
+</style> -->
+<div id="container" class="container">
+    <div class="row">
+        <ul id="scene">
+            <li class="layer" data-depth="0.90">
+                <i style="margin-top:1em; margin-left: 7em" class="fa fa-stethoscope fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.70">
+                <i style="margin-top:3em; margin-left: 0em" class="fa fa-medkit fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.60">
+                <i style="margin-top:1em; margin-left: 0em" class="fa fa-h-square fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.40">
+                <i style="margin-top:4em; margin-left: 5em" class="fa fa-bluetooth fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.60">
+                <i style="margin-top:4em; margin-left: 2em" class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.70">
+                <i style="margin-top:0.5em; margin-left: 2em" class="fa fa-heartbeat fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.50">
+                <i style="margin-top:3em; margin-left: 7em" class="fa fa-cloud fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.50">
+                <i style="margin-top:0em; margin-left: 5em" class="fa fa-pie-chart fa-5x" aria-hidden="true"></i>
+            </li>
+            <li class="layer" data-depth="0.20">
+                <img style="margin-top:3em; margin-left: 3em; width: 500px;" src="img/smartband.png" />
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+$('#scene').parallax()
+</script>
