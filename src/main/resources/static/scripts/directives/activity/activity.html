@@ -64,8 +64,13 @@
                         </div>
                     </div>
                 </uib-tab>
-               <!--  <uib-tab index="2" heading="Something else here">Something else here</uib-tab>
-                <uib-tab index="3" heading="Something else here">Something else here</uib-tab>
+                <uib-tab index="2" heading="Activity" select="drawRadar(patient)">
+                        <hr>
+                        <div class="col-lg-offset-3 col-md-6">
+                            <canvas id="{{patient.id}}activityRadar"></canvas>
+                        </div>
+                </uib-tab>
+                <!-- <uib-tab index="3" heading="Something else here">Something else here</uib-tab>
                 <uib-tab index="4" heading="Something else here">Something else here</uib-tab>
                 <uib-tab index="5" heading="Something else here">Something else here</uib-tab> -->
             </uib-tabset>
