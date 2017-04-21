@@ -13,10 +13,11 @@ public interface ActivityService {
 
   public Activity record(Activity activity) throws IllegalArgumentException, NotFoundException;
 
-  public List<Activity> getTodayActivity(String mac) throws IllegalArgumentException;
-  
-  public List<Activity> getDateActivity(String mac, long timestamp);
+  public List<Activity> getTodayActivity(String mac)
+      throws IllegalArgumentException, NotFoundException;
 
-  List<Activity> getHighestActivity(String mac);
+  public List<Activity> getDateActivity(String mac, long timestamp) throws NotFoundException;
+
+  List<Activity> getHighestActivity(String mac) throws NotFoundException;
 
 }

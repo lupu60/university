@@ -66,6 +66,12 @@ public class WebController {
       hr.add(new Random().nextInt(150 - 78) + 78);
       hr.add(new Random().nextInt(150 - 78) + 78);
       hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
       activityService
           .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
               s1, new Timestamp(offset + (long) (Math.random() * diff))));

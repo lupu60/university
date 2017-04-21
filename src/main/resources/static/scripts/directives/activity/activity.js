@@ -84,7 +84,7 @@ angular.module('sbAdminApp').controller('ActivityCtrl', ['$http', '$scope', '$fi
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'steps',
+                        label: 'Steps',
                         data: steps,
                         backgroundColor: "rgba(83, 66, 244,0.6)"
                     }],
