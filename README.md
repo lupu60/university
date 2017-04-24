@@ -6,7 +6,7 @@
 ## About
 
 
-## Bitbucket pipelines will deploy master and develop branch to Production and features branches to Integration
+## Bitbucket pipelines will deploy master branch to Production and develop/features branches to Integration
 ## Before import
 
 ```sh

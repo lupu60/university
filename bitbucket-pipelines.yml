@@ -2,16 +2,23 @@
 pipelines:
   default:
     - step:
-        script: 
-          - chmod +x ./gradlew 
+        script:
+          - chmod +x ./gradlew
           - ./gradlew build
-          - chmod +x heroku_deploy.sh
-          - ./heroku_deploy.sh
+          - chmod +x prelive_heroku_deploy.sh
+          - ./prelive_heroku_deploy.sh
   branches:
     feature/*:
       - step:
           script:
-            - chmod +x ./gradlew 
+            - chmod +x ./gradlew
             - ./gradlew build
             - chmod +x prelive_heroku_deploy.sh
             - ./prelive_heroku_deploy.sh
+    master:
+      - step:
+          script:
+          - chmod +x ./gradlew
+          - ./gradlew build
+          - chmod +x heroku_deploy.sh
+          - ./heroku_deploy.sh
