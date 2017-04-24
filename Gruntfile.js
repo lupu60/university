@@ -69,5 +69,5 @@ module.exports = function(grunt) {
             }
         }
     });
-    grunt.registerTask('default', ['asciify,htmlmin']);
+    grunt.registerTask('default', ['asciify']);
 };
