@@ -1,14 +1,18 @@
 'use strict';
 angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal) {
     $scope.alerts = [];
-    var restURL = "/webapi/patient/";
+
+    const restURL = "/webapi/patient/";
+
     var $ctrl = this;
+
     $ctrl.animationsEnabled = false;
+
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
     };
 
-    function draw() {
+    function init() {
         $http({
             method: "GET",
             url: restURL
@@ -94,5 +98,5 @@ angular.module('sbAdminApp').controller('PatientCtrl', ['$http', '$scope', '$fil
             console.log(response.statusText);
         });
     };
-    draw();
+    init();
 }]);

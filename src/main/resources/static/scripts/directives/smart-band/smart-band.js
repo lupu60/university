@@ -1,14 +1,14 @@
 'use strict';
 angular.module('sbAdminApp').controller('SmartBandCtrl', ['$http', '$scope', '$filter', '$uibModal', function($http, $scope, $filter, $uibModal) {
     $scope.alerts = [];
-    var restURL = "/webapi/smartband/";
+    const restURL = "/webapi/smartband/";
     var $ctrl = this;
     $ctrl.animationsEnabled = false;
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
     };
 
-    function draw() {
+    function init() {
         $http({
             method: "GET",
             url: restURL
@@ -93,5 +93,5 @@ angular.module('sbAdminApp').controller('SmartBandCtrl', ['$http', '$scope', '$f
             console.log(response.statusText);
         });
     };
-    draw();
+    init();
 }]);

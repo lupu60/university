@@ -127,3 +127,7 @@ body {
         padding-top: 250px;
     }
 }
+
+.btn{
+        border-radius: 0px;
+}

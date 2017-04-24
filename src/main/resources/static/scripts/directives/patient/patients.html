@@ -25,15 +25,15 @@
                     </div>
                     <div class="form-group">
                         <label for="patient.sex">Patient Age</label>
-                        <input type="text" class="form-control" id="patient.age" ng-model="patient.age">
+                        <input type="number" class="form-control" id="patient.age" ng-model="patient.age">
                     </div>
                     <div class="form-group">
                         <label for="patient.sex">Patient Height</label>
-                        <input type="text" class="form-control" id="patient.height" ng-model="patient.height">
+                        <input type="number" class="form-control" id="patient.height" ng-model="patient.height">
                     </div>
                     <div class="form-group">
                         <label for="patient.sex">Patient Weight</label>
-                        <input type="text" class="form-control" id="patient.weight" ng-model="patient.weight">
+                        <input type="number" class="form-control" id="patient.weight" ng-model="patient.weight">
                     </div>
                     <div class="form-group">
                         <label for="patient.smartBand">Patient smartBand</label>
@@ -48,7 +48,7 @@
         </script>
         <button type="button" ng-click="addItem()" class="btn btn-sm btn-success">
             <i class="glyphicon glyphicon-plus">
-            </i> Add item
+            </i> Add Patient
         </button>
         <div class="panel panel-default">
             <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
