@@ -19,6 +19,13 @@ module.exports = function(grunt) {
                 },
             },
         },
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel',
+            query: {
+                presets: ['es2015']
+            }
+        }],
         jshint: {
             options: {
                 curly: true,
@@ -48,6 +55,19 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        uglify: {
+            options: {
+                mangle: false
+            },
+            my_target: {
+                files: [{
+                    expand: true,
+                    cwd: WORKINGDIR + '/scripts/',
+                    src: '**/*.js',
+                    dest: WORKINGDIR + '/scripts/'
+                }]
+            }
+        }
     });
-    grunt.registerTask('default', ['asciify']);
+    grunt.registerTask('default', ['asciify,htmlmin']);
 };
