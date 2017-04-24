@@ -16,8 +16,6 @@ angular.module('sbAdminApp').controller('MainCtrl', ['$scope', function($scope) 
     });
 
 }]);
-
-;
-(function() {
+;(function() {
     $('#side-menu').metisMenu();
 })();
