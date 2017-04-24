@@ -39,5 +39,9 @@
   },
   "scripts": {
     "postinstall": "bower install && grunt asciify"
+  },
+  "devDependencies": {
+    "grunt-contrib-htmlmin": "^2.3.0",
+    "grunt-contrib-jshint": "^1.1.0"
   }
 }
