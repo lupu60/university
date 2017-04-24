@@ -38,7 +38,7 @@
     "url": "https://lupu60@bitbucket.org/gnp_team/backend.git"
   },
   "scripts": {
-    "postinstall": "bower install && grunt asciify"
+    "postinstall": "bower install && grunt prod"
   },
   "devDependencies": {
     "babel": "^6.23.0",

@@ -70,4 +70,5 @@ module.exports = function(grunt) {
         }
     });
     grunt.registerTask('default', ['asciify']);
+    grunt.registerTask('prod', ['asciify', 'htmlmin']);
 };
