@@ -1,8 +1,8 @@
 % Chapter Template
 
-\chapter{Hardware, Technologies and Programming Languages} % Main chapter title
+\chapter{Hardware, Technologies, Toolchain and Programming Languages} % Main chapter title
 
-\label{Chapter1} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Hardware, Technologies, Toolchain and Programming Languages} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
 %	Hardware
@@ -10,29 +10,53 @@
 
 \section{Hardware}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
-
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Subsection 1}
+\subsection{Xiaomi Mi Band}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+The Xiaomi Mi Band\footnote{\href{http://www.mi.com/en/miband/}{\texttt{http://www.mi.com/en/miband/}}} (Figure \ref{fig:smartband}) is a wearable fitness tracker produced by Xiaomi. Xiaomi Mi Band was unveiled during a Xiaomi launch event on 22 July 2014.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/smartband}
+	\caption{Xiaomi Mi Band}
+	\label{fig:smartband}
+\end{figure}
+
+Specifications:
+\begin{itemize}
+	\item Fitness monitor \& sleep tracker
+	\item Sleep-cycle smart alarm
+	\item Unlock your Android without a password
+	\item 30-day standby power
+	\item Water resistant (IP67)
+	\item 69RMB (approx. US\$13) 
+	\item vibrate alert(call \& notification)
+\end{itemize}
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
+\subsection{Raspberry Pi}
 
-\subsection{Subsection 2}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+The Raspberry Pi\footnote{\href{https://www.raspberrypi.org/help/what-is-a-raspberry-pi/}{\texttt{https://www.raspberrypi.org/help/what-is-a-raspberry-pi/}}} (Figure \ref{fig:raspberry})  is a series of small single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote the teaching of basic computer science in schools and in developing countries. The original model became far more popular than anticipated, selling outside of its target market for uses such as robotics. Peripherals (including keyboards, mice and cases) are not included with the Raspberry Pi. Some accessories however have been included in several official and unofficial bundles.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/raspberrypi.jpg}
+	\caption{Raspberry Pi 1 model B+}
+	\label{fig:raspberry}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
-%	Technologies and Programming Languages 
+%	Hardware, Technologies, Toolchain and Programming Languages
 %----------------------------------------------------------------------------------------
+\section{Toolchain}
+In software, a toolchain is a set of programming tools that are used to perform a complex software development task or to create a software product, which is typically another computer program or a set of related programs. In general, the tools forming a toolchain are executed consecutively so the output or resulting environment state of each tool becomes the input or starting environment for the next one, but the term is also used when referring to a set of related tools that are not necessarily executed consecutively.
 
 \section{Technologies and Programming Languages}
 
 The software has three parts the backend, the frontend and the gateway, communicate with each other trow a RESTapi. So i will present the separately.
+
 \subsection{Backend}
 
 The backend is a java application the main framework is Spring Boot.

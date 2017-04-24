@@ -1,7 +1,6 @@
 all:
 	xelatex main.tex
 	xelatex main.tex
-
 clean:
 	rm -rf *.acn *.alg *.glg *.glo *.gls *.glsdefs *.ist *.xdy *.acr *.bbl *.blg *.aux *.dvi *.log *.lot *.idx *.toc *.lof *.brf *.out main.run.xml *.pdf main.synctex.gz
 	cd appendices
@@ -9,3 +8,7 @@ clean:
 	cd ..
 	cd chapters
 	rm -rf *.acn *.alg *.glg *.glo *.gls *.glsdefs *.ist *.xdy *.acr *.bbl *.blg *.aux *.dvi *.log *.lot *.idx *.toc *.lof *.brf *.out main.run.xml
+	cd ..
+	rm -rf uml
+buildUml:
+	cd srcUml && java -jar plantuml.jar -o "../uml" *

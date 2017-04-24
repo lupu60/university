@@ -9,5 +9,4 @@ pipelines:
   default:
     - step:
         script:
-          - echo "Build srs!"
-          - pdflatex main.tex
+          - echo "Build!"
