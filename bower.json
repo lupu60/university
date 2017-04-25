@@ -1,5 +1,5 @@
 {
-  "name": "tweetsAnalytics",
+  "name": "tweetsanalytics",
   "version": "0.0.0",
   "dependencies": {
     "json3": "^3.3.2",
