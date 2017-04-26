@@ -49,6 +49,7 @@ headsepline, % Uncomment to get a line under the header
 %\addbibresource{example.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage{pdfpages}
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -188,11 +189,11 @@ headsepline, % Uncomment to get a line under the header
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-%\include{appendices/AppendixA}
+%\include{appendices/optim-article/doc/optiom-bluetoothle}
 %\include{appendices/AppendixB}
 %\include{Appendices/AppendixB}
 %\include{Appendices/AppendixC}
-
+\includepdf[pages=-]{appendices/optiom-bluetoothle.pdf}
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
