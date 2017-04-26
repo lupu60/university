@@ -9,10 +9,16 @@ var twitterAnalysis = {
         this.getFile();
     },
     getFile: function() {
-        jQuery.get('sentiment.json', function(data, textStatus, xhr) {
+
+        // jQuery.get('sentiment.json', function(data, textStatus, xhr) {
+        //     twitterAnalysis.drawCharts(data)
+        // });
+
+        jQuery.get('clearSentiment.json', function(data, textStatus, xhr) {
             twitterAnalysis.drawCharts(data)
         });
-        // jQuery.get('tweets.json', function(data, textStatus, xhr) {
+
+        // jQuery.get('clearTweets.json', function(data, textStatus, xhr) {
         //     twitterAnalysis.postToSentiment(data)
         // });
     },
@@ -26,28 +32,27 @@ var twitterAnalysis = {
                 "isRetweet": element.isRetweet,
                 "retweeted": element.retweeted
             }
-            var key = element.number;
-            $.ajax({
-                    url: 'http://sentiment.vivekn.com/api/batch/',
-                    type: 'POST',
-                    dataType: 'JSON',
-                    async: false,
-                    data: JSON.stringify({
-                        [key]: element.text
-                    }),
-                })
-                .done(function(response) {
-                    twiet.confidence = response[0].confidence;
-                    twiet.sentiment = response[0].result;
-                    sentimentJson.push(twiet);
-                })
-                .fail(function() {
-                    console.log("error");
-                })
-                .always(function() {
-                    console.log("complete");
-                });
+            var form = new FormData();
+            form.append("txt", element.text);
+            var settings = {
+                "async": false,
+                "crossDomain": true,
+                "url": "http://sentiment.vivekn.com/api/text/",
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form
+            }
+
+            $.ajax(settings).done(function(response) {
+                twiet.confidence = JSON.parse(response).result.confidence
+                twiet.sentiment = JSON.parse(response).result.sentiment
+                sentimentJson.push(twiet);
+                console.log("done");
+            });
         });
+        this.downloadFile(JSON.stringify(sentimentJson), "sentiment.json");
     },
     drawCharts: function(sentimentJson) {
         let positive = 0;
@@ -125,11 +130,10 @@ var twitterAnalysis = {
         });
     },
     downloadFile: function(text, filename) {
-            var a = document.createElement('a');
-            a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(text));
-            a.setAttribute('download', filename);
-            a.click()
-        }
-        // downloadFile(JSON.stringify(ctxData), "filename.json");
+        var a = document.createElement('a');
+        a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(text));
+        a.setAttribute('download', filename);
+        a.click()
+    }
 }
 twitterAnalysis.init();
