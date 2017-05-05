@@ -1,0 +1,27 @@
+@startuml
+class Patient [[java:com.gnp.ioth.model.Patient]] {
+    -Long id
+    -String name
+    -boolean sex
+    -int age
+    -int height
+    -int weight
+    -SmartBand smartBand
+    +Patient()
+    +Patient(Long id, String name, boolean sex, int age, int height, int weight, SmartBand smartBand)
+    +Long getId()
+    +void setId(Long id)
+    +String getName()
+    +void setName(String name)
+    +boolean isSex()
+    +void setSex(boolean sex)
+    +int getAge()
+    +void setAge(int age)
+    +int getHeight()
+    +void setHeight(int height)
+    +int getWeight()
+    +void setWeight(int weight)
+    +SmartBand getSmartBand()
+    +void setSmartBand(SmartBand smartBand)
+}
+@enduml
