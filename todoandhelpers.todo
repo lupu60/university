@@ -13,6 +13,7 @@ Patient:
 }
 
 application.properties:
+
 #localhost MYSQL
 #spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 #spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
