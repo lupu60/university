@@ -11,9 +11,7 @@ Patient:
     "mac": "C8:0F:10:88:2A:5B"
   }
 }
-
 application.properties:
-
 #localhost MYSQL
 #spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 #spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
