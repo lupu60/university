@@ -17,6 +17,8 @@ import javassist.NotFoundException;
 
 @Service
 public class PatientServiceImpl implements PatientService {
+  private static final String PATIENT_NOT_FOUND = "Patient Not Found";
+
   @Autowired
   PatientRepository patientRepository;
 
@@ -42,7 +44,7 @@ public class PatientServiceImpl implements PatientService {
   public Patient findById(Long id) throws NotFoundException {
     Patient returnPatient = patientRepository.findOne(id);
     if (returnPatient == null)
-      throw new NotFoundException("Patient Not Found");
+      throw new NotFoundException(PATIENT_NOT_FOUND);
     return returnPatient;
   }
 
@@ -50,7 +52,7 @@ public class PatientServiceImpl implements PatientService {
   public Patient update(Patient patient) throws NotFoundException {
     Patient updatePatient = patientRepository.findOne(patient.getId());
     if (updatePatient == null)
-      throw new NotFoundException("Patient Not Found");
+      throw new NotFoundException(PATIENT_NOT_FOUND);
     return patientRepository.save(patient);
   }
 
@@ -59,7 +61,7 @@ public class PatientServiceImpl implements PatientService {
   public Patient delete(Long id) throws NotFoundException {
     Patient deletePatient = patientRepository.findOne(id);
     if (deletePatient == null)
-      throw new NotFoundException("Patient Not Found");
+      throw new NotFoundException(PATIENT_NOT_FOUND);
     patientRepository.delete(deletePatient);
     return deletePatient;
   }

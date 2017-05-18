@@ -15,7 +15,6 @@ public class SmartBand {
 
   public SmartBand() {
     super();
-    // TODO Auto-generated constructor stub
   }
 
   public SmartBand(String mac) {

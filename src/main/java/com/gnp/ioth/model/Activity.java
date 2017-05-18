@@ -33,7 +33,6 @@ public class Activity {
 
   public Activity() {
     super();
-    // TODO Auto-generated constructor stub
   }
 
 

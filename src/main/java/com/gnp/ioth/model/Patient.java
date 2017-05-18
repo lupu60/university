@@ -36,7 +36,6 @@ public class Patient {
 
   public Patient() {
     super();
-    // TODO Auto-generated constructor stub
   }
 
   public Patient(Long id, String name, boolean sex, int age, int height, int weight,
