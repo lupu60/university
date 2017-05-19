@@ -1,18 +1,16 @@
 package com.gnp.ioth.service;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.gnp.ioth.model.SmartBand;
-
+import java.util.List;
 import javassist.NotFoundException;
+import org.springframework.stereotype.Service;
 
 @Service
 public interface SmartBandService {
-  public SmartBand create(SmartBand smartBand) throws IllegalArgumentException;
 
-  public SmartBand delete(String mac) throws NotFoundException;
+  SmartBand create(SmartBand smartBand) throws IllegalArgumentException;
 
-  public List<SmartBand> getAllSmartBands();
+  SmartBand delete(String mac) throws NotFoundException;
+
+  List<SmartBand> getAllSmartBands();
 }
