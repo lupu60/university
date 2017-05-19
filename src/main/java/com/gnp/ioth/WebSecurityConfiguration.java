@@ -12,26 +12,30 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfiguration {
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
-	}
+  @Autowired
+  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
+  }
 
-	@Configuration
-	@Order(1)
-	public static class GatewayApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			http.csrf().disable().antMatcher("/gateway/**").authorizeRequests().anyRequest().hasRole("USER").and().httpBasic();
-		}
-	}
+  @Configuration
+  @Order(1)
+  public static class GatewayApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Configuration
-	public static class WebApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			http.csrf().disable().authorizeRequests().anyRequest()
-					.authenticated().and().formLogin().loginPage("/login.html").permitAll().and().logout().permitAll();
-		}
-	}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+      http.csrf().disable().antMatcher("/gateway/**").authorizeRequests().anyRequest()
+        .hasRole("USER").and().httpBasic();
+    }
+  }
+
+  @Configuration
+  public static class WebApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+      http.csrf().disable().authorizeRequests().anyRequest()
+        .authenticated().and().formLogin().loginPage("/login.html").permitAll().and().logout()
+        .permitAll();
+    }
+  }
 }

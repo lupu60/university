@@ -1,5 +1,11 @@
 package com.gnp.ioth.controllers;
 
+import com.gnp.ioth.model.Activity;
+import com.gnp.ioth.model.Patient;
+import com.gnp.ioth.model.SmartBand;
+import com.gnp.ioth.service.ActivityService;
+import com.gnp.ioth.service.PatientService;
+import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.gnp.ioth.model.Activity;
-import com.gnp.ioth.model.Patient;
-import com.gnp.ioth.model.SmartBand;
-import com.gnp.ioth.service.ActivityService;
-import com.gnp.ioth.service.PatientService;
-
-import javassist.NotFoundException;
 
 
 @RestController
@@ -40,19 +38,22 @@ public class GatewayController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-  public @ResponseBody Patient getPatient(@PathVariable("id") String mac) throws NotFoundException {
+  public @ResponseBody
+  Patient getPatient(@PathVariable("id") String mac)
+    throws NotFoundException {
     LOG.info(mac);
     return patientService.findBySmartBand(new SmartBand(mac));
   }
 
   @ExceptionHandler(NotFoundException.class)
-  public @ResponseBody ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
+  public @ResponseBody
+  ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
     return new ResponseEntity<String>("Band Not Found", HttpStatus.NOT_FOUND);
   }
 
   @ExceptionHandler(IllegalArgumentException.class)
-  public @ResponseBody ResponseEntity<String> handleIllegalArgumentException(
-      IllegalArgumentException exception) {
+  public @ResponseBody
+  ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException exception) {
     return new ResponseEntity<String>("IllegalArgumentException", HttpStatus.NOT_FOUND);
   }
 }

@@ -1,22 +1,20 @@
 package com.gnp.ioth.serviceimpl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.gnp.ioth.model.Patient;
 import com.gnp.ioth.model.SmartBand;
 import com.gnp.ioth.repository.PatientRepository;
 import com.gnp.ioth.repository.SmartBandRepository;
 import com.gnp.ioth.service.PatientService;
-
+import java.util.List;
 import javassist.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PatientServiceImpl implements PatientService {
+
   private static final String PATIENT_NOT_FOUND = "Patient Not Found";
 
   @Autowired
@@ -33,8 +31,9 @@ public class PatientServiceImpl implements PatientService {
   @Override
   @Transactional
   public Patient create(Patient patient) throws IllegalArgumentException {
-    if (patient.getName() == null)
+    if (patient.getName() == null) {
       throw new IllegalArgumentException();
+    }
     patientRepository.save(patient);
     return patient;
 
@@ -43,16 +42,18 @@ public class PatientServiceImpl implements PatientService {
   @Override
   public Patient findById(Long id) throws NotFoundException {
     Patient returnPatient = patientRepository.findOne(id);
-    if (returnPatient == null)
+    if (returnPatient == null) {
       throw new NotFoundException(PATIENT_NOT_FOUND);
+    }
     return returnPatient;
   }
 
   @Override
   public Patient update(Patient patient) throws NotFoundException {
     Patient updatePatient = patientRepository.findOne(patient.getId());
-    if (updatePatient == null)
+    if (updatePatient == null) {
       throw new NotFoundException(PATIENT_NOT_FOUND);
+    }
     return patientRepository.save(patient);
   }
 
@@ -60,8 +61,9 @@ public class PatientServiceImpl implements PatientService {
   @Transactional(rollbackFor = NotFoundException.class)
   public Patient delete(Long id) throws NotFoundException {
     Patient deletePatient = patientRepository.findOne(id);
-    if (deletePatient == null)
+    if (deletePatient == null) {
       throw new NotFoundException(PATIENT_NOT_FOUND);
+    }
     patientRepository.delete(deletePatient);
     return deletePatient;
   }

@@ -1,18 +1,16 @@
 package com.gnp.ioth.serviceimpl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.gnp.ioth.model.SmartBand;
 import com.gnp.ioth.repository.SmartBandRepository;
 import com.gnp.ioth.service.SmartBandService;
-
+import java.util.List;
 import javassist.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class SmartBandsServiceImpl implements SmartBandService {
+
   @Autowired
   SmartBandRepository smartBandRepository;
 
