@@ -4,7 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "smart_band")
 public class SmartBand {
@@ -19,14 +21,6 @@ public class SmartBand {
 
   public SmartBand(String mac) {
     super();
-    this.mac = mac;
-  }
-
-  public String getMac() {
-    return mac;
-  }
-
-  public void setMac(String mac) {
     this.mac = mac;
   }
 
