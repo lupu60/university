@@ -151,6 +151,7 @@ var twitterAnalysis = {
             if (element.sentiment == "Negative") { negative++; }
             if (element.sentiment == "Neutral") { neutral++; }
         });
+
         var dataTwitterPie = {
             labels: [
                 "Negative",
@@ -174,6 +175,9 @@ var twitterAnalysis = {
         let myChart = new Chart(this.$nastyTweets, {
             type: 'pie',
             data: dataTwitterPie,
+             options: {
+                "cutoutPercentage":0
+             }
         });
     },
     postToSentiment(twietsJson) {
