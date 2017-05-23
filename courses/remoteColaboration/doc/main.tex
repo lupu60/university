@@ -50,7 +50,14 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage{pdfpages}
-
+\usepackage{listings}
+\lstdefinelanguage{JavaScript}{
+	morekeywords={var, function},
+	morecomment=[s]{/*}{*/},%
+	morecomment=[l]//,%
+	morestring=[b]",%
+	morestring=[b]'%
+}
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
 %----------------------------------------------------------------------------------------
@@ -160,14 +167,30 @@ headsepline, % Uncomment to get a line under the header
 % Uncomment the lines as you write the chapters
 \include{chapters/chapter1}
 \include{chapters/chapter2}
-\include{chapters/chapterTemplate}
+\include{chapters/chapter3}
+\include{chapters/chapter4}
+\include{chapters/chapter5}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
 
 \appendix % Cue to tell LaTeX that the following "chapters" are Appendices
-
+\addcontentsline{toc}{chapter}{Appendices}
+\addcontentsline{toc}{chapter}{Difference between sentiments towards a common topic in  distinguished social networks}
+\includepdf[pages=-]{appendices/finalpaper.pdf}
+\addcontentsline{toc}{chapter}{Meeting minutes}
+\includepdf[pages=-]{appendices/m1.pdf}
+\includepdf[pages=-]{appendices/m2.pdf}
+\includepdf[pages=-]{appendices/m3.pdf}
+\includepdf[pages=-]{appendices/m4.pdf}
+\includepdf[pages=-]{appendices/m5.pdf}
+\includepdf[pages=-]{appendices/m6.pdf}
+\includepdf[pages=-]{appendices/m7.pdf}
+\includepdf[pages=-]{appendices/m8.pdf}
+\includepdf[pages=-]{appendices/m9.pdf}
+\addcontentsline{toc}{chapter}{Slack export}
+\includepdf[pages=-]{appendices/slackexport.pdf}
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
