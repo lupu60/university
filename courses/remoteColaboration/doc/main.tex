@@ -23,7 +23,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[
-11pt, % The default document font size, options: 10pt, 11pt, 12pt
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
 english, % ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
@@ -45,7 +45,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{palatino} % Use the Palatino font by default
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
-
+\renewcommand{\baselinestretch}{1.4}
 %\addbibresource{example.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
@@ -76,8 +76,8 @@ headsepline, % Uncomment to get a line under the header
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Remote Collaboration in Virtual Teams \\ Report} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
-\supervisor{Monika \textsc{Proebster}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\thesistitle{Remote Collaboration in\\ Virtual Teams Report} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Nicola  \textsc{Marsden}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \author{Bogdan Alexandru \textsc{Lupu}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{http://www.unitbv.ro/}{Transilvania University of Bra\c sov}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
@@ -107,12 +107,12 @@ headsepline, % Uncomment to get a line under the header
 \includegraphics[width=0.2\textwidth]{images/unilogo.jpg}\\[0.5cm]
 
 %\vspace*{.06\textheight}
-{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+{\scshape\LARGE \univname\par}\vspace{1cm} % University name
 %\textsc{\Large Master Thesis}
 %\\[0.5cm] % Thesis type
 \HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
-\HRule \\[1.5cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.3cm} % Thesis title
+\HRule \\[1cm] % Horizontal line
 
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
@@ -125,13 +125,13 @@ headsepline, % Uncomment to get a line under the header
 \emph{Supervisor:} \\
 \supname % Supervisor name - remove the \href bracket to remove the link
 \end{flushright}
-\end{minipage}\\[3cm]
+\end{minipage}\\[2cm]
 %\vfill
 
 \includegraphics[width=0.2\textwidth]{images/faclogo.jpg}\\[0.5cm]
 \facname\\\deptname\\[2cm]
-\vfill
-{\large \today}\\[4cm]
+
+{\large \today}\\[3cm]
 
 \vfill
 \end{center}
@@ -142,18 +142,30 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 
 \tableofcontents % Prints the main table of contents
-% \listoffigures % Prints the list of figures
+\listoffigures % Prints the list of figures
 
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
-%\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 
-%\textbf{WWW / W3} &\textbf{W}orld \textbf{W}ide \textbf{W}eb \\
-%\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+\textbf{AJAX} & \textbf{A}synchronous \textbf{J}avaScript \textbf{A}nd \textbf{X}ML\\
+\textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets\\
+\textbf{DOM} &  \textbf{D}ocument \textbf{O}bject \textbf{M}odel\\
+\textbf{HTML} & \textbf{H}yper\textbf{T}ext \textbf{M}arkup \textbf{L}anguage\\
+\textbf{HTTP} & \textbf{H}ypertext \textbf{T}ransfer\textbf{ P}rotocol\\
+\textbf{IDE} & \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment\\
+\textbf{JSON} & \textbf{J}avaScript \textbf{O}bject \textbf{N}otation,\\
+\textbf{JS} & \textbf{J}ava  \textbf{S}cript\\
+\textbf{NaN} & \textbf{N}ot \textbf{a} \textbf{N}umber\\
+\textbf{OOP} & \textbf{O}bject \textbf{O}riented \textbf{P}rogramming \\
+\textbf{OSS} & \textbf{O}pen \textbf{S}ource \textbf{S}oftware\\
+\textbf{UI} & \textbf{U}ser \textbf{I}nterface \\
+\textbf{URL } & \textbf{U}niform \textbf{R}esource \textbf{L}ocator \\
+\textbf{WWW / W3} &\textbf{W}orld \textbf{W}ide \textbf{W}eb \\
 
-%\end{abbreviations}
+\end{abbreviations}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -198,9 +210,9 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
-\begin{thebibliography}{9}
-	\bibitem{1}{\textbf{en.wikipedia.org}}
-\end{thebibliography}
+%\begin{thebibliography}{9}
+%	\bibitem{1}{\textbf{en.wikipedia.org}}
+%\end{thebibliography}
 %----------------------------------------------------------------------------------------
 
 \end{document}
