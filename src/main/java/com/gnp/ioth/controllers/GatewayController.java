@@ -44,7 +44,7 @@ public class GatewayController {
 
   @RequestMapping(value = "/deviceinfo", method = RequestMethod.PUT, produces = "application/json")
   public DeviceInfo recordDeviceInfo(@RequestBody DeviceInfo deviceInfo) {
-    return deviceInfoService.record(deviceInfo);
+    return deviceInfoService.recordDeviceInfo(deviceInfo);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
