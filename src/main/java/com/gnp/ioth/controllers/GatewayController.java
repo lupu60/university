@@ -1,9 +1,11 @@
 package com.gnp.ioth.controllers;
 
 import com.gnp.ioth.model.Activity;
+import com.gnp.ioth.model.DeviceInfo;
 import com.gnp.ioth.model.Patient;
 import com.gnp.ioth.model.SmartBand;
 import com.gnp.ioth.service.ActivityService;
+import com.gnp.ioth.service.DeviceInfoService;
 import com.gnp.ioth.service.PatientService;
 import javassist.NotFoundException;
 import org.slf4j.Logger;
@@ -32,9 +34,17 @@ public class GatewayController {
   @Autowired
   PatientService patientService;
 
+  @Autowired
+  DeviceInfoService deviceInfoService;
+
   @RequestMapping(value = "/activity", method = RequestMethod.PUT, produces = "application/json")
   public Activity recordActivity(@RequestBody Activity activity) {
     return activityService.record(activity);
+  }
+
+  @RequestMapping(value = "/deviceinfo", method = RequestMethod.PUT, produces = "application/json")
+  public DeviceInfo recordDeviceInfo(@RequestBody DeviceInfo deviceInfo) {
+    return deviceInfoService.record(deviceInfo);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
