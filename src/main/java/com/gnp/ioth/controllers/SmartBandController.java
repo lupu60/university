@@ -28,15 +28,16 @@ public class SmartBandController {
   }
 
   @RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
-  public @ResponseBody SmartBand createSmartBand(@RequestBody SmartBand smartBand)
+  @ResponseBody
+  public SmartBand createSmartBand(@RequestBody SmartBand smartBand)
       throws IllegalArgumentException {
     LOG.info(smartBand.toString());
     return smartBandService.create(smartBand);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
-  public @ResponseBody SmartBand deleteSmartBand(@PathVariable("id") String mac)
-      throws NotFoundException {
+  @ResponseBody
+  public SmartBand deleteSmartBand(@PathVariable("id") String mac) throws NotFoundException {
     LOG.info(mac);
     return smartBandService.delete(mac);
   }
