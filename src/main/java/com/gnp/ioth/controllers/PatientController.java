@@ -37,73 +37,66 @@ public class PatientController {
   }
 
   @RequestMapping(value = "/activity/{mac}", method = RequestMethod.GET,
-    produces = "application/json")
+      produces = "application/json")
   public List<Activity> getTodayActivity(@PathVariable("mac") String mac) {
     return activityService.getTodayActivity(mac);
   }
 
   @RequestMapping(value = "/activity/{mac}/{timestamp}", method = RequestMethod.GET,
-    produces = "application/json")
+      produces = "application/json")
   public List<Activity> getDateActivity(@PathVariable("mac") String mac,
-    @PathVariable("timestamp") long timestamp) {
+      @PathVariable("timestamp") long timestamp) {
     return activityService.getDateActivity(mac, timestamp);
   }
 
   @RequestMapping(value = "/highestactivity/{mac}", method = RequestMethod.GET,
-    produces = "application/json")
+      produces = "application/json")
   public List<Activity> getHighestActivity(@PathVariable("mac") String mac) {
     return activityService.getHighestActivity(mac);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-  public @ResponseBody
-  Patient findById(@PathVariable("id") Long id) throws NotFoundException {
+  public @ResponseBody Patient findById(@PathVariable("id") Long id) throws NotFoundException {
     LOG.info(id.toString());
     return patientService.findById(id);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
-  public @ResponseBody
-  Patient createPatient(@RequestBody Patient patient)
-    throws IllegalArgumentException {
+  public @ResponseBody Patient createPatient(@RequestBody Patient patient)
+      throws IllegalArgumentException {
     LOG.info(patient.toString());
     return patientService.create(patient);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.PUT, produces = "application/json")
-  public @ResponseBody
-  Patient updatePatient(@RequestBody Patient patient)
-    throws NotFoundException {
+  public @ResponseBody Patient updatePatient(@RequestBody Patient patient)
+      throws NotFoundException {
     LOG.info(patient.toString());
     return patientService.update(patient);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.DELETE, produces = "application/json")
-  public @ResponseBody
-  Patient deletePatient(@RequestBody Patient patient)
-    throws NotFoundException {
+  public @ResponseBody Patient deletePatient(@RequestBody Patient patient)
+      throws NotFoundException {
     LOG.info(patient.toString());
     return patientService.delete(patient);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
-  public @ResponseBody
-  Patient deletePatientbyId(@PathVariable("id") Long id)
-    throws NotFoundException {
+  public @ResponseBody Patient deletePatientbyId(@PathVariable("id") Long id)
+      throws NotFoundException {
     LOG.info(id.toString());
     return patientService.delete(id);
   }
 
   @ExceptionHandler(NotFoundException.class)
-  public @ResponseBody
-  ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
+  public @ResponseBody ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
     return new ResponseEntity<String>("Patient Not Found", HttpStatus.NOT_FOUND);
   }
 
   @ExceptionHandler(IllegalArgumentException.class)
-  public @ResponseBody
-  ResponseEntity<String> handleIllegalArgumentException(
-    IllegalArgumentException exception) {
+  public @ResponseBody ResponseEntity<String> handleIllegalArgumentException(
+      IllegalArgumentException exception) {
     return new ResponseEntity<String>("IllegalArgumentException", HttpStatus.NOT_FOUND);
   }
 }

@@ -41,7 +41,7 @@ public class Patient {
   }
 
   public Patient(Long id, String name, boolean sex, int age, int height, int weight,
-    SmartBand smartBand) {
+      SmartBand smartBand) {
     super();
     this.id = id;
     this.name = name;

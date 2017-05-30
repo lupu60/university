@@ -41,8 +41,8 @@ public class WebController {
     long offset = currentDayStart;
     long end = date.getTime();
 
-//    long offset = Timestamp.valueOf("2017-01-01 00:00:00").getTime();
-//    long end = Timestamp.valueOf("2017-04-20 00:00:00").getTime();
+    // long offset = Timestamp.valueOf("2017-01-01 00:00:00").getTime();
+    // long end = Timestamp.valueOf("2017-04-20 00:00:00").getTime();
 
     long diff = end - offset + 1;
 
@@ -67,20 +67,20 @@ public class WebController {
       hr.add(new Random().nextInt(150 - 78) + 78);
       hr.add(new Random().nextInt(150 - 78) + 78);
       activityService
-        .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
-          s1, new Timestamp(offset + (long) (Math.random() * diff))));
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s1, new Timestamp(offset + (long) (Math.random() * diff))));
       activityService
-        .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
-          s2, new Timestamp(offset + (long) (Math.random() * diff))));
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s2, new Timestamp(offset + (long) (Math.random() * diff))));
       activityService
-        .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
-          s3, new Timestamp(offset + (long) (Math.random() * diff))));
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s3, new Timestamp(offset + (long) (Math.random() * diff))));
       activityService
-        .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
-          s4, new Timestamp(offset + (long) (Math.random() * diff))));
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s4, new Timestamp(offset + (long) (Math.random() * diff))));
       activityService
-        .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
-          s5, new Timestamp(offset + (long) (Math.random() * diff))));
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s5, new Timestamp(offset + (long) (Math.random() * diff))));
     }
 
     LOG.info("/mock");

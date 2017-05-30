@@ -48,22 +48,19 @@ public class GatewayController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-  public @ResponseBody
-  Patient getPatient(@PathVariable("id") String mac)
-    throws NotFoundException {
+  public @ResponseBody Patient getPatient(@PathVariable("id") String mac) throws NotFoundException {
     LOG.info(mac);
     return patientService.findBySmartBand(new SmartBand(mac));
   }
 
   @ExceptionHandler(NotFoundException.class)
-  public @ResponseBody
-  ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
+  public @ResponseBody ResponseEntity<String> handleItemNotFound(NotFoundException exception) {
     return new ResponseEntity<String>("Band Not Found", HttpStatus.NOT_FOUND);
   }
 
   @ExceptionHandler(IllegalArgumentException.class)
-  public @ResponseBody
-  ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException exception) {
+  public @ResponseBody ResponseEntity<String> handleIllegalArgumentException(
+      IllegalArgumentException exception) {
     return new ResponseEntity<String>("IllegalArgumentException", HttpStatus.NOT_FOUND);
   }
 }

@@ -24,7 +24,7 @@ public class WebSecurityConfiguration {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http.csrf().disable().antMatcher("/gateway/**").authorizeRequests().anyRequest()
-        .hasRole("USER").and().httpBasic();
+          .hasRole("USER").and().httpBasic();
     }
   }
 
@@ -33,9 +33,8 @@ public class WebSecurityConfiguration {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-      http.csrf().disable().authorizeRequests().anyRequest()
-        .authenticated().and().formLogin().loginPage("/login.html").permitAll().and().logout()
-        .permitAll();
+      http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().formLogin()
+          .loginPage("/login.html").permitAll().and().logout().permitAll();
     }
   }
 }

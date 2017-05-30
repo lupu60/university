@@ -40,10 +40,10 @@ public class ActivityServiceImpl implements ActivityService {
   @Override
   public List<Activity> getTodayActivity(String mac) throws IllegalArgumentException {
     return activityRespository.findBySmartBandAndTimestampAfterOrderByTimestampAsc(
-      new SmartBand(mac),
-      new Timestamp(new GregorianCalendar(new GregorianCalendar().get(Calendar.YEAR),
-        new GregorianCalendar().get(Calendar.MONTH),
-        new GregorianCalendar().get(Calendar.DAY_OF_MONTH)).getTimeInMillis()));
+        new SmartBand(mac),
+        new Timestamp(new GregorianCalendar(new GregorianCalendar().get(Calendar.YEAR),
+            new GregorianCalendar().get(Calendar.MONTH),
+            new GregorianCalendar().get(Calendar.DAY_OF_MONTH)).getTimeInMillis()));
   }
 
 
@@ -54,7 +54,7 @@ public class ActivityServiceImpl implements ActivityService {
     Long currentDayStart = cal.getTimeInMillis() - cal.getTimeInMillis() % 86400000;
     Long currentDayEnd = cal.getTimeInMillis() + cal.getTimeInMillis() % 86400000;
     return activityRespository.findBySmartBandAndTimestampBetweenOrderByTimestampAsc(
-      new SmartBand(mac), new Timestamp(currentDayStart), new Timestamp(currentDayEnd));
+        new SmartBand(mac), new Timestamp(currentDayStart), new Timestamp(currentDayEnd));
   }
 
 
@@ -63,17 +63,17 @@ public class ActivityServiceImpl implements ActivityService {
     List<Activity> allActivity = new ArrayList<>();
     Calendar cal = new GregorianCalendar();
     for (long i = new GregorianCalendar(new GregorianCalendar().get(Calendar.YEAR),
-      new GregorianCalendar().get(Calendar.MONTH), 1)
-      .getTimeInMillis(); i < new GregorianCalendar(
-      new GregorianCalendar().get(Calendar.YEAR),
-      new GregorianCalendar().get(Calendar.MONTH),
-      new GregorianCalendar().get(Calendar.DAY_OF_MONTH)).getTimeInMillis(); i =
-      i + 86400000) {
+        new GregorianCalendar().get(Calendar.MONTH), 1)
+            .getTimeInMillis(); i < new GregorianCalendar(
+                new GregorianCalendar().get(Calendar.YEAR),
+                new GregorianCalendar().get(Calendar.MONTH),
+                new GregorianCalendar().get(Calendar.DAY_OF_MONTH)).getTimeInMillis(); i =
+                    i + 86400000) {
       cal.setTimeInMillis(i);
       List<Activity> dayActivity =
-        activityRespository.findBySmartBandAndTimestampBetweenOrderByTimestampAsc(
-          new SmartBand(mac), new Timestamp(cal.getTimeInMillis()),
-          new Timestamp(cal.getTimeInMillis() + 86400000));
+          activityRespository.findBySmartBandAndTimestampBetweenOrderByTimestampAsc(
+              new SmartBand(mac), new Timestamp(cal.getTimeInMillis()),
+              new Timestamp(cal.getTimeInMillis() + 86400000));
       if (dayActivity != null && !dayActivity.isEmpty()) {
         Activity maxActivity = Collections.max(dayActivity, new Comparator<Activity>() {
           @Override

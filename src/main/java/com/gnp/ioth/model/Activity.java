@@ -38,7 +38,7 @@ public class Activity {
 
 
   public Activity(Long id, int steps, ArrayList<Integer> heartRate, SmartBand smartBand,
-    Timestamp timestamp) {
+      Timestamp timestamp) {
     super();
     this.id = id;
     this.steps = steps;
