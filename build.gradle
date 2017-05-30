@@ -12,15 +12,18 @@ buildscript {
 	dependencies {
         classpath "com.moowork.gradle:gradle-node-plugin:1.1.0"
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.5-rc1"
 	}
 
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'org.sonarqube'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'com.moowork.node'
 apply plugin:'application'
+
 
 mainClassName = "com.gnp.ioth.BackendApplication"
 
@@ -37,7 +40,6 @@ repositories {
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
 }
-
 
 dependencies {
 
@@ -62,3 +64,9 @@ dependencies {
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
 
+sonarqube {
+  properties {
+    property "sonar.projectName", "iothealthcare backend"
+    property "sonar.projectKey", "org.sonarqube:java-gradle-simple"
+  }
+}
