@@ -7,9 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "patient")
 public class Patient {
@@ -49,6 +48,62 @@ public class Patient {
     this.age = age;
     this.height = height;
     this.weight = weight;
+    this.smartBand = smartBand;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public boolean isSex() {
+    return sex;
+  }
+
+  public void setSex(boolean sex) {
+    this.sex = sex;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public void setAge(int age) {
+    this.age = age;
+  }
+
+  public int getHeight() {
+    return height;
+  }
+
+  public void setHeight(int height) {
+    this.height = height;
+  }
+
+  public int getWeight() {
+    return weight;
+  }
+
+  public void setWeight(int weight) {
+    this.weight = weight;
+  }
+
+  public SmartBand getSmartBand() {
+    return smartBand;
+  }
+
+  public void setSmartBand(SmartBand smartBand) {
     this.smartBand = smartBand;
   }
 

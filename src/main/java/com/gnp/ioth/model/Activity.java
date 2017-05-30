@@ -2,6 +2,7 @@ package com.gnp.ioth.model;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,9 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "activity")
 public class Activity {
@@ -44,6 +44,56 @@ public class Activity {
     this.steps = steps;
     this.heartRate = heartRate;
     this.smartBand = smartBand;
+    this.timestamp = timestamp;
+  }
+
+
+  public Long getId() {
+    return id;
+  }
+
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+
+  public int getSteps() {
+    return steps;
+  }
+
+
+  public void setSteps(int steps) {
+    this.steps = steps;
+  }
+
+
+  public ArrayList<Integer> getHeartRate() {
+    return heartRate;
+  }
+
+
+  public void setHeartRate(ArrayList<Integer> heartRate) {
+    this.heartRate = heartRate;
+  }
+
+
+  public SmartBand getSmartBand() {
+    return smartBand;
+  }
+
+
+  public void setSmartBand(SmartBand smartBand) {
+    this.smartBand = smartBand;
+  }
+
+
+  public Timestamp getTimestamp() {
+    return timestamp;
+  }
+
+
+  public void setTimestamp(Timestamp timestamp) {
     this.timestamp = timestamp;
   }
 
