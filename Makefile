@@ -2,7 +2,8 @@ all:
 	cd srcUml && java -jar plantuml.jar -o "../uml" *
 	pdflatex -synctex=1 -interaction=nonstopmode main.tex
 clean:
-	find . -name '*.acn ' -delete
+	find . -name '*.aux' -delete
+	find . -name '*.acn' -delete
 	find . -name '*.alg' -delete
 	find . -name '*.glg' -delete
 	find . -name '*.glo' -delete
