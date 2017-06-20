@@ -10,3 +10,4 @@ pipelines:
     - step:
         script:
           - echo "Build!"
+          - make 
