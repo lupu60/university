@@ -50,6 +50,10 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage{pdfpages}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{forest}
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -64,7 +68,13 @@ headsepline, % Uncomment to get a line under the header
 	bottom=1.5cm, % Bottom margin
 	%showframe, % Uncomment to show how the type block is set on the page
 }
-
+\lstdefinelanguage{JavaScript}{
+	morekeywords={var, function},
+	morecomment=[s]{/*}{*/},%
+	morecomment=[l]//,%
+	morestring=[b]",%
+	morestring=[b]'%
+}
 %----------------------------------------------------------------------------------------
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
@@ -81,8 +91,15 @@ headsepline, % Uncomment to get a line under the header
 %\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 %\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
 %\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
-\hypersetup{colorlinks=false}
+%\hypersetup{colorlinks=false}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
 }
+}
+
 
 \begin{document}
 
@@ -174,7 +191,7 @@ headsepline, % Uncomment to get a line under the header
 % Uncomment the lines as you write the chapters
 \include{chapters/introduction}
 \include{chapters/chapter1}
-%\include{chapters/chapter2}
+\include{chapters/chapter2}
 %\include{Chapters/Chapter3}
 %\include{Chapters/Chapter4}
 %\include{Chapters/Chapter5}
@@ -188,21 +205,29 @@ headsepline, % Uncomment to get a line under the header
 
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
-
+\addcontentsline{toc}{chapter}{Appendices}
+\addcontentsline{toc}{chapter}{Extending Linux Controllability of Bluetooth Low Energy Devices in the IoT}
+%\includepdf[pages=-]{appendices/optiom-bluetoothle.pdf}
 %\include{appendices/optim-article/doc/optiom-bluetoothle}
 %\include{appendices/AppendixB}
 %\include{Appendices/AppendixB}
 %\include{Appendices/AppendixC}
-\includepdf[pages=-]{appendices/optiom-bluetoothle.pdf}
+
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 \begin{thebibliography}{9}
 	\bibitem{1}{\textbf{en.wikipedia.org/wiki/Xiaomi\_Mi\_Band}}
 	\bibitem{2}{\textbf{en.wikipedia.org/wiki/Raspberry\_Pi}}
-	\bibitem{3}{\textbf{https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/}}
-	\bibitem{4}{\textbf{https://securelist.com/analysis/publications/69412/iot-research-smartbands/}}
+	\bibitem{5}{\textbf{https://securelist.com/the-mistakes-of-smart-medicine/77855/}}
+	\bibitem{6}{\textbf{https://securelist.com/honeypots-and-the-internet-of-things/78751/}}
+	\bibitem{7}{\textbf{https://securelist.com/iot-research-smartbands/69412/}}
+	\bibitem{8}{\textbf{https://www.ncbi.nlm.nih.gov/pubmed/25087541}}
 	\bibitem{9}{Douglas Crockford, \textbf{JavaScript: The Good Parts}}
+	\bibitem{99}{\textbf{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4683756/}}
+	\bibitem{99}{\textbf{https://experiencelife.com/article/expert-answers-is-it-safe-to-wear-my-wireless-fitness-tracker-all-the-time/}}
+	\bibitem{99}{\textbf{https://healthcare.utah.edu/healthfeed/postings/2015/03/033015\_cvarticle-fitness-tracker.php}}
+	\bibitem{99}{\textbf{http://www.makeuseof.com/tag/fitness-tracker-putting-security-risk/}}
 \end{thebibliography}
 %----------------------------------------------------------------------------------------
 
