@@ -435,6 +435,30 @@ This desperate need to write large, maintainable JavaScript applications has giv
 
 AngularJS is an open-source web application framework that offers quite a bit to adeveloper  through  a  stable  code  base,  vibrant  community,  and  rich  ecosystem.
 
+
+\subsubsection*{Bootstrap}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\linewidth]{images/bootstrap}
+	\captionof{figure}{Bootstrap}
+	\label{fig:bootstrap-logo}
+\end{figure}
+Bootstrap, originally named Twitter Blueprint, was developed by Mark Otto and Jacob Thornton at Twitter as a framework to encourage consistency across internal tools. Before Bootstrap, various libraries were used for interface development, which led to inconsistencies and a high maintenance burden. According to Twitter developer Mark Otto:
+\newline
+
+\textit{"A super small group of developers and I got together to design and build a new internal tool and saw an opportunity to do something more. Through that process, we saw ourselves build something much more substantial than another internal tool. Months later, we ended up with an early version of Bootstrap as a way to document and share common design patterns and assets within the company."}
+\newline
+
+After a few months of development by a small group, many developers at Twitter began to contribute to the project as a part of Hack Week, a hackathon-style week for the Twitter development team. It was renamed from Twitter Blueprint to Bootstrap, and released as an open source project on August 19, 2011. It has continued to be maintained by Mark Otto, Jacob Thornton, and a small group of core developers, as well as a large community of contributors.
+\newline
+
+On January 31, 2012, Bootstrap 2 was released, which added a twelve-column responsive grid layout system, inbuilt support for Glyphicons, several new components, as well as changes to many of the existing components.
+\newline
+
+On August 19, 2013, Bootstrap 3 was released, which redesigned components to use flat design, and a mobile first approach.
+\newline
+
+On October 29, 2014, Mark Otto announced that Bootstrap 4 was in development. The first alpha version of Bootstrap 4 was released on August 19, 2015.
 %\begin{figure}[h]
 %	\centering
 %	\begin{minipage}{\textwidth}
@@ -513,6 +537,13 @@ Then you need to clone the repository and configure the MAC address for the smar
 git clone https://lupu60@bitbucket.org/gnp_team/client-python.git
 python3 ClientMain
 \end{lstlisting}
+Python is a widely used high-level programming language for general-purpose programming, created by Guido van Rossum and first released in 1991. An interpreted language, Python has a design philosophy which emphasizes code readability (notably using whitespace indentation to delimit code blocks rather than curly brackets or keywords), and a syntax which allows programmers to express concepts in fewer lines of code than might be used in languages such as C++ or Java.The language provides constructs intended to enable writing clear programs on both a small and large scale.
+\newline
+
+Python features a dynamic type system and automatic memory management and supports multiple programming paradigms, including object-oriented, imperative, functional programming, and procedural styles. It has a large and comprehensive standard library.
+\newline
+
+Python interpreters are available for many operating systems, allowing Python code to run on a wide variety of systems. CPython, the reference implementation of Python, is open source software and has a community-based development model, as do nearly all of its variant implementations. CPython is managed by the non-profit Python Software Foundation.
 %\begin{lstlisting}[language=Bash]
 %{
 %	"configuration": {
@@ -644,9 +675,19 @@ bogging you down like full-fledged \textbf{Integrated Development Environments (
 	\label{fig:sublime}
 \end{figure}
 
-\subsection{Eclipse}
-Eclipse (Figure \ref{fig:eclipse}) is an integrated development environment (IDE) used in computer programming, and is the most widely used Java IDE. It contains a base workspace and an extensible plug-in system for customizing the environment. Eclipse is written mostly in Java and its primary use is for developing Java applications, but it may also be used to develop applications in other programming languages via plug-ins, including Ada, ABAP, C, C++, COBOL, D, Fortran, Haskell, JavaScript, Julia, Lasso, Lua, NATURAL, Perl, PHP, Prolog, Python, R, Ruby (including Ruby on Rails framework), Rust, Scala, Clojure, Groovy, Scheme, and Erlang. It can also be used to develop documents with LaTeX (via a TeXlipse plug-in) and packages for the software Mathematica. Development environments include the Eclipse Java development tools (JDT) for Java and Scala, Eclipse CDT for C/C++, and Eclipse PDT for PHP, among others.
+\subsection{Git}
+Git is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files. As a distributed revision control system it is aimed at speed, data integrity,[10] and support for distributed, non-linear workflows.
 \newline
+
+Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development. Its current maintainer since 2005 is Junio Hamano.
+\newline
+
+As with most other distributed version control systems, and unlike most client–server systems, every Git directory on every computer is a full-fledged repository with complete history and full version tracking abilities, independent of network access or a central server.
+\newline
+
+Like the Linux kernel, Git is free software distributed under the terms of the GNU General Public License version 2.
+
+\subsection{Eclipse}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/eclipse}
@@ -654,6 +695,9 @@ Eclipse (Figure \ref{fig:eclipse}) is an integrated development environment (IDE
 	\caption{Eclipse Welcome Screen}
 	\label{fig:eclipse}
 \end{figure}
+Eclipse (Figure \ref{fig:eclipse}) is an integrated development environment (IDE) used in computer programming, and is the most widely used Java IDE. It contains a base workspace and an extensible plug-in system for customizing the environment. Eclipse is written mostly in Java and its primary use is for developing Java applications, but it may also be used to develop applications in other programming languages via plug-ins, including Ada, ABAP, C, C++, COBOL, D, Fortran, Haskell, JavaScript, Julia, Lasso, Lua, NATURAL, Perl, PHP, Prolog, Python, R, Ruby (including Ruby on Rails framework), Rust, Scala, Clojure, Groovy, Scheme, and Erlang. It can also be used to develop documents with LaTeX (via a TeXlipse plug-in) and packages for the software Mathematica. Development environments include the Eclipse Java development tools (JDT) for Java and Scala, Eclipse CDT for C/C++, and Eclipse PDT for PHP, among others.
+\newline
+
 The initial codebase originated from IBM VisualAge. The Eclipse software development kit (SDK), which includes the Java development tools, is meant for Java developers. Users can extend its abilities by installing plug-ins written for the Eclipse Platform, such as development toolkits for other programming languages, and can write and contribute their own plug-in modules. Since Equinox, plug-ins can be plugged-stopped dynamically and are termed (OSGI) bundles Eclipse software development kit (SDK) is free and open-source software, released under the terms of the Eclipse Public License, although it is incompatible with the GNU General Public License. It was one of the first IDEs to run under GNU Classpath and it runs without problems under IcedTea.
 
 \subsection{PuTTY}
@@ -663,12 +707,12 @@ PuTTY was written and is maintained primarily by Simon Tatham and is currently b
 \begin{figure}[h!]
 	\centering
 	\vspace{-0.2cm}
-	\includegraphics[width=1\textwidth]{./images/putty_tango.png}
+	\includegraphics[width=0.8\textwidth]{./images/putty_tango.png}
 	\rule{1\textwidth}{1pt}
 	\caption{Putty interface}
 	\label{fig:putty}
 \end{figure}
-
+\clearpage
 %----------------------------------------------------------------------------------------
 %	Hardware
 %----------------------------------------------------------------------------------------
@@ -684,12 +728,12 @@ PuTTY was written and is maintained primarily by Simon Tatham and is currently b
 	\label{fig:hardware}
 \end{wrapfigure}
 
-Computer hardware is the collection of physical parts of a computer system. This includes the computer case, monitor, keyboard, and mouse. It also includes all the parts inside the computer case, such as the hard disk drive, motherboard, video card, and many others. Computer hardware is what you can physically touch.\cite{10}
+Computer hardware is the collection of physical parts of a computer system. This includes the computer case, monitor, keyboard, and mouse. It also includes all the parts inside the computer case, such as the hard disk drive, motherboard, video card, and many others. Computer hardware is what you can physically touch.
 \subparagraph*{Definitions}
 \hfill \break
 A computer system consists of two major elements: hardware and software. Computer hardware is the collection of all the parts you can physically touch. Computer software, on the other hand, is not something you can touch. Software is a set of instructions for a computer to perform specific operations. You need both hardware and software for a computer system to work.
 
-Some hardware components are easy to recognize, such as the computer case, keyboard, and monitor. However, there are many different types of hardware components. In this lesson, you will learn how to recognize the different components and what they do.\cite{10}
+Some hardware components are easy to recognize, such as the computer case, keyboard, and monitor. However, there are many different types of hardware components. In this lesson, you will learn how to recognize the different components and what they do.
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
@@ -719,9 +763,44 @@ Specifications:
 \subsection{Raspberry Pi}
 
 The Raspberry Pi[\footnote{\href{https://www.raspberrypi.org/help/what-is-a-raspberry-pi/}{\texttt{https://www.raspberrypi.org/help/what-is-a-raspberry-pi/}}}] (Figure \ref{fig:raspberry})  is a series of small single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote the teaching of basic computer science in schools and in developing countries. The original model became far more popular than anticipated, selling outside of its target market for uses such as robotics. Peripherals (including keyboards, mice and cases) are not included with the Raspberry Pi. Some accessories however have been included in several official and unofficial bundles.
+\newline
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/raspberrypi.jpg}
 	\caption{Raspberry Pi 1 model B+}
 	\label{fig:raspberry}
 \end{figure}
+
+Over the past decades, computers have gotten cheaper and cheaper, so today
+you can find them not only at your desk, but also in nearly every consumer
+electronics device, such as smartphones and DVD players. Still, computers
+aren’t so cheap that you spontaneously buy one when shopping for your
+groceries. Usually, you carefully plan your next computer purchase, because
+you have to use it for a couple of years.
+\newline
+
+Computers like the Raspberry Pi will change the situation completely in the
+near future. The Raspberry Pi or Pi, for short is a full-blown desktop PC
+that costs only \$35. You can connect it directly to the Internet, and it can
+display high-definition videos. Also, it runs Linux, so you don’t have to pay
+for an operating system. This makes the Pi probably the first throwaway
+computer in history.
+\newline
+
+Originally, the Raspberry Foundation  built the Pi to teach children how to
+program, so it comes as no surprise that the Pi is an excellent device for
+exactly this purpose. 
+\newline
+
+On top of that, you can use the Pi for many other
+exciting things. For example, you can turn it into a multimedia center, use it as a cheap but powerful web server, or play some classic games.
+\newline
+
+The Pi is also a great machine for experimenting with electronics. In contrast
+to many popular microcontroller boards, such as the Arduino, the Pi runs a
+full-blown operating system, and you can choose from a wide range of programming
+languages to implement your projects.
+\newline
+
+With cheap and small devices like the Raspberry Pi, a new era of ubiquitous
+computing has begun, and you can be part of it.
