@@ -22,13 +22,19 @@ Here you can manage the smart bands registered in this platform and also add new
 	\rule{1\textwidth}{1pt}
 	\caption{IoT Healthcare smartbands page}
 \end{figure}
-In the patients page you can manage all the patients each patient can have linked a smartband. 
+
+
+\subsubsection{Patients}
+In the patients page you can manage all the patients each patient can have linked a smartband.
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/iothpatient}
 	\rule{1\textwidth}{1pt}
 	\caption{IoT Healthcare patients page}
 \end{figure}
+
+\subsubsection{Activity}
 In the activity tab here is where the magic is happening. The daemon is sending an activity record every 20 min for each patient the record object has the number steps, an array of the heart rate values, the mac address of the smartband and of course the timestamp. 
 \begin{lstlisting}[language=Bash] 
 {
@@ -47,6 +53,7 @@ In the activity tab here is where the magic is happening. The daemon is sending 
 	"timestamp": 1492617449907   
 }
 \end{lstlisting}      
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/iothactivity}

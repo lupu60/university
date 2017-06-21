@@ -9,8 +9,66 @@
 %----------------------------------------------------------------------------------------
 
 \section{Technologies and Programming Languages}
+Software is a generic term for organized collections of computer data and instructions, often broken into two major categories: system software that provides the basic non-task-specific functions of the computer, and application software which is used by users to accomplish specific tasks.
+\newline
 
-The software has three parts the backend, the frontend and the daemon, they communicate with each other throw a REST api[\footnote{\href{https://en.wikipedia.org/wiki/Representational\_state\_transfer}{\texttt{https://en.wikipedia.org/wiki/Representational\_state\_transfer}}}] (Figure \ref{fig:iothcomponentdiagram5}). So I will present them separately.
+System software is responsible for controlling, integrating, and managing the individual hardware components of a computer system so that other software and the users of the system see it as a functional unit without having to be concerned with the low-level details such as transferring data from memory to disk, or rendering text onto a display. Generally, system software consists of an operating system and some fundamental utilities such as disk formatters, file managers, display managers, text editors, user authentication (login) and management tools, and networking and device control software. 
+\newline
+
+Application software, on the other hand, is used to accomplish specific tasks other than just running the computer system. Application software may consist of a single program, such as an image viewer; a small collection of programs (often called a software package) that work closely together to accomplish a task, such as a spreadsheet or text processing system; a larger collection (often called a software suite) of related but independent programs and packages that have a common user interface or shared data format, such as Microsoft Office, which consists of closely integrated word processor, spreadsheet, database, etc.; or a software system, such as a database management system, which is a collection of fundamental programs that may provide some service to a variety of other independent applications. 
+\newline
+
+Software is created with programming languages and related utilities, which may come in several of the above forms: single programs like script interpreters, packages containing a compiler, linker, and other tools; and large suites (often called Integrated Development Environments) that include editors, debuggers, and other tools for multiple languages. 
+\newline
+
+\subsubsection*{Programming Languages}
+There exists an enormous variety of programming languages in use today. Testimony of this fact are the 650 plus different programming languages listed in Wikipedia [\footnote{\href{http://en.wikipedia.org/wiki/List\_of\_programming\_languages}{\texttt{List of programming languages}}}]. A good understanding of this great diversity is important for many reasons. First, it opens new perspectives to the computer scientist. Problems at first hard in one language might have a very easy solution in another. Thus, knowing which language to use in a given domain might decrease considerably the effort to build an application.
+
+
+\subsubsection*{What is a Programming Languages}
+A programming language is an artificial language that can be used to instruct a computer to do a particular task. To be considered a general programming language, it must be computationally complete, or Turing-Complete. It is nevertheless common to regard some languages that are not computationally complete, like database query languages and other domain-specific languages as programming languages as well.
+
+\subsubsection*{High-Level Versus Low-Level Programming Languages}
+
+A low-level programming language is one that is very basic and close to the machine's native language. A low-level programming language can be thought of as a building block language for software. Assembly code is the most common low-level language and requires very little translation to assemble it to machine code. (The 1's and 0's that make up binary.)
+\newline
+
+A high-level programming language is one that is closer to a level of human communication. In this method, the compiler does a lot more of the work for the programmer. The closer the language is to our everyday speech, the easier it is to worry about more complex problems. However, this can be taken too far. If a language is too much like English (or other natural languages), it can be harder to create complex programs. This is because verbose languages take more time to read, and so they can take a lot more time to understand.
+\newline
+
+Machine code is the language the computer can understand directly. Machine code consists of sequences of binary digits. It is almost never programmed in directly, but anything that is to be run on an ordinary computer must be translated to machine code first. The machine code can be different for each computer architecture.
+\newline
+
+Assembly language is a more human readable representation of the machine code, where the machine instructions are represented as mnemonics rather than binary digits. Assembly language has a 1:1 relationship with machine code as long as the program is not self-modifying. Before an assembly program can be run by a computer, it must be transformed to machine code. A program that does this translation is known as an assembler. In the early days of computing, assembly language was extensively used, but today it is mainly used for very time critical parts of programs, the core of operating systems, as well as in very small computers, like the chip on a smartcard.
+\newline
+
+Machine code and assembly language are called first and second generation programming languages respectively. A programming language that has arithmetic expressions, looping constructs, functions, and other constructs that save the programmer from dealing with the machine instructions directly is known as a third-generation programming language.
+\newline
+
+High-level, domain-specific programming languages were earlier often mentioned as fourth-generation languages, while expert systems were called fifth-generation programming languages. In later years this distinction has blurred, as many very high-level general purpose programming languages like Python, Haskell and Common Lisp have emerged. Expert systems are in very little use today.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./images/lavels.jpg}
+	\rule{0.7\textwidth}{1pt}
+	\caption{Levels of Programming Languages}
+\end{figure}
+\subsubsection*{Compilation and interpretation of computer programs}
+
+Before a program can be executed on a computer, it must be translated to machine code. Alternatively it can be simulated by another program, called an interpreter. A compiler is a program that translates a programming language, called the source programming language into another programming language, called the destination language. Usually the source language is a high level language, while the destination language is machine code. An interpreter may require that the source programming language be compiled into an intermediate form before interpretetion, called byte code. This is a more low level language, for which it is easier to write an interpreter. In the Java programming language this is a separate step, while in other cases it is performed as an integral part of the interpreter. Examples of such programming languages are Perl and Python. CommonLisp is an exception to the above: it's both interpreted and compiled.
+
+\subsubsection*{Type Systems}
+There are two axes to type systems: Dynamic versus Static on the one side and Strong versus Weak.
+
+\begin{itemize}
+	\item A Strongly typed language will not allow an operation on an object if this object does not match in type. Examples are CommonLisp, Q-base and Python.
+	\item A Weakly typed language will allow such operations. Examples are C and C++.
+	\item TDynamic type languages bind type to value. Staticly typed languages bind it to variable.
+\end{itemize}
+
+\subsubsection*{This Software}
+
+The software has three parts the backend, the frontend and the daemon, they communicate with each other throw a REST api[\footnote{\href{https://en.wikipedia.org/wiki/Representational\_state\_transfer}{\texttt{https://en.wikipedia.org/wiki/Representational\_state\_transfer}}}] (Figure \ref{fig:iothcomponentdiagram5}). So I will present them separately. 
 \newline
 
 In software engineering, the terms "front end" and "back end" are distinctions which refer to the separation of concerns between a presentation layer and a data access layer respectively.
@@ -31,58 +89,351 @@ In software design, for example, the model-view-controller architecture provides
 	\label{fig:iothcomponentdiagram5}
 \end{figure}
 
+\subsubsection*{A Brief History of the Internet and the World Wide Web}
+Devices are connected to it. However, the Web and its underlying Internet infrastructure had a
+very different childhood that betrays the consumer and commercial base it has today.
+The Internet has its roots in the U.S. Department of Defense Advanced Research Project Agency
+(ARPA) project begun in or around 1960. Among the project’s goals was the ability to network
+computers quickly and across great distances. The network was to be designed to be almost
+fail-safe, enabling connected computers to continue communicating even if assorted routes
+between them were to fail.
+\newline
+
+In 1969, the ARPANet was born, connecting several key universities. The network continued
+to grow, with more and more universities coming online. One of the goals of the initial
+project — robust, nearly fail-safe performance — was realized via the Internet Protocol (IP).
+This protocol enabled communication packets to find various routes to a destination in case one
+or more of the routes became unstable. This communication protocol became the backbone of
+today’s Internet, and is how the Internet got its name.
+\newline
+
+The Transmission Control Protocol was joined with the IP to provide a robust transmission suite,
+a marriage of two protocols to offer more flexibility and the ability to create better communications
+applications for the Internet.
+\newline
+
+In the 1980s, the Internet went through several transitions. Although it was highly populated by
+educational institutions, the U.S. military hadn’t forgotten its original project. Other government
+agencies also took notice and joined the crowd online; and the military decided to create its own
+network, MILNET, lessening the load slightly.
+\newline
+
+By 1992, the Internet was far and away the most popular network in the world. During this
+time, Tim Berners-Lee, a British software engineer and computer scientist, created HyperText
+Markup Language to create documents, a protocol — HyperText Transfer Protocol (HTTP) — to send such documents, and the first browser editor, called the World Wide Web. The ‘‘Web’’ soon
+came to the attention of the National Center for Supercomputing Applications (NCSA), where a
+programming team decided to create a better browser. Thus was Mosaic born, the first browser
+to support a high degree of multimedia. Mosaic helped usher in the crop of modern browsers we
+use today.
+\newline
+
+As the Web continued to be adopted outside of the government and educational sectors, it
+became more consumer-savvy. Many companies began using the Web infrastructure for marketing
+and support purposes, while many Web developers began to target a wider, nontechnical,
+audience.
+By the early 2000s, the Web was accessible by almost any network-connected computer, many
+electronic devices, and some unlikely consumer devices such as automobiles. Each of these connected
+devices uses the same type of connection, the same languages to define documents, and
+the same protocols to send the information.
+\newline
+
+As more and more nontechnical users began using the Web, web ‘‘pages’’ began to look more
+like high-quality printed documents — resembling newspapers, brochures, magazines, and the
+like. This movement in content signaled how far the Web had come from its inception — from
+technical, text-only pages to full-color, heavily designed documents.
+\newline
+
+During the entire evolution of the World Wide Web, and especially in the last few years, standards,
+tools, and related applications have changed and evolved, sometimes at a very rapid pace.
+
 \subsection{Backend}
 
 The backend is a java application the main framework is Spring[\footnote{\href{https://spring.io/}{\texttt{https://spring.io/}}}].
-Why Spring? First of all the development progress is really fast with Spring and this is a main reason, a second one will be my experience with spring because I start using Spring at work a few years ago and a third reason  spring is well integrated with the build system from Heroku instance.
+The Spring Framework is an application framework and inversion of control container for the Java platform. The framework's core features can be used by any Java application, but there are extensions for building web applications on top of the Java EE platform. Although the framework does not impose any specific programming model, it has become popular in the Java community as an alternative to, replacement for, or even addition to the Enterprise JavaBeans (EJB) model. The Spring Framework is open source.
+\newline
+\paragraph{Why Spring?} Spring Boot has many features that make it suitable for:  
+\begin{itemize}
+	\item First of all the development progress is really fast with Spring
+	\item Enterprise-production-ready  Spring  applications  
+	\item  Non-functional requirements, such as the Spring Boot Actuator (a module that brings metrics, health checks, and management easily) and embedded containers for running web applications (such as Tomcat, Undertow, Jetty, etc.)   
+	\item  My experience with spring because I start using Spring at work a few years ago
+	\item  Spring is well integrated with the build system from Heroku instance
+	\item Cloud Native Applications that follow the 12 factor patterns (developed by the Netflix engineering team at \href{https://12factor.net/}{\texttt{https://12factor.net/}}
+	\item  The term “microservices” is getting attention for creating scalable, highly available, and robust applications, and Spring Boot fits there perfectly by allowing developers to focus only on the business logic and to leave the heavy lifting to the Spring Framework. 
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.4\linewidth]{images/spring-logo}
+	\caption{Spring logo}
+	\label{fig:springlogo}
+\end{figure}
+Spring  Boot  Features:
+\begin{itemize}
+	\item The SpringApplication class. I showed you that in a Java Spring Boot application, the main method executes this singleton class. This particular class provides a convenient way to initiate a Spring application. Spring Boot allows you to create applications without requiring any XML configuration. Spring Boot doesn’t generate code. 
+	
+	\item Spring Boot provides a fluent builder API through the  SpringApplicationBuildersingleton class that allows you to create hierarchies with multiple application contexts. This particular feature is related to the Spring Framework and how it works internally. If you are a Spring developer already, you’ll learn more about this feature in the following chapters. If you are new to Spring and Spring Boot, you just need to know that you can extend Spring Boot to get more control over your applications. 
+	
+	\item Spring Boot offers you more ways to configure the Spring application events and listeners. This will be explained in more detail in the following chapters.
+	
+	\item I mentioned that Spring Boot is an “opinionated” technology, which means that Spring Boot will attempt to create the right type of application, either a web application (by embedding a Tomcat or Jetty container) or a single application.
+	
+	\item The   ApplicationArguments  interface. Spring Boot allows you to access any application arguments. This is useful when you want to run your application with some parameters. For example, you can use  --debug mylog.txt  or  --audit=trueand have access to those values.
+	
+	\item Spring Boot allows you to execute code after the application has started. The only thing you need to do is implement the  CommandLineRunner  interface and provide the implementation of the  run(String ...args)  method. A particular example is to initialize some records in a database as it starts or check on some services and see if they are running before your application starts.  
+	
+	\item Spring Boot allows you to externalize configurations by using an  application.properties  or  application.yml  file. More about this in the following chapters. 
+	
+	\item You can add administration-related features, normally through JMX. You do this simply by enabling the  spring.application.admin.enabled  property in the application.properties  or  application.yml files.
+	
+	\item Spring Boot allows you to have profiles that will help your application run in different environments. 
+	
+	\item Spring Boot allows you to configure and use logging very simply.  
+	
+	\item Spring Boot provides a simple way to configure and manage your dependencies by using starter poms. In other words, if you are going to create a web application, you only need to include the  spring-boot-start-web  dependency in your Maven pom or Gradle build file. 
+	
+	\item Spring Boot provides out-of-the-box non-functional requirements by using the Spring Boot Actuator, so you can see the health, memory, and so on, of your application. 
+	
+	\item Spring Boot provides  @Enable<feature>  annotations that help you to include, configure, and use technologies like databases (SQL and NoSQL), caching, scheduling, messaging, Spring integration, batching, and more.       
+\end{itemize}
+The build system of the backend is Gradle[\footnote{\href{https://gradle.org/}{\texttt{https://gradle.org/}}}]. In the end the backend and the frontend they run in the same web container which is a Apache Tomcat[\footnote{\href{https://tomcat.apache.org/}{\texttt{https://tomcat.apache.org/}}}].
 \newline
 
-The build system of the backend is Gradle[\footnote{\href{https://gradle.org/}{\texttt{https://gradle.org/}}}]. In the end the backend and the frontend they run in the same web container which is a Apache Tomcat[\footnote{\href{https://tomcat.apache.org/}{\texttt{https://tomcat.apache.org/}}}].
+\begin{figure}[h]
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.5\linewidth]{images/gradlephant}
+		\captionof{figure}{Gradle}
+		\label{fig:gradle-logo}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.5\linewidth]{images/tomcat}
+		\captionof{figure}{Apache Tomcat}
+		\label{fig:tomcat-logo}
+	\end{minipage}
+\end{figure}
+
+Gradle is an open source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven for declaring the project configuration. Gradle uses a directed acyclic graph ("DAG") to determine the order in which tasks can be run.
+\newline
+
+Gradle was designed for multi-project builds which can grow to be quite large, and supports incremental builds by intelligently determining which parts of the build tree are up-to-date, so that any task dependent upon those parts will not need to be re-executed.
+The initial plugins are primarily focused around Java, Groovy and Scala development and deployment, but more languages and project workflows are on the roadmap.
+\newline
+
+Apache Tomcat, often referred to as Tomcat Server, is an open-source Java Servlet Container developed by the Apache Software Foundation (ASF). Tomcat implements several Java EE specifications including Java Servlet, JavaServer Pages (JSP), Java EL, and WebSocket, and provides a "pure Java" HTTP web server environment in which Java code can run.
+\newline
+
+Tomcat is developed and maintained by an open community of developers under the auspices of the Apache Software Foundation, released under the Apache License 2.0 license, and is open-source software.
 \newline
 
 For the persistence layer I used Hibernate[\footnote{\href{http://hibernate.org/}{\texttt{http://hibernate.org/}}}] and JpaRepository[\footnote{\href{http://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html}{\texttt{JpaRepository}}}] from Spring Framework.
 \newline
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\linewidth]{images/Hibernate}
+	\captionof{figure}{Hibernate}
+	\label{fig:hibernate-logo}
+\end{figure}
+Most significant development projects involve a relational database. The mainstay of most commercial applications is the large-scale storage of ordered information, such as catalogs, customer lists, contract details, published text, and architectural designs.  
+\newline
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\linewidth]{images/hibernateinjava}
+	\caption{The role of Hibernate in a Java  application}
+	\label{fig:roleofhibernate}
+\end{figure}
 
-The database is postgreSQL.[\footnote{\href{https://www.postgresql.org/}{\texttt{https://www.postgresql.org/}}}]. I chose postgreSQL because has JSON support and I know in the future I will switch to a schema-less for storing the activity of a patient and was also free in the Heroku instance.
+With the advent of the World Wide Web, the demand for databases has increased. Though they may not know it, the customers of online bookshops and newspapers are using databases. Somewhere in the guts of the application, a database is being queried and a response is offered.  
+\newline
+
+Hibernate is a library that simplifies the use of relational databases in Java applications by presenting relational data as simple Java objects, accessed through a session manager, therefore earning the description of being an “Object/Relational Mapper,” or ORM. It provides two kinds of programmatic interfaces: a “native Hibernate” interface and the Java EE-standard Java Persistence API.  
+\newline
 
 
-%\begin{figure}[h]
-%	\centering
-%	\begin{minipage}{.5\textwidth}
-%		\centering
-%		\includegraphics[width=.4\linewidth]{images/spring-logo}
-%		\captionof{figure}{Spring}
-%		\label{fig:springlogo}
-%	\end{minipage}%
-%	\begin{minipage}{.5\textwidth}
-%		\centering
-%		\includegraphics[width=.4\linewidth]{images/postgresql-logo}
-%		\captionof{figure}{postgreSQL}
-%		\label{fig:postgre-logo}
-%	\end{minipage}
-%	\begin{minipage}{.5\textwidth}
-%		\centering
-%		\includegraphics[width=.5\linewidth]{images/gradlephant}
-%		\captionof{figure}{Gradle}
-%		\label{fig:gradle-logo}
-%	\end{minipage}%
-%	\begin{minipage}{.5\textwidth}
-%		\centering
-%		\includegraphics[width=.5\linewidth]{images/Hibernate}
-%		\captionof{figure}{Hibernate}
-%		\label{fig:hibernate-logo}
-%	\end{minipage}
-%	\begin{minipage}{.5\textwidth}
-%		\centering
-%		\includegraphics[width=.5\linewidth]{images/tomcat}
-%		\captionof{figure}{Apache Tomcat}
-%		\label{fig:tomcat-logo}
-%	\end{minipage}
-%\end{figure}
+The database is postgreSQL[\footnote{\href{https://www.postgresql.org/}{\texttt{https://www.postgresql.org/}}}]. I chose postgreSQL because has JSON support and I know in the future I will switch to a schema-less for storing the activity of a patient and was also free in the Heroku instance.
 
+\subsubsection*{Database management systems}
+Different database management systems support diverse application scenarios, use cases, and requirements. Database management systems have a long history. First we will quickly take a look at the recent history, and then explore the market-dominant database management system categories.
+\newline
+
+\subsubsection*{A brief history}
+Broadly, the term database can be used to present a collection of things. Moreover, this term brings to mind many other terms including data, information, data structure, and management. A database can be defined as a collection or a repository of data, which has a certain structure, managed by a database management system(DBMS). Data can be structured as tabular data, semi-structured as XML documents, or unstructured data that does not fit a predefined data model.
+\newline
+
+In early days, databases were mainly aimed at supporting business applications; this led us to the well-defined relational algebra and relational database systems. With the introduction of object-oriented languages, new paradigms of database management systems appeared such as object-relational databases and object-oriented databases. Also, many businesses as well as scientific applications use arrays, images, and spatial data; thus, new models such as raster, map, and array algebra are supported. Graph databases are used to support graph queries such as the shortest path from one node to another along with supporting traversal queries easily.
+\newline
+
+With the advent of web applications such as social portals, it is now necessary to support a huge number of requests in a distributed manner. This has led to another new paradigm of databases called NoSQL (Not Only SQL) which has different requirements such as performance over fault tolerance and horizontal scaling capabilities.
+\newline
+
+In general, the timeline of database evolution was greatly affected by many factors such as:
+\begin{itemize}
+	\item Functional requirements: The nature of the applications using a DBMS has led to the development of extensions on top of relational databases such as PostGIS (for spatial data) or even dedicated DBMS such as SCI-DB (for scientific data analytics).
+	\item Nonfunctional requirements: The success of object-oriented programming languages has created new trends such as object-oriented databases. Object relational database management systems have appeared to bridge the gap between relational databases and the object-oriented programming languages. Data explosion and the necessity to handle terabytes of data on commodity hardware have led to columnar databases, which can easily scale up horizontally.
+\end{itemize}
+
+\subsubsection*{Database categories}
+Many database models have appeared and vanished such as the network model and hierarchal model. The predominant categories now in the market are relational, object-relational databases, and NoSQL databases. One should not think of NoSQL and SQL databases as rivals; they are complementary to each other. By utilizing different database systems, one can overcome many limitations, and get the best of different technologies.
+
+\subsubsection*{The NoSQL databases}
+The NoSQL databases are affected by the CAP theorem, also known as Brewer's theorem. In 2002, S. Gilbert and N. Lynch published a formal proof of the CAP theorem in their article: "Brewer's conjecture and the feasibility of consistent, available, partition-tolerant web services". In 2009, the NoSQL movement began. Currently, there are over 150 NoSQL databases (nosql-database.org).
+
+\subsubsection*{The CAP theorem}
+The CAP theorem states that it is impossible for a distributed computing system to simultaneously provide all three of the following guarantees:
+\begin{itemize}
+	\item Consistency: All clients see (immediately) the latest data even in the case of updates.
+	\item Availability: All clients can find a replica of some data even in the case of a node failure. That means even if some part of the system goes down, the clients can still access the data.
+	\item Partition tolerance: The system continues to work regardless of arbitrary message loss or failure of part of the system.
+\end{itemize}
+
+The choice of which feature to discard determines the nature of the system. For example, one could sacrifice consistency to get a scalable, simple, and high-performance database management system.
+\newline
+
+Often, the main difference between a relational database and a NoSQL database is consistency. A relational database enforces ACID. ACID is the acronym for the following properties: Atomicity, Consistency, Isolation, and Durability. In contrast, many NoSQL databases adopt the basically available soft-state, eventual-consistency (BASE) model.
+
+\subsubsection*{NoSQL motivation}
+A NoSQL database provides a means for data storage, manipulation, and retrieval for non-relational data. The NoSQL databases are distributed, open source and horizontally scalable. NoSQL often adopts the BASE model, which prizes availability over consistency, and informally guarantees that if no new updates are made on a data item, eventually all access to that data item will return the latest version of that data item. The advantages of this approach include the following:
+\begin{itemize}
+	\item Simplicity of design
+	\item Horizontal scaling and easy replication
+	\item Schema free
+	\item Huge amount of data support
+\end{itemize}
+
+\paragraph{PostgreSQL} (pronounced Post-Gres-Q-L) or postgres is an open source object relational database management system. It emphasizes extensibility, creativity, as well as compatibility. It competes with the major relational database vendors such as Oracle, MySQL, SQL servers, and others. It is used by different sectors including government agencies and the public and private sectors. It is a cross-platform DBMS, and runs on most modern operating systems including Windows, MAC, and Linux flavors. It conforms to SQL, and is ACID compliant.
+
+\subsubsection*{PostgreSQL history}
+The name PostgreSQL is derived from post-ingres database. PostgreSQL history could be summarized as follows:
+\begin{itemize}
+	\item 1977-1985, the Ingres project: Michael Stonebraker created an RDBMS based on the formal relational model.
+	\item 1986-1994, postgres: Michael Stonebraker created postgres in order to support complex data types and the object relational model.
+	\item 1995, Postgres95: Andrew Yu and Jolly Chen changed the postgres POSTQUEL query language with an extended subset of SQL
+	\item 1996, PostgreSQL: Several developers dedicated a lot of labor and time to stabilize postgres95. The first open source version was released on January 29, 1997. With the introduction of new features, enhancements, and due to it being an open source project, the postgres95 name was changed to PostgreSQL.
+\end{itemize}
+
+
+\paragraph{PostgreSQL} provides many features that attract developers, administrators, architects, and companies.
+PostgreSQL is a free open source software (OSS). It is released under the PostgreSQL license, which is similar to the BSD and MIT licenses. The PostgreSQL license is highly permissive, and PostgreSQL is not subject to monopoly and acquisition. This gives the company the following advantages:
+\begin{itemize}
+	\item No associated licensing cost to PostgreSQL.
+	\item Unlimited number of deployments of PostgreSQL.
+	\item More profitable business model.
+	\item PostgreSQL is SQL standards compliant; thus, finding professional developers is not very difficult. PostgreSQL is easy to learn, and porting code from one database vendor to PostgreSQL is cost efficient. Also, the PostgreSQL administrative tasks are easy to automate, thus reducing the staffing cost significantly.
+	\item PostgreSQL is cross-platform, and it has drivers for all modern programming languages; so, there is no need to change the company policy regarding the software stack in order to use PostgreSQL.
+	\item PostgreSQL is scalable, and it gives high performance.
+	\item PostgreSQL is very reliable; it rarely crashes. Also, PostgreSQL is ACID compliant, which means that it can tolerate some hardware failure. In addition to that, it can be configured and installed as a cluster to ensure \textbf{high availability (HA)}.
+\end{itemize}
+
+
+\paragraph{PostgreSQL} is very attractive for developers, administrators, and architects. It has rich features that enable developers to perform tasks in an agile way. The following are some of the features that are attractive to developer:
+\begin{itemize}
+	\item A new release almost every year; there have been 23 major releases until now, starting from Postgres95.
+	\item Very good documentation and an active community enables developers to find and solve problems quickly. The PostgreSQL manual is over 2,500 pages.
+	\item A rich extension repository enables developers to focus on business logic. Also, it enables developers to meet requirement changes easily.
+	\item The source code is available free of charge. It can be customized and extended without huge effort.
+	\item Rich clients and administrative tools enable developers to perform routine tasks such as describing database objects, exporting and importing data, and dumping and restoring \item databases very quickly.
+	\item Database administration tasks do not require a lot of time, and can be automated.
+	\item PostgreSQL can be integrated easily with other database management systems giving the software architecture a good flexibility for implementing software designs.
+\end{itemize}
+
+\paragraph{Success stories}
+PostgreSQL is used in many application domains including communication, medical, geographical, and e-commerce applications. Many companies provide consultation as well as commercial services, such as migrating proprietary RDBMS to PostgreSQL in order to cut off the licensing costs. These companies often influence and enhance PostgreSQL by developing and submitting new features.
+\newline
+
+The following are a few companies that have used PostgreSQL:
+\begin{itemize}
+	\item Skype uses PostgreSQL to store user chats and activities. Skype has also affected PostgreSQL by developing many tools called Skytools.
+	\item Instagram is a social networking service that enables its user to share pictures and photos. Instagram has more than 100 million active users.
+	\item The American chemical society (ACS) uses PostgreSQL to store more than one terabyte of data for the journal archive.
+\end{itemize}
+In addition to the companies mentioned in the preceding list, PostgreSQL is used by HP, WMware, and Heroku. PostgreSQL is used by many scientific communities and organizations, such as NASA, due to its extensibility and rich data types.
 
 \subsection{Frontend}
 The frontend is a web application, is based on the classic web technologies: HTML5[\footnote{\href{https://en.wikipedia.org/wiki/HTML5}{\texttt{https://en.wikipedia.org/wiki/HTML5}}}], CSS3[\footnote{\href{https://en.wikipedia.org/wiki/Cascading\_Style\_Sheets}{\texttt{https://en.wikipedia.org/wiki/Cascading\_Style\_Sheets}}}] and JavaScript[\footnote{\href{https://en.wikipedia.org/wiki/JavaScript}{\texttt{https://en.wikipedia.org/wiki/JavaScript}}}]. On top of that I used the Bootstrap[\footnote{\href{https://getbootstrap.com/}{\texttt{https://getbootstrap.com/}}}] framework for having a responsive web page and for the routing and consuming the backend RESTapi I decided to use AngularJs[\footnote{\href{https://angularjs.org/}{\texttt{https://angularjs.org/}}}].
+
+
+\subsubsection*{HTML (HyperText Markup Language)}
+HyperText Markup Language, commonly referred to as HTML, is the standard markup language used to create web pages. It is written in the form of HTML elements consisting of tags enclosed in angle brackets (like <html>). HTML tags most commonly come in pairs like <h1> and </h1>, although some represent empty elements and so are unpaired, for example <img>. The first tag in such a pair is the start tag, and the second is the end tag (they are also called opening tags and closing tags).
+\newline
+
+Web browsers can read HTML files and render them into visible or audible web pages. Browsers do not display the HTML tags and scripts, but use them to interpret the content of the page. HTML describes the structure of a website semantically along with cues for presentation, making it a markup language, rather than a programming language.
+\newline
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/HTML5_Logo_512}
+	\captionof{figure}{HTML 5}
+	\label{fig:html-logo}
+\end{figure}
+HTML elements form the building blocks of all websites. HTML allows images and objects to be embedded and can be used to create interactive forms. It provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes and other items. It can embed scripts written in languages such as JavaScript which affect the behavior of HTML web pages.
+Web browsers can also refer to Cascading Style Sheets (CSS) to define the look and layout of text and other material. The World Wide Web Consortium (W3C), maintainer of both the HTML and the CSS standards, has encouraged the use of CSS over explicit presentational HTML since 1999.
+
+\subsubsection*{JavaScript}
+JavaScript is the programming language of the Web. The overwhelming majority of
+modern websites use JavaScript, and all modern web browsers on desktops, game
+consoles, tablets, and smart phones—include JavaScript interpreters, making JavaScript
+the most ubiquitous programming language in history. JavaScript is part of the
+triad of technologies that all Web developers must learn: HTML to specify the content
+of web pages, CSS to specify the presentation of web pages, and JavaScript to specify
+the behavior of web pages. This book will help you master the language.
+If you are already familiar with other programming languages, it may help you to know
+that JavaScript is a high-level, dynamic, untyped interpreted programming language
+that is well-suited to object-oriented and functional programming styles. JavaScript
+derives its syntax from Java, its first-class functions from Scheme, and its prototypebased
+inheritance from Self. But you do not need to know any of those languages, or
+be familiar with those terms, to use this book and learn JavaScript.
+\newline
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/js}
+	\captionof{figure}{JavaScript}
+	\label{fig:js-logo}
+\end{figure}
+The name “JavaScript” is actually somewhat misleading. Except for a superficial syntactic
+resemblance, JavaScript is completely different from the Java programming language.
+And JavaScript has long since outgrown its scripting-language roots to become
+a robust and efficient general-purpose language. The latest version of the language (see
+the sidebar) defines new features for serious large-scale software development.
+
+\subsubsection*{CSS (Cascading Style Sheets)}
+Cascading Style Sheets (CSS) is a style sheet language used for describing the look and formatting of a document written in a markup language. While most often used to change the style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any kind of XML document, including plain XML, SVG and XUL. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.
+\newline
+
+CSS is designed primarily to enable the separation of document content from document presentation, including elements such as the layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content, such as semantically insignificant tables that were widely used to format pages before consistent CSS rendering was available in all major browsers. CSS makes it possible to separate presentation instructions from the HTML content in a separate file or style section of the HTML file. For each matching HTML element, it provides a list of formatting instructions. For example, a CSS rule might specify that "all heading 1 elements should be bold," leaving pure semantic HTML markup that asserts "this text is a level 1 heading" without formatting code such as a <bold> tag indicating how such text should be displayed.
+\newline
+\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.4\linewidth]{images/css3_icon}
+		\captionof{figure}{CSS 3}
+		\label{fig:css-logo}
+\end{figure}
+This separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to display the web page differently depending on the screen size or device on which it is being viewed. While the author of a web page typically links to a CSS file within the markup file, readers can specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author has specified. If the author or the reader did not link the document to a style sheet, the default style of the browser will be applied. Another advantage of CSS is that aesthetic changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in one file, rather than by a laborious (and thus expensive) process of crawling over every document line by line, changing markup.
+\newline
+
+The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities or weights are calculated and assigned to rules, so that the results are predictable.
+The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS validation service for CSS documents.
+
+\subsubsection*{Less (stylesheet language)}
+Less (sometimes stylized as LESS) is a dynamic stylesheet language that can be compiled into Cascading Style Sheets (CSS), or can run on the client-side and server-side. Designed by Alexis Sellier, Less is influenced by Sass and has influenced the newer "SCSS" syntax of Sass, which adapted its CSS-like block formatting syntax. Less is open-source. Its first version was written in Ruby, however in the later versions, use of Ruby has been deprecated and replaced by JavaScript. The indented syntax of Less is a nested metalanguage, as valid CSS is valid Less code with the same semantics. Less provides the following mechanisms: variables, nesting, mixins, operators and functions; the main difference between Less and other CSS precompilers being that Less allows real-time compilation via less.js by the browser.
+
+\subsubsection*{AngularJs}
+There was a time many internet years ago when any kind of logic within a web pagehad to be sent to the server for processing and then re-rendered as an entirely newweb page. This “call and refresh” arrangement made for a disjointed user experi-ence, which was only exacerbated when network latency was especially high.  
+\newline
+
+The  entire  paradigm  was  upended  with  the  introduction  of  XMLHttpRequestand the ability to make asynchronous calls to the server without actually having torefresh  the  page. This  made  for  a  much  more  coherent  user  experience  becausethe user could perform a task that required a remote call and still interact with theapplication as the call was being made and processed. This is where the first wave ofJavaScript frameworks landed and managed to prove that working with JavaScript could be done in a mostly sane way and no one was going to lose life or limb.
+\newline
+\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/angular}
+		\captionof{figure}{AngularJs}
+		\label{fig:angular-logo}
+\end{figure}
+Most  people  would  agree  that  jQuery  won  that  round,  partially  because  jQuerydid such a good job of abstracting away all of the insanity surrounding browser varia-tions,  and  allowed  developers  to  use  a  single,  simplified  API  to  build  websites.  Thenext frontier was to make websites behave and operate as if they were actual applica-tions; this ushered in an entirely new set of challenges. For instance, jQuery has donean  exceptional  job  of  providing  tools  to  manipulate  the  DOM,  but  it  offers  no  realguidance on how to organize your code into an application structure. We’ve all heardhorror  stories  of  how  a  jQuery  “application”  ballooned  out  into  a  monstrosity  thatcould barely be maintained, much less extended.
+\newline
+
+This desperate need to write large, maintainable JavaScript applications has givenbirth to a JavaScript framework renaissance. In the last couple of years, a slew of frame-works has burst onto the scene, with many of them quietly fading off into oblivion. Buta few frameworks have proven themselves to be solid options for writing large-scale webapplications that can be maintained, extended, and tested. One of the most popular, ifnot the most popular, frameworks to emerge is AngularJS from Google.
+\newline
+
+AngularJS is an open-source web application framework that offers quite a bit to adeveloper  through  a  stable  code  base,  vibrant  community,  and  rich  ecosystem.
 
 %\begin{figure}[h]
 %	\centering
@@ -304,7 +655,8 @@ Eclipse (Figure \ref{fig:eclipse}) is an integrated development environment (IDE
 	\label{fig:eclipse}
 \end{figure}
 The initial codebase originated from IBM VisualAge. The Eclipse software development kit (SDK), which includes the Java development tools, is meant for Java developers. Users can extend its abilities by installing plug-ins written for the Eclipse Platform, such as development toolkits for other programming languages, and can write and contribute their own plug-in modules. Since Equinox, plug-ins can be plugged-stopped dynamically and are termed (OSGI) bundles Eclipse software development kit (SDK) is free and open-source software, released under the terms of the Eclipse Public License, although it is incompatible with the GNU General Public License. It was one of the first IDEs to run under GNU Classpath and it runs without problems under IcedTea.
-\subsubsection{PuTTY}
+
+\subsection{PuTTY}
 PuTTY (Figure \ref{fig:putty}) is a free and open-source terminal emulator, serial console and network file transfer application. It supports several network protocols, including SCP, SSH, Telnet, rlogin, and raw socket connection. It can also connect to a serial port (since version 0.59). The name "PuTTY" has no definitive meaning.
 PuTTY was originally written for Microsoft Windows, but it has been ported to various other operating systems. Official ports are available for some Unix-like platforms, with work-in-progress ports to Classic Mac OS and Mac OS X, and unofficial ports have been contributed to platforms such as Symbian and Windows Mobile.
 PuTTY was written and is maintained primarily by Simon Tatham and is currently beta software.
@@ -323,6 +675,21 @@ PuTTY was written and is maintained primarily by Simon Tatham and is currently b
 
 \section{Hardware}
 
+\begin{wrapfigure}{r}{0.3\textwidth}
+	\begin{center}
+		\includegraphics[width=0.3\textwidth]{./images/hardware.jpg}
+	\end{center}
+	\rule{0.3\textwidth}{0.5pt}
+	\caption{Hardware of a modern personal computer}
+	\label{fig:hardware}
+\end{wrapfigure}
+
+Computer hardware is the collection of physical parts of a computer system. This includes the computer case, monitor, keyboard, and mouse. It also includes all the parts inside the computer case, such as the hard disk drive, motherboard, video card, and many others. Computer hardware is what you can physically touch.\cite{10}
+\subparagraph*{Definitions}
+\hfill \break
+A computer system consists of two major elements: hardware and software. Computer hardware is the collection of all the parts you can physically touch. Computer software, on the other hand, is not something you can touch. Software is a set of instructions for a computer to perform specific operations. You need both hardware and software for a computer system to work.
+
+Some hardware components are easy to recognize, such as the computer case, keyboard, and monitor. However, there are many different types of hardware components. In this lesson, you will learn how to recognize the different components and what they do.\cite{10}
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
