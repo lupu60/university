@@ -544,29 +544,35 @@ Python features a dynamic type system and automatic memory management and suppor
 \newline
 
 Python interpreters are available for many operating systems, allowing Python code to run on a wide variety of systems. CPython, the reference implementation of Python, is open source software and has a community-based development model, as do nearly all of its variant implementations. CPython is managed by the non-profit Python Software Foundation.
-%\begin{lstlisting}[language=Bash]
-%{
-%	"configuration": {
-%		"1": {
-%			"deviceId": "C8:0F:10:33:A8:3C",
-%			"userInfo": {
-%				"alias": "Jan",
-%				"gender": 1,
-%				"weight": 78,
-%				"age": 29,
-%				"height": 180
-%			}
-%		}
-%	}
-%}
-%\end{lstlisting}
+\begin{lstlisting}[language=Bash]
+{
+	"configuration": {
+		"1": {
+			"deviceId": "C8:0F:10:33:A8:3C",
+			"userInfo": {
+				"alias": "Jan",
+				"gender": 1,
+				"weight": 78,
+				"age": 29,
+				"height": 180
+			}
+		}
+	}
+}
+\end{lstlisting}
 
 
 \section{Toolchain}
 In software, a toolchain is a set of programming tools that are used to perform a complex software development task or to create a software product, which is typically another computer program or a set of related programs. In general, the tools forming a toolchain are executed consecutively so the output or resulting environment state of each tool becomes the input or starting environment for the next one, but the term is also used when referring to a set of related tools that are not necessarily executed consecutively.
 \newline
 
-First of all the codebase is hosted on bitbucket in a git repository[\footnote{\href{https://lupu60@bitbucket.org/gnp\_team/backend.git}{\texttt{https://lupu60@bitbucket.org/gnp\_team/backend.git}}}], I choose bitbucket because it`s free to host private repository and also for the new feature bitbucket pipelines witch is a continuous delivery system(Figure \ref{fig:piplines}). At a code change on the repository the pipeline will compile my code and deploy to Heroku. In the repository I used the git flow model[\footnote{\href{http://nvie.com/posts/a-successful-git-branching-model/}{\texttt{http://nvie.com/posts/a-successful-git-branching-model/}}}] for the branching strategy.
+First of all the codebase is hosted on bitbucket in a git repository[\footnote{\href{https://lupu60@bitbucket.org/gnp\_team/backend.git}{\texttt{https://lupu60@bitbucket.org/gnp\_team/backend.git}}}], I choose bitbucket because it`s free to host private repository and also for the new feature bitbucket pipelines witch is a continuous delivery system(Figure \ref{fig:piplines}). 
+\newline
+
+Continuous delivery (CD) is a software engineering approach in which teams produce software in short cycles, ensuring that the software can be reliably released at any time. It aims at building, testing, and releasing software faster and more frequently. The approach helps reduce the cost, time, and risk of delivering changes by allowing for more incremental updates to applications in production. A straightforward and repeatable deployment process is important for continuous delivery.
+\newline
+
+At a code change on the repository the pipeline will compile my code and deploy to Heroku. In the repository I used the git flow model[\footnote{\href{http://nvie.com/posts/a-successful-git-branching-model/}{\texttt{http://nvie.com/posts/a-successful-git-branching-model/}}}] for the branching strategy.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/pipelines}
@@ -575,13 +581,31 @@ First of all the codebase is hosted on bitbucket in a git repository[\footnote{\
 \end{figure}
 
 The IoT healtcare has 2 cloud instance a live/production[\footnote{\href{https://iothealthcare.herokuapp.com/}{\texttt{https://iothealthcare.herokuapp.com/}}}] and a prelive/integration [\footnote{\href{https://intiothealthcare.herokuapp.com/}{\texttt{https://intiothealthcare.herokuapp.com/}}}]. This strategy I used is really usefully because I can separate the codebase and not allowing bugs to be on the production. So in the first step I coded local and tested then I push my code to the develop branch form the repository and the bitbucket pipeline will deploy the develop branch on integration and master branch on production, all of this is made it by a bash script. So after I test my code also on the Heroku enviroment I can merge my code from develop to master.
-For the code quality I have a sonarQube(Figure \ref{fig:sonar}) instance with docker on my localhost and I run it from time to time.
+For the code quality I have a sonarQube(Figure \ref{fig:sonar}) instance with docker on my localhost and I run it from time to time. 
+\newline
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/sonarqube}
 	\caption{IoT Healthcare: sonarQube build}
 	\label{fig:sonar}
 \end{figure}
+SonarQube is an open source platform for continuous inspection of code quality.
+\newline
+In the context of software engineering, software quality refers to two related but distinct notions that exist wherever quality is defined in a business context:
+\begin{itemize}
+	\item Software functional quality reflects how well it complies with or conforms to a given design, based on functional requirements or specifications. That attribute can also be described as the fitness for purpose of a piece of software or how it compares to competitors in the marketplace as a worthwhile product. It is the degree to which the correct software was produced.
+	\item Software structural quality refers to how it meets non-functional requirements that support the delivery of the functional requirements, such as robustness or maintainability. It has a lot more to do with the degree to which the software works as needed.
+\end{itemize}
+Many aspects of structural quality can be evaluated only statically through the analysis of the software inner structure, its source code, at the unit level, the technology level and the system level, which is in effect how its architecture adheres to sound principles of software architecture outlined in a paper on the topic by OMG. But some structural qualities, such as usability, can be assessed only dynamically (users or others acting in their behalf interact with the software or, at least, some prototype or partial implementation; even the interaction with a mock version made in cardboard represents a dynamic test because such version can be considered a prototype). Other aspects, such as reliability, might involve not only the software but also the underlying hardware, therefore, it can be assessed both statically and dynamically (stress test).
+Functional quality is typically assessed dynamically but it is also possible to use static tests (such as software reviews).
+Historically, the structure, classification and terminology of attributes and metrics applicable to software quality management have been derived or extracted from the ISO 9126-3 and the subsequent ISO 25000:2005[3] quality model, also known as SQuaRE.[4] Based on these models, the Consortium for IT Software Quality (CISQ) has defined five major desirable structural characteristics needed for a piece of software to provide business value: Reliability, Efficiency, Security, Maintainability and (adequate) Size.
+\newline
+
+
+Software quality measurement quantifies to what extent a software or system rates along each of these five dimensions. An aggregated measure of software quality can be computed through a qualitative or a quantitative scoring scheme or a mix of both and then a weighting system reflecting the priorities. This view of software quality being positioned on a linear continuum is supplemented by the analysis of "critical programming errors" that under specific circumstances can lead to catastrophic outages or performance degradations that make a given system unsuitable for use regardless of rating based on aggregated measurements. Such programming errors found at the system level represent up to 90\% of production issues, whilst at the unit-level, even if far more numerous, programming errors account for less than 10\% of production issues. As a consequence, code quality without the context of the whole system, as W. Edwards Deming described it, has limited value.
+\newline
+ 
+To view, explore, analyze, and communicate software quality measurements, concepts and techniques of information visualization provide visual, interactive means useful, in particular, if several software quality measures have to be related to each other or to components of a software or system. For example, software maps represent a specialized approach that "can express and combine information about software development, software quality, and system dynamics".
 \newline
 
 Now I will present who to run the app and the tools need it.
@@ -640,7 +664,7 @@ git push
 For testing the restApi I used postman the postman colletion are avaible in the repostiory in the folder postmanconf.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/postman}
+	\includegraphics[width=0.6\linewidth]{images/postman}
 	\caption{Postman Dashboard}
 	\label{fig:postman}
 \end{figure}
@@ -648,6 +672,7 @@ For testing the restApi I used postman the postman colletion are avaible in the 
 \section{Tools Used for Development Process}
 \subsection{Heroku}
 Heroku[\footnote{\href{https://www.heroku.com/home}{\texttt{https://www.heroku.com/home}}}] is a cloud platform as a service (PaaS) supporting several programming languages that is used as a web application deployment model. Heroku, one of the first cloud platforms, has been in development since June 2007, when it supported only the Ruby programming language, but now supports Java, Node.js, Scala, Clojure, Python, PHP, and Go. For this reason, Heroku is said to be a polyglot platform as it lets the developer build, run and scale applications in a similar manner across all the languages. Heroku was acquired by Salesforce.com in 2010 for \$212 million.
+\newline
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{./images/iothheroku}
@@ -655,6 +680,63 @@ Heroku[\footnote{\href{https://www.heroku.com/home}{\texttt{https://www.heroku.c
 	\caption{IoT Healthcare running on herokucloud}
 	\label{fig:iothoh}
 \end{figure}
+The notion of service is central to cloud computing. It is so central that a capability offered through the cloud gains differentiation by appending “-as-a-service” to a legacy product offering, thus presumably increasing its perceived value. Therefore, we get the terms software-as-a-service (SaaS), platform-as-a-service (PaaS) and infrastructure-as-a-service (IaaS); and yet there is very little in the cloud literature that clarifies what service, and services, actually are. To some, the concept of service survives as a primitive notion. Within a body of knowledge such as cloud computing, a primitive notion is an undefined concept that defies definition in terms of previously defined concepts. As a result, the IT practitioner informally applies meaning to a concept through experience or intuition. For instance, the Rackspace and National Institute of Standards and Technology publications focus on cloud-based services, but the concept itself is not clearly defined. The presentations contrast cloud services characteristics with those of customer-owned non-cloud product capabilities. The practitioner considers the features, advantages, and benefits in terms of the existing product solution.
+\newline
+
+From the traditional product perspective, services are add-on extensions of a physical product, intangible products, or services solutions that are developed and marketed as products. This services-for-a-product approach indicates a goods-dominant logic (GDL) that conceptualizes and designs services as units of output that embed and deliver value to the customer. GDL expresses as a value-in-exchange, arm's-length transaction. There is no expectation of an ongoing relationship or collaboration between the service provider and customer. This is the primitive notion that services should be defined in terms of what we know from experience, our product familiarity. Indeed, we differentiate this product view by using the plural services when a GDL perspective indicates.
+\newline
+
+The service science discipline and its service-dominant logic (SDL) provides an alternative paradigm, with service as a process that involves providers, customers and other complementary actors within a service ecosystem for the purpose of co-creating value. It emphasizes a value-in-use and value-in-context to the service network approaches to value creation. Service providers and customers benefit from the collaborative exchange of knowledge, skills, technology and other resources within the service ecosystem. The co-creation process can result in superior service design, quality, pricing, customer service, and user experiences that inform compelling value propositions and realized value for all participants. Cloud computing has opened the door for the development of SDL service innovation business models. No longer constrained by GDL thinking, the cloud, especially the multi-sided platform models disrupting e-commerce, transportation, and hospitality and big data analytics, to name a few industries, have the potential to not only redefine cloud service business models, but whole industries as well. In our view, to realize the full potential of the cloud requires an integration of service science principles with cloud computing practice. The cloud is about service and increasingly service is about the cloud.
+\newline
+
+The primary goal for this book is to apply the service innovation principles to cloud computing. This book is one of the first attempts to integrate these disciplines. The motivation for this exercise is eminently practical, especially to technologists, systems and solutions architects, as well as CIOs and business strategists. As we gain insight into technology development and integration dynamics, we can reason and engage in prediction and forecasting exercises. We understand how approaches in use by product-oriented companies do not satisfactorily apply to the service-oriented cloud. We also discover that there is a path for transformation for product-oriented organizations to operate optimally in the cloud space and therefore to attain a sustained and strategic competitive advantage. This is especially applicable to technology companies with long-term product roadmaps. These companies can servitize existing product lines as an interim step in the transition toward becoming cloud-based service enterprises. The cloud-as-a-service opens up opportunities for new revenue streams and revenue modalities, converting "lumpy" revenue that depend on big bang new product launches to a more sustained service-oriented recurrent revenue.
+\newline
+
+By employing a cloud-service framework, it is now easier to understand emerging technology progressions that seemed related, but difficult to explain and operationalize. For instance, the much-heralded progression from cloud computing to the Internet of Things (IoT) domain. This understanding allows an organization to approach the cloud and IoT under a single, unified and synergistic strategy at a fraction of the cost of developing two separate strategies. In fact, the effect of two separate efforts will be less than synergistic. The overlap of the two functions will likely result in channel conflicts, with the two organizations working against each other. For this reason, we believe that traditional, product-oriented companies cannot just look at the cloud as just a new, emerging market. These companies will need to adopt a service ethic from within, meaning adopting a service ethic from within; in the methodologies used to develop technology and in the way they conduct business processes. These organizations will suffer from the drag of the dissonance between the SDL and GDL approaches. Conversely, companies adopting an SDL approach early on will enjoy an inherent and sustained competitive advantage in the cloud market.
+\newline
+\subsubsection*{Software as a Service (SaaS)}
+The idea of “Software as a Service” isn’t new, but the term SaaS is. SaaS simply refersto software that is provided on-demand for use. Traditionally, when someone wantedto use software they’d go to the store, pick up some disks, take them home, and installthem on a computer. With SaaS, they just use hosted software. There’s no installation, no updates, no mess. There’s no magic to it. Anyone who has used web mail of anykind has been using SaaS.
+\newline
+
+SaaS has really come into maturity over the last decade. Some modern SaaS providersdo a lot of fancy work behind the scenes to make things function properly. Comparewhat engineers had to do to run web mail in the late 90s to what the team at Googledoes to run Gmail today.
+\newline
+
+If one of those web mail admins from the 90s were brought forward in time and toldto use Gmail, they’d be impressed for sure, but the basic workflow and usage wouldbe very familiar to them. If that same sysadmin was told to start running Gmail, he’dlikely be completely lost. That’s a common theme in cloud computing. Some aspectsare so familiar, yet others are quite foreign when compared to traditional computingenvironments.
+\subsubsection*{Infrastructure as a Service (IaaS)}
+nfrastructure as a Service (IaaS) isn’t conceptually new. People have been collocatingin data centers since data centers have been around. What is different with IaaS is thetooling behind it and where the lines of responsibility get drawn. Proper IaaS providesa mechanism for people to replace all of their data center hardware needs. CommonIaaS services include:
+\begin{itemize}
+	\item Host provisioning
+	\item Load balancing
+	\item Public and private network connectivity
+	\item Firewalls
+	\item Storage
+\end{itemize}
+Additionally, all of the dependencies for these services are also provided. This includesmonitoring, power, cooling, repair, security, inventory tracking, and perhaps mostimportantly, people. Some IaaS providers even have convenient solutions to geograph-ically diversify computing resources. All of this is provided at a cost that just isn’tpossible with traditional computing. Typical rates for a host are pennies an hour.
+\newline
+
+In practical terms, this means that the time between when someone decides they needto host to when they actually log into it has been greatly reduced to a couple of minutes.Developers don’t have to put a large proposal together that includes servers, storage,network, rack space, installation, configuration, and so on. An entire proof of conceptcan be put together for the cost of a typical lunch. They don’t have to wait hours forsysadmins to provision a host. They don’t have to wait days for an order to get deliveredand installed. Instead, with IaaS, they just need a little cash and a few minutes to pickwhat host they want.
+
+\subsubsection*{Platform as a Service (PaaS)}
+Unlike IaaS and SaaS, PaaS is a much more abstract concept. Looking at cloud com-puting as an entire stack, PaaS would be in the middle of that stack. With IaaS at thebottom and SaaS at the top to interface with the end users and consumers. That’s notto imply all layers of the stack are required at once to consider yourself to be usingcloud computing.
+\newline
+
+PaaS providers offer a platform for others to use. What is being provided is part oper-ating system and part middleware. A proper PaaS provider takes care of everythingneeded to run some specific language or technology stack. Lets take a look at what itwould take to provide a Python development interface and what that means for thePaaS user.
+\newline
+
+In order for Python code to be run, developers need the Python runtime and some sortof interface to expose the Python code while it’s running. Some PaaS providers thatsupport Python do it via a WSGI2 interface. Apache, with the mod\_wsgi module, isone such way to run Python applications. Developers or PaaS providers need a WSGIscript somewhere so the code can be loaded and exposed via a web address.
+\newline
+
+To visualize this, think about Apache and Python at a public web address with somestorage on the back end and maybe a load balancer seems pretty simple to do. Don’tforget though, that there’s a whole set of dependencies in order to get to that point.Apache needs some sort of operating system to function. It needs to be configured,maintained and monitored. In cloud computing, this OS runs inside virtual machines.
+\newline
+
+This gets into the details of the IaaS layer mentioned earlier. PaaS providers may dothis themselves, or partner with an IaaS vendor to get it done. The important bit ofinformation here is to know that everything from the running Apache/WSGI interfaceall the way down to the power and cooling in a data center, is someone else’s respon-sibility. It is not the responsibility of the PaaS consumer.
+\newline
+
+\textit{Many PaaS providers are providing muti-tenant solutions. This meansthat not only is the physical hardware shared among multiple virtualmachines but the virtual machines themselves may have several differentapplications from several different customers on them.}
+\newline
+
+PaaS today focuses almost entirely on web solutions. The components an end userinteracts with are all web-based and because of this, most PaaS providers excel whenit comes to large numbers of short lived process requests. PaaS providers have less polishwhen it comes to longer running, higher resource intensive jobs that cannot be brokendown into smaller jobs. For example, a large batch processing job is likely best suitedto be placed a level down at the IaaS layer because of the more fine controls over memoryit provides. Scale out, not up, is becomming a common theme used throughout thisbook. It’s not a good or bad thing, but it’s a common architectural limitation. As PaaSmatures, expect to see more offerings beyond web services.
+
 \subsection{Bitbucket}
 Bitbucket[\footnote{\href{https://bitbucket.org/}{\texttt{https://bitbucket.org/}}}] is a web-based hosting service that is owned by Atlassian, used for source code and development projects that use either Mercurial (since launch) or Git (since October 2011) revision control systems. Bitbucket offers both commercial plans and free accounts. It offers free accounts with an unlimited number of private repositories (which can have up to five users in the case of free accounts) as of September 2010. Bitbucket integrates with other Atlassian software like Jira, HipChat, Confluence and Bamboo.
 It is similar to GitHub, which primarily uses Git. Bitbucket has traditionally tailored itself towards helping professional developers with private proprietary code, especially since being acquired by Atlassian in 2010. In September 2016, Bitbucket announced it had reached 5 million developers and 900,000 teams on its platform.Bitbucket has 3 deployment models: Cloud, Bitbucket Server and Data Center.
@@ -676,7 +758,7 @@ bogging you down like full-fledged \textbf{Integrated Development Environments (
 \end{figure}
 
 \subsection{Git}
-Git is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files. As a distributed revision control system it is aimed at speed, data integrity,[10] and support for distributed, non-linear workflows.
+Git is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files. As a distributed revision control system it is aimed at speed, data integrity, and support for distributed, non-linear workflows.
 \newline
 
 Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development. Its current maintainer since 2005 is Junio Hamano.
@@ -704,14 +786,14 @@ The initial codebase originated from IBM VisualAge. The Eclipse software develop
 PuTTY (Figure \ref{fig:putty}) is a free and open-source terminal emulator, serial console and network file transfer application. It supports several network protocols, including SCP, SSH, Telnet, rlogin, and raw socket connection. It can also connect to a serial port (since version 0.59). The name "PuTTY" has no definitive meaning.
 PuTTY was originally written for Microsoft Windows, but it has been ported to various other operating systems. Official ports are available for some Unix-like platforms, with work-in-progress ports to Classic Mac OS and Mac OS X, and unofficial ports have been contributed to platforms such as Symbian and Windows Mobile.
 PuTTY was written and is maintained primarily by Simon Tatham and is currently beta software.
-\begin{figure}[h!]
-	\centering
-	\vspace{-0.2cm}
-	\includegraphics[width=0.8\textwidth]{./images/putty_tango.png}
-	\rule{1\textwidth}{1pt}
-	\caption{Putty interface}
-	\label{fig:putty}
-\end{figure}
+%\begin{figure}[h!]
+%	\centering
+%	\vspace{-0.2cm}
+%	\includegraphics[width=0.8\textwidth]{./images/putty_tango.png}
+%	\rule{1\textwidth}{1pt}
+%	\caption{Putty interface}
+%	\label{fig:putty}
+%\end{figure}
 \clearpage
 %----------------------------------------------------------------------------------------
 %	Hardware
