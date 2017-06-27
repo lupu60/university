@@ -87,7 +87,59 @@ public class WebController {
 
     return "mockdone";
   }
+  @RequestMapping(value = "/mockToday", method = RequestMethod.GET)
+  public String mockToday() {
+//    java.util.Date date = new java.util.Date();
+//    Long currentDayStart = date.getTime() - date.getTime() % 86400000;
+//    long offset = currentDayStart;
+//    long end = date.getTime();
 
+     long offset = Timestamp.valueOf("2017-06-01 00:00:00").getTime();
+     long end = Timestamp.valueOf("2017-06-28 00:00:00").getTime();
+
+    long diff = end - offset + 1;
+
+    SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
+    SmartBand s2 = new SmartBand("C8:0F:10:99:2B:1B");
+    SmartBand s3 = new SmartBand("BE:22:5C:AA:22:11");
+    SmartBand s4 = new SmartBand("C8:0F:10:33:A8:3C");
+    SmartBand s5 = new SmartBand("17:5C:91:0B:38:59");
+
+    for (int i = 0; i < 100; i++) {
+      ArrayList<Integer> hr = new ArrayList<>();
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      hr.add(new Random().nextInt(150 - 78) + 78);
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s1, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s2, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s3, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s4, new Timestamp(offset + (long) (Math.random() * diff))));
+      activityService
+          .record(new Activity(new Random().nextLong(), new Random().nextInt(10000 - 100) + 100, hr,
+              s5, new Timestamp(offset + (long) (Math.random() * diff))));
+    }
+
+    LOG.info("/mock");
+
+    return "mockdone";
+  }
   @RequestMapping(value = "/initialmock", method = RequestMethod.GET)
   public String mock2() {
     SmartBand s1 = new SmartBand("C8:0F:10:88:2A:5B");
