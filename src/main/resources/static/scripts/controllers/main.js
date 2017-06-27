@@ -6,7 +6,11 @@
  * # MainCtrl
  * Controller of the sbAdminApp
  */
-angular.module('sbAdminApp').controller('MainCtrl', ['$scope', function($scope) {
+angular.module('sbAdminApp').controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
+    const restURLPatients = "/webapi/patient/";
+    const restURLSmartBands = "/webapi/smartband/";
+    const restURLActivity = "/webapi/activity/";
+
     $(document).ready(function() {
         $.ajax({
             url: "/webapi"
@@ -14,8 +18,32 @@ angular.module('sbAdminApp').controller('MainCtrl', ['$scope', function($scope) 
             $('#hello').append(data);
         });
     });
+    $http({
+        method: "GET",
+        url: restURLPatients
+    }).then(function mySucces(response) {
+        $scope.patientsNumber = response.data.length;
+    }, function myError(response) {
+        console.log(response.statusText);
+    });
 
-}]);
-;(function() {
+    $http({
+        method: "GET",
+        url: restURLSmartBands
+    }).then(function mySucces(response) {
+        $scope.smartBandsNumber = response.data.length;
+    }, function myError(response) {
+        console.log(response.statusText);
+    });
+    $http({
+        method: "GET",
+        url: restURLActivity
+    }).then(function mySucces(response) {
+        $scope.activityNumber = response.data.length;
+    }, function myError(response) {
+        console.log(response.statusText);
+    });
+}]);;
+(function() {
     $('#side-menu').metisMenu();
 })();

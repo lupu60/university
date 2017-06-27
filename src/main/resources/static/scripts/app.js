@@ -69,9 +69,22 @@ angular.module('sbAdminApp', [
                     return $ocLazyLoad.load({
                         name: 'sbAdminApp',
                         files: [
-                            'bower_components/parallax/deploy/jquery.parallax.min.js',
-                            'bower_components/parallax/deploy/parallax.min.js',
                             'scripts/controllers/main.js',
+                        ]
+                    })
+                }
+            }
+        }).state('dashboard.about', {
+            url: '/about',
+            controller: 'MainCtrl',
+            templateUrl: 'views/dashboard/about.html',
+            resolve: {
+                loadMyFiles: function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'sbAdminApp',
+                        files: [
+                            'bower_components/parallax/deploy/jquery.parallax.min.js',
+                            'bower_components/parallax/deploy/parallax.min.js'
                         ]
                     })
                 }

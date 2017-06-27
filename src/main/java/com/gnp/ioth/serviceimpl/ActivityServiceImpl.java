@@ -1,10 +1,5 @@
 package com.gnp.ioth.serviceimpl;
 
-import com.gnp.ioth.model.Activity;
-import com.gnp.ioth.model.SmartBand;
-import com.gnp.ioth.repository.ActivityRepository;
-import com.gnp.ioth.repository.SmartBandRepository;
-import com.gnp.ioth.service.ActivityService;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,9 +7,17 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.List;
+
 import javax.ws.rs.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.gnp.ioth.model.Activity;
+import com.gnp.ioth.model.SmartBand;
+import com.gnp.ioth.repository.ActivityRepository;
+import com.gnp.ioth.repository.SmartBandRepository;
+import com.gnp.ioth.service.ActivityService;
 
 
 @Service
@@ -25,6 +28,11 @@ public class ActivityServiceImpl implements ActivityService {
 
   @Autowired
   SmartBandRepository smartBandRepository;
+
+  @Override
+  public List<Activity> getAllActivity() {
+    return activityRespository.findAll();
+  }
 
   @Override
   public Activity record(Activity activity) throws IllegalArgumentException, NotFoundException {
@@ -89,4 +97,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
     return allActivity;
   }
+
+
+
 }
