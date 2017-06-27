@@ -87,7 +87,7 @@ public class WebController {
 
     return "mockdone";
   }
-  @RequestMapping(value = "/mockToday", method = RequestMethod.GET)
+  @RequestMapping(value = "/mockMonth", method = RequestMethod.GET)
   public String mockToday() {
 //    java.util.Date date = new java.util.Date();
 //    Long currentDayStart = date.getTime() - date.getTime() % 86400000;

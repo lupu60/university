@@ -1,413 +1,310 @@
 {
-	"id": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-	"name": "ioth",
-	"description": "",
-	"order": [
-		"89a451c7-025f-eb8f-bdcd-d5912c72a6ad"
-	],
-	"folders": [
+	"variables": [],
+	"info": {
+		"name": "ioth",
+		"_postman_id": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "34293b25-0dd7-d0f6-5d10-33503607a765",
 			"name": "activity",
 			"description": "",
-			"order": [
-				"4eac118a-9ada-31fa-605b-df58a0f08541",
-				"a7c42a05-ee1e-bb35-4176-dd7d204e354c",
-				"ef61e59f-a3f7-520e-7d5d-56b89841abcf"
-			],
-			"owner": 0
+			"item": [
+				{
+					"name": "getPatientActivity",
+					"request": {
+						"url": "{{backend}}/webapi/patient/activity/BE:22:5C:AA:22:11",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":1,\"name\":\"name\",\"sex\":true,\"age\":0,\"height\":0,\"weight\":0,\"smartBand\":{\"mac\":\"C8:0F:10:99:2B:1B\"}}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getDateActivity",
+					"request": {
+						"url": "{{backend}}/webapi/patient/activity/BE:22:5C:AA:22:11/1452520557295",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getHighestActivity",
+					"request": {
+						"url": "{{backend}}/webapi/patient/highestactivity/C8:0F:10:88:2A:5B/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "f0e93171-4d4f-af8c-39b6-b9119b5a3655",
 			"name": "gateway",
 			"description": "",
-			"order": [
-				"e86d27c0-b671-1686-2db9-33ffa5d572b8",
-				"83ca4054-05a3-4554-99be-e278860adfeb"
-			],
-			"owner": 0
+			"item": [
+				{
+					"name": "recordActivity",
+					"request": {
+						"url": "{{backend}}/gateway/activity/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n\t\"steps\": 530,\n    \"heartRate\": [\n      43,\n      89,\n      30,\n      40,\n      0,\n      5\n    ],\n    \"smartBand\": {\n      \"mac\": \"C8:0F:10:33:5A:70\"\n    },\n    \"timestamp\": 1498493080484   \n  }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getPatientWithMac",
+					"request": {
+						"url": "{{backend}}/gateway/BE:22:5C:AA:22:11",
+						"method": "GET",
+						"header": [
+							{
+								"key": "user",
+								"value": "user",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlcjp1c2Vy",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "e10876bf-da22-4db9-d41a-e53cf572f28b",
 			"name": "mock",
 			"description": "",
-			"order": [
-				"795057f0-62e9-bc27-4b6b-8a5a95bce946",
-				"c74419d3-2bf7-638b-f0d9-4fccbf36d746"
-			],
-			"owner": 0,
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff"
+			"item": [
+				{
+					"name": "initialmock",
+					"request": {
+						"url": "{{backend}}/webapi/initialmock/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "recordMock",
+					"request": {
+						"url": "{{backend}}/webapi/mock/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "mockMonth",
+					"request": {
+						"url": "{{backend}}/webapi/mockMonth/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "fb982f3b-eceb-8f28-e0d9-bf63fd0b71e2",
 			"name": "patient",
 			"description": "",
-			"order": [
-				"2951fb23-a734-9472-1bb3-30183b688413",
-				"f8ba8b8c-20b7-c35b-ec98-5b32e2cde891",
-				"3516be71-c039-c7ff-ce9e-2f2356590f2e",
-				"fc9b2186-89b9-3efa-6696-14e9ba608809",
-				"1890179b-bb30-ac0c-fbea-6ac9ffd6b404",
-				"56d28a3d-582b-84f9-3ee1-6f4ab441f027"
-			],
-			"owner": 0,
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff"
+			"item": [
+				{
+					"name": "getPatientById",
+					"request": {
+						"url": "{{backend}}/webapi/patient/2",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getPatients",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "createPatient",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updatePatient",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deletePatient",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deletePatientById",
+					"request": {
+						"url": "{{backend}}/webapi/patient/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "6bf9b143-1165-745f-4177-4e4f9c6d8d89",
 			"name": "smartBand",
 			"description": "",
-			"order": [
-				"0dd3beaa-4f44-92f7-742b-2dbc4d5d7442",
-				"f9195a62-f495-db2d-425d-484e7d942a30",
-				"75c62941-e0fc-f43f-d870-78116ac86185"
-			],
-			"owner": 0
-		}
-	],
-	"timestamp": 0,
-	"owner": 0,
-	"public": false,
-	"requests": [
-		{
-			"id": "0dd3beaa-4f44-92f7-742b-2dbc4d5d7442",
-			"headers": "",
-			"url": "{{backend}}/webapi/smartband/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492784044306,
-			"name": "getAllSmartBands",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": []
+			"item": [
+				{
+					"name": "getAllSmartBands",
+					"request": {
+						"url": "{{backend}}/webapi/smartband/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "createSmartBand",
+					"request": {
+						"url": "{{backend}}/webapi/smartband/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"mac\": \"C8:0F:11:88:2A:5B\"\n  }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSmartBand",
+					"request": {
+						"url": "{{backend}}/webapi/smartband/C8:0F:11:88:2A:5B",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "1890179b-bb30-ac0c-fbea-6ac9ffd6b404",
-			"headers": "Content-Type: application/json\n",
-			"url": "{{backend}}/webapi/patient/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492783963705,
-			"name": "deletePatient",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"rawModeData": "{\r\n  \"id\":1,\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
-		},
-		{
-			"id": "2951fb23-a734-9472-1bb3-30183b688413",
-			"headers": "",
-			"url": "{{backend}}/webapi/patient/2",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492783847506,
-			"name": "getPatientById",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": []
-		},
-		{
-			"id": "3516be71-c039-c7ff-ce9e-2f2356590f2e",
-			"headers": "Content-Type: application/json\n",
-			"url": "{{backend}}/webapi/patient/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492012907850,
-			"name": "createPatient",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"rawModeData": "{\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
-		},
-		{
-			"id": "4eac118a-9ada-31fa-605b-df58a0f08541",
-			"headers": "Content-Type: application/json\n",
-			"url": "{{backend}}/webapi/patient/activity/BE:22:5C:AA:22:11",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492500682236,
-			"name": "getPatientActivity",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "4eac118a-9ada-31fa-605b-df58a0f08541",
-			"folder": "34293b25-0dd7-d0f6-5d10-33503607a765",
-			"rawModeData": "{\"id\":1,\"name\":\"name\",\"sex\":true,\"age\":0,\"height\":0,\"weight\":0,\"smartBand\":{\"mac\":\"C8:0F:10:99:2B:1B\"}}"
-		},
-		{
-			"id": "56d28a3d-582b-84f9-3ee1-6f4ab441f027",
-			"headers": "",
-			"url": "{{backend}}/webapi/patient/2",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492783947057,
-			"name": "deletePatientById",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": []
-		},
-		{
-			"id": "75c62941-e0fc-f43f-d870-78116ac86185",
-			"headers": "Content-Type: application/json\n",
-			"url": "{{backend}}/webapi/smartband/C8:0F:11:88:2A:5B",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492784159520,
-			"name": "deleteSmartBand",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": []
-		},
-		{
-			"id": "795057f0-62e9-bc27-4b6b-8a5a95bce946",
-			"headers": "",
-			"url": "{{backend}}/webapi/initialmock/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492775383179,
-			"name": "initialmock",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "795057f0-62e9-bc27-4b6b-8a5a95bce946",
-			"folder": "e10876bf-da22-4db9-d41a-e53cf572f28b"
-		},
-		{
-			"id": "83ca4054-05a3-4554-99be-e278860adfeb",
-			"headers": "user: user\nAuthorization: Basic dXNlcjp1c2Vy\n",
-			"url": "{{backend}}/gateway/BE:22:5C:AA:22:11",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492111236515,
-			"name": "getPatientWithMac",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": []
-		},
-		{
-			"id": "89a451c7-025f-eb8f-bdcd-d5912c72a6ad",
-			"headers": "",
-			"url": "{{backend}}",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492012387276,
 			"name": "srv",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": []
-		},
-		{
-			"id": "a7c42a05-ee1e-bb35-4176-dd7d204e354c",
-			"headers": "",
-			"url": "{{backend}}/webapi/patient/activity/BE:22:5C:AA:22:11/1452520557295",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492520248564,
-			"name": "getDateActivity",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "a7c42a05-ee1e-bb35-4176-dd7d204e354c",
-			"folder": "34293b25-0dd7-d0f6-5d10-33503607a765"
-		},
-		{
-			"id": "c74419d3-2bf7-638b-f0d9-4fccbf36d746",
-			"headers": "",
-			"url": "{{backend}}/webapi/mock/",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"data": null,
-			"dataMode": "params",
-			"name": "recordMock",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1492092308255,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"isFromCollection": true,
-			"collectionRequestId": "c74419d3-2bf7-638b-f0d9-4fccbf36d746",
-			"folder": "e10876bf-da22-4db9-d41a-e53cf572f28b"
-		},
-		{
-			"id": "e86d27c0-b671-1686-2db9-33ffa5d572b8",
-			"headers": "Content-Type: application/json\n",
-			"url": "{{backend}}/gateway/activity/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492617686734,
-			"name": "recordActivity",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"rawModeData": "  {\n\t\"steps\": 500,\n    \"heartRate\": [\n      43,\n      89,\n      30,\n      40,\n      0,\n      5\n    ],\n    \"smartBand\": {\n      \"mac\": \"C8:0F:10:88:2A:5B\"\n    },\n    \"timestamp\": 1492617449907   \n  }"
-		},
-		{
-			"id": "ef61e59f-a3f7-520e-7d5d-56b89841abcf",
-			"headers": "",
-			"url": "{{backend}}/webapi/patient/highestactivity/C8:0F:10:88:2A:5B/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492612900394,
-			"name": "getHighestActivity",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "ef61e59f-a3f7-520e-7d5d-56b89841abcf",
-			"folder": "34293b25-0dd7-d0f6-5d10-33503607a765"
-		},
-		{
-			"id": "f8ba8b8c-20b7-c35b-ec98-5b32e2cde891",
-			"headers": "",
-			"url": "{{backend}}/webapi/patient/",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"data": null,
-			"dataMode": "params",
-			"name": "getPatients",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1492783497242,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "fb982f3b-eceb-8f28-e0d9-bf63fd0b71e2"
-		},
-		{
-			"id": "f9195a62-f495-db2d-425d-484e7d942a30",
-			"headers": "Content-Type: application/json\n",
-			"url": "{{backend}}/webapi/smartband/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492784083666,
-			"name": "createSmartBand",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"rawModeData": "  {\n    \"mac\": \"C8:0F:11:88:2A:5B\"\n  }"
-		},
-		{
-			"id": "fc9b2186-89b9-3efa-6696-14e9ba608809",
-			"headers": "Content-Type: application/json\n",
-			"url": "{{backend}}/webapi/patient/",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1492783895018,
-			"name": "updatePatient",
-			"description": "",
-			"collectionId": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
-			"responses": [],
-			"rawModeData": "{\r\n  \"id\":1,\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+			"request": {
+				"url": "{{backend}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
