@@ -36,11 +36,14 @@ public class ActivityServiceImpl implements ActivityService {
 
   @Override
   public Activity record(Activity activity) throws IllegalArgumentException, NotFoundException {
+    if (activity.toString().isEmpty() || activity.toString() == null) {
+      throw new IllegalArgumentException("activity empty");
+    }
     if (!smartBandRepository.exists(activity.getSmartBand().getMac())) {
       throw new NotFoundException();
     }
-    if(activity.getHeartRate().isEmpty()){
-      throw new IllegalArgumentException();
+    if (activity.getHeartRate().isEmpty() || activity.getHeartRate() == null) {
+      throw new IllegalArgumentException("hr empty");
     }
     activity.getHeartRate().remove(Collections.min(activity.getHeartRate()));
     activity.getHeartRate().remove(Collections.max(activity.getHeartRate()));
