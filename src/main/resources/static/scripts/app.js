@@ -69,7 +69,9 @@ angular.module('sbAdminApp', [
                     return $ocLazyLoad.load({
                         name: 'sbAdminApp',
                         files: [
-                            'scripts/controllers/main.js',
+                            'bower_components/chart.js/dist/Chart.min.js',
+                            'bower_components/chart.js/dist/Chart.bundle.js',
+                            'scripts/controllers/main.js'
                         ]
                     })
                 }

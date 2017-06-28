@@ -39,6 +39,9 @@ public class ActivityServiceImpl implements ActivityService {
     if (!smartBandRepository.exists(activity.getSmartBand().getMac())) {
       throw new NotFoundException();
     }
+    if(activity.getHeartRate().isEmpty()){
+      throw new IllegalArgumentException();
+    }
     activity.getHeartRate().remove(Collections.min(activity.getHeartRate()));
     activity.getHeartRate().remove(Collections.max(activity.getHeartRate()));
     return activityRespository.save(activity);
