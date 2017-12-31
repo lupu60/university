@@ -48,13 +48,13 @@ $ npm start
 
 ### Media
 ##[Presentation]
-##Keyboard Controller
+## Keyboard Controller
 ![keyboard_controller](http://i.imgur.com/CqawzLL.jpg)
-##Gyroscope Controller
+## Gyroscope Controller
 ![gyroscope_controller](http://i.imgur.com/0iHm1tT.jpg)
-##Speech Controller
+## Speech Controller
 ![speech_controller](http://i.imgur.com/kVoMKjd.jpg)
-##Car Chassis Development Kit
+## Car Chassis Development Kit
 ![Car Chassis Development Kit](http://i.imgur.com/huWFeCx.jpg)
 
 [A WEB-BASED PROTOTYPE FOR REMOTE CAR DIAGNOSTICS]:http://lupu60.github.io/remote_diagnostics/slides.html#/
