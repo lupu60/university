@@ -47,7 +47,7 @@ $ npm start
 ### acces [localhost:3000]
 
 ### Media
-##[Presentation]
+## [Presentation]
 ## Keyboard Controller
 ![keyboard_controller](http://i.imgur.com/CqawzLL.jpg)
 ## Gyroscope Controller
