@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card text-white bg-dark" style="max-width: 100%;margin-bottom: 5px;">
+      <div class="card-header">Sentiment Analysis</div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-5">
+    <div id="tableComponent">
+      <div *ngIf="!isDataAvailable" style="text-align: center">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+      </div>
+      <div *ngIf="isDataAvailable">
+        <app-tableview #tableview [tableInput]="tableInput" [options]="tableViewOptions" (onViewRow)="viewRow($event)" (onDeleteRow)="deleteRow($event)">
+        </app-tableview>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-7">
+    <p-chart type="doughnut" [data]="twitterSentimentChart"></p-chart>
+  </div>
+</div>
