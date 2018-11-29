@@ -1,0 +1,8 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Dashboard</h1>
+</div>
+<p-fileUpload name="importdata[]" customUpload="true" multiple="multiple" (uploadHandler)="import($event)"></p-fileUpload>
+
+<p-blockUI [blocked]="blocked">
+  <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" style="position:absolute;top:25%;left:50%"></i>
+</p-blockUI>
