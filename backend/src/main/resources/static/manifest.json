@@ -1,0 +1,13 @@
+{
+  "name": "iothealthcare",
+  "icons": [
+    {
+      "src": "./img/ioth_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+   "start_url": "iothealthcare.herokuapp.com",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}

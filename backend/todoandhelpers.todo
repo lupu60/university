@@ -1,0 +1,21 @@
+JSON MODELS:
+Patient:
+    {
+  "id": 1,
+  "name": "name",
+  "sex": true,
+  "age": 22,
+  "height": 180,
+  "weight": 80,
+  "smartBand": {
+    "mac": "C8:0F:10:88:2A:5B"
+  }
+}
+application.properties:
+#localhost MYSQL
+#spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+#spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+#spring.jpa.database=MYSQL
+#spring.datasource.url=jdbc:mysql://localhost/ioth
+#spring.datasource.username=root
+#spring.datasource.password=

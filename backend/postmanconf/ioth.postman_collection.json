@@ -1,0 +1,310 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ioth",
+		"_postman_id": "45a5e4b0-468f-3770-aa13-dfb3e0f972ff",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "activity",
+			"description": "",
+			"item": [
+				{
+					"name": "getPatientActivity",
+					"request": {
+						"url": "{{backend}}/webapi/patient/activity/BE:22:5C:AA:22:11",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":1,\"name\":\"name\",\"sex\":true,\"age\":0,\"height\":0,\"weight\":0,\"smartBand\":{\"mac\":\"C8:0F:10:99:2B:1B\"}}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getDateActivity",
+					"request": {
+						"url": "{{backend}}/webapi/patient/activity/BE:22:5C:AA:22:11/1452520557295",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getHighestActivity",
+					"request": {
+						"url": "{{backend}}/webapi/patient/highestactivity/C8:0F:10:88:2A:5B/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gateway",
+			"description": "",
+			"item": [
+				{
+					"name": "recordActivity",
+					"request": {
+						"url": "{{backend}}/gateway/activity/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n\t\"steps\": 530,\n    \"heartRate\": [\n      43,\n      89,\n      30,\n      40,\n      0,\n      5\n    ],\n    \"smartBand\": {\n      \"mac\": \"C8:0F:10:33:5A:70\"\n    },\n    \"timestamp\": 1498493080484   \n  }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getPatientWithMac",
+					"request": {
+						"url": "{{backend}}/gateway/BE:22:5C:AA:22:11",
+						"method": "GET",
+						"header": [
+							{
+								"key": "user",
+								"value": "user",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlcjp1c2Vy",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mock",
+			"description": "",
+			"item": [
+				{
+					"name": "initialmock",
+					"request": {
+						"url": "{{backend}}/webapi/initialmock/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "recordMock",
+					"request": {
+						"url": "{{backend}}/webapi/mock/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "mockMonth",
+					"request": {
+						"url": "{{backend}}/webapi/mockMonth/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "patient",
+			"description": "",
+			"item": [
+				{
+					"name": "getPatientById",
+					"request": {
+						"url": "{{backend}}/webapi/patient/2",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getPatients",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "createPatient",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updatePatient",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deletePatient",
+					"request": {
+						"url": "{{backend}}/webapi/patient/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"name\": \"name\",\r\n  \"sex\": true,\r\n  \"age\": 22,\r\n  \"height\": 180,\r\n  \"weight\": 80,\r\n  \"smartBand\": {\r\n    \"mac\": \"C8:0F:10:88:2A:5B\"\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deletePatientById",
+					"request": {
+						"url": "{{backend}}/webapi/patient/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "smartBand",
+			"description": "",
+			"item": [
+				{
+					"name": "getAllSmartBands",
+					"request": {
+						"url": "{{backend}}/webapi/smartband/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "createSmartBand",
+					"request": {
+						"url": "{{backend}}/webapi/smartband/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"mac\": \"C8:0F:11:88:2A:5B\"\n  }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSmartBand",
+					"request": {
+						"url": "{{backend}}/webapi/smartband/C8:0F:11:88:2A:5B",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "srv",
+			"request": {
+				"url": "{{backend}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

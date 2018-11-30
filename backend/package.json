@@ -1,0 +1,49 @@
+{
+  "name": "iothealthcare",
+  "title": "iothealthcare",
+  "version": "0.0.1",
+  "author": "gnp",
+  "private": true,
+  "homepage": "iothealthcare.herokuapp.com",
+  "files": [
+    "package.json",
+    "bower.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
+  "dependencies": {
+    "bower": "^1.8.0",
+    "grunt": "1.0.1",
+    "grunt-asciify": "0.2.2",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-cli": "1.2.0",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-coffee": "1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.1.0",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-open": "0.2.3 ",
+    "install": "^0.8.7",
+    "load-grunt-tasks": "^3.5.2",
+    "time-grunt": "^1.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://lupu60@bitbucket.org/gnp_team/backend.git"
+  },
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "grunt-contrib-htmlmin": "^2.3.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.3.0"
+  }
+}
