@@ -1,0 +1,275 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis
+% LaTeX Template
+% Version 2.4 (22/11/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%6
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+oneside,
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{lmodern} % Use the Palatino font by default
+
+
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+%\addbibresource{example.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage{pdfpages}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{forest}
+\usepackage{wrapfig}
+\usepackage{upquote}
+
+\usepackage{amsmath,amsfonts,amssymb,graphicx,wrapfig, sidecap,pdfpages,url}
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=2.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+\lstdefinelanguage{JavaScript}{
+	morekeywords={var, function},
+	morecomment=[s]{/*}{*/},%
+	morecomment=[l]//,%
+	morestring=[b]",%
+	morestring=[b]'%
+}
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{IoT Healthcare} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Lect. Univ. Dr. Vlad \textsc{Monescu}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\author{Bogdan Alexandru \textsc{Lupu}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\keywords{iot,healthcare} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.unitbv.ro/}{Transilvania University of Bra\c sov}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\faculty{Faculty of Mathematics and Informatics} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+\department{Mobile Applications and Internet technologies in E-Business} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+
+\AtBeginDocument{
+%\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+%\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+%\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+%\hypersetup{colorlinks=false}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+}
+
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=0.2\textwidth]{images/unilogo.jpg}\\[0.5cm]
+%\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Master Thesis}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\authorname % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+\supname % Supervisor name - remove the \href bracket to remove the link
+\end{flushright}
+\end{minipage}\\[3cm]
+%\vfill
+
+\includegraphics[width=0.2\textwidth]{images/faclogo.jpg}\\[0.5cm]
+\facname\\\deptname\\[2cm]
+\vfill
+{\large \today}\\[4cm]
+
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+\listoffigures % Prints the list of figures
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{AJAX} & \textbf{A}synchronous \textbf{J}avaScript \textbf{A}nd \textbf{X}ML\\
+\textbf{IoT} & \textbf{I}nternet \textbf{o}f \textbf{T}hings\\
+\textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets\\
+\textbf{DOM} &  \textbf{D}ocument \textbf{O}bject \textbf{M}odel\\
+\textbf{HTML} & \textbf{H}yper\textbf{T}ext \textbf{M}arkup \textbf{L}anguage\\
+\textbf{HTTP} & \textbf{H}ypertext \textbf{T}ransfer\textbf{ P}rotocol\\
+\textbf{IDE} & \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment\\
+\textbf{JSON} & \textbf{J}avaScript \textbf{O}bject \textbf{N}otation,\\
+\textbf{JS} & \textbf{J}ava  \textbf{S}cript\\
+\textbf{NaN} & \textbf{N}ot \textbf{a} \textbf{N}umber\\
+\textbf{OOP} & \textbf{O}bject \textbf{O}riented \textbf{P}rogramming \\
+\textbf{OSS} & \textbf{O}pen \textbf{S}ource \textbf{S}oftware\\
+\textbf{Pi} & Raspberry \textbf{Pi} \\
+\textbf{SQL} & \textbf{S}tructured \textbf{Q}uery \textbf{L}anguage\\
+\textbf{UI} & \textbf{U}ser \textbf{I}nterface \\
+\textbf{URL } & \textbf{U}niform \textbf{R}esource \textbf{L}ocator \\
+\textbf{WWW / W3} &\textbf{W}orld \textbf{W}ide \textbf{W}eb \\
+%\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+\include{chapters/introduction}
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+%\include{Chapters/Chapter3}
+%\include{Chapters/Chapter4}
+%\include{Chapters/Chapter5}
+%\include{chapters/chapterTemplate}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+%\addcontentsline{toc}{chapter}{Appendices}
+%\addcontentsline{toc}{chapter}{Extending Linux Controllability of Bluetooth Low Energy Devices in the IoT}
+%\includepdf[pages=-]{appendices/optiom-bluetoothle.pdf}
+%\include{appendices/optim-article/doc/optiom-bluetoothle}
+%\include{appendices/AppendixB}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\begin{thebibliography}{1}
+\bibitem{1}{ \textbf{ AngularJS in Action }, Lukas Ruebbelke }
+\bibitem{2}{ \textbf{ Beginning Hibernate, 4th Edition }, Joseph B. Ottinger,Jeff Linwood Dave Minter }
+\bibitem{3}{ \textbf{ Bootstrap Essentials }, Snig Bhaumik }
+\bibitem{4}{ \textbf{ Cloud as a Service }, Enrique Castro-Leon, Robert Harmon }
+\bibitem{5}{ \textbf{ Getting Started with NoSQL }, Gaurav Vaish }
+\bibitem{6}{ \textbf{ History of Programming Languages }, THOMAS J. BERGIN, JR. and RICHARD G. GIBSON, JR. }
+\bibitem{7}{ \textbf{ HTML, XHTML, AND CSS BIBLE }, Steven M. Schafer }
+\bibitem{8}{ \textbf{ Instant Sublime Text Starter }, Eric Haughee }
+\bibitem{9}{ \textbf{ Intelligent Systems: A Modern Approach }, Ajith Abraham, Crina Grosan}
+\bibitem{10}{ \textbf{ Internet of Things and BigData Technologies for NextGeneration Healthcare}, Chintan Bhatt, Nilanjan Dey, Amira S. Ashour}
+\bibitem{11}{ \textbf{ Introducing Gradle }, Balaji Varanasi,Sudha Belida }
+\bibitem{12}{ \textbf{ JavaScript: The Definitive Guide }, David Flanagan }
+\bibitem{13}{ \textbf{ JavaScript: The Good Parts }, Douglas Crockford }
+\bibitem{14}{ \textbf{ Learning PostgreSQL }, Salahaldin Juba, Achim Vannahme, Andrey Volkov }
+\bibitem{15}{ \textbf{ Practical Internet of Things Security}, Brian Russell, Drew Van Dure}
+\bibitem{16}{ \textbf{ Practical Reverse Engineering }, Bruce Dang, Alexandre Gazet, Elias Bachaalany }
+\bibitem{17}{ \textbf{ Pro Grunt.js }, James Cryer }
+\bibitem{18}{ \textbf{ Pro Spring Boot }, Felipe Gutierrez }
+\bibitem{19}{ \textbf{ Programming for PaaS }, Lucas Carlson }
+\bibitem{20}{ \textbf{ Raspberry Pi for Secret Agents }, Stefan Sjogelid }
+\bibitem{21}{ \textbf{ Raspberry Pi: A Quick-Start Guide,2nd Edition }, Maik Schmidt }
+\bibitem{22}{ \textbf{ Security and Privacy in Internet of Things (IoTs)}, Fei Hu}
+\bibitem{23}{ \textbf{ Sublime Text Power User }, Wes Bos }
+\bibitem{24}{ \textbf{ Understanding PaaS }, Michael P. McGrath }
+\bibitem{25}{ \textbf{ UNIX IN A NUTSHELL }, Arnold Robbins }
+%----------------------------------------------------------------------------------------
+\bibitem{26}{ \textbf{\url{en.wikipedia.org/wiki/Raspberry\_Pi }}}
+\bibitem{27}{ \textbf{\url{en.wikipedia.org/wiki/Xiaomi\_Mi\_Band }}}
+\bibitem{28}{ \textbf{\url{http://jquery.com/}}}
+\bibitem{29}{ \textbf{\url{http://lesscss.org/}}}
+\bibitem{30}{ \textbf{\url{http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html}}}
+\bibitem{31}{ \textbf{\url{http://www.chiark.greenend.org.uk/~sgtatham/putty/faq.html}}}
+\bibitem{32}{ \textbf{\url{http://www.htmlgoodies.com/beyond/article.php/3893911/Web-based-Mobile-Apps-of-the-Future-Using-HTML-5-CSS-and-JavaScript.htm}}}
+\bibitem{33}{ \textbf{\url{http://www.makeuseof.com/tag/fitness-tracker-putting-security-risk/}}}
+\bibitem{34}{ \textbf{\url{http://www.raspberrypi.org/}}}
+\bibitem{35}{ \textbf{\url{https://experiencelife.com/article/expert-answers-is-it-safe-to-wear-my-wireless-fitness-tracker-all-the-time}}}
+\bibitem{36}{ \textbf{\url{https://f-droid.org/repository/browse/?fdid=nodomain.freeyourgadget.gadgetbridge&fdpage=21}}}
+\bibitem{37}{ \textbf{\url{https://healthcare.utah.edu/healthfeed/postings/2015/03/033015\_cvarticle-fitness-tracker.php}}}
+\bibitem{38}{ \textbf{\url{https://securelist.com/honeypots-and-the-internet-of-things/78751/}}}
+\bibitem{39}{ \textbf{\url{https://securelist.com/iot-research-smartbands/69412}}}
+\bibitem{40}{ \textbf{\url{https://securelist.com/the-mistakes-of-smart-medicine/77855}}}
+\bibitem{41}{ \textbf{\url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4683756/}}}
+\bibitem{42}{ \textbf{\url{https://www.ncbi.nlm.nih.gov/pubmed/25087541}}}
+\bibitem{43}{ \textbf{\url{nodejs.org}}}
+\bibitem{44}{ \textbf{\url{https://learn.adafruit.com/introduction-to-bluetooth-low-energy/gatt}}}
+\bibitem{45}{ \textbf{\url{http://www.bluez.org/profiles/}}}
+\bibitem{46}{ \textbf{\url{http://www.gearbest.com/smart-wristband/pp_263275.html}}}
+\end{thebibliography}
+%----------------------------------------------------------------------------------------
+
+\end{document}
