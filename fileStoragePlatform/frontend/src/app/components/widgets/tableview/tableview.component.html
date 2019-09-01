@@ -1,0 +1,30 @@
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+  <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+</div>
+
+<p-dataTable #dt [value]="tableValues" resizableColumns="true" [responsive]="true" reorderableColumns="true" [rows]="30"
+  [paginator]="true" [globalFilter]="gb">
+
+  <p-header>
+    <div class="ui-helper-clearfix" style="width:100%">
+      <button *ngIf="_options.actionbuttons | contains:'add'" type="button" pButton icon="fa-plus" style="float:right" (click)="addRow({})"
+        label="Add"></button>
+    </div>
+  </p-header>
+
+  <p-column *ngFor="let col of tableCols" field="{{col.field}}" header="{{col.header}}"
+  [sortable]="true" [filter]="true" filterPlaceholder="Search">
+  </p-column>
+
+  <div *ngIf="_options.actionbuttons.length > 0">
+    <p-column styleClass="col-button" [style]="{'text-align':'center','width':'150px'}">
+      <ng-template let-data="rowData" pTemplate="body">
+        <button *ngIf="_options.actionbuttons | contains:'view'" type="button" pButton (click)="viewRow(data)" icon="fa-eye"></button>
+        <button *ngIf="_options.actionbuttons | contains:'edit'" type="button" pButton (click)="editRow(data)" icon="fa-pencil"></button>
+        <button *ngIf="_options.actionbuttons | contains:'delete'" type="button" pButton (click)="deleteRow(data)" icon="fa-trash"></button>
+      </ng-template>
+    </p-column>
+  </div>
+
+</p-dataTable>

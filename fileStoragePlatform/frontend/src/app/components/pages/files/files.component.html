@@ -1,0 +1,13 @@
+<p-growl [autoZIndex]="true" [baseZIndex]="99999999"></p-growl>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">My files</h1>
+</div>
+<div id="tableComponent">
+    <div *ngIf="!isDataAvailable" style="text-align: center">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+    </div>
+    <div *ngIf="isDataAvailable">
+      <app-tableview #tableview [tableInput]="tableInput" [options]="tableViewOptions" (onViewRow)="viewRow($event)" (onEditRow)="editRow($event)"
+      (onDeleteRow)="deleteRow($event)"></app-tableview>
+    </div>
+</div>
