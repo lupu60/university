@@ -1,0 +1,47 @@
+<p-growl [autoZIndex]="true" [baseZIndex]="99999999"></p-growl>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Social Media Explorer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"  *ngFor="let item of navbarItems">
+        <a class="nav-link" [routerLink]="item?.routerLink"><i class="fa {{item?.icon}} fa-lg fa-fw" aria-hidden="true"></i>&nbsp; {{item?.title}}</a>
+      </li>
+    </ul>
+    <!-- <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search"> -->
+    <form class="form-inline my-2">
+      <button class="btn btn-info my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block sidebar">
+      <div class="sidebar-sticky">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Menu</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column">
+          <li class="nav-item" *ngFor="let item of sidebarItems">
+            <a class="nav-link" [routerLink]="item?.routerLink">
+                <i class="fa {{item?.icon}} fa-lg fa-fw" aria-hidden="true"></i>&nbsp;
+              {{item?.title}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

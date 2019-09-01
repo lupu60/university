@@ -1,0 +1,33 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": null,
+    "database": "devdb",
+    "host": "127.0.0.1",
+    "port": 32768,
+    "dialect": "postgres",
+    "freezeTableName": true,
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "postgres",
+    "password": null,
+    "database": "devdb",
+    "host": "127.0.0.1",
+    "port": 32768,
+    "dialect": "postgres",
+    "logging": false,
+    "freezeTableName": true,
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false,
+    "freezeTableName": true,
+    "operatorsAliases": false
+  }
+}
