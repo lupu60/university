@@ -1,0 +1,39 @@
+extends layout
+
+block content
+	.container
+		#notification.alert.alert-warning.alert-dismissible.fade.in(role='alert')
+			button.close(type='button', data-dismiss='alert', aria-label='Close')
+					span(aria-hidden='true') &times;
+			h4(id='oh-snap!-you-got-an-error!')
+				| Oh snap! You got some problems!
+				a.anchorjs-link(href='#oh-snap!-you-got-an-error!')
+					span.anchorjs-icon
+			p
+		.row
+			.col-xs-12
+				h2 Levels
+				h4 Carburant level
+				.progress
+					#fuel.progress-bar.progress-bar-danger.progress-bar-striped.active(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0.5%')
+				h4 Oil level
+				.progress
+					#oil.progress-bar.progress-bar-danger.progress-bar-striped.active(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0.5%')
+				h4 Windshield washer fluid
+				.progress
+					#windshield.progress-bar.progress-bar-danger.progress-bar-striped.active(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0.5%')
+		.row
+			.col-xs-12
+				h2 Temperatures
+					.row.temperatures
+						.col-xs-6
+							.circle#engine
+								strong
+							span Engine
+						.col-xs-6
+							.circle#outside
+								strong
+							span Outside
+block footer
+	script(src='./min_javascripts/libs/circle-progress.js')
+	script(src='./min_javascripts/index.js')
