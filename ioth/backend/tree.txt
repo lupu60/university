@@ -1,0 +1,125 @@
+.
+├── app.json
+├── bitbucket-pipelines.yml
+├── bower.json
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── Gruntfile.js
+├── heroku_deploy.sh
+├── npmclean.sh
+├── package.json
+├── postmanconf
+│   ├── ioth.postman_collection.json
+│   ├── ioth-live.postman_environment.json
+│   ├── ioth-prelive.postman_environment.json
+│   └── localhost.postman_environment.json
+├── prelive_heroku_deploy.sh
+├── README.md
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── gnp
+│   │   │           └── ioth
+│   │   │               ├── BackendApplication.java
+│   │   │               ├── controllers
+│   │   │               │   ├── GatewayController.java
+│   │   │               │   ├── MainController.java
+│   │   │               │   ├── PatientController.java
+│   │   │               │   ├── SmartBandController.java
+│   │   │               │   └── WebController.java
+│   │   │               ├── CORSFilter.java
+│   │   │               ├── model
+│   │   │               │   ├── Activity.java
+│   │   │               │   ├── DeviceInfo.java
+│   │   │               │   ├── DeviceMonitoring.java
+│   │   │               │   ├── Patient.java
+│   │   │               │   └── SmartBand.java
+│   │   │               ├── repository
+│   │   │               │   ├── ActivityRepository.java
+│   │   │               │   ├── DeviceInfoRepository.java
+│   │   │               │   ├── PatientRepository.java
+│   │   │               │   └── SmartBandRepository.java
+│   │   │               ├── service
+│   │   │               │   ├── ActivityService.java
+│   │   │               │   ├── DeviceInfoService.java
+│   │   │               │   ├── PatientService.java
+│   │   │               │   └── SmartBandService.java
+│   │   │               ├── serviceimpl
+│   │   │               │   ├── ActivityServiceImpl.java
+│   │   │               │   ├── DeviceInfoServiceImpl.java
+│   │   │               │   ├── PatientServiceImpl.java
+│   │   │               │   └── SmartBandsServiceImpl.java
+│   │   │               ├── WebMvcConfiguration.java
+│   │   │               └── WebSecurityConfiguration.java
+│   │   ├── resources
+│   │   │   ├── application.properties
+│   │   │   └── static
+│   │   │       ├── 404.html
+│   │   │       ├── apple-touch-icon.png
+│   │   │       ├── browserconfig.xml
+│   │   │       ├── crossdomain.xml
+│   │   │       ├── css
+│   │   │       │   ├── main.css
+│   │   │       │   ├── sb-admin-2.css
+│   │   │       │   └── timeline.css
+│   │   │       ├── favicon.ico
+│   │   │       ├── fonts
+│   │   │       │   ├── glyphicons-halflings-regular.eot
+│   │   │       │   ├── glyphicons-halflings-regular.svg
+│   │   │       │   ├── glyphicons-halflings-regular.ttf
+│   │   │       │   └── glyphicons-halflings-regular.woff
+│   │   │       ├── humans.txt
+│   │   │       ├── img
+│   │   │       │   ├── ioth_logo.png
+│   │   │       │   ├── smartband.png
+│   │   │       │   └── smartband2.png
+│   │   │       ├── index.html
+│   │   │       ├── js
+│   │   │       │   └── sb-admin.js
+│   │   │       ├── login.html
+│   │   │       ├── manifest.json
+│   │   │       ├── robots.txt
+│   │   │       ├── scripts
+│   │   │       │   ├── app.js
+│   │   │       │   ├── controllers
+│   │   │       │   │   └── main.js
+│   │   │       │   └── directives
+│   │   │       │       ├── activity
+│   │   │       │       │   ├── activity.html
+│   │   │       │       │   └── activity.js
+│   │   │       │       ├── header
+│   │   │       │       │   ├── header.html
+│   │   │       │       │   └── header.js
+│   │   │       │       ├── patient
+│   │   │       │       │   ├── patients.html
+│   │   │       │       │   └── patients.js
+│   │   │       │       ├── sidebar
+│   │   │       │       │   ├── sidebar.html
+│   │   │       │       │   └── sidebar.js
+│   │   │       │       └── smart-band
+│   │   │       │           ├── smart-band.html
+│   │   │       │           └── smart-band.js
+│   │   │       ├── tile.png
+│   │   │       ├── tile-wide.png
+│   │   │       └── views
+│   │   │           └── dashboard
+│   │   │               ├── home.html
+│   │   │               └── main.html
+│   │   └── webapp
+│   │       └── META-INF
+│   │           └── MANIFEST.MF
+│   └── test
+│       └── java
+│           └── com
+│               └── gnp
+│                   └── ioth
+│                       └── BackendApplicationTests.java
+├── system.properties
+├── todoandhelpers.todo
+└── tree.txt

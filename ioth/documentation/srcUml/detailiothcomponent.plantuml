@@ -1,0 +1,81 @@
+@startuml
+skinparam defaultFontName Helvetica
+skinparam shadowing false
+
+skinparam Sequence {
+    Arrow {
+        Color     #0099FF
+        FontName  Courier
+        FontSize  12
+        FontColor #000000
+    }
+
+    Box {
+        BorderColor      #F3F3F3
+        BackgroundColor  #F3F3F3
+        FontSize         12
+    }
+
+    Group {
+        BorderColor     #D9D9D9
+        BackgroundColor #D9D9D9
+    }
+
+    LifeLineBorderColor #AAAAAA
+
+    Participant {
+        BackgroundColor #0099FF
+        BorderColor     #0099FF
+        FontColor       #FFFFFF
+        FontSize        12
+    }
+}
+title Iot Healthcare - Component Diagram
+
+
+cloud Heroku-Instance {
+    package "Frontend" {
+        component [Graphic User \n Interface] as GUI
+        component [Angularjs/JavaScript] as JS
+    }
+
+    package "Backend" {
+        interface RESTapi
+        interface Service
+        [Business Logic] as BL
+        interface Repository
+        [Data Access] as DA
+        interface GatewayApi
+    }
+
+    database "PostgreSQL" {
+        [Database]
+    }
+
+    JS --( RESTapi : HTTP
+    RESTapi --( Service
+    GatewayApi -- BL
+    Service -- BL
+    BL --( Repository
+    Repository -- DA
+    DA -- Database
+}
+
+package "Deamon" {
+    component [PublishingService]
+    component [ExecutorService]
+    component [Bluez]
+    PublishingService -- ExecutorService
+    ExecutorService -- Bluez
+}
+
+PublishingService --( GatewayApi : HTTP
+
+component "SmartBand" {
+
+}
+
+Bluez -- SmartBand : Bluetooth
+SmartBand -- :Patient:
+
+@enduml
