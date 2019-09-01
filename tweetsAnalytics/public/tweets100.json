@@ -1,0 +1,102 @@
+{
+    "tweets": [
+        {
+            "number": "1",
+            "text": "RT @theresa_may: I’m asking for your support to strengthen our negotiating position on Brexit and help secure the best deal to strengthen o…",
+            "favorited": "FALSE",
+            "favoriteCount": "0",
+            "created": "4/21/2017 16:14:14",
+            "truncated": "FALSE",
+            "id": "855454641047441409",
+            "statusSource": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+            "screenName": "samcollins10014",
+            "retweetCount": "415",
+            "isRetweet": "TRUE",
+            "retweeted": "FALSE"
+        },
+        {
+            "number": "2",
+            "text": "RT @Independent: Electoral Commission launches investigation into Leave.EU referendum finances https://t.co/V6I0ahehTx https://t.co/LmTCxej…",
+            "favorited": "FALSE",
+            "favoriteCount": "0",
+            "created": "4/21/2017 16:14:14",
+            "truncated": "FALSE",
+            "id": "855454640950968320",
+            "statusSource": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "screenName": "ProudEUCitizen",
+            "retweetCount": "135",
+            "isRetweet": "TRUE",
+            "retweeted": "FALSE"
+        },
+        {
+            "number": "3",
+            "text": "Brussels based think tank states Brexit could threaten 30K jobs in London  https://t.co/hNhYSks1mF",
+            "favorited": "FALSE",
+            "favoriteCount": "0",
+            "created": "4/21/2017 16:14:12",
+            "truncated": "FALSE",
+            "id": "855454631887085568",
+            "statusSource": "<a href=\"http://www.example.com\" rel=\"nofollow\">meyers followings</a>",
+            "screenName": "meyers000111",
+            "retweetCount": "0",
+            "isRetweet": "FALSE",
+            "retweeted": "FALSE"
+        },
+        {
+            "number": "4",
+            "text": "#European are great but they are not as powerful as USA \r\nthey can't change what US is planning for them… https://t.co/zr8ACd8WzK",
+            "favorited": "FALSE",
+            "favoriteCount": "0",
+            "created": "4/21/2017 16:14:11",
+            "truncated": "TRUE",
+            "id": "855454629274021889",
+            "statusSource": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "screenName": "shereen__Nasser",
+            "retweetCount": "0",
+            "isRetweet": "FALSE",
+            "retweeted": "FALSE"
+        },
+        {
+            "number": "5",
+            "text": "RT @FrankThomas27: The only thing stopping us from becoming a banana republic is the fact that we won't have any bananas after #Brexit http…",
+            "favorited": "FALSE",
+            "favoriteCount": "0",
+            "created": "4/21/2017 16:14:11",
+            "truncated": "FALSE",
+            "id": "855454628531535873",
+            "statusSource": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "screenName": "peterdmccann",
+            "retweetCount": "2",
+            "isRetweet": "TRUE",
+            "retweeted": "FALSE"
+        },
+        {
+            "number": "6",
+            "text": "RT @EU_in_India: .@FedericaMog on India-EU relations, global issues and the way forward https://t.co/Up4UlXSjZA … @TOIOpinion",
+            "favorited": "FALSE",
+            "favoriteCount": "0",
+            "created": "4/21/2017 16:14:11",
+            "truncated": "FALSE",
+            "id": "855454627818487808",
+            "statusSource": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "screenName": "josak",
+            "retweetCount": "23",
+            "isRetweet": "TRUE",
+            "retweeted": "FALSE"
+        },
+        {
+            "number": "7",
+            "text": "RT @Independent: Electoral Commission launches investigation into Leave.EU referendum finances https://t.co/V6I0ahehTx https://t.co/LmTCxej…",
+            "favorited": "FALSE",
+            "favoriteCount": "0",
+            "created": "4/21/2017 16:14:10",
+            "truncated": "FALSE",
+            "id": "855454623422984193",
+            "statusSource": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "screenName": "Abbasighoi",
+            "retweetCount": "135",
+            "isRetweet": "TRUE",
+            "retweeted": "FALSE"
+        }
+    ]
+}
