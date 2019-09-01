@@ -1,0 +1,17 @@
+ Unity Course:
+   ✔ @critical @started(15-03-28 14:29)                             @done (15-04-02 23:45) @lasted(5 days, 9:16)
+   ✔ finish chapter 3-4   @done (15-03-30 16:39)
+   ✔ player arunca o minge si aia morti trebuie sa o urmeze @done (15-04-02 23:44)
+   ✔ chenge camera to first person shooter and back @done (15-04-01 14:39)
+   ✔ if collider whith non player give penalti points @done (15-04-02 00:05)
+   ✔ penalti ponts if non player shoot him @done (15-03-31 18:31)
+   ✔ show nr points on the display  @done (15-03-31 15:15)
+   ✔ show fps on the display @done (15-03-30 16:01)
+   ✔ timer at the start of the game  @done (15-03-31 14:18)
+   ✔ at the end of the game show score banner @done (15-04-01 14:35)
+     LevelDynamics/DoneLiftTrigger/Line 58
+     PlayerScripts/DonePlayerHealth/ Line 81
+   ☐ add gun si freez la non players
+   ✔ add pickup objects and getpoints @done (15-04-02 23:45)
+   ✔ un patrat pe jos si daca calca pe ala incepe populara si danseaza  @done (15-04-01 23:32)
+   ✔ adaptarea la cate puncte +/-  @done (15-04-02 23:45)
