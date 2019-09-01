@@ -1,0 +1,86 @@
+extends layout
+block header
+	link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css')
+	link(rel='stylesheet', href='https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css')
+block content
+	nav.navbar.navbar-default.navbar-fixed-bottom#crud
+		.container
+			.btn-group.btn-group-justified(role='group', aria-label='...')
+				.btn-group(role='group')
+					button.btn.btn-success#create(type='button' data-toggle='modal' data-target='#create_modal' ) Create 
+				.btn-group(role='group')
+					button.btn.btn-info#read(type='button' data-toggle='modal' data-target='#read_modal') Read 
+				.btn-group(role='group')
+					button.btn.btn-primary#update(type='button' data-toggle='modal' data-target='#update_modal') Update 
+				.btn-group(role='group')
+					button.btn.btn-danger#delete(type='button') Delete
+	.container
+	hr
+	.container
+		table#winter_table.hover.cell-border.table-fixed-header(cellspacing='0', width='100%')
+			thead
+				tr
+					th id
+					th Brand
+					th Size
+					th Profile
+					th Speed Rating
+					th Quantity
+					th Price
+					
+			tfoot
+				tr
+					th id
+					th Brand
+					th Size
+					th Profile
+					th Speed Rating
+					th Quantity
+					th Price
+					
+	.modal.fade.bs-example-modal-lg#create_modal(tabindex='-1', role='dialog', aria-labelledby='create')
+		.modal-dialog.modal-lg
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') &times;
+					h4.modal-title Create Tire
+				.modal-body
+					form
+				.modal-footer
+					button.btn.btn-default(type='button', data-dismiss='modal') Close
+					button#send_create.btn.btn-primary(type='button',data-dismiss='modal') Save changes
+
+	.modal.fade.bs-example-modal-lg#read_modal(tabindex='-1', role='dialog', aria-labelledby='read')
+		.modal-dialog.modal-lg
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') &times;
+					h4.modal-title Read Tire
+				.modal-body
+					table.table.table-bordered(cellspacing='0', width='100%')
+						thead
+							tr
+						tbody
+							tr
+				.modal-footer
+					button.btn.btn-default(type='button', data-dismiss='modal') Close
+					
+	.modal.fade.bs-example-modal-lg#update_modal(tabindex='-1', role='dialog', aria-labelledby='update')
+		.modal-dialog.modal-lg
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') &times;
+					h4.modal-title Update Tire
+				.modal-body
+					form
+				.modal-footer
+					button.btn.btn-default(type='button', data-dismiss='modal') Close
+					button#send_update.btn.btn-primary(type='button',data-dismiss='modal') Save changes
+block footer
+	script(src='https://code.jquery.com/jquery-1.11.3.min.js')
+	script(src='https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js')
+	script(src='https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js')
+	script(src='./min_javascripts/summer.js')
